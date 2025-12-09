@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+ <html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Dueño Digital - Ultimas Noticias y Efemerides</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================
+           RESET Y CONFIGURACIÓN GLOBAL
+           ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: #f8f9fa;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           BARRA SUPERIOR - FECHA Y REDES
+           ======================================== */
+        .top-bar {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 0.5rem 0;
+            font-size: 0.85rem;
+        }
+
+        .top-bar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .fecha-actual {
+            color: #cccccc;
+        }
+
+        .redes-sociales {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .redes-sociales a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .redes-sociales a:hover {
+            color: #e74c3c;
+        }
+
+        /* ========================================
+           HEADER PRINCIPAL
+           ======================================== */
+        header {
+            background-color: #ffffff;
+            border-bottom: 3px solid #e74c3c;
+            padding: 1.5rem 0;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            letter-spacing: -1px;
+        }
+       .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px; 
+}
+
+.logo-img {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+}
+        .logo span {
+            color: #e74c3c;
+        }
+
+        .eslogan {
+            font-size: 0.85rem;
+            color: #666666;
+            font-style: italic;
+            margin-top: -0.3rem;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+       
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: #1a1a1a;
+            transition: all 0.3s;
+        }
+
+        /* ========================================
+           NAVEGACIÓN PRINCIPAL
+           ======================================== */
+        nav {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 0;
+        }
+
+        .nav-menu li {
+            position: relative;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #e74c3c;
+            border-bottom-color: #e74c3c;
+        }
+
+        /* ========================================
+           CONTENEDOR PRINCIPAL
+           ======================================== */
+        .main-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 2rem;
+        }
+
+        /* ========================================
+           SECCIÓN DE NOTICIAS DESTACADAS
+           ======================================== */
+        .noticia-principal {
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+        }
+
+        .noticia-principal-imagen {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+        }
+
+        .noticia-principal-content {
+            padding: 2rem;
+        }
+
+        .categoria-tag {
+            display: inline-block;
+            background-color: #e74c3c;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .categoria-tag.politica { background-color: #3498db; }
+        .categoria-tag.deportes { background-color: #2ecc71; }
+        .categoria-tag.mundo { background-color: #9b59b6; }
+        .categoria-tag.tecnologia { background-color: #1abc9c; }
+        .categoria-tag.economia { background-color: #f39c12; }
+
+        .noticia-principal h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .noticia-bajada {
+            font-size: 1.1rem;
+            color: #555555;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .noticia-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: #888888;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-leer-mas {
+            display: inline-block;
+            background-color: #1a1a1a;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .btn-leer-mas:hover {
+            background-color: #333333;
+        }
+
+        /* ========================================
+           GRID DE NOTICIAS SECUNDARIAS
+           ======================================== */
+        .noticias-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .noticia-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .noticia-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        }
+
+        .noticia-card-imagen {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .noticia-card-content {
+            padding: 1.5rem;
+        }
+
+        .noticia-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 0.8rem;
+            color: #1a1a1a;
+        }
+
+        .noticia-card p {
+            font-size: 0.95rem;
+            color: #666666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .noticia-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .noticia-card-hora {
+            font-size: 0.8rem;
+            color: #999999;
+        }
+
+        .btn-leer-card {
+            color: #e74c3c;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .btn-leer-card:hover {
+            color: #c0392b;
+        }
+
+        /* ========================================
+           SECCIONES DE CATEGORÍAS
+           ======================================== */
+        .seccion-categoria {
+            margin-bottom: 3rem;
+        }
+
+        .seccion-titulo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #e74c3c;
+            color: #1a1a1a;
+        }
+
+        /* ========================================
+           SIDEBAR - BARRA LATERAL
+           ======================================== */
+        .sidebar {
+            .sidebar {
+    position: sticky;
+    top: 0;         
+    float: right;     
+    width: 300px;
+}
+
+        }
+
+        .widget {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .widget-titulo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e74c3c;
+        }
+
+        .mas-leidas-lista {
+            list-style: none;
+        }
+
+        .mas-leidas-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .mas-leidas-item:last-child {
+            border-bottom: none;
+        }
+
+        .mas-leidas-numero {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: #e74c3c;
+            color: white;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-right: 0.8rem;
+        }
+
+        .mas-leidas-item a {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            line-height: 1.4;
+            transition: color 0.3s;
+        }
+
+        .mas-leidas-item a:hover {
+            color: #e74c3c;
+        }
+
+        /* Widget del clima */
+        .clima-widget {
+            text-align: center;
+        }
+
+        .clima-ciudad {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .clima-temp {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #e74c3c;
+            margin-bottom: 0.5rem;
+        }
+
+        .clima-descripcion {
+            font-size: 0.95rem;
+            color: #666666;
+            margin-bottom: 1rem;
+        }
+
+        .clima-detalles {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .clima-detalle {
+            text-align: center;
+        }
+
+        .clima-detalle-valor {
+            font-weight: 600;
+            color: #1a1a1a;
+            display: block;
+        }
+
+        .clima-detalle-label {
+            font-size: 0.8rem;
+            color: #000000;
+        }
+        .weather-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgb(255, 255, 255);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #e74c3c;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.weather-box img {
+    width: 100px;
+    height: 100px;
+}
+.dolar-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #e74c3c;
+    font-family: Arial, sans-serif;
+}
+
+.dolar-box img {
+    width: 100px;
+    height: 50px;
+}
+
+        /* ========================================
+           FOOTER
+           ======================================== */
+        footer {
+            background-color: #1a1a1a;
+            color: #cccccc;
+            padding: 3rem 0 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-seccion h4 {
+            color: #ffffff;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .footer-seccion ul {
+            list-style: none;
+        }
+
+        .footer-seccion ul li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-seccion a {
+            color: #cccccc;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-seccion a:hover {
+            color: #e74c3c;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem 0;
+            border-top: 1px solid #333333;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        /* ========================================
+           RESPONSIVE - TABLET
+           ======================================== */
+        @media (max-width: 968px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+
+            .noticias-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .noticia-principal h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* ========================================
+           RESPONSIVE - MÓVIL
+           ======================================== */
+        @media (max-width: 768px) {
+            .top-bar-content {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .menu-toggle {
+                display: flex;
+                position: absolute;
+                right: 2rem;
+                top: 1.5rem;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                display: none;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu a {
+                border-bottom: none;
+                border-left: 3px solid transparent;
+            }
+
+            .nav-menu a:hover,
+            .nav-menu a.active {
+                border-left-color: #e74c3c;
+                border-bottom-color: transparent;
+            }
+
+            .noticia-principal-imagen {
+                height: 250px;
+            }
+
+            .noticia-principal h1 {
+                font-size: 1.5rem;
+            }
+
+            .noticia-bajada {
+                font-size: 1rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .main-container,
+            .nav-content,
+            .header-content,
+            .top-bar-content {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ========================================
+         BARRA SUPERIOR
+         ======================================== -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="fecha-actual">
+                <span id="fecha"></span>
+            </div>
+            <div class="redes-sociales">
+                <a href="#" title="Facebook">📘 Facebook</a>
+                <a href="#" title="Twitter">🐦 Twitter</a>
+                <a href="#" title="Instagram">📷 Instagram</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================
+         HEADER PRINCIPAL
+         ======================================== -->
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+            <img src="logo.png" alt="Logo" class="logo-img">
+
+            <div class="logo-section">
+                <div class="logo">El <span>DUEÑO</span></div>
+                <div class="eslogan">ULTIMAS NOTICIAS Y EFEMERIDES</div>
+            </div>
+            </div>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================
+         NAVEGACIÓN PRINCIPAL
+         ======================================== -->
+    <nav>
+        <div class="nav-content">
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#" class="active">Portada</a></li>
+                <li><a href="Politica.html">Política</a></li>
+                <li><a href="#deportes">Deportes</a></li>
+                <li><a href="#mundo">Mundo</a></li>
+                <li><a href="#tecnologia">Tecnología</a></li>
+                <li><a href="#economia">Economía</a></li>
+                <li><a href="#cultura">Cultura</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ========================================
+         CONTENEDOR PRINCIPAL
+         ======================================== -->
+    <div class="main-container">
+        <!-- COLUMNA PRINCIPAL DE NOTICIAS -->
+        <main>
+            <!-- NOTICIA PRINCIPAL DESTACADA -->
+            <article class="noticia-principal">
+                <img src="https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/2ba9/live/baf7f590-b975-11f0-b2a1-6f537f66f9aa.jpg.webp" alt="Noticia principal" class="noticia-principal-imagen">
+                <div class="noticia-principal-content">
+                    <span class="categoria-tag">Política</span>
+                    <h1>La historia que nunca acaba, pero que siempre parece terminar</h1>
+                    <p class="noticia-bajada">
+                       "¿Por qué Trump no ha logrado convencer a Putin para que acabe la guerra de Ucrania?
+                    </p>
+                    <div class="noticia-meta">
+                        <span>📅 8 de Diciembre, 2025</span>
+                        <span>✍️ Por Redacción</span>
+                        <span>⏱️ 5 min de lectura</span>
+                    </div>
+                    <a href="noticiaeeuu-rusia1.html" class="btn-leer-mas">Leer más</a>
+                </div>
+            </article>
+
+            <!-- GRID DE NOTICIAS SECUNDARIAS -->
+            <div class="noticias-grid">
+                <!-- Noticia 1 -->
+                <article class="noticia-card">
+                     <img src="https://media.losandes.com.ar/p/7ad5ceb2b4c1b15326a69d8c17943785/adjuntos/368/imagenes/100/673/0100673027/1000x0/smart/boca-juniors-racing-club-la-liga-profesional.jpg" alt="Deportes" class="noticia-card-imagen">
+                    <div class="noticia-card-content">
+                        <span class="categoria-tag deportes">Deportes</span>
+                        <h3>Racing le quito el sueño a todo el pueblo xeneixe</h3>
+                        <p>Racing le ganó 1-0 a Boca en la Bombonera y es el primer finalista del Torneo Clausura</p>
+                        <div class="noticia-card-footer">
+                            <span class="noticia-card-hora">Hace 2 horas</span>
+                            <a href="NoticiaUbeda.html" class="btn-leer-card">Leer más →</a>
+                        </div>
+                    </div>
+                </article>
+
+                  <!-- Noticia 3 -->
+                <article class="noticia-card">
+                    <img src="https://media.lacapital.com.ar/p/798b29aed68cd1b911705766a41c31f5/adjuntos/203/imagenes/102/855/0102855654/2025-12-07-guru-del-dolar-salvador-distefano.jpg" alt="Economía" class="noticia-card-imagen">
+                    <div class="noticia-card-content">
+                        <span class="categoria-tag economia">Economía</span>
+                        <h3>El gurú del dólar aseguró que "no va a haber riesgo cambiario en 2026"</h3>
+                        <p>LEl economista Salvador Di Stefano afirmó que van a bajar las tasas de las tarjetas y de los créditos "y eso va a reanimar la economía"</p>
+                        <div class="noticia-card-footer">
+                            <span class="noticia-card-hora">Hace 5 horas</span>
+                            <a href="Noticia4.html" class="btn-leer-card">Leer más →</a>
+                        </div>
+                    </div>
+                </article>
+                  <!-- Noticia 3 -->
+                <article class="noticia-card">
+                    <img src="https://media.lacapital.com.ar/p/798b29aed68cd1b911705766a41c31f5/adjuntos/203/imagenes/102/855/0102855654/2025-12-07-guru-del-dolar-salvador-distefano.jpg" alt="Economía" class="noticia-card-imagen">
+                    <div class="noticia-card-content">
+                        <span class="categoria-tag economia">Economía</span>
+                        <h3>El gurú del dólar aseguró que "no va a haber riesgo cambiario en 2026"</h3>
+                        <p>LEl economista Salvador Di Stefano afirmó que van a bajar las tasas de las tarjetas y de los créditos "y eso va a reanimar la economía"</p>
+                        <div class="noticia-card-footer">
+                            <span class="noticia-card-hora">Hace 5 horas</span>
+                            <a href="Noticia4.html" class="btn-leer-card">Leer más →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Noticia 4 -->
+                <article class="noticia-card">
+                    <img src="https://www.infobae.com/resizer/v2/ZCVCYXM73JG75CW26ADPSTQPDU.jpg?auth=1f995b3052ca8e698b99c3c2714406b9ee058bc4c6c7f7f4a183d12c5828d77a&smart=true&width=992&height=661&quality=85" alt="Mundo" class="noticia-card-imagen">
+                    <div class="noticia-card-content">
+                        <span class="categoria-tag mundo">Mundo</span>
+                        <h3>Crisis aérea en Venezuela: miles de pasajeros recurren a rutas terrestres para salir del país ante la suspensión de vuelos</h3>
+                        <p>La cancelación de itinerarios por parte de doce aerolíneas internacionales obligó a los viajeros a encadenar hasta cinco tramos internos antes de cruzar la frontera con Colombia</p>
+                        <div class="noticia-card-footer">
+                            <span class="noticia-card-hora">Hace 6 horas</span>
+                            <a href="Noticia5.html" class="btn-leer-card">Leer más →</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+  <!-- SECCIÓN: POLÍTICA -->
+            <section class="seccion-categoria" id="politica">
+                <h2 class="seccion-titulo">Política</h2>
+                <div class="noticias-grid">
+                    <article class="noticia-card">
+                        <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=600&h=400&fit=crop" alt="Política" class="noticia-card-imagen">
+                        <div class="noticia-card-content">
+                            <span class="categoria-tag politica">Política</span>
+                            <h3>Congreso debate reforma clave para el próximo año</h3>
+                            <p>Legisladores de diferentes bancadas buscan consenso en temas prioritarios para la ciudadanía.</p>
+                            <div class="noticia-card-footer">
+                                <span class="noticia-card-hora">Hace 3 horas</span>
+                                <a href="#" class="btn-leer-card">Leer más →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="noticia-card">
+                        <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=600&h=400&fit=crop" alt="Política internacional" class="noticia-card-imagen">
+                        <div class="noticia-card-content">
+                            <span class="categoria-tag politica">Política</span>
+                            <h3>Ministros se reúnen para definir agenda del primer trimestre</h3>
+                            <p>El gabinete evaluó los principales desafíos y prioridades para iniciar el año con propuestas concretas.</p>
+                            <div class="noticia-card-footer">
+                                <span class="noticia-card-hora">Hace 7 horas</span>
+                                <a href="#" class="btn-leer-card">Leer más →</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- SECCIÓN: DEPORTES -->
+            <section class="seccion-categoria" id="deportes">
+                <h2 class="seccion-titulo">Deportes</h2>
+                <div class="noticias-grid">
+                    <article class="noticia-card">
+                        <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=600&h=400&fit=crop" alt="Fútbol" class="noticia-card-imagen">
+                        <div class="noticia-card-content">
+                            <span class="categoria-tag deportes">Deportes</span>
+                            <h3>Estrella del fútbol anuncia su retiro tras brillante carrera</h3>
+                            <p>El jugador internacional se despide del deporte profesional después de ganar todos los títulos posibles.</p>
+                            <div class="noticia-card-footer">
+                                <span class="noticia-card-hora">Hace 1 hora</span>
+                                <a href="#" class="btn-leer-card">Leer más →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="noticia-card">
+                        <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&h=400&fit=crop" alt="Tenis" class="noticia-card-imagen">
+                        <div class="noticia-card-content">
+                            <span class="categoria-tag deportes">Deportes</span>
+                            <h3>Tenista local avanza a semifinales del torneo internacional</h3>
+                            <p>Victoria contundente posiciona al jugador entre los mejores del certamen con opciones al título.</p>
+                            <div class="noticia-card-footer">
+                                <span class="noticia-card-hora">Hace 8 horas</span>
+                                <a href="#" class="btn-leer-card">Leer más →</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <!-- ========================================
+             SIDEBAR - BARRA LATERAL
+             ======================================== -->
+        <aside class="sidebar">
+            <!-- Widget: Noticias más leídas -->
+            <div class="widget">
+                <h3 class="widget-titulo">Eferides 8/12</h3>
+                <ul class="mas-leidas-lista">
+                    <li class="mas-leidas-item">
+                        <span class="mas-leidas-numero">1</span>
+                        <a href="#">1941 - Entrada de Estados Unidos en la Segunda Guerra Mundial</a>
+                    </li>
+                    <li class="mas-leidas-item">
+                        <span class="mas-leidas-numero">2</span>
+                        <a href="#">1980 - Asesinato de John Lennon</a>
+                    </li>
+                    <li class="mas-leidas-item">
+                        <span class="mas-leidas-numero">3</span>
+                        <a href="#">1991 - Disolución de la Unión Soviética y creación de la Comunidad de Estados Independientes (CEI)</a>
+                    </li>
+                    <li class="mas-leidas-item">
+                        <span class="mas-leidas-numero">4</span>
+                        <a href="#">1987 - Inicio de la Primera Intifada</a>
+                    </li>
+                    <li class="mas-leidas-item">
+                        <span class="mas-leidas-numero">5</span>
+                        <a href="#">Conmemoración religiosa: Fiesta de la Inmaculada Concepción</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Widget: Clima -->
+            <div class="widget clima-widget">
+                <h3 class="widget-titulo">El Clima</h3>
+                        <div id="weather" class="weather-box">
+            Cargando clima...
+    </div>
+</div>
+    <div class="dolar-box">
+    <img src="data:image/jpeg;base64,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" alt="Dólar">
+    <span id="dolarTexto">Cargando dólar...</span>
+</div>
+
+                <script>
+const apiKey = "d2153a942e56779b1b5edec79a4171c4" 
+const city = "Buenos Aires";
+
+async function loadWeather() {
+    try {
+        const response = await fetch(
+            `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=es&appid=${apiKey}`
+        );
+        const data = await response.json();
+        
+        const temp = Math.round(data.main.temp);
+        const icon = data.weather[0].icon;
+        const desc = data.weather[0].description;
+
+        document.getElementById("weather").innerHTML = `
+            <img src="https://openweathermap.org/img/wn/${icon}.png" alt="clima">
+            <span>${temp}°C - ${desc}</span>
+        `;
+    } catch (e) {
+        document.getElementById("weather").textContent = "Error cargando clima";
+    }
+}
+
+loadWeather();
+</script>
+<script>
+async function cargarDolar() {
+    try {
+        const res = await fetch("https://api.bluelytics.com.ar/v2/latest");
+        const data = await res.json();
+
+        const blue = data.blue.value_sell;
+        const oficial = data.oficial.value_sell;
+
+        document.getElementById("dolarTexto").textContent =
+            `Blue $${blue} | Oficial $${oficial}`;
+    } catch (error) {
+        document.getElementById("dolarTexto").textContent =
+            "No disponible";
+    }
+}
+
+cargarDolar();
+</script>
+             
