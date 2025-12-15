@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Economía - El DUEÑO</title>
+<link rel="icon" type="image/png" href="logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ========================================
+   RESET Y CONFIGURACIÓN GLOBAL
+   ======================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: #f8f9fa;
+  color: #1a1a1a;
+  line-height: 1.6;
+}
+
+/* ========================================
+   BARRA SUPERIOR - FECHA Y REDES
+   ======================================== */
+.top-bar {
+  background-color: #e1796e;
+  color: #ffffff;
+  padding: 0.5rem 0;
+  font-size: 0.85rem;
+}
+
+.top-bar-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fecha-actual {
+  color: #cccccc;
+}
+
+.redes-sociales {
+  display: flex;
+  gap: 1rem;
+}
+
+.redes-sociales a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.redes-sociales a:hover {
+  color: #e74c3c;
+}
+
+/* ========================================
+   HEADER PRINCIPAL
+   ======================================== */
+header {
+  background-color: #ffffff;
+  border-bottom: 3px solid #e74c3c;
+  padding: 1.5rem 0;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  letter-spacing: -1px;
+  text-decoration: none;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-img {
+  width: 75px;
+  height: 75px;
+  object-fit: contain;
+}
+
+.logo span {
+  color: #e74c3c;
+}
+
+.eslogan {
+  font-size: 0.85rem;
+  color: #666666;
+  font-style: italic;
+  margin-top: -0.3rem;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 4px;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: #1a1a1a;
+  transition: all 0.3s;
+}
+
+/* ========================================
+   NAVEGACIÓN PRINCIPAL
+   ======================================== */
+nav {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 0;
+}
+
+.nav-menu li {
+  position: relative;
+}
+
+.nav-menu a {
+  display: block;
+  padding: 1rem 1.5rem;
+  color: #1a1a1a;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.3s;
+  border-bottom: 3px solid transparent;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  color: #e74c3c;
+  border-bottom-color: #e74c3c;
+}
+
+/* ========================================
+   BREADCRUMB - MIGAJA DE PAN
+   ======================================== */
+.breadcrumb {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  font-size: 0.9rem;
+  color: #666666;
+}
+
+.breadcrumb a {
+  color: #f39c12;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.breadcrumb a:hover {
+  color: #e74c3c;
+}
+
+/* ========================================
+   ENCABEZADO DE SECCIÓN
+   ======================================== */
+.seccion-header {
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+  padding: 0 2rem;
+}
+
+.seccion-titulo-principal {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+  border-left: 6px solid #f39c12;
+  padding-left: 1.5rem;
+}
+
+.seccion-descripcion {
+  font-size: 1.2rem;
+  color: #666666;
+  padding-left: 2rem;
+}
+
+/* ========================================
+   CONTENEDOR PRINCIPAL
+   ======================================== */
+.main-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2rem;
+}
+
+/* ========================================
+   NOTICIA DESTACADA DE ECONOMÍA
+   ======================================== */
+.noticia-destacada {
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  margin-bottom: 2rem;
+}
+
+.noticia-destacada-imagen {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.noticia-destacada-content {
+  padding: 2rem;
+}
+
+.categoria-tag {
+  display: inline-block;
+  background-color: #f39c12;
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+}
+
+.noticia-destacada h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+}
+
+.noticia-bajada {
+  font-size: 1.1rem;
+  color: #555555;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.noticia-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: #888888;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.btn-leer-mas {
+  display: inline-block;
+  background-color: #f39c12;
+  color: white;
+  padding: 0.8rem 2rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.btn-leer-mas:hover {
+  background-color: #e67e22;
+}
+
+/* ========================================
+   GRID DE NOTICIAS DE ECONOMÍA
+   ======================================== */
+.noticias-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.noticia-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.noticia-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.noticia-card-imagen {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.noticia-card-content {
+  padding: 1.5rem;
+}
+
+.noticia-card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 0.8rem;
+  color: #1a1a1a;
+}
+
+.noticia-card p {
+  font-size: 0.95rem;
+  color: #666666;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.noticia-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.noticia-card-hora {
+  font-size: 0.8rem;
+  color: #999999;
+}
+
+.btn-leer-card {
+  color: #f39c12;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.btn-leer-card:hover {
+  color: #e67e22;
+}
+
+/* ========================================
+   SIDEBAR - BARRA LATERAL
+   ======================================== */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.widget {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.widget-titulo {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #1a1a1a;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #f39c12;
+}
+
+.mas-leidas-lista {
+  list-style: none;
+}
+
+.mas-leidas-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.mas-leidas-item:last-child {
+  border-bottom: none;
+}
+
+.mas-leidas-numero {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-color: #f39c12;
+  color: white;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-right: 0.8rem;
+}
+
+.mas-leidas-item a {
+  color: #1a1a1a;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.4;
+  transition: color 0.3s;
+}
+
+.mas-leidas-item a:hover {
+  color: #f39c12;
+}
+
+.sidebar-economia {
+  background: #ffffff;
+  border: 2px solid #f39c12;
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 20px;
+}
+
+.titulo-economia {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: #f39c12;
+  margin-bottom: 6px;
+  border-bottom: 2px solid #f39c12;
+  padding-bottom: 6px;
+}
+
+.subtitulo-economia {
+  text-align: center;
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 14px;
+}
+
+.indicadores-ar {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.indicadores-ar li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 10px;
+  margin-bottom: 6px;
+  border-radius: 6px;
+  font-size: 14px;
+  animation: fade 0.5s ease;
+}
+
+/* Estados */
+.rojo {
+  background: #fdecea;
+  color: #c0392b;
+}
+
+.amarillo {
+  background: #fff6e5;
+  color: #f39c12;
+}
+
+.verde {
+  background: #e9f7ef;
+  color: #27ae60;
+}
+
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Widget de Temas Relacionados */
+.temas-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tema-tag {
+  display: inline-block;
+  background-color: #ecf0f1;
+  color: #2c3e50;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.tema-tag:hover {
+  background-color: #f39c12;
+  color: white;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+footer {
+  background-color: #1a1a1a;
+  color: #cccccc;
+  padding: 3rem 0 1.5rem;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-seccion h4 {
+  color: #ffffff;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.footer-seccion ul {
+  list-style: none;
+}
+
+.footer-seccion ul li {
+  margin-bottom: 0.6rem;
+}
+
+.footer-seccion a {
+  color: #cccccc;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.footer-seccion a:hover {
+  color: #e74c3c;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem 0;
+  border-top: 1px solid #333333;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+/* ========================================
+   RESPONSIVE - TABLET
+   ======================================== */
+@media (max-width: 968px) {
+  .main-container {
+    grid-template-columns: 1fr;
+  }
+
+  .noticias-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .seccion-titulo-principal {
+    font-size: 2.5rem;
+  }
+}
+
+/* ========================================
+   RESPONSIVE - MÓVIL
+   ======================================== */
+@media (max-width: 768px) {
+  .top-bar-content {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .header-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .menu-toggle {
+    display: flex;
+    position: absolute;
+    right: 2rem;
+    top: 1.5rem;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    display: none;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-menu a {
+    border-bottom: none;
+    border-left: 3px solid transparent;
+  }
+
+  .nav-menu a:hover,
+  .nav-menu a.active {
+    border-left-color: #f39c12;
+    border-bottom-color: transparent;
+  }
+
+  .seccion-titulo-principal {
+    font-size: 2rem;
+  }
+
+  .noticia-destacada-imagen {
+    height: 250px;
+  }
+
+  .noticia-destacada h1 {
+    font-size: 1.5rem;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+
+  .main-container,
+  .nav-content,
+  .header-content,
+  .top-bar-content,
+  .breadcrumb,
+  .seccion-header {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+</style>
+</head>
+<body>
+<!-- ========================================
+     BARRA SUPERIOR
+     ======================================== -->
+<div class="top-bar">
+  <div class="top-bar-content">
+    <div class="fecha-actual">
+      <span id="fecha"></span>
+    </div>
+    <div class="redes-sociales">
+      <a href="#" title="Facebook">📘 Facebook</a>
+      <a href="#" title="Twitter">🐦 Twitter</a>
+      <a href="#" title="Instagram">📷 Instagram</a>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================
+     HEADER PRINCIPAL
+     ======================================== -->
+<header>
+  <div class="header-content">
+    <div class="logo-container">
+      <img src="logo.png" alt="Logo" class="logo-img">
+      <div class="logo-section">
+        <a href="index.html" class="logo">El <span>DUEÑO</span></a>
+        <div class="eslogan">ULTIMAS NOTICIAS Y EFEMERIDES</div>
+      </div>
+    </div>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>
+
+<!-- ========================================
+     NAVEGACIÓN PRINCIPAL
+     ======================================== -->
+<nav>
+  <div class="nav-content">
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html">Portada</a></li>
+      <li><a href="Politica.html">Política</a></li>
+      <li><a href="Deportes.html">Deportes</a></li>
+      <li><a href="Mundo.html">Mundo</a></li>
+      <li><a href="Tecnologia.html">Tecnología</a></li>
+      <li><a href="Economia.html" class="active">Economía</a></li>
+      <li><a href="Efemerides.html">Efemérides</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ========================================
+     BREADCRUMB
+     ======================================== -->
+<div class="breadcrumb">
+  <a href="index.html">Inicio</a> / <strong>Economía</strong>
+</div>
+
+<!-- ========================================
+     ENCABEZADO DE SECCIÓN
+     ======================================== -->
+<div class="seccion-header">
+  <h1 class="seccion-titulo-principal">Economía</h1>
+  <p class="seccion-descripcion">Finanzas, mercados, empresas y análisis económico global</p>
+</div>
+
+<!-- ========================================
+     CONTENEDOR PRINCIPAL
+     ======================================== -->
+<div class="main-container">
+  <!-- COLUMNA PRINCIPAL DE NOTICIAS -->
+  <main>
+    <!-- NOTICIA DESTACADA -->
+    <article class="noticia-destacada">
+      <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&h=600&fit=crop" alt="Mercados financieros" class="noticia-destacada-imagen">
+      <div class="noticia-destacada-content">
+        <span class="categoria-tag">Mercados</span>
+        <h1>Mercados globales alcanzan máximos históricos impulsados por optimismo económico</h1>
+        <p class="noticia-bajada">
+          Las principales bolsas mundiales cerraron la semana con ganancias récord tras datos positivos de empleo, inflación controlada y perspectivas favorables para 2026. Los inversores muestran confianza renovada en la recuperación económica global, mientras los bancos centrales mantienen políticas monetarias acomodaticias que favorecen el crecimiento.
+        </p>
+        <div class="noticia-meta">
+          <span>📅 14 de Diciembre, 2025</span>
+          <span>✍️ Por Redacción Economía</span>
+          <span>⏱️ 6 min de lectura</span>
+        </div>
+        <a href="#" class="btn-leer-mas">Leer artículo completo</a>
+      </div>
+    </article>
+
+    <!-- GRID DE NOTICIAS DE ECONOMÍA -->
+    <div class="noticias-grid">
+      <!-- Noticia 1 -->
+      <article class="noticia-card">
+        <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600&h=400&fit=crop" alt="Bitcoin" class="noticia-card-imagen">
+        <div class="noticia-card-content">
+          <span class="categoria-tag">Criptomonedas</span>
+          <h3>Bitcoin supera los $100,000 y alcanza nuevo récord histórico</h3>
+          <p>La criptomoneda líder rompe barrera psicológica clave impulsada por adopción institucional masiva y expectativas de regulación favorable.</p>
+          <div class="noticia-card-footer">
+            <span class="noticia-card-hora">Hace 2 horas</span>
+            <a href="#" class="btn-leer-card">Leer más →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Noticia 2 -->
+      <article class="noticia-card">
+        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop" alt="Negocios" class="noticia-card-imagen">
+        <div class="noticia-card-content">
+          <span class="categoria-tag">Empresas</span>
+          <h3>Fusión histórica crea gigante tecnológico valuado en $500 mil millones</h3>
+          <p>Dos líderes del sector anuncian unión estratégica que transformará el panorama competitivo de la industria tecnológica global.</p>
+          <div class="noticia-card-footer">
+            <span class="noticia-card-hora">Hace 4 horas</span>
+            <a href="#" class="btn-leer-card">Leer más →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Noticia 3 -->
+      <article class="noticia-card">
+        <img src="https://images.unsplash.com/photo-1633158829875-e5316a358c6f?w=600&h=400&fit=crop" alt="Banco Central" class="noticia-card-imagen">
+        <div class="noticia-card-content">
+          <span class="categoria-tag">Política Monetaria</span>
+          <h3>Bancos centrales coordinan estrategia para estabilidad financiera global</h3>
+          <p>Principales autoridades monetarias acuerdan marco de cooperación para enfrentar desafíos económicos del próximo año.</p>
+          <div class="noticia-card-footer">
+            <span class="noticia-card-hora">Hace 5 horas</span>
+            <a href="#" class="btn-leer-card">Leer más →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Noticia 4 -->
+      <article class="noticia-card">
+        <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=600&h=400&fit=crop" alt="Energía renovable" class="noticia-card-imagen">
+        <div class="noticia-card-content">
+          <span class="categoria-tag">Energía</span>
+          <h3>Inversión en energías renovables alcanza cifra récord de $2 billones</h3>
+          <p>Fondos globales apuestan fuerte por la transición energética con proyectos masivos en solar, eólica e hidrógeno verde.</p>
+          <div class="noticia-card-footer">
+            <span class="noticia-card-hora">Hace 6 horas</span>
+            <a href="#" class="btn-leer-card">Leer más →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Noticia 5 -->
+      <article class="noticia-card">
+        <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=600&h=400&fit=crop" alt="Comercio internacional" class="noticia-card-imagen">
+        <div class="noticia-card-content">
+          <span class="categoria-tag">Comercio</span>
+          <h3>Nuevo tratado comercial une economías de tres continentes</h3>
+          <p>Acuerdo histórico elimina aranceles y facilita intercambio comercial entre 45 países, beneficiando a 3 mil millones de personas.</p>
+          <div class="noticia-card-footer">
+            <span class="noticia-card-hora">Hace 8 horas</span>
+            <a href="#" class="btn-leer-card">Leer más →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Noticia 6 -->
+      <article class="noticia-card">
+        <img src="https://images.unsplash.com/photo-1559526324-593bc073d938?w=600&h=400&fit=crop" alt="Startups" class="noticia-card-imagen">
+        <div class="noticia-card-content">
+          <span class="categoria-tag">Startups</span>
+          <h3>Startups latinoamericanas captan $50 mil millones en inversiones</h3>
+          <p>Ecosistema emprendedor regional vive año récord con fintechs y empresas tecnológicas liderando captación de capital.</p>
+          <div class="noticia-card-footer">
+            <span class="noticia-card-hora">Hace 10 horas</span>
+            <a href="#" class="btn-leer-card">Leer más →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Noticia 7 -->
+      <article class="noticia-card">
+        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=400&fit=crop" alt="Inmobiliario" class="noticia-card-imagen">
+        <div class="noticia-card-content">
+          <span class="categoria-tag">Inmobiliario</span>
+          <h3>Mercado inmobiliario muestra señales de recuperación sostenida</h3>
+          <p>Tasas hipotecarias favorables y demanda creciente impulsan reactivación del sector tras período de ajuste.</p>
+          <div class="noticia-card-footer">
+            <span class="noticia-card-hora">Hace 12 horas</span>
+            <a href="#" class="btn-leer-card">Leer más →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <!-- ========================================
+       SIDEBAR -- BARRA LATERAL
+       ======================================== -->
+  <aside class="sidebar">
+<div class="sidebar-economia">
+  <h3 class="titulo-economia">📊 Argentina hoy</h3>
+  <p class="subtitulo-economia">Indicadores económicos clave</p>
+
+  <ul class="indicadores-ar" id="indicadores">
+    <li class="rojo">
+      <span>Inflación</span>
+      <strong>Alta</strong>
+    </li>
+    <li class="amarillo">
+      <span>Dólar</span>
+      <strong>Volátil</strong>
+    </li>
+    <li class="rojo">
+      <span>Actividad</span>
+      <strong>Estancada</strong>
+    </li>
+  </ul>
+</div>
+<script>
+const indicadores = [
+  { nombre: "Inflación", estado: "Alta", color: "rojo" },
+  { nombre: "Dólar", estado: "Volátil", color: "amarillo" },
+  { nombre: "Actividad", estado: "Estancada", color: "rojo" },
+  { nombre: "Consumo", estado: "Débil", color: "rojo" },
+  { nombre: "Salarios", estado: "Rezagados", color: "rojo" },
+  { nombre: "Reservas", estado: "Críticas", color: "rojo" },
+  { nombre: "Riesgo país", estado: "Elevado", color: "rojo" }
+];
+
+let index = 0;
+const ul = document.getElementById("indicadores");
+
+function rotarIndicadores() {
+  ul.innerHTML = "";
+
+  for (let i = 0; i < 3; i++) {
+    const indicador = indicadores[(index + i) % indicadores.length];
+    const li = document.createElement("li");
+    li.className = indicador.color;
+    li.innerHTML = `<span>${indicador.nombre}</span><strong>${indicador.estado}</strong>`;
+    ul.appendChild(li);
+  }
+
+  index = (index + 1) % indicadores.length;
+}
+
+setInterval(rotarIndicadores, 4000);
+

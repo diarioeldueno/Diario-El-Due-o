@@ -1,19 +1,68 @@
-
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El Dueño Digital - Artículo</title>
+    <title>Racing le quitó el sueño a todo el pueblo xeneize - El Dueño Digital</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        /* ========================================
+           RESET Y CONFIGURACIÓN GLOBAL
+           ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background-color: #f8f9fa;
             color: #1a1a1a;
             line-height: 1.6;
-            margin: 0;
         }
 
+        /* ========================================
+           BARRA SUPERIOR - FECHA Y REDES
+           ======================================== */
+        .top-bar {
+            background-color: #e1796e;
+            color: #ffffff;
+            padding: 0.5rem 0;
+            font-size: 0.85rem;
+        }
+
+        .top-bar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .fecha-actual {
+            color: #cccccc;
+        }
+
+        .redes-sociales {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .redes-sociales a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .redes-sociales a:hover {
+            color: #e74c3c;
+        }
+
+        /* ========================================
+           HEADER PRINCIPAL
+           ======================================== */
         header {
             background-color: #ffffff;
             border-bottom: 3px solid #e74c3c;
@@ -25,190 +74,735 @@
             margin: 0 auto;
             padding: 0 2rem;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
             align-items: center;
         }
 
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+        }
+
         .logo {
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 800;
             color: #1a1a1a;
+            letter-spacing: -1px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 75px;
+            height: 75px;
+            object-fit: contain;
         }
 
         .logo span {
             color: #e74c3c;
         }
-.weather-box {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: rgb(255, 255, 255);
-    padding: 6px 12px;
-    border-radius: 8px;
-    font-size: 14px;
-    color: #e74c3c;
-    font-family: 'Times New Roman', Times, serif;
-}
 
-.weather-box img {
-    width: 26px;
-    height: 26px;
-}
+        .eslogan {
+            font-size: 0.85rem;
+            color: #666666;
+            font-style: italic;
+            margin-top: -0.3rem;
+        }
 
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
 
-        /* Contenido principal */
-        .articulo-container {
-            max-width: 900px;
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: #1a1a1a;
+            transition: all 0.3s;
+        }
+
+        /* ========================================
+           NAVEGACIÓN PRINCIPAL
+           ======================================== */
+        nav {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 0;
+        }
+
+        .nav-menu li {
+            position: relative;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #e74c3c;
+            border-bottom-color: #e74c3c;
+        }
+
+        /* ========================================
+           CONTENEDOR PRINCIPAL
+           ======================================== */
+        .main-container {
+            max-width: 1200px;
             margin: 2rem auto;
             padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 2rem;
+        }
+
+        /* ========================================
+           ARTÍCULO DE NOTICIA COMPLETO
+           ======================================== */
+        .articulo-completo {
             background-color: #ffffff;
             border-radius: 8px;
+            overflow: hidden;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            padding-bottom: 3rem;
-        }
-
-        .articulo-img {
-            width: 100%;
-            height: 420px;
-            object-fit: cover;
-            border-radius: 6px 6px 0 0;
-        }
-
-        .articulo-content {
-            padding: 2rem;
+            padding: 3rem;
         }
 
         .categoria-tag {
             display: inline-block;
-            background-color: #2ecc71;
+            background-color: #e74c3c;
             color: white;
             padding: 0.3rem 0.8rem;
             border-radius: 3px;
             font-size: 0.75rem;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
             font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
         }
 
-        .articulo-title {
-            font-size: 2.4rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
+        .categoria-tag.deportes { background-color: #2ecc71; }
+
+        .articulo-completo h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
         }
 
         .articulo-meta {
+            display: flex;
+            gap: 1.5rem;
             font-size: 0.9rem;
-            color: #666666;
+            color: #888888;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .articulo-imagen-principal {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
             margin-bottom: 2rem;
         }
 
-        .articulo-text {
-            font-size: 1.15rem;
-            color: #333333;
-            line-height: 1.8;
+        .articulo-bajada {
+            font-size: 1.2rem;
+            color: #555555;
+            line-height: 1.7;
             margin-bottom: 2rem;
+            font-weight: 500;
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+            border-left: 4px solid #2ecc71;
+        }
+
+        .articulo-contenido {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #333333;
+        }
+
+        .articulo-contenido h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+
+        .articulo-contenido h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .articulo-contenido p {
+            margin-bottom: 1.5rem;
+        }
+
+        .articulo-contenido ul,
+        .articulo-contenido ol {
+            margin-bottom: 1.5rem;
+            margin-left: 2rem;
+        }
+
+        .articulo-contenido li {
+            margin-bottom: 0.8rem;
+        }
+
+        .articulo-contenido blockquote {
+            border-left: 4px solid #2ecc71;
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: #555555;
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 4px;
+        }
+
+        .destacado {
+            background-color: #d4edda;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 4px solid #2ecc71;
+        }
+
+        .marcador {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .marcador h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: #cccccc;
+        }
+
+        .marcador-equipos {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .marcador-score {
+            color: #2ecc71;
+            font-size: 3rem;
         }
 
         .btn-volver {
             display: inline-block;
-            background-color: #e74c3c;
+            background-color: #1a1a1a;
             color: white;
             padding: 0.8rem 2rem;
-            text-decoration: none;
             border-radius: 4px;
+            text-decoration: none;
             font-weight: 600;
+            transition: background-color 0.3s;
+            margin-top: 2rem;
         }
 
         .btn-volver:hover {
             background-color: #333333;
         }
 
-        footer {
-            background-color: #5a5959;
-            color: #cccccc;
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 3rem;
+        /* ========================================
+           SIDEBAR - BARRA LATERAL
+           ======================================== */
+        .sidebar {
+            position: sticky;
+            top: 20px;
+            float: right;
+            width: 300px;
         }
-        
+
+        .widget {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+        }
+
+        .widget-titulo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e74c3c;
+        }
+
+        .mas-leidas-lista {
+            list-style: none;
+        }
+
+        .mas-leidas-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .mas-leidas-item:last-child {
+            border-bottom: none;
+        }
+
+        .mas-leidas-numero {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: #e74c3c;
+            color: white;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-right: 0.8rem;
+        }
+
+        .mas-leidas-item a {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            line-height: 1.4;
+            transition: color 0.3s;
+        }
+
+        .mas-leidas-item a:hover {
+            color: #e74c3c;
+        }
+
+        .weather-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgb(255, 255, 255);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #e74c3c;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .weather-box img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .dolar-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #e74c3c;
+            font-family: Arial, sans-serif;
+            margin-top: 1rem;
+        }
+
+        .dolar-box img {
+            width: 100px;
+            height: 50px;
+        }
+
+        /* ========================================
+           RESPONSIVE - TABLET
+           ======================================== */
+        @media (max-width: 968px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+
+            .articulo-completo h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* ========================================
+           RESPONSIVE - MÓVIL
+           ======================================== */
+        @media (max-width: 768px) {
+            .top-bar-content {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .menu-toggle {
+                display: flex;
+                position: absolute;
+                right: 2rem;
+                top: 1.5rem;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                display: none;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu a {
+                border-bottom: none;
+                border-left: 3px solid transparent;
+            }
+
+            .nav-menu a:hover,
+            .nav-menu a.active {
+                border-left-color: #e74c3c;
+                border-bottom-color: transparent;
+            }
+
+            .articulo-completo {
+                padding: 1.5rem;
+            }
+
+            .articulo-completo h1 {
+                font-size: 1.6rem;
+            }
+
+            .articulo-imagen-principal {
+                height: 250px;
+            }
+
+            .marcador-equipos {
+                font-size: 1.5rem;
+            }
+
+            .marcador-score {
+                font-size: 2rem;
+            }
+
+            .main-container,
+            .nav-content,
+            .header-content,
+            .top-bar-content {
+                padding: 0 1rem;
+            }
+        }
     </style>
 </head>
 <body>
-
-<header>
-    <div class="header-content">
-        <div class="logo">EL <span>DUEÑO</span></div>
-          <!-- Caja del clima -->
-        <div id="weather" class="weather-box">
-            Cargando clima...
-    </div>
-</header>
-
-<div class="articulo-container">
-    <img src="https://media.losandes.com.ar/p/7ad5ceb2b4c1b15326a69d8c17943785/adjuntos/368/imagenes/100/673/0100673027/1000x0/smart/boca-juniors-racing-club-la-liga-profesional.jpg" class="articulo-img">
-
-    <div class="articulo-content">
-
-        <span class="categoria-tag">Deportes</span>
-
-        <h1 class="articulo-title">Racing le quito el sueño a todo el pueblo xeneixe</h1>
-
-        <div class="articulo-meta">
-            8 de diciembre de 2025 • Por Redacción El Dueño Digital
+    <!-- ========================================
+         BARRA SUPERIOR
+         ======================================== -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="fecha-actual">
+                <span id="fecha"></span>
+            </div>
+            <div class="redes-sociales">
+                <a href="#" title="Facebook">📘 Facebook</a>
+                <a href="#" title="Twitter">🐦 Twitter</a>
+                <a href="#" title="Instagram">📷 Instagram</a>
+            </div>
         </div>
-
-        <p class="articulo-text">
-          Boca Juniors cerró su 2025 de la peor manera: eliminado en su propia Bombonera, sin clasificación a la final del Torneo Clausura y con un clima de creciente malestar alrededor del ciclo de Claudio Úbeda. La derrota por 1–0 ante Racing Club no sólo significó un golpe deportivo, sino que además tuvo consecuencias inesperadas en el mapa del fútbol argentino, dejando a River Plate fuera de la Copa Libertadores 2026 y relegándolo a la Sudamericana.
-
-El partido fue, desde el inicio, una historia de tensión más que de juego. Un primer tiempo áspero, cortado y sin ocasiones claras mostró a un Boca incómodo, sin conexión entre líneas y con dificultades para imponerse en su propio campo. Racing, más paciente, eligió esperar el error y acelerar cuando encontraba espacios.
-
-El desequilibrio llegó recién a los 75 minutos, cuando Gabriel Rojas desbordó por izquierda y envió un centro preciso que Adrián “Maravilla” Martínez transformó en gol. Un cabezazo letal, en el momento exacto, para silenciar el estadio y poner a Racing en la final. El impacto emocional en Boca fue inmediato: desconcierto en la cancha, nerviosismo en el banco y una tribuna que empezaba a mostrar impaciencia.
-
-La figura de Claudio Úbeda quedó nuevamente bajo la lupa. El entrenador fue señalado por su planteo conservador y, sobre todo, por un cambio que desató polémica: la salida de Exequiel Zeballos para el ingreso de Velasco, minutos antes del gol de Racing. La decisión sorprendió incluso dentro del campo, donde se vieron gestos de disconformidad, y en las redes sociales se multiplicaron las críticas. Para muchos hinchas, el equipo nunca encontró una identidad clara durante el ciclo, y este partido pareció la confirmación final.
-
-La eliminación también dejó a Boca con un saldo negativo para su 2025: año sin títulos, frustraciones en instancias decisivas y un rendimiento que jamás terminó de consolidarse. El único consuelo es su clasificación ya asegurada a la Copa Libertadores 2026 por la tabla anual, aunque ese dato sirve de poco para mitigar una caída emocional tan fuerte.
-
-En paralelo, el resultado tuvo un efecto dominó significativo: River Plate, que dependía de un resultado favorable para acceder a la Libertadores, quedó matemáticamente fuera de la competencia continental más importante. Después de una década con presencia casi ininterrumpida, el “Millonario” deberá conformarse con disputar la Copa Sudamericana 2026. Un cambio de escenario deportivo y económico que marca un antes y un después en Núñez.
-
-La victoria coloca a Racing en la final del Clausura con autoridad y abre interrogantes profundos en Boca: ¿continuidad o fin del ciclo Úbeda? ¿Reestructuración del plantel? ¿Qué rumbo tomará el club en 2026?
-
-Lo que parece seguro es que esta eliminación, en casa y ante un rival directo, será recordada como uno de los momentos más duros del club en los últimos años y un punto de inflexión obligado para su futuro inmediato.
-        </p>
-
-        <p class="articulo-text">
-
-        <a href="index.html" class="btn-volver">⬅ Volver al inicio</a>
     </div>
-</div>
 
-<footer>
-    © 2025 El Dueño Digital — Todos los derechos reservados.
-</footer>
-<script>
-const apiKey = "d2153a942e56779b1b5edec79a4171c4" 
-const city = "Buenos Aires";
+    <!-- ========================================
+         HEADER PRINCIPAL
+         ======================================== -->
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="logo.png" alt="Logo" class="logo-img">
+                <div class="logo-section">
+                    <div class="logo">El <span>DUEÑO</span></div>
+                    <div class="eslogan">ULTIMAS NOTICIAS Y EFEMERIDES</div>
+                </div>
+            </div>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
 
-async function loadWeather() {
-    try {
-        const response = await fetch(
-            `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=es&appid=${apiKey}`
-        );
-        const data = await response.json();
-        
-        const temp = Math.round(data.main.temp);
-        const icon = data.weather[0].icon;
-        const desc = data.weather[0].description;
+    <!-- ========================================
+         NAVEGACIÓN PRINCIPAL
+         ======================================== -->
+    <nav>
+        <div class="nav-content">
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Portada</a></li>
+                <li><a href="Politica.html">Política</a></li>
+                <li><a href="#deportes" class="active">Deportes</a></li>
+                <li><a href="#mundo">Mundo</a></li>
+                <li><a href="#tecnologia">Tecnología</a></li>
+                <li><a href="#economia">Economía</a></li>
+                <li><a href="Efemerides.html">Efemerides</a></li>
+            </ul>
+        </div>
+    </nav>
 
-        document.getElementById("weather").innerHTML = `
-            <img src="https://openweathermap.org/img/wn/${icon}.png" alt="clima">
-            <span>${temp}°C - ${desc}</span>
-        `;
-    } catch (e) {
-        document.getElementById("weather").textContent = "Error cargando clima";
-    }
-}
+    <!-- ========================================
+         CONTENEDOR PRINCIPAL
+         ======================================== -->
+    <div class="main-container">
+        <!-- ARTÍCULO PRINCIPAL -->
+        <main>
+            <article class="articulo-completo">
+                <span class="categoria-tag deportes">Deportes</span>
+                
+                <h1>Racing le quitó el sueño a todo el pueblo xeneize</h1>
+                
+                <div class="articulo-meta">
+                    <span>📅 8 de Diciembre, 2025</span>
+                    <span>✍️ Por Redacción Deportiva</span>
+                    <span>⏱️ 4 min de lectura</span>
+                </div>
 
-loadWeather();
-</script>
+                <img src="https://media.losandes.com.ar/p/7ad5ceb2b4c1b15326a69d8c17943785/adjuntos/368/imagenes/100/673/0100673027/1000x0/smart/boca-juniors-racing-club-la-liga-profesional.jpg" alt="Racing vs Boca" class="articulo-imagen-principal">
+
+                <div class="articulo-bajada">
+                    En un partido histórico que quedará grabado en la memoria de todos los hinchas, Racing Club venció 1-0 a Boca Juniors en La Bombonera y se clasificó como el primer finalista del Torneo Clausura. El gol de la victoria llegó en el momento justo y desató la euforia de miles de simpatizantes de La Academia que soñaban con este momento.
+                </div>
+
+                <div class="marcador">
+                    <h3>RESULTADO FINAL - SEMIFINAL TORNEO CLAUSURA</h3>
+                    <div class="marcador-equipos">
+                        <span>BOCA JUNIORS</span>
+                        <span class="marcador-score">0 - 1</span>
+                        <span>RACING CLUB</span>
+                    </div>
+                </div>
+
+                <div class="articulo-contenido">
+                    <h2>Una noche histórica en La Bombonera</h2>
+                    
+                    <p>La Bombonera, ese templo del fútbol argentino que tantas alegrías le ha dado a Boca Juniors a lo largo de su historia, esta vez fue testigo de una de las noches más amargas para el pueblo xeneize. Racing Club llegó a la cancha de Brandsen 805 con la misión de conseguir un resultado que los llevara a la final, y lo lograron con creces.</p>
+
+                    <p>Desde el primer minuto, el partido prometía emociones fuertes. La Academia planteó un esquema ordenado, compacto en defensa y con salidas rápidas al ataque, mientras que Boca intentó imponer su localía y presionar alto en campo rival. Sin embargo, los dirigidos por Gustavo Costas demostraron una vez más por qué son uno de los equipos más sólidos del torneo.</p>
+
+                    <h2>El desarrollo del partido</h2>
+
+                    <h3>Primer tiempo: Tensión y equilibrio</h3>
+
+                    <p>Los primeros 45 minutos fueron de puro estudio táctico. Boca tuvo el balón en su poder durante largos pasajes, pero no logró generar situaciones claras de gol. La defensa de Racing, liderada magistralmente por su capitán, anuló cada intento ofensivo del Xeneize.</p>
+
+                    <p>Racing, por su parte, apostó a la contra y en un par de ocasiones estuvo cerca de abrir el marcador. El arquero de Boca tuvo que intervenir en al menos dos jugadas de peligro que pudieron cambiar el rumbo del encuentro.</p>
+
+                    <div class="destacado">
+                        <strong>Estadística clave:</strong> En el primer tiempo, Boca tuvo 58% de posesión del balón, pero Racing generó 4 llegadas claras contra solo 2 del local. La efectividad de La Academia fue evidente desde el arranque.
+                    </div>
+
+                    <h3>Segundo tiempo: El gol que valió la clasificación</h3>
+
+                    <p>El complemento comenzó con Boca volcado al ataque. Diego Martínez, el DT xeneize, sabía que necesitaba el gol y salió a buscarlo desde el primer minuto. Los cambios ofensivos no tardaron en llegar, pero Racing seguía firme atrás.</p>
+
+                    <p>Y cuando el partido parecía encaminarse hacia un empate sin goles que favorecía a Racing por su mejor posición en la tabla, llegó el momento de gloria para La Academia. A los 73 minutos, en una jugada perfectamente ejecutada, Roger Martínez conectó un centro desde la izquierda y definió con clase para vencer al arquero xeneize.</p>
+
+                    <blockquote>
+                        "Es un gol que soñé toda mi vida. Convertir en La Bombonera y llevar a Racing a la final es algo que nunca voy a olvidar. Esto es para toda la gente de Racing que nos bancó siempre", declaró emocionado Roger Martínez al finalizar el encuentro.
+                    </blockquote>
+
+                    <h2>La reacción de Boca</h2>
+
+                    <p>Tras el gol, Boca se volcó desesperadamente al ataque. Los últimos 15 minutos fueron de infarto para los hinchas de Racing, que veían cómo su equipo resistía oleada tras oleada del conjunto local. Hubo pelotazos, jugadas por alto, centros al área, pero la defensa de La Academia se mantuvo impenetrable.</p>
+
+                    <p>El arquero Gabriel Arias, figura indiscutida del partido, realizó al menos tres atajadas clave en los minutos finales que mantuvieron vivo el sueño de Racing. Su actuación fue fundamental para sellar la clasificación.</p>
+
+                    <h2>Las claves del triunfo de Racing</h2>
+
+                    <p>El éxito de Racing en La Bombonera no fue casualidad. El equipo demostró varios factores que fueron determinantes:</p>
+
+                    <ul>
+                        <li><strong>Solidez defensiva:</strong> Racing prácticamente no dejó espacios a Boca durante todo el partido. La línea de cuatro funcionó como un reloj suizo.</li>
+                        <li><strong>Efectividad:</strong> Con pocas llegadas, Racing convirtió en el momento justo. La definición de Roger Martínez fue impecable.</li>
+                        <li><strong>Mentalidad ganadora:</strong> El equipo de Costas demostró carácter para sostener el resultado en los momentos más difíciles.</li>
+                        <li><strong>Táctica perfecta:</strong> El planteo del técnico fue intachable. Cada jugador cumplió su rol a la perfección.</li>
+                        <li><strong>Gabriel Arias:</strong> El arquero fue un verdadero muro. Sus atajadas en el final fueron cruciales.</li>
+                    </ul>
+
+                    <h2>La tristeza xeneize</h2>
+
+                    <p>Para Boca Juniors, la eliminación representa un golpe durísimo. El equipo quedó fuera de la lucha por el título en su propia cancha, ante uno de sus máximos rivales. La frustración de los jugadores era evidente al finalizar el partido, y la hinchada, aunque decepcionada, despidió al equipo con aplausos en reconocimiento al esfuerzo.</p>
+
+                    <p>Diego Martínez, el técnico de Boca, reconoció en conferencia de prensa: "Duele muchísimo. Sabíamos que era una oportunidad única y no pudimos aprovecharla. Racing hizo un gran partido defensivamente y fue eficaz en el momento justo. Ahora toca levantar la cabeza y pensar en lo que viene."</p>
+
+                    <h2>¿Qué sigue para Racing?</h2>
+
+                    <p>Con esta victoria, Racing Club espera rival en la gran final del Torneo Clausura. El equipo que clasificó de la otra semifinal será el encargado de enfrentar a La Academia en la búsqueda del título.</p>
+
+                    <p>La última vez que Racing fue campeón del fútbol argentino fue en 2022, por lo que el equipo y su hinchada sueñan con volver a gritar campeón. La actuación mostrada en La Bombonera demuestra que La Academia está para grandes cosas.</p>
+
+                    <div class="destacado">
+                        <strong>Próxima fecha:</strong> La final del Torneo Clausura se jugará el próximo domingo 15 de diciembre. El rival de Racing saldrá del ganador de la semifinal entre River Plate y San Lorenzo, que se define este jueves.
+                    </div>
+
+                    <h2>Las reacciones en las redes sociales</h2>
+
+                    <p>Como era de esperarse, el triunfo de Racing generó miles de reacciones en las redes sociales. Los hinchas de La Academia celebraron efusivamente, mientras que el mundo Boca expresó su frustración y tristeza por la eliminación.</p>
+
+                    <p>El hashtag #RacingALaFinal se convirtió en tendencia en Twitter durante toda la noche, con miles de mensajes de felicitación al equipo de Avellaneda. Por otro lado, #FuerzaBoca fue el mensaje de aliento que predominó entre los simpatizantes xeneizes.</p>
+
+                    <h2>Conclusión: Una noche para el recuerdo</h2>
+
+                    <p>Racing Club escribió una página dorada en su historia al vencer a Boca Juniors en La Bombonera y clasificarse a la final del Torneo Clausura. El 1-0 quedará grabado en la memoria de todos los hinchas de La Academia como una de las victorias más importantes de los últimos años.</p>
+
+                    <p>Para el pueblo xeneize, en cambio, esta será una noche difícil de olvidar. La oportunidad de pelear por el título se esfumó en su propia casa, y ahora toca mirar hacia adelante y pensar en la próxima temporada.</p>
+
+                    <p>El fútbol argentino sigue brindando emociones partido tras partido, y esta semifinal será recordada por mucho tiempo como uno de esos encuentros que definen temporadas. Racing está en la final y sueña con ser campeón. El pueblo xeneize, por su parte, tendrá que esperar una nueva oportunidad.</p>
+                </div>
+
+                <a href="index.html" class="btn-volver">← Volver a la portada</a>
+            </article>
+        </main>
+
+        <!-- ========================================
+             SIDEBAR - BARRA LATERAL
+             ======================================== -->
+        <aside class="sidebar">
+            <!-- Widget: Efemérides -->
+            <div class="widget">
+                <h3 class="widget-titulo">Efemerides 8/12</h3>
+                <ul class="mas-leidas-lista">
+                    <li class="mas-leidas-item">
+                        <span class="mas-leidas-numero">1</span>
+                        <a href="Efemerides.html">1941 - Entrada de Estados Unidos en la Segunda Guerra Mundial</a>
+                    </li>
+                    <li class="mas-leidas-item">
+                        <span class="mas-leidas-numero">2</span>
+                        <a href="Efemerides.html">1980 - Asesinato de John Lennon</a>
+                    </li>
+                    <li class="mas-leidas-item">
+                        <span class="mas-leidas-numero">3</span>
+                        <a href="Efemerides.html">1991 - Disolución de la Unión Soviética y creación de la Comunidad de Estados Independientes (CEI)</a>
+                    </li>
+                    <li class="mas-leidas-item">
+                        <span class="mas-leidas-numero">4</span>
+                        <a href="Efemerides.html">1987 - Inicio de la Primera Intifada</a>
+                    </li>
+                    <li class="mas-leidas-item">
+                        <span class="mas-leidas-numero">5</span>
+                        <a href="Efemerides.html">Conmemoración religiosa: Fiesta de la Inmaculada Concepción</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Widget: Clima -->
+            <div class="widget">
+                <h3 class="widget-titulo">El Clima</h3>
+                <div id="weather" class="weather-box">
+                    Cargando clima...
+                </div>
+                <div class="dolar-box">
+                    <img src="" alt="Dólar">
+                    <span id="dolarTexto">Cargando dólar...</span>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script>
+        // Función del menú móvil
+        function toggleMenu() {
+            document.getElementById('navMenu').classList.toggle('active');
+        }
+
+        // Mostrar fecha actual
+        const fecha = new Date();
+        document.getElementById('fecha').textContent = fecha.toLocaleDateString('es-ES', { 
+            weekday: 'long', 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric' 
+        });
+
+        // Cargar clima
+        const apiKey = "d2153a942e56779b1b5edec79a4171c4";
+        const city = "Buenos Aires";
+
+        async function loadWeather() {
+            try {
+                const response = await fetch(
+                    `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=es&appid=${apiKey}`
+                );
+                const data = await response.json();
+
+                const temp = Math.round(data.main.temp);
+                const icon = data.weather[0].icon;
+                const desc = data.weather[0].description;
+
+                document.getElementById("weather").innerHTML = `
+                    <img src="https://openweathermap.org/img/wn/${icon}.png" alt="clima">
+                    <span>${temp}°C - ${desc}</span>
+                `;
+            } catch (e) {
+                document.getElementById("weather").textContent = "Error cargando clima";
+            }
+        }
+
+        // Cargar dólar
+        async function cargarDolar() {
+            try {
+                const res = await fetch("https://api.bluelytics.com.ar/v2/latest");
+                const data = await res.json();
+
+                const blue = data.blue.value_sell;
+                const oficial = data.oficial.value_sell;
+
+                document.getElementById("dolarTexto").textContent =
+                    `Blue $${blue} | Oficial $${oficial}`;
+            } catch (error) {
+                document.getElementById("dolarTexto").textContent =
+                    "No disponible";
+            }
+        }
+
+        // Ejecutar funciones al cargar la página
+        loadWeather();
+        cargarDolar();
+    </script>
 </body>
 </html>

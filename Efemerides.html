@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Efemérides - El Dueño Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================
+           RESET Y CONFIGURACIÓN GLOBAL
+           ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: #f8f9fa;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           BARRA SUPERIOR - FECHA Y REDES
+           ======================================== */
+        .top-bar {
+            background-color: #e1796e;
+            color: #ffffff;
+            padding: 0.5rem 0;
+            font-size: 0.85rem;
+        }
+
+        .top-bar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .fecha-actual {
+            color: #cccccc;
+        }
+
+        .redes-sociales {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .redes-sociales a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .redes-sociales a:hover {
+            color: #e74c3c;
+        }
+
+        /* ========================================
+           HEADER PRINCIPAL
+           ======================================== */
+        header {
+            background-color: #ffffff;
+            border-bottom: 3px solid #e74c3c;
+            padding: 1.5rem 0;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            letter-spacing: -1px;
+            text-decoration: none;
+        }
+              .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px; 
+}
+
+.logo-img {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+}
+
+        .logo span {
+            color: #e74c3c;
+        }
+
+        .eslogan {
+            font-size: 0.85rem;
+            color: #666666;
+            font-style: italic;
+            margin-top: -0.3rem;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn-suscribir {
+            background-color: #e74c3c;
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+
+        .btn-suscribir:hover {
+            background-color: #c0392b;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: #1a1a1a;
+            transition: all 0.3s;
+        }
+
+        /* ========================================
+           NAVEGACIÓN PRINCIPAL
+           ======================================== */
+        nav {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 0;
+        }
+
+        .nav-menu li {
+            position: relative;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #e74c3c;
+            border-bottom-color: #e74c3c;
+        }
+
+        /* ========================================
+           BREADCRUMB
+           ======================================== */
+        .breadcrumb {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            font-size: 0.9rem;
+            color: #666666;
+        }
+
+        .breadcrumb a {
+            color: #e74c3c;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #e74c3c;
+        }
+
+        /* ========================================
+           ENCABEZADO DE SECCIÓN
+           ======================================== */
+        .seccion-header {
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+            padding: 0 2rem;
+        }
+
+        .seccion-titulo-principal {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+            border-left: 6px solid #e74c3c;
+            padding-left: 1.5rem;
+        }
+
+        .seccion-descripcion {
+            font-size: 1.2rem;
+            color: #666666;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .fecha-hoy {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #e74c3c;
+            padding-left: 2rem;
+        }
+
+        /* ========================================
+           DEFINICIÓN DE EFEMÉRIDE
+           ======================================== */
+        .definicion-box {
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+            padding: 0 2rem;
+        }
+
+        .definicion-content {
+            background: linear-gradient(135deg, #e68e84 0%, #e74c3c 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .definicion-content h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .definicion-content p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+
+        /* ========================================
+           CONTENEDOR PRINCIPAL
+           ======================================== */
+        .main-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        /* ========================================
+           TIMELINE DE EFEMÉRIDES
+           ======================================== */
+        .timeline-container {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 1rem;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #eb7568, #e74c3c);
+        }
+
+        .efemeride-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .efemeride-card:hover {
+            transform: translateX(8px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+        }
+
+        .efemeride-card::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 2rem;
+            width: 20px;
+            height: 20px;
+            background-color: #e74c3c;
+            border: 4px solid #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(155, 89, 182, 0.2);
+        }
+
+        .efemeride-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .efemeride-fecha {
+            background: linear-gradient(135deg, #ea9086, #e74c3c);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            min-width: 120px;
+        }
+
+        .efemeride-dia {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .efemeride-mes-ano {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .efemeride-tipo {
+            display: inline-block;
+            background-color: #f39c12;
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .efemeride-tipo.historico { background-color: #e74c3c; }
+        .efemeride-tipo.cultural { background-color: #3498db; }
+        .efemeride-tipo.cientifico { background-color: #2ecc71; }
+        .efemeride-tipo.deportivo { background-color: #f39c12; }
+        .efemeride-tipo.social { background-color: #9b59b6; }
+
+        .efemeride-card h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .efemeride-descripcion {
+            font-size: 1.05rem;
+            color: #555555;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .efemeride-detalles {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+        }
+
+        .efemeride-detalles h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 0.8rem;
+        }
+
+        .efemeride-detalles p {
+            color: #666666;
+            line-height: 1.6;
+        }
+
+        .efemeride-meta {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e0e0e0;
+            font-size: 0.9rem;
+            color: #888888;
+            flex-wrap: wrap;
+        }
+
+        /* ========================================
+           SIDEBAR - BARRA LATERAL
+           ======================================== */
+        .page-layout {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 2rem;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .widget {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .widget-titulo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e74c3c;
+        }
+
+        .proximas-lista {
+            list-style: none;
+        }
+
+        .proximas-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .proximas-item:last-child {
+            border-bottom: none;
+        }
+
+        .proximas-fecha-small {
+            display: inline-block;
+            background-color: #e74c3c;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .proximas-item h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 0.3rem;
+        }
+
+        .proximas-item p {
+            font-size: 0.9rem;
+            color: #666666;
+        }
+
+        /* ========================================
+           FOOTER
+           ======================================== */
+        footer {
+            background-color: #1a1a1a;
+            color: #cccccc;
+            padding: 3rem 0 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-seccion h4 {
+            color: #ffffff;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .footer-seccion ul {
+            list-style: none;
+        }
+
+        .footer-seccion ul li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-seccion a {
+            color: #cccccc;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-seccion a:hover {
+            color: #e74c3c;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem 0;
+            border-top: 1px solid #333333;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        /* ========================================
+           RESPONSIVE - TABLET
+           ======================================== */
+        @media (max-width: 968px) {
+            .page-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .seccion-titulo-principal {
+                font-size: 2.5rem;
+            }
+
+            .timeline-container {
+                padding-left: 2rem;
+            }
+
+            .efemeride-card::before {
+                left: -1.5rem;
+            }
+        }
+
+        /* ========================================
+           RESPONSIVE - MÓVIL
+           ======================================== */
+        @media (max-width: 768px) {
+            .top-bar-content {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .menu-toggle {
+                display: flex;
+                position: absolute;
+                right: 2rem;
+                top: 1.5rem;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                display: none;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu a {
+                border-bottom: none;
+                border-left: 3px solid transparent;
+            }
+
+            .nav-menu a:hover,
+            .nav-menu a.active {
+                border-left-color: #e74c3c;
+                border-bottom-color: transparent;
+            }
+
+            .seccion-titulo-principal {
+                font-size: 2rem;
+            }
+
+            .fecha-hoy {
+                font-size: 1.2rem;
+            }
+
+            .efemeride-card h3 {
+                font-size: 1.4rem;
+            }
+
+            .efemeride-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .timeline-line {
+                display: none;
+            }
+
+            .timeline-container {
+                padding-left: 0;
+            }
+
+            .efemeride-card::before {
+                display: none;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .main-container,
+            .nav-content,
+            .header-content,
+            .top-bar-content,
+            .breadcrumb,
+            .seccion-header,
+            .definicion-box {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ========================================
+         BARRA SUPERIOR
+         ======================================== -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="fecha-actual">
+                <span id="fecha"></span>
+            </div>
+            <div class="redes-sociales">
+                <a href="#" title="Facebook">📘 Facebook</a>
+                <a href="#" title="Twitter">🐦 Twitter</a>
+                <a href="#" title="Instagram">📷 Instagram</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================
+         HEADER PRINCIPAL
+         ======================================== -->
+    <header>
+        <div class="header-content">
+                        <div class="logo-container">
+            <img src="logo.png" alt="Logo" class="logo-img">
+            <div class="logo-section">
+                <a href="index.html" class="logo">EL <span>DUEÑO</span></a>
+                <div class="eslogan">ULTIMAS NOTICIAS Y EFEMERIDES</div>
+            </div>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================
+         NAVEGACIÓN PRINCIPAL
+         ======================================== -->
+    <nav>
+        <div class="nav-content">
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Portada</a></li>
+                <li><a href="politica.html">Política</a></li>
+                <li><a href="deportes.html">Deportes</a></li>
+                <li><a href="mundo.html">Mundo</a></li>
+                <li><a href="tecnologia.html">Tecnología</a></li>
+                <li><a href="economia.html">Economía</a></li>
+                <li><a href="efemerides.html" class="active">Efemérides</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ========================================
+         BREADCRUMB
+         ======================================== -->
+    <div class="breadcrumb">
+        <a href="index.html">Inicio</a> / <strong>Efemérides</strong>
+    </div>
+
+    <!-- ========================================
+         ENCABEZADO DE SECCIÓN
+         ======================================== -->
+    <div class="seccion-header">
+        <h1 class="seccion-titulo-principal">Efemérides</h1>
+        <p class="seccion-descripcion">Eventos históricos, culturales y sociales que marcaron este día en la historia</p>
+        <div class="fecha-hoy">📅 Hoy, 9 de Diciembre de 2025</div>
+    </div>
+
+    <!-- ========================================
+         DEFINICIÓN DE EFEMÉRIDE
+         ======================================== -->
+    <div class="definicion-box">
+        <div class="definicion-content">
+            <h2>📚 ¿Qué es una efeméride?</h2>
+            <p>
+                Una <strong>efeméride</strong> es la conmemoración de un acontecimiento notable que ocurrió en una fecha determinada. 
+                Estas fechas nos permiten recordar eventos históricos, nacimientos y fallecimientos de personajes importantes, 
+                descubrimientos científicos, celebraciones culturales y momentos que han marcado la historia de la humanidad. 
+                Las efemérides nos conectan con nuestro pasado y nos ayudan a comprender mejor el presente.
+            </p>
+        </div>
+    </div>
+
+    <!-- ========================================
+         CONTENEDOR PRINCIPAL CON SIDEBAR
+         ======================================== -->
+    <div class="main-container">
+        <div class="page-layout">
+            <!-- COLUMNA PRINCIPAL - TIMELINE -->
+            <main>
+                <div class="timeline-container">
+                    <div class="timeline-line"></div>
+
+                    <!-- Efeméride 1 -->
+                    <article class="efemeride-card">
+                        <div class="efemeride-header">
+                            <div class="efemeride-fecha">
+                                <div class="efemeride-dia">9</div>
+                                <div class="efemeride-mes-ano">Diciembre 1824</div>
+                            </div>
+                            <span class="efemeride-tipo historico">Histórico</span>
+                        </div>
+                        <h3>🏛️ Batalla de Ayacucho: Victoria definitiva de la independencia sudamericana</h3>
+                        <p class="efemeride-descripcion">
+                            Hace 201 años, en los campos de Ayacucho, Perú, las fuerzas independentistas al mando del General Antonio José de Sucre derrotaron al ejército realista español en una batalla decisiva. Este enfrentamiento selló la independencia de Sudamérica y puso fin al dominio colonial español en el continente.
+                        </p>
+                        <div class="efemeride-detalles">
+                            <h4>📖 Detalles del acontecimiento</h4>
+                            <p>
+                                La Batalla de Ayacucho fue el último gran enfrentamiento de las guerras de independencia hispanoamericanas. 
+                                Con aproximadamente 5,800 patriotas enfrentando a 9,300 realistas, la victoria fue contundente. El Virrey José de la Serna fue capturado, 
+                                y días después se firmó la Capitulación de Ayacucho, que reconocía la independencia del Perú y garantizaba la retirada española. 
+                                Este hecho marcó el fin del Imperio Español en América del Sur.
+                            </p>
+                        </div>
+                        <div class="efemeride-meta">
+                            <span>🌍 Lugar: Ayacucho, Perú</span>
+                            <span>👥 Protagonistas: Antonio José de Sucre, José de la Serna</span>
+                            <span>⚔️ Resultado: Victoria patriota</span>
+                        </div>
+                    </article>
+
+                    <!-- Efeméride 2 -->
+                    <article class="efemeride-card">
+                        <div class="efemeride-header">
+                            <div class="efemeride-fecha">
+                                <div class="efemeride-dia">9</div>
+                                <div class="efemeride-mes-ano">Diciembre 1968</div>
+                            </div>
+                            <span class="efemeride-tipo cientifico">Científico</span>
+                        </div>
+                        <h3>💻 Douglas Engelbart presenta el primer mouse de computadora</h3>
+                        <p class="efemeride-descripcion">
+                            En una demostración que cambiaría la informática para siempre, el ingeniero Douglas Engelbart presentó el primer prototipo del mouse de computadora, junto con ventanas, hipertexto y videoconferencias. Esta presentación, conocida como "La Madre de Todas las Demos", revolucionó la forma en que interactuamos con las computadoras.
+                        </p>
+                        <div class="efemeride-detalles">
+                            <h4>📖 Detalles del acontecimiento</h4>
+                            <p>
+                                En el Centro de Investigación de Stanford, Engelbart realizó una presentación de 90 minutos que anticipó el futuro de la computación personal. 
+                                El mouse original estaba hecho de madera con dos ruedas metálicas. Esta demostración también mostró la primera implementación de una interfaz gráfica 
+                                de usuario, edición de texto colaborativa en tiempo real y el concepto de hipervínculos. Muchas de estas innovaciones no se popularizarían hasta décadas después.
+                            </p>
+                        </div>
+                        <div class="efemeride-meta">
+                            <span>🏢 Lugar: Stanford Research Institute, California</span>
+                            <span>👨‍🔬 Inventor: Douglas Engelbart</span>
+                            <span>💡 Impacto: Revolución en la informática</span>
+                        </div>
+                    </article>
+
+                    <!-- Efeméride 3 -->
+                    <article class="efemeride-card">
+                        <div class="efemeride-header">
+                            <div class="efemeride-fecha">
+                                <div class="efemeride-dia">9</div>
+                                <div class="efemeride-mes-ano">Diciembre 1992</div>
+                            </div>
+                            <span class="efemeride-tipo historico">Histórico</span>
+                        </div>
+                        <h3>🪖 Intervención militar en Somalia: Operación Restore Hope</h3>
+                        <p class="efemeride-descripcion">
+                            Las fuerzas militares estadounidenses desembarcaron en Somalia como parte de una misión humanitaria de las Naciones Unidas. La operación buscaba garantizar la entrega de ayuda alimentaria en medio de una devastadora hambruna y guerra civil que había cobrado cientos de miles de vidas.
+                        </p>
+                        <div class="efemeride-detalles">
+                            <h4>📖 Detalles del acontecimiento</h4>
+                            <p>
+                                La Operación Restore Hope fue una respuesta internacional a la crisis humanitaria en Somalia, donde la guerra civil y la sequía habían provocado 
+                                una hambruna masiva. Más de 25,000 militares de diversos países participaron en la misión. Aunque logró salvar miles de vidas facilitando 
+                                la distribución de alimentos, la operación enfrentó desafíos significativos y terminó en 1995. Este evento marcó un precedente importante 
+                                en las intervenciones humanitarias internacionales.
+                            </p>
+                        </div>
+                        <div class="efemeride-meta">
+                            <span>🌍 Lugar: Mogadiscio, Somalia</span>
+                            <span>🛡️ Organización: ONU y Estados Unidos</span>
+                            <span>🎯 Objetivo: Misión humanitaria</span>
+                        </div>
+                    </article>
+
+                    <!-- Efeméride 4 -->
+                    <article class="efemeride-card">
+                        <div class="efemeride-header">
+                            <div class="efemeride-fecha">
+                                <div class="efemeride-dia">9</div>
+                                <div class="efemeride-mes-ano">Diciembre 1987</div>
+                            </div>
+                            <span class="efemeride-tipo social">Social</span>
+                        </div>
+                        <h3>✊ Primera Intifada Palestina</h3>
+                        <p class="efemeride-descripcion">
+                            Comenzó el levantamiento popular palestino contra la ocupación israelí en los territorios de Gaza y Cisjordania. Este movimiento de resistencia, principalmente civil, marcó un punto de inflexión en el conflicto israelo-palestino y llevó eventualmente a los Acuerdos de Oslo.
+                        </p>
+                        <div class="efemeride-detalles">
+                            <h4>📖 Detalles del acontecimiento</h4>
+                            <p>
+                                La Primera Intifada (que significa "sacudida" en árabe) fue un levantamiento popular caracterizado por protestas masivas, 
+                                huelgas y desobediencia civil. Aunque comenzó de forma espontánea tras un accidente de tráfico en Gaza, rápidamente se extendió 
+                                por todos los territorios ocupados. El movimiento duró hasta 1993 y tuvo un profundo impacto en la política regional, 
+                                llevando a negociaciones de paz y cambios significativos en la percepción internacional del conflicto.
+                            </p>
+                        </div>
+                        <div class="efemeride-meta">
+                            <span>🌍 Lugar: Gaza y Cisjordania</span>
+                            <span>📅 Duración: 1987-1993</span>
+                            <span>🕊️ Resultado: Acuerdos de Oslo (1993)</span>
+                        </div>
+                                        <!-- Efeméride 5 -->
+                    <article class="efemeride-card">
+                        <div class="efemeride-header">
+                            <div class="efemeride-fecha">
+                                <div class="efemeride-dia">9</div>
+                                <div class="efemeride-mes-ano">Diciembre 1979</div>
+                            </div>
+                            <span class="efemeride-tipo social">Social</span>
+                        </div>
+                        <h3>🏥 Declaración de la erradicación mundial de la viruela</h3>
+                        <p class="efemeride-descripcion">
+                            La Organización Mundial de la Salud (OMS) certificó oficialmente la erradicación global de la viruela, una enfermedad que había matado a millones de personas a lo largo de la historia. Este logro representa uno de los mayores triunfos de la salud pública mundial.
+                        </p>
+                        <div class="efemeride-detalles">
+                            <h4>📖 Detalles del acontecimiento</h4>
+                            <p>
+                                La viruela fue una de las enfermedades más mortales de la historia humana, causando millones de muertes cada año. 
+                                Gracias a un esfuerzo coordinado de vacunación global que duró décadas, el último caso natural de viruela se registró en Somalia en 1977. 
+                                La certificación oficial de erradicación en 1979 demostró que era posible eliminar completamente una enfermedad mediante campañas 
+                                de vacunación masivas. Hasta hoy, la viruela es la única enfermedad humana completamente erradicada.
+                            </p>
+                        </div>
+                        <div class="efemeride-meta">
+                            <span>🏛️ Organización: OMS</span>
+                            <span>💉 Método: Vacunación masiva global</span>
+                            <span>🎯 Logro: Primera enfermedad erradicada</span>
+                        </div>
+                    </article>
+
+                    <!-- Efeméride 6 -->
+                    <article class="efemeride-card">
+                        <div class="efemeride-header">
+                            <div class="efemeride-fecha">
+                                <div class="efemeride-dia">9</div>
+                                <div class="efemeride-mes-ano">Diciembre 1905</div>
+                            </div>
+                            <span class="efemeride-tipo cultural">Cultural</span>
+                        </div>
+                        <h3>⚖️ Ley de separación Iglesia-Estado en Francia</h3>
+                        <p class="efemeride-descripcion">
+                            Francia promulgó la histórica ley de separación entre la Iglesia y el Estado, estableciendo la laicidad como principio fundamental de la República. Esta legislación garantizó la libertad de conciencia y consolidó el carácter secular del Estado francés.
+                        </p>
+                        <div class="efemeride-detalles">
+                            <h4>📖 Detalles del acontecimiento</h4>
+                            <p>
+                                La Ley de 1905 puso fin al Concordato de 1801 que regía las relaciones entre Francia y la Iglesia Católica. Estableció que la República 
+                                no reconoce, ni financia ningún culto religioso, pero garantiza el libre ejercicio de todos. Esta ley transformó profundamente la sociedad francesa 
+                                y se convirtió en un pilar de la identidad republicana. Aunque generó controversias iniciales, sentó las bases del modelo de laicidad 
+                                que caracteriza a Francia hasta nuestros días.
+                            </p>
+                        </div>
+                        <div class="efemeride-meta">
+                            <span>🇫🇷 País: Francia</span>
+                            <span>📜 Tipo: Legislación histórica</span>
+                            <span>🎯 Principio: Laicidad del Estado</span>
+                        </div>
+                    </article>
+
+                </div>
+            </main>
+
+            <!-- ========================================
+                 SIDEBAR - BARRA LATERAL
+                 ======================================== -->
+            <aside class="sidebar">
+                <!-- Widget: Próximas Efemérides -->
+                <div class="widget">
+                    <h3 class="widget-titulo">📅 Próximas Efemérides</h3>
+                    <ul class="proximas-lista">
+                        <li class="proximas-item">
+                            <span class="proximas-fecha-small">10 Diciembre</span>
+                            <h4>Día de los Derechos Humanos</h4>
+                            <p>Conmemoración de la Declaración Universal de los Derechos Humanos (1948)</p>
+                        </li>
+                        <li class="proximas-item">
+                            <span class="proximas-fecha-small">12 Diciembre</span>
+                            <h4>Acuerdo de París sobre el Clima</h4>
+                            <p>Adopción del histórico acuerdo climático (2015)</p>
+                        </li>
+                        <li class="proximas-item">
+                            <span class="proximas-fecha-small">17 Diciembre</span>
+                            <h4>Nacimiento de Beethoven</h4>
+                            <p>Nació el compositor Ludwig van Beethoven (1770)</p>
+                        </li>
+                        <li class="proximas-item">
+                            <span class="proximas-fecha-small">21 Diciembre</span>
+                            <h4>Solsticio de Verano/Invierno</h4>
+                            <p>Inicio astronómico de la nueva estación</p>
+                        </li>
+                        <li class="proximas-item">
+                            <span class="proximas-fecha-small">25 Diciembre</span>
+                            <h4>Nacimiento de Isaac Newton</h4>
+                            <p>Nació el científico Isaac Newton (1642)</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Widget: Categorías de Efemérides -->
+                <div class="widget">
+                    <h3 class="widget-titulo">🏷️ Categorías</h3>
+                    <div class="temas-lista">
+                        <a href="#" class="tema-tag">Histórico</a>
+                        <a href="#" class="tema-tag">Cultural</a>
+                        <a href="#" class="tema-tag">Científico</a>
+                        <a href="#" class="tema-tag">Deportivo</a>
+                        <a href="#" class="tema-tag">Social</a>
+                        <a href="#" class="tema-tag">Político</a>
+                        <a href="#" class="tema-tag">Artístico</a>
+                        <a href="#" class="tema-tag">Tecnológico</a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- ========================================
+         FOOTER
+         ======================================== -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-seccion">
+                <h4>El Observador</h4>
+                <ul>
+                    <li><a href="#">Quiénes Somos</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">Publicidad</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                </ul>
+            </div>
+            <div class="footer-seccion">
+                <h4>Secciones</h4>
+                <ul>
+                    <li><a href="politica.html">Política</a></li>
+                    <li><a href="deportes.html">Deportes</a></li>
+                    <li><a href="mundo.html">Mundo</a></li>
+                    <li><a href="economia.html">Economía</a></li>
+                </ul>
+            </div>
+            <div class="footer-seccion">
+                <h4>Recursos</h4>
+                <ul>
+                    <li><a href="efemerides.html">Efemérides</a></li>
+                    <li><a href="#">Archivo</a></li>
+                    <li><a href="#">Newsletter</a></li>
+                    <li><a href="#">RSS</a></li>
+                </ul>
+            </div>
+            <div class="footer-seccion">
+                <h4>Síguenos</h4>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 El Observador Digital. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- ========================================
+         JAVASCRIPT
+         ======================================== -->
+    <script>
+        // Función para mostrar fecha actual
+        function mostrarFecha() {
+            const opciones = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            };
+            const fecha = new Date().toLocaleDateString('es-ES', opciones);
+            document.getElementById('fecha').textContent = fecha.charAt(0).toUpperCase() + fecha.slice(1);
+        }
+
+        // Función para toggle del menú móvil
+        function toggleMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.toggle('active');
+        }
+
+        // Inicializar al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            mostrarFeca();
+        });
+    </script>
+</body>
+</html>

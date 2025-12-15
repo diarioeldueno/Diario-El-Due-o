@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mundo - El Dueño DIgital</title>
+ <link rel="icon" type="image/png" href="logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ========================================
+   RESET Y CONFIGURACIÓN GLOBAL
+   ======================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: #f8f9fa;
+  color: #1a1a1a;
+  line-height: 1.6;
+}
+
+/* ========================================
+   BARRA SUPERIOR - FECHA Y REDES
+   ======================================== */
+.top-bar {
+  background-color: #e1796e;
+  color: #ffffff;
+  padding: 0.5rem 0;
+  font-size: 0.85rem;
+}
+
+.top-bar-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fecha-actual {
+  color: #cccccc;
+}
+
+.redes-sociales {
+  display: flex;
+  gap: 1rem;
+}
+
+.redes-sociales a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.redes-sociales a:hover {
+  color: #e74c3c;
+}
+
+/* ========================================
+   HEADER PRINCIPAL
+   ======================================== */
+header {
+  background-color: #ffffff;
+  border-bottom: 3px solid #e74c3c;
+  padding: 1.5rem 0;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  letter-spacing: -1px;
+  text-decoration: none;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-img {
+  width: 75px;
+  height: 75px;
+  object-fit: contain;
+}
+
+.logo span {
+  color: #e74c3c;
+}
+
+.eslogan {
+  font-size: 0.85rem;
+  color: #666666;
+  font-style: italic;
+  margin-top: -0.3rem;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 4px;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: #1a1a1a;
+  transition: all 0.3s;
+}
+
+/* ========================================
+   NAVEGACIÓN PRINCIPAL
+   ======================================== */
+nav {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 0;
+}
+
+.nav-menu li {
+  position: relative;
+}
+
+.nav-menu a {
+  display: block;
+  padding: 1rem 1.5rem;
+  color: #1a1a1a;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.3s;
+  border-bottom: 3px solid transparent;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  color: #e74c3c;
+  border-bottom-color: #e74c3c;
+}
+
+/* ========================================
+   BREADCRUMB - MIGAJA DE PAN
+   ======================================== */
+.breadcrumb {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  font-size: 0.9rem;
+  color: #666666;
+}
+
+.breadcrumb a {
+  color: #9b59b6;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.breadcrumb a:hover {
+  color: #e74c3c;
+}
+
+/* ========================================
+   ENCABEZADO DE SECCIÓN
+   ======================================== */
+.seccion-header {
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+  padding: 0 2rem;
+}
+
+.seccion-titulo-principal {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+  border-left: 6px solid #9b59b6;
+  padding-left: 1.5rem;
+}
+
+.seccion-descripcion {
+  font-size: 1.2rem;
+  color: #666666;
+  padding-left: 2rem;
+}
+
+/* ========================================
+   CONTENEDOR PRINCIPAL
+   ======================================== */
+.main-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2rem;
+}
+
+/* ========================================
+   NOTICIA DESTACADA DE MUNDO
+   ======================================== */
+.noticia-destacada {
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  margin-bottom: 2rem;
+}
+
+.noticia-destacada-imagen {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.noticia-destacada-content {
+  padding: 2rem;
+}
+
+.categoria-tag {
+  display: inline-block;
+  background-color: #9b59b6;
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+}
+
+.noticia-destacada h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+}
+
+.noticia-bajada {
+  font-size: 1.1rem;
+  color: #555555;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.noticia-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: #888888;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.btn-leer-mas {
+  display: inline-block;
+  background-color: #9b59b6;
+  color: white;
+  padding: 0.8rem 2rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.btn-leer-mas:hover {
+  background-color: #8e44ad;
+}
+
+/* ========================================
+   GRID DE NOTICIAS DE MUNDO
+   ======================================== */
+.noticias-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.noticia-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.noticia-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.noticia-card-imagen {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.noticia-card-content {
+  padding: 1.5rem;
+}
+
+.noticia-card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 0.8rem;
+  color: #1a1a1a;
+}
+
+.noticia-card p {
+  font-size: 0.95rem;
+  color: #666666;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.noticia-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.noticia-card-hora {
+  font-size: 0.8rem;
+  color: #999999;
+}
+
+.btn-leer-card {
+  color: #9b59b6;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.btn-leer-card:hover {
+  color: #8e44ad;
+}
+
+/* ========================================
+   SIDEBAR - BARRA LATERAL
+   ======================================== */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.widget {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.widget-titulo {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #1a1a1a;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #9b59b6;
+}
+
+.mas-leidas-lista {
+  list-style: none;
+}
+
+.mas-leidas-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.mas-leidas-item:last-child {
+  border-bottom: none;
+}
+
+.mas-leidas-numero {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-color: #9b59b6;
+  color: white;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-right: 0.8rem;
+}
+
+.mas-leidas-item a {
+  color: #1a1a1a;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.4;
+  transition: color 0.3s;
+}
+
+.mas-leidas-item a:hover {
+  color: #9b59b6;
+}
+/* Caja Mundo */
+.sidebar-mundo {
+  background: #ffffff;
+  border: 2px solid #9b59b6;
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 20px;
+}
+
+/* Título */
+.titulo-mundo {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: #9b59b6;
+  margin-bottom: 14px;
+  border-bottom: 2px solid #9b59b6;
+  padding-bottom: 6px;
+}
+
+/* Lista */
+.objetivos-mundo {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.objetivos-mundo li {
+  margin-bottom: 12px;
+  padding-left: 10px;
+  border-left: 3px solid #9b59b6;
+}
+
+/* País */
+.objetivos-mundo strong {
+  display: block;
+  font-size: 15px;
+  color: #2c2c2c;
+}
+
+/* Objetivo */
+.objetivos-mundo span {
+  display: block;
+  font-size: 13px;
+  color: #555;
+  margin-top: 2px;
+}
+
+/* Hover suave */
+.objetivos-mundo li:hover {
+  background: #f6f0fa;
+  border-radius: 6px;
+  padding-left: 14px;
+  transition: all 0.2s ease;
+}
+/* Widget de Temas Relacionados */
+.temas-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tema-tag {
+  display: inline-block;
+  background-color: #ecf0f1;
+  color: #2c3e50;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.tema-tag:hover {
+  background-color: #9b59b6;
+  color: white;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+footer {
+  background-color: #1a1a1a;
+  color: #cccccc;
+  padding: 3rem 0 1.5rem;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-seccion h4 {
+  color: #ffffff;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.footer-seccion ul {
+  list-style: none;
+}
+
+.footer-seccion ul li {
+  margin-bottom: 0.6rem;
+}
+
+.footer-seccion a {
+  color: #cccccc;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.footer-seccion a:hover {
+  color: #e74c3c;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem 0;
+  border-top: 1px solid #333333;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+/* ========================================
+   RESPONSIVE - TABLET
+   ======================================== */
+@media (max-width: 968px) {
+  .main-container {
+    grid-template-columns: 1fr;
+  }
+
+  .noticias-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .seccion-titulo-principal {
+    font-size: 2.5rem;
+  }
+}
+
+/* ========================================
+   RESPONSIVE - MÓVIL
+   ======================================== */
+@media (max-width: 768px) {
+  .top-bar-content {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .header-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .menu-toggle {
+    display: flex;
+    position: absolute;
+    right: 2rem;
+    top: 1.5rem;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    display: none;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-menu a {
+    border-bottom: none;
+    border-left: 3px solid transparent;
+  }
+
+  .nav-menu a:hover,
+  .nav-menu a.active {
+    border-left-color: #9b59b6;
+    border-bottom-color: transparent;
+  }
+
+  .seccion-titulo-principal {
+    font-size: 2rem;
+  }
+
+  .noticia-destacada-imagen {
+    height: 250px;
+  }
+
+  .noticia-destacada h1 {
+    font-size: 1.5rem;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+
+  .main-container,
+  .nav-content,
+  .header-content,
+  .top-bar-content,
+  .breadcrumb,
+  .seccion-header {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+</style>
+</head>
+<body>
+<!-- ========================================
+     BARRA SUPERIOR
+     ======================================== -->
+<div class="top-bar">
+  <div class="top-bar-content">
+    <div class="fecha-actual">
+      <span id="fecha"></span>
+    </div>
+    <div class="redes-sociales">
+      <a href="#" title="Facebook">📘 Facebook</a>
+      <a href="#" title="Twitter">🐦 Twitter</a>
+      <a href="#" title="Instagram">📷 Instagram</a>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================
+     HEADER PRINCIPAL
+     ======================================== -->
+<header>
+  <div class="header-content">
+    <div class="logo-container">
+      <img src="logo.png" alt="Logo" class="logo-img">
+      <div class="logo-section">
+        <a href="index.html" class="logo">El <span>DUEÑO</span></a>
+        <div class="eslogan">ULTIMAS NOTICIAS Y EFEMERIDES</div>
+      </div>
+    </div>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>
+
+<!-- ========================================
+     NAVEGACIÓN PRINCIPAL
+     ======================================== -->
+<nav>
+  <div class="nav-content">
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html">Portada</a></li>
+      <li><a href="Politica.html">Política</a></li>
+      <li><a href="Deportes.html">Deportes</a></li>
+      <li><a href="Mundo.html" class="active">Mundo</a></li>
+      <li><a href="Tecnologia.html">Tecnología</a></li>
+      <li><a href="Economia.html">Economía</a></li>
+      <li><a href="Efemerides.html">Efemérides</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ========================================
+     BREADCRUMB
+     ======================================== -->
+<div class="breadcrumb">
+  <a href="index.html">Inicio</a> / <strong>Mundo</strong>
+</div>
+
+<!-- ========================================
+     ENCABEZADO DE SECCIÓN
+     ======================================== -->
+<div class="seccion-header">
+  <h1 class="seccion-titulo-principal">Mundo</h1>
+  <p class="seccion-descripcion">Las noticias internacionales más importantes de todos los continentes</p>
+</div>
+
+<!-- ========================================
+     CONTENEDOR PRINCIPAL
+     ======================================== -->
+<div class="main-container">
+  <!-- COLUMNA PRINCIPAL DE NOTICIAS -->
+  <main>
+    <!-- NOTICIA DESTACADA -->
+    <article class="noticia-destacada">
+      <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=1200&h=600&fit=crop" alt="Noticias internacionales" class="noticia-destacada-imagen">
+      <div class="noticia-destacada-content">
+        <span class="categoria-tag">Internacional</span>
+        <h1>Cumbre del G20 alcanza acuerdos históricos sobre cambio climático y economía global</h1>
+        <p class="noticia-bajada">
+          Los líderes de las principales economías del mundo firmaron una declaración conjunta que compromete inversiones millonarias en energías renovables y establece nuevas regulaciones para el comercio internacional. El pacto marca un punto de inflexión en la cooperación multilateral tras años de tensiones geopolíticas.
+        </p>
+        <div class="noticia-meta">
+          <span>📅 14 de Diciembre, 2025</span>
+          <span>✍️ Por Redacción Internacional</span>
+          <span>⏱️ 7 min de lectura</span>
+        </div>
+        <a href="#" class="btn-leer-mas">Leer artículo completo</a>
+      </div>
+    </article>
+
+    <!-- GRID DE NOTICIAS DE MUNDO -->
+    <div class="noticias-grid">
+      <!-- Noticia 1 -->
+      <article class="noticia-card">
+        <img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?w=600&h=400&fit=crop" alt="Europa" class="noticia-card-imagen">
+        <div class="noticia-card-content">
+          <span class="categoria-tag">Europa</span>
+          <h3>Unión Europea aprueba nuevas regulaciones tecnológicas</h3>
+          <p>El parlamento europeo votó a favor de normativas que regularán la inteligencia artificial y protegerán los derechos digitales de los ciudadanos.</p>
+          <div class="noticia-card-footer">
+            <span class="noticia-card-hora">Hace 2 horas</span>
+            <a href="#" class="btn-leer-card">Leer más →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Noticia 2 -->
+      <article class="noticia-card">
+        <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&h=400&fit=crop" alt="Asia" class="noticia-card-imagen">
+        <div class="noticia-card-content">
+          <span class="categoria-tag">Asia</span>
+          <h3>China anuncia ambiciosa misión espacial hacia Marte</h3>
+          <p>La agencia espacial china presentó su proyecto para establecer una base de investigación permanente en el planeta rojo antes de 2035.</p>
+          <div class="noticia-card-footer">
+            <span class="noticia-card-hora">Hace 4 horas</span>
+            <a href="#" class="btn-leer-card">Leer más →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Noticia 3 -->
+      <article class="noticia-card">
+        <img src="https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=600&h=400&fit=crop" alt="África" class="noticia-card-imagen">
+        <div class="noticia-card-content">
+          <span class="categoria-tag">África</span>
+          <h3>Países africanos lanzan zona de libre comercio continental</h3>
+          <p>El tratado histórico promete impulsar el comercio intrarregional y generar millones de empleos en todo el continente africano.</p>
+          <div class="noticia-card-footer">
+            <span class="noticia-card-hora">Hace 5 horas</span>
+            <a href="#" class="btn-leer-card">Leer más →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Noticia 4 -->
+      <article class="noticia-card">
+        <img src="https://images.unsplash.com/photo-1541544537156-7627a7a4aa1c?w=600&h=400&fit=crop" alt="América" class="noticia-card-imagen">
+        <div class="noticia-card-content">
+          <span class="categoria-tag">América</span>
+          <h3>Estados Unidos y México refuerzan cooperación migratoria</h3>
+          <p>Ambos países acordaron nuevos programas de trabajo temporal y rutas legales para la migración, buscando ordenar los flujos fronterizos.</p>
+          <div class="noticia-card-footer">
+            <span class="noticia-card-hora">Hace 6 horas</span>
+            <a href="#" class="btn-leer-card">Leer más →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Noticia 5 -->
+      <article class="noticia-card">
+        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop" alt="Tecnología global" class="noticia-card-imagen">
+        <div class="noticia-card-content">
+          <span class="categoria-tag">Ciencia</span>
+          <h3>Científicos descubren avance revolucionario en fusión nuclear</h3>
+          <p>Laboratorio internacional logró generar más energía de la que consumió en experimento de fusión, marcando un hito histórico.</p>
+          <div class="noticia-card-footer">
+            <span class="noticia-card-hora">Hace 8 horas</span>
+            <a href="#" class="btn-leer-card">Leer más →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Noticia 6 -->
+      <article class="noticia-card">
+        <img src="https://images.unsplash.com/photo-1504297050568-910d24c426d3?w=600&h=400&fit=crop" alt="Medio Oriente" class="noticia-card-imagen">
+        <div class="noticia-card-content">
+          <span class="categoria-tag">Medio Oriente</span>
+          <h3>Acuerdo de paz histórico en región del Golfo Pérsico</h3>
+          <p>Países vecinos firmaron tratado de cooperación económica y seguridad tras décadas de tensiones diplomáticas.</p>
+          <div class="noticia-card-footer">
+            <span class="noticia-card-hora">Hace 10 horas</span>
+            <a href="#" class="btn-leer-card">Leer más →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Noticia 7 -->
+      <article class="noticia-card">
+        <img src="https://images.unsplash.com/photo-1569163139394-de4798aa62b6?w=600&h=400&fit=crop" alt="Oceanía" class="noticia-card-imagen">
+        <div class="noticia-card-content">
+          <span class="categoria-tag">Oceanía</span>
+          <h3>Australia implementa plan revolucionario contra incendios forestales</h3>
+          <p>El gobierno australiano presentó sistema de prevención con inteligencia artificial que predice focos de incendio con alta precisión.</p>
+          <div class="noticia-card-footer">
+            <span class="noticia-card-hora">Hace 12 horas</span>
+            <a href="#" class="btn-leer-card">Leer más →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <!-- ========================================
+       SIDEBAR - BARRA LATERAL
+       ======================================== -->
+<div class="sidebar-mundo">
+  <h3 class="titulo-mundo">🌍 Intereses en Juego</h3>
+
+  <ul class="objetivos-mundo">
+    <li>
+      <strong>🇺🇸 Estados Unidos</strong>
+      <span>Mantener liderazgo global y contener a China</span>
+    </li>
+    <li>
+      <strong>🇨🇳 China</strong>
+      <span>Expandir influencia económica, tecnológica y geopolítica</span>
+    </li>
+    <li>
+      <strong>🇷🇺 Rusia</strong>
+      <span>Sostener poder regional y presión estratégica</span>
+    </li>
+    <li>
+      <strong>🇪🇺 Unión Europea</strong>
+      <span>Estabilidad interna y peso diplomático</span>
+    </li>
+    <li>
+      <strong>🇮🇳 India</strong>
+      <span>Consolidarse como potencia emergente</span>
+    </li>
+    <li>
+      <strong>🇧🇷 Brasil</strong>
+      <span>Liderazgo regional y proyección internacional</span>
+    </li>
+    <li>
+      <strong>🇬🇧 Reino Unido</strong>
+      <span>Influencia diplomática y alianzas estratégicas</span>
+    </li>
+    <li>
+      <strong>🇫🇷 Francia</strong>
+      <span>Liderazgo europeo y presencia en África</span>
+    </li>
+    <li>
+  <strong>🇯🇵 Japón</strong>
+  <span>Seguridad regional y contención de China</span>
+</li>
+<li>
+  <strong>🇩🇪 Alemania</strong>
+  <span>Liderazgo económico europeo y estabilidad industrial</span>
+</li>
+<li>
+  <strong>🇨🇦 Canadá</strong>
+  <span>Multilateralismo y alineamiento occidental</span>
+</li>
+<li>
+  <strong>🇦🇺 Australia</strong>
+  <span>Seguridad estratégica en el Indo-Pacífico</span>
+</li>
+<li>
+  <strong>🇹🇷 Turquía</strong>
+  <span>Expansión de influencia entre Europa y Medio Oriente</span>
+</li>
+<li>
+  <strong>🇸🇦 Arabia Saudita</strong>
+  <span>Liderazgo energético y poder regional</span>
+</li>
+<li>
+  <strong>🇮🇷 Irán</strong>
+  <span>Influencia regional y disuasión militar</span>
+</li>
+<li>
+  <strong>🇮🇱 Israel</strong>
+  <span>Seguridad nacional y superioridad militar</span>
+</li>
+<li>
+  <strong>🇪🇬 Egipto</strong>
+  <span>Control estratégico y estabilidad regional</span>
+</li>
+<li>
+  <strong>🇿🇦 Sudáfrica</strong>
+  <span>Liderazgo africano y cooperación Sur-Sur</span>
+</li>
+<li>
+  <strong>🇳🇬 Nigeria</strong>
+  <span>Peso regional en África Occidental</span>
+</li>
+<li>
+  <strong>🇪🇹 Etiopía</strong>
+  <span>Control regional y proyección africana</span>
+</li>
+<li>
+  <strong>🇰🇷 Corea del Sur</strong>
+  <span>Desarrollo tecnológico y seguridad regional</span>
+</li>
+<li>
+  <strong>🇮🇩 Indonesia</strong>
+  <span>Liderazgo del Sudeste Asiático</span>
+</li>
+<li>
+  <strong>🇵🇰 Pakistán</strong>
+  <span>Equilibrio estratégico con India</span>
+</li>
+<li>
+  <strong>🇻🇳 Vietnam</strong>
+  <span>Crecimiento económico y contención china</span>
+</li>
+<li>
+  <strong>🇹🇭 Tailandia</strong>
+  <span>Estabilidad interna y rol regional</span>
+</li>
+<li>
+  <strong>🇲🇾 Malasia</strong>
+  <span>Desarrollo económico y neutralidad estratégica</span>
+</li>
+<li>
+  <strong>🇵🇭 Filipinas</strong>
+  <span>Alianza con EE.UU. y disputa marítima</span>
+</li>
+<li>
+  <strong>🇨🇱 Chile</strong>
+  <span>Estabilidad macroeconómica e inserción global</span>
+</li>
+<li>
+  <strong>🇵🇪 Perú</strong>
+  <span>Orden interno y continuidad económica</span>
+</li>
+<li>
+  <strong>🇨🇴 Colombia</strong>
+  <span>Seguridad regional y alianzas estratégicas</span>
+</li>
+<li>
+  <strong>🇻🇪 Venezuela</strong>
+  <span>Sostener el poder político y alianzas externas</span>
+</li>
+<li>
+  <strong>🇦🇷 Argentina</strong>
+  <span>Estabilidad económica y reposicionamiento internacional</span>
+</li>
+<li>
+  <strong>🇺🇦 Ucrania</strong>
+  <span>Defensa territorial y apoyo internacional</span>
+</li>
+<li>
+  <strong>🇵🇱 Polonia</strong>
+  <span>Seguridad regional y rol clave en Europa del Este</span>
+</li>
+<li>
+  <strong>🇭🇺 Hungría</strong>
+  <span>Autonomía política dentro de la Unión Europea</span>
+</li>
+<li>
+  <strong>🇸🇪 Suecia</strong>
+  <span>Seguridad regional y cooperación atlántica</span>
+</li>
+<li>
+  <strong>🇫🇮 Finlandia</strong>
+  <span>Defensa nacional y disuasión estratégica</span>
+</li>
+<li>
+  <strong>🇪🇸 España</strong>
+  <span>Estabilidad interna y proyección iberoamericana</span>
+</li>
+  </ul>
+</div>

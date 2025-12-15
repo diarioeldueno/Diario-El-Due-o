@@ -3,17 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El Dueño Digital - Artículo</title>
+    <title>¿Por qué Trump no ha logrado convencer a Putin? - El Dueño Digital</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        /* ========================================
+           RESET Y CONFIGURACIÓN GLOBAL
+           ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background-color: #f8f9fa;
             color: #1a1a1a;
             line-height: 1.6;
-            margin: 0;
         }
 
+        /* ========================================
+           BARRA SUPERIOR - FECHA Y REDES
+           ======================================== */
+        .top-bar {
+            background-color: #e1796e;
+            color: #ffffff;
+            padding: 0.5rem 0;
+            font-size: 0.85rem;
+        }
+
+        .top-bar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .fecha-actual {
+            color: #cccccc;
+        }
+
+        .redes-sociales {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .redes-sociales a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .redes-sociales a:hover {
+            color: #e74c3c;
+        }
+
+        /* ========================================
+           HEADER PRINCIPAL
+           ======================================== */
         header {
             background-color: #ffffff;
             border-bottom: 3px solid #e74c3c;
@@ -25,57 +74,124 @@
             margin: 0 auto;
             padding: 0 2rem;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
             align-items: center;
         }
 
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+        }
+
         .logo {
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 800;
             color: #1a1a1a;
+            letter-spacing: -1px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 75px;
+            height: 75px;
+            object-fit: contain;
         }
 
         .logo span {
             color: #e74c3c;
         }
-.weather-box {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(255, 255, 255, 0.15);
-    padding: 6px 12px;
-    border-radius: 8px;
-    font-size: 14px;
-    color: #e74c3c;
-    font-family: Arial, sans-serif;
-}
 
-.weather-box img {
-    width: 26px;
-    height: 26px;
-}
+        .eslogan {
+            font-size: 0.85rem;
+            color: #666666;
+            font-style: italic;
+            margin-top: -0.3rem;
+        }
 
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
 
-        /* Contenido principal */
-        .articulo-container {
-            max-width: 900px;
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: #1a1a1a;
+            transition: all 0.3s;
+        }
+
+        /* ========================================
+           NAVEGACIÓN PRINCIPAL
+           ======================================== */
+        nav {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 0;
+        }
+
+        .nav-menu li {
+            position: relative;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #e74c3c;
+            border-bottom-color: #e74c3c;
+        }
+
+        /* ========================================
+           CONTENEDOR PRINCIPAL
+           ======================================== */
+        .main-container {
+            max-width: 1200px;
             margin: 2rem auto;
             padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 2rem;
+        }
+
+        /* ========================================
+           ARTÍCULO DE NOTICIA COMPLETO
+           ======================================== */
+        .articulo-completo {
             background-color: #ffffff;
             border-radius: 8px;
+            overflow: hidden;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            padding-bottom: 3rem;
-        }
-
-        .articulo-img {
-            width: 100%;
-            height: 420px;
-            object-fit: cover;
-            border-radius: 6px 6px 0 0;
-        }
-
-        .articulo-content {
-            padding: 2rem;
+            padding: 3rem;
         }
 
         .categoria-tag {
@@ -85,124 +201,559 @@
             padding: 0.3rem 0.8rem;
             border-radius: 3px;
             font-size: 0.75rem;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
             font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
         }
 
-        .articulo-title {
-            font-size: 2.4rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
+        .categoria-tag.politica { background-color: #3498db; }
+
+        .articulo-completo h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
         }
 
         .articulo-meta {
+            display: flex;
+            gap: 1.5rem;
             font-size: 0.9rem;
-            color: #666666;
+            color: #888888;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .articulo-imagen-principal {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
             margin-bottom: 2rem;
         }
 
-        .articulo-text {
-            font-size: 1.15rem;
-            color: #333333;
-            line-height: 1.8;
+        .articulo-bajada {
+            font-size: 1.2rem;
+            color: #555555;
+            line-height: 1.7;
             margin-bottom: 2rem;
+            font-weight: 500;
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+            border-left: 4px solid #e74c3c;
+        }
+
+        .articulo-contenido {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #333333;
+        }
+
+        .articulo-contenido h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+
+        .articulo-contenido h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .articulo-contenido p {
+            margin-bottom: 1.5rem;
+        }
+
+        .articulo-contenido ul,
+        .articulo-contenido ol {
+            margin-bottom: 1.5rem;
+            margin-left: 2rem;
+        }
+
+        .articulo-contenido li {
+            margin-bottom: 0.8rem;
+        }
+
+        .articulo-contenido blockquote {
+            border-left: 4px solid #e74c3c;
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: #555555;
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 4px;
+        }
+
+        .destacado {
+            background-color: #fff3cd;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 4px solid #ffc107;
         }
 
         .btn-volver {
             display: inline-block;
-            background-color: #e74c3c;
+            background-color: #1a1a1a;
             color: white;
             padding: 0.8rem 2rem;
-            text-decoration: none;
             border-radius: 4px;
+            text-decoration: none;
             font-weight: 600;
+            transition: background-color 0.3s;
+            margin-top: 2rem;
         }
 
         .btn-volver:hover {
             background-color: #333333;
         }
 
-        footer {
-            background-color: #1a1a1a;
-            color: #cccccc;
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 3rem;
+        /* ========================================
+           SIDEBAR - BARRA LATERAL
+           ======================================== */
+        .sidebar {
+            position: sticky;
+            top: 20px;
+            float: right;
+            width: 300px;
         }
-        
+
+        .widget {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+        }
+
+        .widget-titulo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e74c3c;
+        }
+
+        .mas-leidas-lista {
+            list-style: none;
+        }
+
+        .mas-leidas-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .mas-leidas-item:last-child {
+            border-bottom: none;
+        }
+
+        .mas-leidas-numero {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: #e74c3c;
+            color: white;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-right: 0.8rem;
+        }
+
+        .mas-leidas-item a {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            line-height: 1.4;
+            transition: color 0.3s;
+        }
+
+        .mas-leidas-item a:hover {
+            color: #e74c3c;
+        }
+
+        .weather-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgb(255, 255, 255);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #e74c3c;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .weather-box img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .dolar-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #e74c3c;
+            font-family: Arial, sans-serif;
+            margin-top: 1rem;
+        }
+
+        .dolar-box img {
+            width: 100px;
+            height: 50px;
+        }
+
+        /* ========================================
+           RESPONSIVE - TABLET
+           ======================================== */
+        @media (max-width: 968px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+
+            .articulo-completo h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* ========================================
+           RESPONSIVE - MÓVIL
+           ======================================== */
+        @media (max-width: 768px) {
+            .top-bar-content {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .menu-toggle {
+                display: flex;
+                position: absolute;
+                right: 2rem;
+                top: 1.5rem;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                display: none;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu a {
+                border-bottom: none;
+                border-left: 3px solid transparent;
+            }
+
+            .nav-menu a:hover,
+            .nav-menu a.active {
+                border-left-color: #e74c3c;
+                border-bottom-color: transparent;
+            }
+
+            .articulo-completo {
+                padding: 1.5rem;
+            }
+
+            .articulo-completo h1 {
+                font-size: 1.6rem;
+            }
+
+            .articulo-imagen-principal {
+                height: 250px;
+            }
+
+            .main-container,
+            .nav-content,
+            .header-content,
+            .top-bar-content {
+                padding: 0 1rem;
+            }
+        }
     </style>
 </head>
 <body>
-
-<header>
-    <div class="header-content">
-        <div class="logo">EL <span>DUEÑO</span></div>
-          <!-- Caja del clima -->
-        <div id="weather" class="weather-box">
-            Cargando clima...
-    </div>
-</header>
-
-<div class="articulo-container">
-    <img src="https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/2ba9/live/baf7f590-b975-11f0-b2a1-6f537f66f9aa.jpg.webp" class="articulo-img">
-
-    <div class="articulo-content">
-
-        <span class="categoria-tag">Política</span>
-
-        <h1 class="articulo-title">La historia que nunca acaba, pero que siempre parece terminar</h1>
-
-        <div class="articulo-meta">
-            8 de diciembre de 2025 • Por Redacción El Dueño Digital
+    <!-- ========================================
+         BARRA SUPERIOR
+         ======================================== -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="fecha-actual">
+                <span id="fecha"></span>
+            </div>
+            <div class="redes-sociales">
+                <a href="#" title="Facebook">📘 Facebook</a>
+                <a href="#" title="Twitter">🐦 Twitter</a>
+                <a href="#" title="Instagram">📷 Instagram</a>
+            </div>
         </div>
-
-        <p class="articulo-text">
-          Donald Trump ha intentado presentarse como mediador para terminar la guerra en Ucrania, pero hasta ahora no pudo convencer a Vladimir Putin de aceptar un acuerdo de paz. Aunque envió emisarios y propuso planes formales de negociación, Rusia mantiene exigencias que Ucrania y sus aliados consideran inaceptables.
-
-El principal obstáculo es que Putin no busca simplemente un alto el fuego, sino que quiere controlar definitivamente territorios ocupados, especialmente el Donbás, reducir la capacidad militar ucraniana y garantizar que Ucrania no se acerque más a Occidente. Estas condiciones implican, en la práctica, que Ucrania renuncie a parte de su soberanía.
-
-Por su parte, Ucrania se niega a ceder territorio y rechaza cualquier acuerdo que implique debilitar su defensa o quedar vulnerable a nuevos ataques. Los aliados europeos apoyan esta postura porque ven el plan de Trump como demasiado favorable a Rusia.
-
-Además, hay una gran desconfianza mutua: para muchos analistas, Moscú no tiene incentivos reales para poner fin a la guerra en los términos planteados por Estados Unidos. Rusia cree que todavía puede obtener ventajas militares y políticas manteniendo la presión militar.
-
-En resumen, Trump no logra avanzar porque las posiciones de Rusia y Ucrania están demasiado alejadas, y porque el Kremlin exige cambios profundos en la estructura política y territorial ucraniana que ninguna de las partes afectadas está dispuesta a aceptar.
-        </p>
-
-        <p class="articulo-text">
-
-        <a href="index.html" class="btn-volver">⬅ Volver al inicio</a>
     </div>
-</div>
 
-<footer>
-    © 2025 El Dueño Digital — Todos los derechos reservados.
-</footer>
-<script>
-const apiKey = "d2153a942e56779b1b5edec79a4171c4" 
-const city = "Buenos Aires";
+    <!-- ========================================
+         HEADER PRINCIPAL
+         ======================================== -->
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="logo.png" alt="Logo" class="logo-img">
+                <div class="logo-section">
+                    <div class="logo">El <span>DUEÑO</span></div>
+                    <div class="eslogan">ULTIMAS NOTICIAS Y EFEMERIDES</div>
+                </div>
+            </div>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
 
-async function loadWeather() {
-    try {
-        const response = await fetch(
-            `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=es&appid=${apiKey}`
-        );
-        const data = await response.json();
-        
-        const temp = Math.round(data.main.temp);
-        const icon = data.weather[0].icon;
-        const desc = data.weather[0].description;
+    <!-- ========================================
+         NAVEGACIÓN PRINCIPAL
+         ======================================== -->
+    <nav>
+        <div class="nav-content">
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Portada</a></li>
+                <li><a href="Politica.html" class="active">Política</a></li>
+                <li><a href="#Deportes.html">Deportes</a></li>
+                <li><a href="#Mundo.html">Mundo</a></li>
+                <li><a href="#Tecnologia.html">Tecnología</a></li>
+                <li><a href="#Economia.html">Economía</a></li>
+                <li><a href="Efemerides.html">Efemerides</a></li>
+            </ul>
+        </div>
+    </nav>
 
-        document.getElementById("weather").innerHTML = `
-            <img src="https://openweathermap.org/img/wn/${icon}.png" alt="clima">
-            <span>${temp}°C - ${desc}</span>
-        `;
-    } catch (e) {
-        document.getElementById("weather").textContent = "Error cargando clima";
-    }
-}
+    <!-- ========================================
+         CONTENEDOR PRINCIPAL
+         ======================================== -->
+    <div class="main-container">
+        <!-- ARTÍCULO PRINCIPAL -->
+        <main>
+            <article class="articulo-completo">
+                <span class="categoria-tag politica">Política</span>
+                
+                <h1>¿Por qué Trump no ha logrado convencer a Putin para que acabe la guerra de Ucrania?</h1>
+                
+                <div class="articulo-meta">
+                    <span>📅 8 de Diciembre, 2025</span>
+                    <span>✍️ Por Redacción</span>
+                    <span>⏱️ 5 min de lectura</span>
+                </div>
 
-loadWeather();
-</script>
+                <img src="https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/2ba9/live/baf7f590-b975-11f0-b2a1-6f537f66f9aa.jpg.webp" alt="Trump y Putin" class="articulo-imagen-principal">
+
+                <div class="articulo-bajada">
+                    A pesar de las promesas de campaña del presidente electo Donald Trump de terminar rápidamente el conflicto en Ucrania, las conversaciones con el presidente ruso Vladimir Putin no han logrado avances significativos. El panorama geopolítico se mantiene tenso mientras las partes involucradas mantienen posiciones aparentemente irreconciliables.
+                </div>
+
+                <div class="articulo-contenido">
+                    <h2>Las promesas de campaña frente a la realidad geopolítica</h2>
+                    
+                    <p>Durante su campaña electoral, Donald Trump afirmó repetidamente que podría resolver el conflicto entre Rusia y Ucrania "en 24 horas" si ganaba las elecciones. Sin embargo, ahora que se prepara para asumir la presidencia, la complejidad de la situación se ha vuelto más evidente.</p>
+
+                    <p>Los analistas internacionales señalan que las declaraciones de Trump durante la campaña simplificaron enormemente un conflicto que involucra no solo a Rusia y Ucrania, sino también a toda la arquitectura de seguridad europea y los intereses estratégicos de múltiples potencias mundiales.</p>
+
+                    <h2>Las posiciones irreconciliables</h2>
+
+                    <p>El principal obstáculo para cualquier negociación radica en las demandas fundamentales de ambas partes:</p>
+
+                    <h3>La posición de Rusia</h3>
+                    <ul>
+                        <li>Reconocimiento de los territorios anexados (Crimea y las regiones de Donetsk, Luhansk, Zaporizhia y Jersón)</li>
+                        <li>Garantías de que Ucrania no se unirá a la OTAN</li>
+                        <li>Levantamiento de las sanciones occidentales</li>
+                        <li>Reconocimiento de una zona de influencia rusa en Europa del Este</li>
+                    </ul>
+
+                    <h3>La posición de Ucrania</h3>
+                    <ul>
+                        <li>Restauración completa de su integridad territorial, incluyendo Crimea</li>
+                        <li>Reparaciones por los daños de guerra</li>
+                        <li>Juicio a los responsables de crímenes de guerra</li>
+                        <li>Garantías de seguridad que podrían incluir la adhesión a la OTAN</li>
+                    </ul>
+
+                    <div class="destacado">
+                        <strong>Dato clave:</strong> Según estimaciones de la ONU, el conflicto ha causado más de 500,000 bajas entre ambos bandos y ha desplazado a millones de personas, convirtiendo esta en la mayor crisis humanitaria en Europa desde la Segunda Guerra Mundial.
+                    </div>
+
+                    <h2>El factor europeo y la OTAN</h2>
+
+                    <p>Cualquier acuerdo que Trump intente negociar debe tener en cuenta la posición de los aliados europeos de Estados Unidos. La Unión Europea y los países de la OTAN han invertido miles de millones de dólares en apoyo militar y humanitario a Ucrania, y muchos consideran que ceder ante las demandas rusas sentaría un precedente peligroso.</p>
+
+                    <blockquote>
+                        "No podemos permitir que la agresión sea recompensada. Si Putin logra sus objetivos en Ucrania mediante la fuerza militar, ningún país en Europa estará seguro", declaró recientemente el Secretario General de la OTAN.
+                    </blockquote>
+
+                    <h2>Los límites del poder de Trump</h2>
+
+                    <p>A pesar de la influencia de Estados Unidos, existen varios factores que limitan la capacidad de Trump para forzar un acuerdo:</p>
+
+                    <p><strong>La resistencia ucraniana:</strong> El presidente Zelensky ha dejado claro que Ucrania no aceptará ningún acuerdo que implique ceder territorio. La población ucraniana, que ha sufrido enormemente durante el conflicto, respalda mayoritariamente esta postura.</p>
+
+                    <p><strong>La posición de Putin:</strong> El líder ruso ha invertido demasiado capital político en este conflicto como para retirarse sin lograr objetivos tangibles. Su supervivencia política podría depender de presentar el resultado como una victoria.</p>
+
+                    <p><strong>El Congreso de EE.UU.:</strong> Aunque Trump será presidente, necesitará el apoyo del Congreso para implementar cualquier cambio significativo en la política hacia Ucrania. Muchos congresistas de ambos partidos se han mostrado firmemente a favor de apoyar a Ucrania.</p>
+
+                    <h2>Las opciones sobre la mesa</h2>
+
+                    <p>Los expertos en relaciones internacionales han identificado varios escenarios posibles:</p>
+
+                    <p><strong>Congelación del conflicto:</strong> Similar a lo ocurrido en Corea, las partes podrían acordar un alto el fuego sin resolver las cuestiones territoriales. Sin embargo, esto dejaría a Ucrania dividida y podría resultar en un conflicto permanente de baja intensidad.</p>
+
+                    <p><strong>Acuerdo territorial limitado:</strong> Ucrania podría ceder parte de los territorios ocupados a cambio de garantías de seguridad robustas, posiblemente incluyendo la adhesión a la OTAN. Sin embargo, esto es políticamente tóxico para el liderazgo ucraniano.</p>
+
+                    <p><strong>Escalada diplomática:</strong> Si las negociaciones fracasan, Trump podría intentar presionar a Putin mediante una combinación de nuevas sanciones y un aumento del apoyo militar a Ucrania, pero esto contradice sus promesas de campaña.</p>
+
+                    <h2>El papel de China</h2>
+
+                    <p>Un factor a menudo subestimado es el papel de China en este conflicto. Beijing ha mantenido una posición oficialmente neutral pero ha proporcionado apoyo económico crucial a Rusia. Cualquier solución duradera probablemente requerirá al menos la aquiescencia china, si no su participación activa.</p>
+
+                    <p>Trump ha sugerido que podría utilizar su relación con el presidente chino Xi Jinping para ayudar a mediar, pero las relaciones sino-estadounidenses están tensas por otros temas, especialmente Taiwán y el comercio.</p>
+
+                    <h2>Conclusión: Una promesa difícil de cumplir</h2>
+
+                    <p>La realidad es que resolver el conflicto en Ucrania requiere mucho más que la voluntad de un solo líder, por poderoso que sea. Las raíces del conflicto son profundas, los intereses en juego son enormes, y las emociones de los involucrados están a flor de piel después de casi tres años de guerra brutal.</p>
+
+                    <p>Si bien Trump puede traer un enfoque diferente a las negociaciones, los obstáculos fundamentales permanecen. Putin no cederá sin obtener concesiones significativas, Ucrania no aceptará perder territorio, y los aliados europeos de Estados Unidos no apoyarán un acuerdo que consideren una capitulación ante la agresión rusa.</p>
+
+                    <p>La promesa de Trump de resolver el conflicto rápidamente puede haber sido efectiva como eslogan de campaña, pero la historia que nunca acaba parece destinada a continuar, al menos por ahora. Solo el tiempo dirá si el nuevo presidente estadounidense puede encontrar una fórmula que satisfaga a todas las partes o si, como muchos predijeron, la paz en Ucrania seguirá siendo un objetivo elusivo.</p>
+                </div>
+
+                <a href="index.html" class="btn-volver">← Volver a la portada</a>
+            </article>
+        </main>
+
+        <!-- ========================================
+             SIDEBAR - BARRA LATERAL
+             ======================================== -->
+        <aside class="sidebar">
+            <!-- Widget: Efemérides -->
+            <div class="widget">
+                <h3 class="widget-titulo">Efemerides 8/12</h3>
+                <ul class="mas-leidas-lista">
+                    <li class="mas-leidas-item">
+                        <span class="mas-leidas-numero">1</span>
+                        <a href="Efemerides.html">1941 - Entrada de Estados Unidos en la Segunda Guerra Mundial</a>
+                    </li>
+                    <li class="mas-leidas-item">
+                        <span class="mas-leidas-numero">2</span>
+                        <a href="Efemerides.html">1980 - Asesinato de John Lennon</a>
+                    </li>
+                    <li class="mas-leidas-item">
+                        <span class="mas-leidas-numero">3</span>
+                        <a href="Efemerides.html">1991 - Disolución de la Unión Soviética y creación de la Comunidad de Estados Independientes (CEI)</a>
+                    </li>
+                    <li class="mas-leidas-item">
+                        <span class="mas-leidas-numero">4</span>
+                        <a href="Efemerides.html">1987 - Inicio de la Primera Intifada</a>
+                    </li>
+                    <li class="mas-leidas-item">
+                        <span class="mas-leidas-numero">5</span>
+                        <a href="Efemerides.html">Conmemoración religiosa: Fiesta de la Inmaculada Concepción</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Widget: Clima -->
+            <div class="widget">
+                <h3 class="widget-titulo">El Clima</h3>
+                <div id="weather" class="weather-box">
+                    Cargando clima...
+                </div>
+                <div class="dolar-box">
+                    <img src="" alt="Dólar">
+                    <span id="dolarTexto">Cargando dólar...</span>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script>
+        // Función del menú móvil
+        function toggleMenu() {
+            document.getElementById('navMenu').classList.toggle('active');
+        }
+
+        // Mostrar fecha actual
+        const fecha = new Date();
+        document.getElementById('fecha').textContent = fecha.toLocaleDateString('es-ES', { 
+            weekday: 'long', 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric' 
+        });
+
+        // Cargar clima
+        const apiKey = "d2153a942e56779b1b5edec79a4171c4";
+        const city = "Buenos Aires";
+
+        async function loadWeather() {
+            try {
+                const response = await fetch(
+                    `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=es&appid=${apiKey}`
+                );
+                const data = await response.json();
+
+                const temp = Math.round(data.main.temp);
+                const icon = data.weather[0].icon;
+                const desc = data.weather[0].description;
+
+                document.getElementById("weather").innerHTML = `
+                    <img src="https://openweathermap.org/img/wn/${icon}.png" alt="clima">
+                    <span>${temp}°C - ${desc}</span>
+                `;
+            } catch (e) {
+                document.getElementById("weather").textContent = "Error cargando clima";
+            }
+        }
+
+        // Cargar dólar
+        async function cargarDolar() {
+            try {
+                const res = await fetch("https://api.bluelytics.com.ar/v2/latest");
+                const data = await res.json();
+
+                const blue = data.blue.value_sell;
+                const oficial = data.oficial.value_sell;
+
+                document.getElementById("dolarTexto").textContent =
+                    `Blue $${blue} | Oficial $${oficial}`;
+            } catch (error) {
+                document.getElementById("dolarTexto").textContent =
+                    "No disponible";
+            }
+        }
+
+        // Ejecutar funciones al cargar la página
+        loadWeather();
+        cargarDolar();
+    </script>
 </body>
 </html>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>El Dueño Digital - Ultimas Noticias y Efemerides</title>
+     <link rel="icon" type="image/png" href="logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         /* ========================================
@@ -26,7 +27,7 @@
            BARRA SUPERIOR - FECHA Y REDES
            ======================================== */
         .top-bar {
-            background-color: #1a1a1a;
+            background-color: #e1796e;
             color: #ffffff;
             padding: 0.5rem 0;
             font-size: 0.85rem;
@@ -697,11 +698,11 @@
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#" class="active">Portada</a></li>
                 <li><a href="Politica.html">Política</a></li>
-                <li><a href="#deportes">Deportes</a></li>
+                <li><a href="Deportes.html">Deportes</a></li>
                 <li><a href="#mundo">Mundo</a></li>
                 <li><a href="#tecnologia">Tecnología</a></li>
                 <li><a href="#economia">Economía</a></li>
-                <li><a href="#cultura">Cultura</a></li>
+                <li><a href="Efemerides.html">Efemerides</a></li>
             </ul>
         </div>
     </nav>
@@ -717,7 +718,7 @@
                 <img src="https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/2ba9/live/baf7f590-b975-11f0-b2a1-6f537f66f9aa.jpg.webp" alt="Noticia principal" class="noticia-principal-imagen">
                 <div class="noticia-principal-content">
                     <span class="categoria-tag">Política</span>
-                    <h1>La historia que nunca acaba, pero que siempre parece terminar</h1>
+                    <h1>La historia que nunca acaba, pero que siempre parece terminar.</h1>
                     <p class="noticia-bajada">
                        "¿Por qué Trump no ha logrado convencer a Putin para que acabe la guerra de Ucrania?
                     </p>
@@ -858,27 +859,28 @@
         <aside class="sidebar">
             <!-- Widget: Noticias más leídas -->
             <div class="widget">
-                <h3 class="widget-titulo">Eferides 8/12</h3>
+                <h3 class="widget-titulo">Efemerides 8/12</h3>
+                 <a href="Efemerides.html"></a>
                 <ul class="mas-leidas-lista">
                     <li class="mas-leidas-item">
                         <span class="mas-leidas-numero">1</span>
-                        <a href="#">1941 - Entrada de Estados Unidos en la Segunda Guerra Mundial</a>
+                        <a href="Efemerides.html">1941 - Entrada de Estados Unidos en la Segunda Guerra Mundial</a>
                     </li>
                     <li class="mas-leidas-item">
                         <span class="mas-leidas-numero">2</span>
-                        <a href="#">1980 - Asesinato de John Lennon</a>
+                        <a href="Efemerides.html">1980 - Asesinato de John Lennon</a>
                     </li>
                     <li class="mas-leidas-item">
                         <span class="mas-leidas-numero">3</span>
-                        <a href="#">1991 - Disolución de la Unión Soviética y creación de la Comunidad de Estados Independientes (CEI)</a>
+                        <a href="Efemerides.html">1991 - Disolución de la Unión Soviética y creación de la Comunidad de Estados Independientes (CEI)</a>
                     </li>
                     <li class="mas-leidas-item">
                         <span class="mas-leidas-numero">4</span>
-                        <a href="#">1987 - Inicio de la Primera Intifada</a>
+                        <a href="Efemerides.html">1987 - Inicio de la Primera Intifada</a>
                     </li>
                     <li class="mas-leidas-item">
                         <span class="mas-leidas-numero">5</span>
-                        <a href="#">Conmemoración religiosa: Fiesta de la Inmaculada Concepción</a>
+                        <a href="Efemerides.html">Conmemoración religiosa: Fiesta de la Inmaculada Concepción</a>
                     </li>
                 </ul>
             </div>
@@ -917,9 +919,19 @@ async function loadWeather() {
     } catch (e) {
         document.getElementById("weather").textContent = "Error cargando clima";
     }
-}
 
-loadWeather();
+}
+toggleMenu() 
+<script>
+    function toggleMenu() {
+        document.getElementById('navMenu').classList.toggle('active');
+    }
+
+    // Mostrar fecha actual
+    const fecha = new Date();
+    document.getElementById('fecha').textContent = fecha.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+</script>
+
 </script>
 <script>
 async function cargarDolar() {
