@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Racing le quitó el sueño a todo el pueblo xeneize - El Dueño Digital</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Estudiantes, un campeon que lucho contra todos- El Dueño Digital</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <style>
         /* ========================================
            RESET Y CONFIGURACIÓN GLOBAL
@@ -190,7 +193,7 @@
             background-color: #ffffff;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
             padding: 3rem;
         }
 
@@ -207,7 +210,9 @@
             margin-bottom: 1.5rem;
         }
 
-        .categoria-tag.deportes { background-color: #2ecc71; }
+        .categoria-tag.deportes {
+            background-color: #2ecc71;
+        }
 
         .articulo-completo h1 {
             font-size: 2.5rem;
@@ -224,7 +229,7 @@
             color: #888888;
             margin-bottom: 2rem;
             padding-bottom: 1.5rem;
-            border-bottom: 2px solid #f0f0f0;
+            border-bottom: 2px solid #2ecc71;
         }
 
         .articulo-imagen-principal {
@@ -257,7 +262,7 @@
             font-weight: 700;
             margin-top: 2.5rem;
             margin-bottom: 1.5rem;
-            color: #1a1a1a;
+            color: #2ecc71;
         }
 
         .articulo-contenido h3 {
@@ -265,7 +270,7 @@
             font-weight: 600;
             margin-top: 2rem;
             margin-bottom: 1rem;
-            color: #1a1a1a;
+            color: #2ecc71;
         }
 
         .articulo-contenido p {
@@ -301,32 +306,65 @@
             border-left: 4px solid #2ecc71;
         }
 
-        .marcador {
-            background-color: #1a1a1a;
-            color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            text-align: center;
-            margin: 2rem 0;
-        }
-
-        .marcador h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            color: #cccccc;
-        }
-
-        .marcador-equipos {
+        .match-card {
             display: flex;
-            justify-content: space-around;
             align-items: center;
-            font-size: 2rem;
-            font-weight: 700;
+            justify-content: space-between;
+            background-color: #111827;
+            /* fondo oscuro */
+            border-radius: 10px;
+            padding: 50px 50px;
+            max-width: 2000px;
+            margin: 16px auto;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
         }
 
-        .marcador-score {
-            color: #2ecc71;
-            font-size: 3rem;
+        /* Equipos */
+        .team {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 34%;
+        }
+
+        .team img {
+            width: 100px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .team-name {
+            font-size: 25px;
+            font-weight: 600;
+            color: #e5e7eb;
+        }
+
+        /* Visitante a la derecha */
+        .team-away {
+            justify-content: flex-end;
+            text-align: right;
+        }
+
+        /* Resultado */
+        .match-result {
+            width: 32%;
+            text-align: center;
+        }
+
+        .score {
+            font-size: 30px;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1;
+        }
+
+        .match-status {
+            display: block;
+            font-size: 11px;
+            margin-top: 4px;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .btn-volver {
@@ -345,7 +383,7 @@
             background-color: #333333;
         }
 
-    
+
         /* ========================================
            RESPONSIVE - TABLET
            ======================================== */
@@ -430,6 +468,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- ========================================
          BARRA SUPERIOR
@@ -492,123 +531,166 @@
         <main>
             <article class="articulo-completo">
                 <span class="categoria-tag deportes">Deportes</span>
-                
-                <h1>Racing le quitó el sueño a todo el pueblo xeneize</h1>
-                
+
+                <h1>Estudiantes, un campeon que lucho contra todos</h1>
+
                 <div class="articulo-meta">
-                    <span>📅 8 de Diciembre, 2025</span>
+                    <span>📅 15 de Diciembre, 2025</span>
                     <span>✍️ Por Redacción Deportiva</span>
                     <span>⏱️ 4 min de lectura</span>
                 </div>
 
-                <img src="https://media.losandes.com.ar/p/7ad5ceb2b4c1b15326a69d8c17943785/adjuntos/368/imagenes/100/673/0100673027/1000x0/smart/boca-juniors-racing-club-la-liga-profesional.jpg" alt="Racing vs Boca" class="articulo-imagen-principal">
+                <img src="https://media.0221.com.ar/p/53663a0d1614c75bf3af87d2fa2de505/adjuntos/357/imagenes/100/259/0100259781/1400x0/2219x1352:2239x1372/estudiantes-racing-santiago-del-estero-campeon-2.jpg"
+                    alt="Racing vs Boca" class="articulo-imagen-principal">
 
                 <div class="articulo-bajada">
-                    En un partido histórico que quedará grabado en la memoria de todos los hinchas, Racing Club venció 1-0 a Boca Juniors en La Bombonera y se clasificó como el primer finalista del Torneo Clausura. El gol de la victoria llegó en el momento justo y desató la euforia de miles de simpatizantes de La Academia que soñaban con este momento.
+                    En un partido no apto para cardiaco Estudiantes se impuso en la tanda de penales ante un Racing que
+                    dio partido.
                 </div>
+                <div class="match-card">
+                    <div class="team team-home">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Estudiantes_de_la_Plata_crest_%282025%29.svg/330px-Estudiantes_de_la_Plata_crest_%282025%29.svg.png"
+                            alt="Boca Juniors">
+                        <span class="team-name">Estudiantes (LP)</span>
+                    </div>
 
-                <div class="marcador">
-                    <h3>RESULTADO FINAL - SEMIFINAL TORNEO CLAUSURA</h3>
-                    <div class="marcador-equipos">
-                        <span>BOCA JUNIORS</span>
-                        <span class="marcador-score">0 - 1</span>
-                        <span>RACING CLUB</span>
+                    <div class="match-result">
+                        <span class="score">1 (5)- 1 (4)</span>
+                        <span class="match-status">Final - Torneo Clausura</span>
+                    </div>
+
+                    <div class="team team-away">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Escudo_de_Racing_Club_%282014%29.svg/330px-Escudo_de_Racing_Club_%282014%29.svg.png"
+                            alt="River Plate">
+                        <span class="team-name">Racing Club</span>
                     </div>
                 </div>
 
-                <div class="articulo-contenido">
-                    <h2>Una noche histórica en La Bombonera</h2>
-                    
-                    <p>La Bombonera, ese templo del fútbol argentino que tantas alegrías le ha dado a Boca Juniors a lo largo de su historia, esta vez fue testigo de una de las noches más amargas para el pueblo xeneize. Racing Club llegó a la cancha de Brandsen 805 con la misión de conseguir un resultado que los llevara a la final, y lo lograron con creces.</p>
 
-                    <p>Desde el primer minuto, el partido prometía emociones fuertes. La Academia planteó un esquema ordenado, compacto en defensa y con salidas rápidas al ataque, mientras que Boca intentó imponer su localía y presionar alto en campo rival. Sin embargo, los dirigidos por Gustavo Costas demostraron una vez más por qué son uno de los equipos más sólidos del torneo.</p>
+                <div class="articulo-contenido">
+                    <h2>Una noche histórica en Santiago</h2>
+
+                    <p>Estadio Madre de Ciudades, a unos 1100km de los estadios tanto de Estudiantes como de Racing, se
+                        convierte una vez mas en la de una final. Siendo este punto muy debatido por casi todo pais,
+                        pero a pesar de eso el presidente de la AFA, Claudio "Chiqui"Tapia, continua llevandolo alli,
+                        por una cuastio que parece exeder del futbol.</p>
+
+                    <p>En esemismo lugar, Estudiantes parece hacer de local, no es la primera vez que dispusta una
+                        final, y tampoco la primera vez que termina victorioso.</p>
 
                     <h2>El desarrollo del partido</h2>
 
                     <h3>Primer tiempo: Tensión y equilibrio</h3>
 
-                    <p>Los primeros 45 minutos fueron de puro estudio táctico. Boca tuvo el balón en su poder durante largos pasajes, pero no logró generar situaciones claras de gol. La defensa de Racing, liderada magistralmente por su capitán, anuló cada intento ofensivo del Xeneize.</p>
+                    <p>Los primeros 45 minutos fueron de puro estudio táctico. Racing tuvo el balón en su poder durante
+                        largos pasajes, pero no logró generar situaciones claras de gol. La defensa de Estudiantes,
+                        liderada magistralmente por su Santiago Nuñez y Gonzalez Pirez, anuló cada intento ofensivo de
+                        la Academia.</p>
 
-                    <p>Racing, por su parte, apostó a la contra y en un par de ocasiones estuvo cerca de abrir el marcador. El arquero de Boca tuvo que intervenir en al menos dos jugadas de peligro que pudieron cambiar el rumbo del encuentro.</p>
+                    <p>El "Pincha", por su parte, apostó a la contra y en un par de ocasiones estuvo cerca de abrir el
+                        marcador. Cambeses tuvo que intervenir varias jugadas de peligro que pudieron cambiar el rumbo
+                        del encuentro.</p>
 
                     <div class="destacado">
-                        <strong>Estadística clave:</strong> En el primer tiempo, Boca tuvo 58% de posesión del balón, pero Racing generó 4 llegadas claras contra solo 2 del local. La efectividad de La Academia fue evidente desde el arranque.
+                        <strong>Estadística clave:</strong> En partido, Racving conto con una posecion total de %56
+                        aunque el Pincha logro tener mas tiros al arco y corners.
                     </div>
 
-                    <h3>Segundo tiempo: El gol que valió la clasificación</h3>
+                    <h3>Segundo tiempo: Un gol que esperaba todo Avellaneda, y otro que le devolvio el corazon a la
+                        mitad de La Plata.</h3>
 
-                    <p>El complemento comenzó con Boca volcado al ataque. Diego Martínez, el DT xeneize, sabía que necesitaba el gol y salió a buscarlo desde el primer minuto. Los cambios ofensivos no tardaron en llegar, pero Racing seguía firme atrás.</p>
+                    <p>EL segundo tiempo volvio con la misma consigna que el primero, ataques de ambos sitios, pero un
+                        partido que no significaba mucha emocion para nadie.</p>
 
-                    <p>Y cuando el partido parecía encaminarse hacia un empate sin goles que favorecía a Racing por su mejor posición en la tabla, llegó el momento de gloria para La Academia. A los 73 minutos, en una jugada perfectamente ejecutada, Roger Martínez conectó un centro desde la izquierda y definió con clase para vencer al arquero xeneize.</p>
+                    <p>Y cuando el partido parecía encaminarse hacia un empate sin goles que no favorecía a nadie ,
+                        llegó el momento de gloria para La Academia. A los 81 minutos, en una jugada de desconcierto
+                        total por parte de la defensa del "Leon", Maravilla aprovecho una perdida de Santiago Nuñez y
+                        llevo al arquero Muslera hacia donde quizo, para terminar picandosela en una gol que iba a
+                        quedar en la retina de todo hincha de Racing.</p>
 
+                    <p>La "Guarda Imperial", conocida barra brava de Racing, ya de daba por campeon. Pero en una falta
+                        inecesaria por parte de la defensa de Racing en el costado izquierdo del area, el "Principito"
+                        Sosa, elaboro un centro que dio directo en la cabeza del que nunca defrauda, Guido Carillo.</p>
                     <blockquote>
-                        "Es un gol que soñé toda mi vida. Convertir en La Bombonera y llevar a Racing a la final es algo que nunca voy a olvidar. Esto es para toda la gente de Racing que nos bancó siempre", declaró emocionado Roger Martínez al finalizar el encuentro.
+                        "Es uno de los goles que mas grite en toda mi vida, el gol de "Maravilla" nos dejo muy abajo
+                        animicamente a todos", comento una hincha de Estudiantes que se encontrbaa en la platea muy
+                        cercana a Juan Sebastian Veron.
                     </blockquote>
 
-                    <h2>La reacción de Boca</h2>
+                    <h2>Los Penales, reparten deseo</h2>
 
-                    <p>Tras el gol, Boca se volcó desesperadamente al ataque. Los últimos 15 minutos fueron de infarto para los hinchas de Racing, que veían cómo su equipo resistía oleada tras oleada del conjunto local. Hubo pelotazos, jugadas por alto, centros al área, pero la defensa de La Academia se mantuvo impenetrable.</p>
+                    <p>Ningun equipo queria perder, por eso volcaron lo mejor de cada uno en la tanda de penales.
+                        Empezaron ambos equipos anotando satisfactoriamente, pero en el segundo penal Cetre, extremo del
+                        "Pincha", dio un tiro que fue hacertado por el arquero contrario. Lo que dio una ventaja para el
+                        equipo de Avellaneda.</p>
 
-                    <p>El arquero Gabriel Arias, figura indiscutida del partido, realizó al menos tres atajadas clave en los minutos finales que mantuvieron vivo el sueño de Racing. Su actuación fue fundamental para sellar la clasificación.</p>
+                    <p>Esta ventaja se extrendio hasta el cuarto penal. Donde Martirena, lateral de Racing, erro su
+                        penal, dando lugar a una empate que seguiria por tiempo.</p>
 
-                    <h2>Las claves del triunfo de Racing</h2>
+                    <p>El empate duro hasta el sexto penal, el jugador de Estudiantes Rodriguez logro acertar su penal
+                        de una manera agonica, no asi Pardo que no logro meter su penal, y dio el tutilo en bandeja de
+                        oro al equipo platense. </p>
 
-                    <p>El éxito de Racing en La Bombonera no fue casualidad. El equipo demostró varios factores que fueron determinantes:</p>
+                    <h2>El Presidente, ¿El que mas gano?</h2>
 
-                    <ul>
-                        <li><strong>Solidez defensiva:</strong> Racing prácticamente no dejó espacios a Boca durante todo el partido. La línea de cuatro funcionó como un reloj suizo.</li>
-                        <li><strong>Efectividad:</strong> Con pocas llegadas, Racing convirtió en el momento justo. La definición de Roger Martínez fue impecable.</li>
-                        <li><strong>Mentalidad ganadora:</strong> El equipo de Costas demostró carácter para sostener el resultado en los momentos más difíciles.</li>
-                        <li><strong>Táctica perfecta:</strong> El planteo del técnico fue intachable. Cada jugador cumplió su rol a la perfección.</li>
-                        <li><strong>Gabriel Arias:</strong> El arquero fue un verdadero muro. Sus atajadas en el final fueron cruciales.</li>
-                    </ul>
+                    <p>El polemico presidente "pincha", Juan Sebastian Veron, fue sancionado por el tan hablado pasillo
+                        de espaldas, esa sancion cuenta con una lapzo de 6 meses que no puede ser parte de ningun acto
+                        relacionado con el futbol. </p>
 
-                    <h2>La tristeza xeneize</h2>
+                    <p>Esto, no impidio que las camaras hablaran de el, ya que vio el partido en la platea como un
+                        hincha mas, y si que grito. Se lo vio reclamando cada jugada, y festejando como un socio mas.
+                    </p>
 
-                    <p>Para Boca Juniors, la eliminación representa un golpe durísimo. El equipo quedó fuera de la lucha por el título en su propia cancha, ante uno de sus máximos rivales. La frustración de los jugadores era evidente al finalizar el partido, y la hinchada, aunque decepcionada, despidió al equipo con aplausos en reconocimiento al esfuerzo.</p>
+                    <p>Al finalizar el partido, Santiago Ascacibar, le acerco el trofeo y este lo levanto junto a la
+                        hichanda. Despues de eso ingreso al campo y no faltaron ni las fotos, las camaras y por supuesto
+                        el festejo. </p>
 
-                    <p>Diego Martínez, el técnico de Boca, reconoció en conferencia de prensa: "Duele muchísimo. Sabíamos que era una oportunidad única y no pudimos aprovecharla. Racing hizo un gran partido defensivamente y fue eficaz en el momento justo. Ahora toca levantar la cabeza y pensar en lo que viene."</p>
+                    <h2>EL festejo en La Plata</h2>
 
-                    <h2>¿Qué sigue para Racing?</h2>
+                    <p>Como en cada titulo pincha, la ciudad de La Plata, no durmio. Sus hinchas fenstejaron durante
+                        toda la madrugada y en diversos puntos. Demostrando una vez mas la pasion que tienen y su
+                        vinculo con la ciudad que lo vio nacer por alla del 5 de Agosto de 1905.</p>
 
-                    <p>Con esta victoria, Racing Club espera rival en la gran final del Torneo Clausura. El equipo que clasificó de la otra semifinal será el encargado de enfrentar a La Academia en la búsqueda del título.</p>
+                    <h2>¿Qué sigue para Estudiantes?</h2>
 
-                    <p>La última vez que Racing fue campeón del fútbol argentino fue en 2022, por lo que el equipo y su hinchada sueñan con volver a gritar campeón. La actuación mostrada en La Bombonera demuestra que La Academia está para grandes cosas.</p>
+                    <p>Con esta victoria, Estudiantes de La Plata saco un pase directo a la final del Trofeo de
+                        Campeones. Siendo Platese el equipo con el que redimira cuentas. Este sabado 20/12 a las 18:00,
+                        en el Estadio Unico de San Nicolas</p>
 
-                    <div class="destacado">
-                        <strong>Próxima fecha:</strong> La final del Torneo Clausura se jugará el próximo domingo 15 de diciembre. El rival de Racing saldrá del ganador de la semifinal entre River Plate y San Lorenzo, que se define este jueves.
-                    </div>
+                    <div class="match-card">
+                        <div class="team team-home">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Estudiantes_de_la_Plata_crest_%282025%29.svg/330px-Estudiantes_de_la_Plata_crest_%282025%29.svg.png"
+                                alt="Boca Juniors">
+                            <span class="team-name">Estudiantes (LP)</span>
+                        </div>
 
-                    <h2>Las reacciones en las redes sociales</h2>
+                        <div class="match-result">
+                            <span class="score">VS</span>
+                            <span class="match-status">Final - Trofeo de Campeones</span>
+                        </div>
 
-                    <p>Como era de esperarse, el triunfo de Racing generó miles de reacciones en las redes sociales. Los hinchas de La Academia celebraron efusivamente, mientras que el mundo Boca expresó su frustración y tristeza por la eliminación.</p>
-
-                    <p>El hashtag #RacingALaFinal se convirtió en tendencia en Twitter durante toda la noche, con miles de mensajes de felicitación al equipo de Avellaneda. Por otro lado, #FuerzaBoca fue el mensaje de aliento que predominó entre los simpatizantes xeneizes.</p>
-
-                    <h2>Conclusión: Una noche para el recuerdo</h2>
-
-                    <p>Racing Club escribió una página dorada en su historia al vencer a Boca Juniors en La Bombonera y clasificarse a la final del Torneo Clausura. El 1-0 quedará grabado en la memoria de todos los hinchas de La Academia como una de las victorias más importantes de los últimos años.</p>
-
-                    <p>Para el pueblo xeneize, en cambio, esta será una noche difícil de olvidar. La oportunidad de pelear por el título se esfumó en su propia casa, y ahora toca mirar hacia adelante y pensar en la próxima temporada.</p>
-
-                    <p>El fútbol argentino sigue brindando emociones partido tras partido, y esta semifinal será recordada por mucho tiempo como uno de esos encuentros que definen temporadas. Racing está en la final y sueña con ser campeón. El pueblo xeneize, por su parte, tendrá que esperar una nueva oportunidad.</p>
-                </div>
-
-                <a href="index.html" class="btn-volver">← Volver a la portada</a>
+                        <div class="team team-away">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Club_Alt%C3%A9tico_Platense_crest_%282025%29.svg/330px-Club_Alt%C3%A9tico_Platense_crest_%282025%29.svg.png"
+                                alt="River Plate">
+                                <span class="team-name">Platense</span>
+                         </div>
+        
+          </div>
+                         <a href="index.html" class="btn-volver">← Volver a la portada</a>
             </article>
         </main>
 
-    <script>
-        // Función del menú móvil
-        function toggleMenu() {
-            document.getElementById('navMenu').classList.toggle('active');
-        }
+        <script>
+            // Función del menú móvil
+            function toggleMenu() {
+                document.getElementById('navMenu').classList.toggle('active');
+            }
 
-        // Mostrar fecha actual
-        const fecha = new Date();
-        document.getElementById('fecha').textContent = fecha.toLocaleDateString('es-ES', { 
-            weekday: 'long', 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric' 
-        });
+            // Mostrar fecha actual
+            const fecha = new Date();
+            document.getElementById('fecha').textContent = fecha.toLocaleDateString('es-ES', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
