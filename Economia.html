@@ -377,68 +377,6 @@ nav {
 /* ========================================
    SIDEBAR - BARRA LATERAL
    ======================================== */
-.sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.widget {
-  background-color: #ffffff;
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-
-.widget-titulo {
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  color: #1a1a1a;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid #f39c12;
-}
-
-.mas-leidas-lista {
-  list-style: none;
-}
-
-.mas-leidas-item {
-  padding: 1rem 0;
-  border-bottom: 1px solid #f0f0f0;
-}
-
-.mas-leidas-item:last-child {
-  border-bottom: none;
-}
-
-.mas-leidas-numero {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  background-color: #f39c12;
-  color: white;
-  text-align: center;
-  line-height: 30px;
-  border-radius: 50%;
-  font-weight: 700;
-  font-size: 0.9rem;
-  margin-right: 0.8rem;
-}
-
-.mas-leidas-item a {
-  color: #1a1a1a;
-  text-decoration: none;
-  font-size: 0.95rem;
-  font-weight: 500;
-  line-height: 1.4;
-  transition: color 0.3s;
-}
-
-.mas-leidas-item a:hover {
-  color: #f39c12;
-}
-
 .sidebar-economia {
   background: #ffffff;
   border: 2px solid #f39c12;
@@ -449,41 +387,33 @@ nav {
 
 .titulo-economia {
   text-align: center;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
   color: #f39c12;
-  margin-bottom: 6px;
+  margin-bottom: 12px;
   border-bottom: 2px solid #f39c12;
   padding-bottom: 6px;
 }
 
-.subtitulo-economia {
-  text-align: center;
-  font-size: 13px;
-  color: #555;
-  margin-bottom: 14px;
-}
-
-.indicadores-ar {
+.tabla-inflacion-mensual {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.indicadores-ar li {
+.tabla-inflacion-mensual li {
   display: flex;
   justify-content: space-between;
-  padding: 8px 10px;
+  padding: 7px 10px;
   margin-bottom: 6px;
   border-radius: 6px;
   font-size: 14px;
-  animation: fade 0.5s ease;
+  font-weight: 600;
 }
 
-/* Estados */
-.rojo {
-  background: #fdecea;
-  color: #c0392b;
+.verde {
+  background: #e9f7ef;
+  color: #27ae60;
 }
 
 .amarillo {
@@ -491,10 +421,18 @@ nav {
   color: #f39c12;
 }
 
-.verde {
-  background: #e9f7ef;
-  color: #27ae60;
+.rojo {
+  background: #fdecea;
+  color: #c0392b;
 }
+
+.fuente {
+  margin-top: 8px;
+  font-size: 11px;
+  color: #777;
+  text-align: right;
+}
+
 
 @keyframes fade {
   from { opacity: 0; }
@@ -746,7 +684,7 @@ footer {
 <div class="main-container">
   <!-- COLUMNA PRINCIPAL DE NOTICIAS -->
   <main>
-    <!-- NOTICIA DESTACADA -->
+    <!-- NOTICIA DESTACADA -->>
     <article class="noticia-destacada">
       <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&h=600&fit=crop" alt="Mercados financieros" class="noticia-destacada-imagen">
       <div class="noticia-destacada-content">
@@ -869,63 +807,99 @@ footer {
   <!-- ========================================
        SIDEBAR -- BARRA LATERAL
        ======================================== -->
-  <aside class="sidebar">
-<div class="sidebar-economia">
-  <h3 class="titulo-economia">📊 Argentina hoy</h3>
-  <p class="subtitulo-economia">Indicadores económicos clave</p>
+  <div class="sidebar-economia">
+  <h3 class="titulo-economia">📊 Inflación · Anual (2024)</h3>
 
-  <ul class="indicadores-ar" id="indicadores">
-    <li class="rojo">
-      <span>Inflación</span>
-      <strong>Alta</strong>
-    </li>
-    <li class="amarillo">
-      <span>Dólar</span>
-      <strong>Volátil</strong>
-    </li>
-    <li class="rojo">
-      <span>Actividad</span>
-      <strong>Estancada</strong>
-    </li>
+  <ul class="tabla-inflacion-mensual" id="inflacionWB">
+    <li>Cargando datos...</li>
   </ul>
+
+  <p class="fuente">Fuente: World Bank</p>
 </div>
+
 <script>
-   // Función del menú móvil
-        function toggleMenu() {
-            document.getElementById('navMenu').classList.toggle('active');
-        }
-  
-        // Mostrar fecha actual
-        const fecha = new Date();
-        document.getElementById('fecha').textContent = fecha.toLocaleDateString('es-ES', { 
-            weekday: 'long', 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric' 
-        });
-const indicadores = [
-  { nombre: "Inflación", estado: "Alta", color: "rojo" },
-  { nombre: "Dólar", estado: "Volátil", color: "amarillo" },
-  { nombre: "Actividad", estado: "Estancada", color: "rojo" },
-  { nombre: "Consumo", estado: "Débil", color: "rojo" },
-  { nombre: "Salarios", estado: "Rezagados", color: "rojo" },
-  { nombre: "Reservas", estado: "Críticas", color: "rojo" },
-  { nombre: "Riesgo país", estado: "Elevado", color: "rojo" }
+const paisesWB = [
+  { codigo: "DEU", nombre: "Alemania" },
+  { codigo: "SAU", nombre: "Arabia Saudita" },
+  { codigo: "ARG", nombre: "Argentina" },
+  { codigo: "BGD", nombre: "Bangladés" },
+  { codigo: "BRA", nombre: "Brasil" },
+  { codigo: "KHM", nombre: "Camboya" },
+  { codigo: "CHL", nombre: "Chile" },
+  { codigo: "CHN", nombre: "China" },
+  { codigo: "KOR", nombre: "Corea del Sur" },
+  { codigo: "EGY", nombre: "Egipto" },
+  { codigo: "ARE", nombre: "Emiratos Árabes Unidos" },
+  { codigo: "ESP", nombre: "España" },
+  { codigo: "USA", nombre: "Estados Unidos" },
+  { codigo: "ETH", nombre: "Etiopía" },
+  { codigo: "PHL", nombre: "Filipinas" },
+  { codigo: "FRA", nombre: "Francia" },
+  { codigo: "IND", nombre: "India" },
+  { codigo: "IDN", nombre: "Indonesia" },
+  { codigo: "IRN", nombre: "Irán" },
+  { codigo: "ISR", nombre: "Israel" },
+  { codigo: "ITA", nombre: "Italia" },
+  { codigo: "JPN", nombre: "Japón" },
+  { codigo: "KAZ", nombre: "Kazajistán" },
+  { codigo: "KEN", nombre: "Kenia" },
+  { codigo: "KWT", nombre: "Kuwait" },
+  { codigo: "LAO", nombre: "Laos" },
+  { codigo: "MEX", nombre: "México" },
+  { codigo: "MNG", nombre: "Mongolia" },
+  { codigo: "MMR", nombre: "Myanmar" },
+  { codigo: "NPL", nombre: "Nepal" },
+  { codigo: "NGA", nombre: "Nigeria" },
+  { codigo: "PAK", nombre: "Pakistán" },
+  { codigo: "PRY", nombre: "Paraguay" },
+  { codigo: "PER", nombre: "Perú" },
+  { codigo: "QAT", nombre: "Qatar" },
+  { codigo: "GBR", nombre: "Reino Unido" },
+  { codigo: "RUS", nombre: "Rusia" },
+  { codigo: "LKA", nombre: "Sri Lanka" },
+  { codigo: "ZAF", nombre: "Sudáfrica" },
+  { codigo: "THA", nombre: "Tailandia" },
+  { codigo: "TUR", nombre: "Turquía" },
+  { codigo: "EUU", nombre: "Unión Europea" },
+  { codigo: "URY", nombre: "Uruguay" },
+  { codigo: "UZB", nombre: "Uzbekistán" },
+  { codigo: "VNM", nombre: "Vietnam" },
+  { codigo: "VEN", nombre: "Venezuela" }
 ];
 
-let index = 0;
-const ul = document.getElementById("indicadores");
+const indicador = "FP.CPI.TOTL.ZG"; // Inflación (IPC)
 
-function rotarIndicadores() {
-  ul.innerHTML = "";
+const ul = document.getElementById("inflacionWB");
+ul.innerHTML = "";
 
-  for (let i = 0; i < 3; i++) {
-    const indicador = indicadores[(index + i) % indicadores.length];
-    const li = document.createElement("li");
-    li.className = indicador.color;
-    li.innerHTML = `<span>${indicador.nombre}</span><strong>${indicador.estado}</strong>`;
-    ul.appendChild(li);
-  }
+paisesWB.forEach(pais => {
+  const url = `https://api.worldbank.org/v2/country/${pais.codigo}/indicator/${indicador}?format=json`;
 
-  index = (index + 1) % indicadores.length;
-}
+  fetch(url)
+    .then(res => res.json())
+    .then(data => {
+      if (!data || !data[1]) return;
+
+      // Último dato disponible
+      const ultimo = data[1].find(d => d.value !== null);
+      if (!ultimo) return;
+
+      const valor = ultimo.value;
+      let clase = "verde";
+
+      if (valor >= 10) clase = "rojo";
+      else if (valor >= 5) clase = "amarillo";
+
+      const li = document.createElement("li");
+      li.className = clase;
+      li.innerHTML = `
+        <span>${pais.nombre}</span>
+        <strong>${valor.toFixed(1)}%</strong>
+      `;
+      ul.appendChild(li);
+    })
+    .catch(() => {
+      console.warn("Error cargando datos de", pais.nombre);
+    });
+});
+</script>

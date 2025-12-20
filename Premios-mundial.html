@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudiantes, un campeon que lucho contra todos- El Dueño Digital</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ========================================
+           RESET Y CONFIGURACIÓN GLOBAL
+           ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: #f8f9fa;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           BARRA SUPERIOR - FECHA Y REDES
+           ======================================== */
+        .top-bar {
+            background-color: #e1796e;
+            color: #ffffff;
+            padding: 0.5rem 0;
+            font-size: 0.85rem;
+        }
+
+        .top-bar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .fecha-actual {
+            color: #cccccc;
+        }
+
+        .redes-sociales {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .redes-sociales a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .redes-sociales a:hover {
+            color: #e74c3c;
+        }
+
+        /* ========================================
+           HEADER PRINCIPAL
+           ======================================== */
+        header {
+            background-color: #ffffff;
+            border-bottom: 3px solid #e74c3c;
+            padding: 1.5rem 0;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            letter-spacing: -1px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 75px;
+            height: 75px;
+            object-fit: contain;
+        }
+
+        .logo span {
+            color: #e74c3c;
+        }
+
+        .eslogan {
+            font-size: 0.85rem;
+            color: #666666;
+            font-style: italic;
+            margin-top: -0.3rem;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: #1a1a1a;
+            transition: all 0.3s;
+        }
+
+        /* ========================================
+           NAVEGACIÓN PRINCIPAL
+           ======================================== */
+        nav {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 0;
+        }
+
+        .nav-menu li {
+            position: relative;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #e74c3c;
+            border-bottom-color: #e74c3c;
+        }
+
+        /* ========================================
+           CONTENEDOR PRINCIPAL
+           ======================================== */
+        .main-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        /* ========================================
+           ARTÍCULO DE NOTICIA COMPLETO
+           ======================================== */
+        .articulo-completo {
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            padding: 3rem;
+        }
+
+        .categoria-tag {
+            display: inline-block;
+            background-color: #e74c3c;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+        }
+
+        .categoria-tag.deportes {
+            background-color: #2ecc71;
+        }
+
+        .articulo-completo h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+
+        .articulo-meta {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+            color: #888888;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #2ecc71;
+        }
+
+        .articulo-imagen-principal {
+            width: 100%;
+            height: 700px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .articulo-bajada {
+            font-size: 1.2rem;
+            color: #555555;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            font-weight: 500;
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+            border-left: 4px solid #2ecc71;
+        }
+
+        .articulo-contenido {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #333333;
+        }
+
+        .articulo-contenido h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #2ecc71;
+        }
+
+        .articulo-contenido h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #2ecc71;
+        }
+
+        .articulo-contenido p {
+            margin-bottom: 1.5rem;
+        }
+
+        .articulo-contenido ul,
+        .articulo-contenido ol {
+            margin-bottom: 1.5rem;
+            margin-left: 2rem;
+        }
+
+        .articulo-contenido li {
+            margin-bottom: 0.8rem;
+        }
+
+        .articulo-contenido blockquote {
+            border-left: 4px solid #2ecc71;
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: #555555;
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 4px;
+        }
+
+        .destacado {
+            background-color: #d4edda;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 4px solid #2ecc71;
+        }
+
+        .match-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #111827;
+            /* fondo oscuro */
+            border-radius: 10px;
+            padding: 50px 50px;
+            max-width: 2000px;
+            margin: 16px auto;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+        }
+
+        /* Equipos */
+        .team {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 34%;
+        }
+
+        .team img {
+            width: 100px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .team-name {
+            font-size: 25px;
+            font-weight: 600;
+            color: #e5e7eb;
+        }
+
+        /* Visitante a la derecha */
+        .team-away {
+            justify-content: flex-end;
+            text-align: right;
+        }
+
+        /* Resultado */
+        .match-result {
+            width: 32%;
+            text-align: center;
+        }
+
+        .score {
+            font-size: 30px;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1;
+        }
+
+        .match-status {
+            display: block;
+            font-size: 11px;
+            margin-top: 4px;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-volver {
+            display: inline-block;
+            background-color: #1a1a1a;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            margin-top: 2rem;
+        }
+
+        .btn-volver:hover {
+            background-color: #333333;
+        }
+      /* CONTENEDOR */
+.premios-card {
+    background: #0f1f18;
+    border-left: 6px solid #2ecc71;
+    padding: 22px;
+    margin: 32px 0;
+    border-radius: 8px;
+}
+
+/* TITULO */
+.premios-card h3 {
+    margin-bottom: 18px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #2ecc71;
+    letter-spacing: 0.3px;
+}
+
+/* TABLA */
+.tabla-premios {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 16px;
+    font-size: 15px;
+}
+
+.tabla-premios thead {
+    background: rgba(46, 204, 113, 0.15);
+}
+
+.tabla-premios th {
+    padding: 10px;
+    text-align: left;
+    color: #2ecc71;
+    font-weight: 700;
+    border-bottom: 2px solid rgba(46, 204, 113, 0.4);
+}
+
+.tabla-premios td {
+    padding: 10px;
+    color: #eafaf1;
+    border-bottom: 1px solid rgba(46, 204, 113, 0.25);
+}
+
+/* ÚLTIMA FILA SIN BORDE */
+.tabla-premios tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* HOVER */
+.tabla-premios tbody tr:hover {
+    background: rgba(46, 204, 113, 0.08);
+}
+
+/* TEXTO EXTRA */
+.premios-extra {
+    margin-top: 14px;
+    font-size: 14px;
+    color: #c8f3dc;
+    line-height: 1.4;
+}
+.imagen-secundaria {
+    margin: 36px 0;
+    padding: 18px;
+    border: 2px dashed rgba(46, 204, 113, 0.4);
+    border-radius: 8px;
+    background: rgba(46, 204, 113, 0.05);
+    text-align: center;
+}
+
+.imagen-secundaria img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+.img-placeholder {
+    padding: 50px 20px;
+    font-size: 15px;
+    color: #2ecc71;
+    font-style: italic;
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .tabla-premios th,
+    .tabla-premios td {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
+
+
+
+        /* ========================================
+           RESPONSIVE - TABLET
+           ======================================== */
+        @media (max-width: 968px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+
+            .articulo-completo h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* ========================================
+           RESPONSIVE - MÓVIL
+           ======================================== */
+        @media (max-width: 768px) {
+            .top-bar-content {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .menu-toggle {
+                display: flex;
+                position: absolute;
+                right: 2rem;
+                top: 1.5rem;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                display: none;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu a {
+                border-bottom: none;
+                border-left: 3px solid transparent;
+            }
+
+            .nav-menu a:hover,
+            .nav-menu a.active {
+                border-left-color: #e74c3c;
+                border-bottom-color: transparent;
+            }
+
+            .articulo-completo {
+                padding: 1.5rem;
+            }
+
+            .articulo-completo h1 {
+                font-size: 1.6rem;
+            }
+
+            .articulo-imagen-principal {
+                height: 250px;
+            }
+
+            .marcador-equipos {
+                font-size: 1.5rem;
+            }
+
+            .marcador-score {
+                font-size: 2rem;
+            }
+
+            .main-container,
+            .nav-content,
+            .header-content,
+            .top-bar-content {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ========================================
+         BARRA SUPERIOR
+         ======================================== -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="fecha-actual">
+                <span id="fecha"></span>
+            </div>
+            <div class="redes-sociales">
+                <a href="#" title="Facebook">📘 Facebook</a>
+                <a href="#" title="Twitter">🐦 Twitter</a>
+                <a href="#" title="Instagram">📷 Instagram</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================
+         HEADER PRINCIPAL
+         ======================================== -->
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="logo.png" alt="Logo" class="logo-img">
+                <div class="logo-section">
+                    <div class="logo">El <span>DUEÑO</span></div>
+                    <div class="eslogan">ULTIMAS NOTICIAS Y EFEMERIDES</div>
+                </div>
+            </div>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================
+         NAVEGACIÓN PRINCIPAL
+         ======================================== -->
+    <nav>
+        <div class="nav-content">
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Portada</a></li>
+                <li><a href="Politica.html">Política</a></li>
+                <li><a href="#deportes" class="active">Deportes</a></li>
+                <li><a href="#mundo">Mundo</a></li>
+                <li><a href="#tecnologia">Tecnología</a></li>
+                <li><a href="#economia">Economía</a></li>
+                <li><a href="Efemerides.html">Efemerides</a></li>
+            </ul>
+        </div>
+    </nav>
+    <article class="articulo-completo">
+
+    <span class="categoria-tag deportes">Deportes</span>
+
+    <h1>La FIFA aprobó el mayor reparto económico de la historia de los Mundiales</h1>
+
+    <div class="articulo-meta">
+        <span>📅 17 de diciembre, 2025</span>
+        <span>✍️ Por Redacción Deportiva</span>
+        <span>⏱️ 6 min de lectura</span>
+    </div>
+
+    <img src="https://media.cnn.com/api/v1/images/stellar/prod/cnne-1761871-copia-de-foto-para-wp-2024-10-03t125030-838.jpg?c=16x9&q=h_653,w_1160,c_fill/f_avif"
+         alt="Reunión del Consejo de la FIFA"
+         class="articulo-imagen-principal">
+
+    <div class="articulo-bajada">
+        El organismo que rige el fútbol mundial confirmó un aumento histórico en los premios económicos
+        para el Mundial 2026, que se disputará en Estados Unidos, México y Canadá.
+    </div>
+
+    <!-- CUADRO DE PREMIOS -->
+   <div class="premios-card">
+
+    <h3>💰 Premios del Mundial 2026</h3>
+
+    <table class="tabla-premios">
+        <thead>
+            <tr>
+                <th>Puesto</th>
+                <th>Premio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>🏆 Campeón</td>
+                <td>USD 50 millones</td>
+            </tr>
+            <tr>
+                <td>🥈 Subcampeón</td>
+                <td>USD 33 millones</td>
+            </tr>
+            <tr>
+                <td>🥉 Tercer puesto</td>
+                <td>USD 29 millones</td>
+            </tr>
+            <tr>
+                <td>4° puesto</td>
+                <td>USD 27 millones</td>
+            </tr>
+            <tr>
+                <td>5° al 8°</td>
+                <td>USD 19 millones</td>
+            </tr>
+            <tr>
+                <td>9° al 16°</td>
+                <td>USD 15 millones</td>
+            </tr>
+            <tr>
+                <td>17° al 32°</td>
+                <td>USD 11 millones</td>
+            </tr>
+            <tr>
+                <td>33° al 48°</td>
+                <td>USD 9 millones</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p class="premios-extra">
+        Además, cada selección recibirá <strong>USD 1,5 millones</strong> solo por participar,
+        destinados a gastos de preparación y logística.
+    </p>
+
+</div>
+
+
+    <div class="articulo-contenido">
+
+        <h2>Una decisión histórica</h2>
+
+        <p>
+            La FIFA aprobó un reparto económico sin precedentes para el Mundial 2026,
+            marcando un antes y un después en la historia de la Copa del Mundo.
+            El fondo total de premios alcanzará los <strong>727 millones de dólares</strong>,
+            un aumento cercano al 50% respecto al Mundial de Qatar 2022.
+        </p>
+
+        <p>
+            La decisión fue tomada durante una reunión del Consejo de la FIFA y responde
+            principalmente a dos factores: la ampliación del torneo a 48 selecciones
+            y el crecimiento del negocio global del fútbol.
+        </p>
+
+        <h2>Más equipos, más dinero</h2>
+
+        <p>
+            Por primera vez, el Mundial contará con 48 selecciones participantes.
+            Esto no solo amplía la competencia deportiva, sino que también incrementa
+            los ingresos por derechos televisivos, patrocinadores y venta de entradas.
+        </p>
+
+        <p>
+            Desde la FIFA explicaron que el nuevo esquema busca repartir de manera
+            más equitativa los beneficios del torneo, permitiendo que incluso
+            selecciones eliminadas en fases tempranas reciban una suma significativa.
+        </p>
+
+        <blockquote>
+            “Queremos que el Mundial sea una verdadera herramienta de desarrollo
+            para el fútbol global”, señalaron desde el organismo.
+        </blockquote>
+
+        <h2>Un alivio para las federaciones</h2>
+
+        <p>
+            Para muchas federaciones, especialmente de países con menos recursos,
+            estos premios representan una oportunidad clave para invertir en
+            infraestructura, divisiones juveniles y desarrollo del fútbol local.
+        </p>
+
+        <p>
+            La FIFA también confirmó que los premios no solo reconocen el rendimiento
+            deportivo, sino que buscan cubrir los costos operativos que implica
+            participar de un evento de esta magnitud.
+        </p>
+
+        <div class="imagen-secundaria">
+            <img src="https://ca-times.brightspotcdn.com/dims4/default/f30fa27/2147483647/strip/true/crop/4467x2978+0+0/resize/1200x800!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F66%2F41%2Fb581f1d7868ade4fdba2bf635101%2Fd022ee80942540f284882aa0e2a75e0d">
+            </p>
+        </div>
+
+        <h2>Un Mundial que promete romper récords</h2>
+
+        <p>
+            Con más partidos, más selecciones y el mayor reparto económico de la historia,
+            el Mundial 2026 se perfila como el más grande jamás organizado.
+        </p>
+
+        <p>
+            La expectativa ahora se centra en el impacto deportivo y económico que
+            tendrá el torneo, no solo para las potencias tradicionales, sino también
+            para selecciones que históricamente han tenido menos protagonismo.
+        </p>
+
+        <a href="index.html" class="btn-volver">← Volver a la portada</a>
+
+    </div>
+
+</article>

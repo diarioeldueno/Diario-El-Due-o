@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>María Corina Machado: El escape que conmociona a Venezuela - El Dueño Digital</title>
+<link rel="icon" type="image/png" href="logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ======================================== RESET Y CONFIGURACIÓN GLOBAL ======================================== */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+background-color: #f8f9fa;
+color: #1a1a1a;
+line-height: 1.6;
+}
+
+/* ======================================== BARRA SUPERIOR - FECHA Y REDES ======================================== */
+.top-bar {
+background-color: #e1796e;
+color: #ffffff;
+padding: 0.5rem 0;
+font-size: 0.85rem;
+}
+
+.top-bar-content {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 2rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.fecha-actual {
+color: #fefafa;
+}
+
+.redes-sociales {
+display: flex;
+gap: 1rem;
+}
+
+.redes-sociales a {
+color: #ffffff;
+text-decoration: none;
+transition: color 0.3s;
+}
+
+.redes-sociales a:hover {
+color: #e74c3c;
+}
+
+/* ======================================== HEADER PRINCIPAL ======================================== */
+header {
+background-color: #ffffff;
+border-bottom: 3px solid #e74c3c;
+padding: 1.5rem 0;
+}
+
+.header-content {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 2rem;
+display: flex;
+justify-content: flex-start;
+align-items: center;
+}
+
+.logo-section {
+display: flex;
+flex-direction: column;
+}
+
+.logo {
+font-size: 2.5rem;
+font-weight: 800;
+color: #1a1a1a;
+letter-spacing: -1px;
+}
+
+.logo-container {
+display: flex;
+align-items: center;
+gap: 12px;
+}
+
+.logo-img {
+width: 75px;
+height: 75px;
+object-fit: contain;
+}
+
+.logo span {
+color: #e74c3c;
+}
+
+.eslogan {
+font-size: 0.85rem;
+color: #666666;
+font-style: italic;
+margin-top: -0.3rem;
+}
+
+.menu-toggle {
+display: none;
+flex-direction: column;
+cursor: pointer;
+gap: 4px;
+}
+
+.menu-toggle span {
+width: 25px;
+height: 3px;
+background-color: #1a1a1a;
+transition: all 0.3s;
+}
+
+/* ======================================== NAVEGACIÓN PRINCIPAL ======================================== */
+nav {
+background-color: #ffffff;
+border-bottom: 1px solid #e0e0e0;
+position: sticky;
+top: 0;
+z-index: 100;
+}
+
+.nav-content {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 2rem;
+}
+
+.nav-menu {
+list-style: none;
+display: flex;
+gap: 0;
+}
+
+.nav-menu li {
+position: relative;
+}
+
+.nav-menu a {
+display: block;
+padding: 1rem 1.5rem;
+color: #1a1a1a;
+text-decoration: none;
+font-weight: 500;
+font-size: 0.95rem;
+transition: all 0.3s;
+border-bottom: 3px solid transparent;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+color: #e74c3c;
+border-bottom-color: #e74c3c;
+}
+
+/* ======================================== CONTENEDOR PRINCIPAL ======================================== */
+.main-container {
+max-width: 1200px;
+margin: 2rem auto;
+padding: 0 2rem;
+display: grid;
+grid-template-columns: 1fr;
+gap: 2rem;
+}
+
+/* ======================================== ARTÍCULO DE NOTICIA COMPLETO ======================================== */
+.articulo-completo {
+background-color: #ffffff;
+border-radius: 8px;
+overflow: hidden;
+box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+padding: 3rem;
+}
+
+.categoria-tag {
+display: inline-block;
+background-color: #9b59b6;
+color: white;
+padding: 0.3rem 0.8rem;
+border-radius: 3px;
+font-size: 0.75rem;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+margin-bottom: 1.5rem;
+}
+
+.articulo-completo h1 {
+font-size: 2.5rem;
+font-weight: 700;
+line-height: 1.3;
+margin-bottom: 1.5rem;
+color: #1a1a1a;
+}
+
+.articulo-meta {
+display: flex;
+gap: 1.5rem;
+font-size: 0.9rem;
+color: #888888;
+margin-bottom: 2rem;
+padding-bottom: 1.5rem;
+border-bottom: 2px solid #f0f0f0;
+}
+
+.articulo-imagen-principal {
+width: 100%;
+height: 500px;
+object-fit: cover;
+border-radius: 8px;
+margin-bottom: 2rem;
+}
+
+.articulo-bajada {
+font-size: 1.2rem;
+color: #555555;
+line-height: 1.7;
+margin-bottom: 2rem;
+font-weight: 500;
+padding: 1.5rem;
+background-color: #f8f9fa;
+border-left: 4px solid #9b59b6;
+}
+
+.articulo-contenido {
+font-size: 1.05rem;
+line-height: 1.8;
+color: #333333;
+}
+
+.articulo-contenido h2 {
+font-size: 1.8rem;
+font-weight: 700;
+margin-top: 2.5rem;
+margin-bottom: 1.5rem;
+color: #1a1a1a;
+}
+
+.articulo-contenido h3 {
+font-size: 1.4rem;
+font-weight: 600;
+margin-top: 2rem;
+margin-bottom: 1rem;
+color: #1a1a1a;
+}
+
+.articulo-contenido p {
+margin-bottom: 1.5rem;
+}
+
+.articulo-contenido ul,
+.articulo-contenido ol {
+margin-bottom: 1.5rem;
+margin-left: 2rem;
+}
+
+.articulo-contenido li {
+margin-bottom: 0.8rem;
+}
+
+.articulo-contenido blockquote {
+border-left: 4px solid #9b59b6;
+padding-left: 1.5rem;
+margin: 2rem 0;
+font-style: italic;
+color: #555555;
+background-color: #f8f9fa;
+padding: 1.5rem;
+border-radius: 4px;
+}
+
+.destacado {
+background-color: #f3e5f5;
+padding: 1.5rem;
+border-radius: 8px;
+margin: 2rem 0;
+border-left: 4px solid #9b59b6;
+}
+
+.alerta-urgente {
+background-color: #fff3cd;
+padding: 1.5rem;
+border-radius: 8px;
+margin: 2rem 0;
+border-left: 4px solid #9b59b6;
+}
+
+.tabla-cronologia {
+width: 100%;
+border-collapse: collapse;
+margin: 2rem 0;
+background-color: #ffffff;
+box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.tabla-cronologia th {
+background-color: #9b59b6;
+color: white;
+padding: 1rem;
+text-align: left;
+font-weight: 600;
+}
+
+.tabla-cronologia td {
+padding: 1rem;
+border-bottom: 1px solid #e0e0e0;
+}
+
+.tabla-cronologia tr:hover {
+background-color: #f8f9fa;
+}
+
+.imagen-contenido {
+width: 100%;
+height: 400px;
+object-fit: cover;
+border-radius: 8px;
+margin: 2rem 0;
+box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.pie-foto {
+font-size: 0.9rem;
+color: #666666;
+font-style: italic;
+text-align: center;
+margin-top: 0.5rem;
+margin-bottom: 2rem;
+}
+
+.comentario-experto {
+background-color: #e8f5e9;
+border-left: 4px solid #4caf50;
+padding: 1.5rem;
+border-radius: 4px;
+margin: 2rem 0;
+}
+
+.comentario-experto-titulo {
+font-weight: 700;
+color: #2e7d32;
+margin-bottom: 0.5rem;
+display: flex;
+align-items: center;
+gap: 0.5rem;
+}
+
+.btn-volver {
+display: inline-block;
+background-color: #1a1a1a;
+color: white;
+padding: 0.8rem 2rem;
+border-radius: 4px;
+text-decoration: none;
+font-weight: 600;
+transition: background-color 0.3s;
+margin-top: 2rem;
+}
+
+.btn-volver:hover {
+background-color: #333333;
+}
+
+/* ======================================== RESPONSIVE - TABLET ======================================== */
+@media (max-width: 968px) {
+.articulo-completo h1 {
+font-size: 2rem;
+}
+}
+
+/* ======================================== RESPONSIVE - MÓVIL ======================================== */
+@media (max-width: 768px) {
+.top-bar-content {
+flex-direction: column;
+gap: 0.5rem;
+text-align: center;
+}
+
+.header-content {
+flex-direction: column;
+gap: 1rem;
+}
+
+.menu-toggle {
+display: flex;
+position: absolute;
+right: 2rem;
+top: 1.5rem;
+}
+
+.nav-menu {
+flex-direction: column;
+display: none;
+}
+
+.nav-menu.active {
+display: flex;
+}
+
+.nav-menu a {
+border-bottom: none;
+border-left: 3px solid transparent;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+border-left-color: #e74c3c;
+border-bottom-color: transparent;
+}
+
+.articulo-completo {
+padding: 1.5rem;
+}
+
+.articulo-completo h1 {
+font-size: 1.6rem;
+}
+
+.articulo-imagen-principal {
+height: 250px;
+}
+
+.main-container,
+.nav-content,
+.header-content,
+.top-bar-content {
+padding: 0 1rem;
+}
+
+.tabla-cronologia {
+font-size: 0.9rem;
+}
+
+.tabla-cronologia th,
+.tabla-cronologia td {
+padding: 0.5rem;
+}
+}
+</style>
+</head>
+<body>
+<!-- ======================================== BARRA SUPERIOR ======================================== -->
+<div class="top-bar">
+<div class="top-bar-content">
+<div class="fecha-actual">
+<span id="fecha"></span>
+</div>
+<div class="redes-sociales">
+<a href="#" title="Facebook">📘 Facebook</a>
+<a href="#" title="Twitter">🐦 Twitter</a>
+<a href="#" title="Instagram">📷 Instagram</a>
+</div>
+</div>
+</div>
+
+<!-- ======================================== HEADER PRINCIPAL ======================================== -->
+<header>
+<div class="header-content">
+<div class="logo-container">
+<img src="logo.png" alt="Logo" class="logo-img">
+<div class="logo-section">
+<div class="logo">El <span>DUEÑO</span></div>
+<div class="eslogan">ULTIMAS NOTICIAS Y EFEMERIDES</div>
+</div>
+</div>
+<div class="menu-toggle" onclick="toggleMenu()">
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+</header>
+
+<!-- ======================================== NAVEGACIÓN PRINCIPAL ======================================== -->
+<nav>
+<div class="nav-content">
+<ul class="nav-menu" id="navMenu">
+<li><a href="index.html">Portada</a></li>
+<li><a href="Politica.html">Política</a></li>
+<li><a href="Deportes.html">Deportes</a></li>
+<li><a href="#Mundo.html" class="active">Mundo</a></li>
+<li><a href="#Tecnologia.html">Tecnología</a></li>
+<li><a href="#Economia.html">Economía</a></li>
+<li><a href="Efemerides.html">Efemerides</a></li>
+</ul>
+</div>
+</nav>
+
+<!-- ======================================== CONTENEDOR PRINCIPAL ======================================== -->
+<div class="main-container">
+<!-- ARTÍCULO PRINCIPAL -->
+<main>
+<article class="articulo-completo">
+<span class="categoria-tag">Mundo</span>
+<h1>María Corina Machado: El dramático escape de la líder opositora venezolana que conmociona al continente</h1>
+
+<div class="articulo-meta">
+<span>📅 17 de Diciembre, 2025</span>
+<span>✍️ Por Redacción Internacional</span>
+<span>⏱️ 8 min de lectura</span>
+</div>
+
+<img src="https://s.france24.com/media/display/adf675a6-d79d-11f0-a3fa-005056a97e36/w:1280/p:16x9/2025-12-12T100407Z-817655887-RC2XEIAALXR1-RTRMADP-3-NOBEL-PRIZE-PEACE.jpg" alt="María Corina Machado" class="articulo-imagen-principal">
+
+<div class="articulo-bajada">
+La líder de la oposición venezolana María Corina Machado ha logrado escapar de un operativo de detención orquestado por el régimen de Nicolás Maduro, en un episodio que ha generado tensión internacional y preocupación por la escalada represiva en Venezuela. El escape se produjo mientras la líder se dirigía a un evento público en Caracas, donde fuerzas de seguridad intentaron interceptarla.
+</div>
+
+<div class="articulo-contenido">
+<div class="alerta-urgente">
+<strong>⚠️ ÚLTIMA HORA:</strong> Según fuentes diplomáticas, María Corina Machado se encuentra en un lugar seguro bajo protección internacional. La Organización de Estados Americanos (OEA) y la Unión Europea han emitido declaraciones urgentes exigiendo garantías para su seguridad.
+</div>
+
+<h2>El momento del escape</h2>
+
+<p>Todo ocurrió en cuestión de minutos. Alrededor de las 11:30 de la mañana del martes, María Corina Machado se dirigía en caravana hacia el este de Caracas para participar en un encuentro con líderes comunitarios. Según testimonios de personas presentes, varios vehículos sin identificación bloquearon la ruta e intentaron rodear el automóvil donde viajaba la líder opositora.</p>
+
+<p>Activistas y miembros de su equipo de seguridad lograron crear una distracción que permitió que Machado abandonara el vehículo y fuera trasladada de emergencia a un lugar no revelado. Videos circulados en redes sociales muestran el momento exacto en que vehículos policiales y grupos paramilitares bloqueaban las calles principales del sector.</p>
+
+<img src="https://www.infobae.com/resizer/v2/CNFYQZACKFA73GRIOW3NKJZEE4.jpg?auth=bda981f709218d6fe65a509e4c47f21c16aaa90798bf6adef71b1205deabb191&smart=true&width=1200&height=630&quality=85" alt="Operativo de detención" class="imagen-contenido">
+<p class="pie-foto">Momento en que vehículos oficialistas intentan interceptar la caravana de María Corina Machado</p>
+
+<h2>Cronología de los acontecimientos</h2>
+
+<table class="tabla-cronologia">
+<thead>
+<tr>
+<th>Hora</th>
+<th>Evento</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>11:15 AM</strong></td>
+<td>María Corina Machado sale de su residencia con destino al este de Caracas</td>
+</tr>
+<tr>
+<td><strong>11:30 AM</strong></td>
+<td>Vehículos sin identificación bloquean la ruta en la autopista Francisco Fajardo</td>
+</tr>
+<tr>
+<td><strong>11:35 AM</strong></td>
+<td>Intentan rodear el vehículo donde viaja la líder opositora</td>
+</tr>
+<tr>
+<td><strong>11:40 AM</strong></td>
+<td>Machado abandona el vehículo y es trasladada a lugar seguro</td>
+</tr>
+<tr>
+<td><strong>12:30 PM</strong></td>
+<td>Primeros reportes en redes sociales sobre el intento de detención</td>
+</tr>
+<tr>
+<td><strong>2:00 PM</strong></td>
+<td>La OEA emite comunicado expresando preocupación por la situación</td>
+</tr>
+<tr>
+<td><strong>4:15 PM</strong></td>
+<td>Audio de María Corina Machado confirma que está a salvo</td>
+</tr>
+</tbody>
+</table>
+
+<h2>El contexto político</h2>
+
+<p>Este intento de detención se produce en un momento crítico para Venezuela. María Corina Machado, quien fue inhabilitada por el régimen chavista para ejercer cargos públicos, ha liderado la oposición democrática y convocado a protestas masivas en contra del gobierno de Nicolás Maduro.</p>
+
+<p>La popularidad de Machado ha crecido exponencialmente en los últimos meses, según encuestas independientes que la posicionan como la figura política con mayor respaldo ciudadano del país. Esta situación ha generado nerviosismo en el régimen, que ha intensificado la persecución contra líderes opositores y activistas.</p>
+
+<div class="destacado">
+<strong>Dato clave:</strong> María Corina Machado ganó las primarias opositoras de octubre de 2023 con más del 92% de los votos, pero fue inhabilitada arbitrariamente por el Tribunal Supremo de Justicia controlado por el chavismo. Desde entonces, ha liderado la resistencia democrática desde la clandestinidad política.
+</div>
+
+<h2>Reacciones internacionales</h2>
+
+<p>La comunidad internacional ha reaccionado con rapidez y firmeza ante este nuevo episodio de represión en Venezuela. Estados Unidos, la Unión Europea y varios países latinoamericanos han emitido comunicados expresando su preocupación y exigiendo garantías para la seguridad de la líder opositora.</p>
+
+<blockquote>
+"Cualquier intento de detención arbitraria contra María Corina Machado constituiría una violación flagrante de los derechos humanos y un ataque directo a la democracia en Venezuela. La comunidad internacional está vigilante", declaró el secretario general de la OEA en un comunicado urgente emitido horas después del incidente.
+</blockquote>
+
+<p>Por su parte, el gobierno argentino ha ofrecido asilo político a Machado, sumándose a Colombia, Chile y Costa Rica, que habían expresado disposición de brindar protección a la líder opositora si su vida corre peligro.</p>
+
+<img src="https://www.clarin.com/img/2024/09/20/7EoTZnwwZ_2000x1500__1.jpg" alt="Protestas en Venezuela" class="imagen-contenido">
+<p class="pie-foto">Miles de venezolanos salieron a las calles tras conocerse el intento de detención de María Corina Machado</p>
+
+<h2>La respuesta del régimen de Maduro</h2>
+
+<p>El gobierno venezolano ha guardado un inusual silencio sobre el incidente. Sin embargo, fuentes oficialistas han intentado desmentir los hechos, calificándolos de "montaje mediático" y "show político" de la oposición.</p>
+
+<p>El ministro del Interior, Diosdado Cabello, conocido por su línea dura contra la disidencia, evitó referirse directamente al tema en su programa de televisión semanal, limitándose a advertir que "la justicia llegará a todos los que conspiran contra la patria".</p>
+
+<div class="comentario-experto">
+<div class="comentario-experto-titulo">💬 Análisis del experto</div>
+<p><strong>Dr. Luis Almagro, analista político internacional:</strong> "Este episodio marca un punto de inflexión en la crisis venezolana. El régimen está mostrando signos evidentes de desesperación. María Corina Machado representa la esperanza de millones de venezolanos y su persecución solo refuerza la ilegitimidad del gobierno de Maduro. La pregunta ahora es: ¿hasta dónde está dispuesto a llegar el régimen para mantenerse en el poder?"</p>
+</div>
+
+<h2>Protestas espontáneas en todo el país</h2>
+
+<p>La noticia del intento de detención desencadenó manifestaciones espontáneas en varias ciudades venezolanas. En Caracas, Valencia, Maracaibo y Barquisimeto, ciudadanos salieron a las calles para expresar su rechazo a la represión y su apoyo a María Corina Machado.</p>
+
+<p>Las protestas han sido mayoritariamente pacíficas, aunque se han reportado enfrentamientos aislados con fuerzas de seguridad en algunas zonas de la capital. Organizaciones de derechos humanos documentaron al menos 15 detenciones arbitrarias de manifestantes durante la jornada.</p>
+
+<h2>El mensaje de María Corina Machado</h2>
+
+<p>Horas después del incidente, María Corina Machado logró hacer llegar un audio a medios internacionales donde confirmó que se encuentra a salvo y agradeció las muestras de solidaridad recibidas.</p>
+
+<blockquote>
+"Estoy bien, estoy segura y más firme que nunca. No van a doblegarnos. Venezuela será libre y nosotros seremos testigos de ese momento histórico. A cada venezolano le digo: manténganse firmes, la libertad está cerca. Lo que vivimos hoy es la desesperación de un régimen que sabe que su tiempo se agota", expresó la líder opositora en el mensaje de audio.</blockquote>
+
+<h2>¿Qué sigue ahora?</h2>
+
+<p>La situación en Venezuela entra en una fase de máxima tensión. Los analistas internacionales coinciden en que este episodio podría acelerar los acontecimientos en el país suramericano, donde la presión interna y externa sobre el régimen de Maduro se intensifica día a día.</p>
+
+<p>La comunidad internacional, liderada por Estados Unidos y la Unión Europea, evalúa nuevas sanciones contra funcionarios venezolanos involucrados en la represión. Mientras tanto, organizaciones de derechos humanos han solicitado una sesión de emergencia en el Consejo de Derechos Humanos de las Naciones Unidas para abordar la situación.</p>
+
+<div class="destacado">
+<strong>Perspectivas inmediatas:</strong>
+<ul style="margin-top: 1rem; margin-bottom: 0;">
+<li>Posibles nuevas sanciones internacionales contra el régimen venezolano</li>
+<li>Aumento de la presión diplomática sobre el gobierno de Maduro</li>
+<li>Intensificación de las protestas ciudadanas en Venezuela</li>
+<li>Mayor coordinación de la oposición democrática</li>
+<li>Riesgo de escalada represiva por parte del régimen</li>
+</ul>
+</div>
+
+<h2>El papel de la diáspora venezolana</h2>
+
+<p>Los más de siete millones de venezolanos que viven en el exilio han jugado un papel crucial en visibilizar la situación de su país. Tras conocerse el intento de detención de María Corina Machado, concentraciones de apoyo se organizaron en Miami, Madrid, Buenos Aires, Bogotá y Lima, entre otras ciudades.</p>
+
+<p>Esta red de solidaridad internacional se ha convertido en un factor clave para mantener la presión sobre el régimen venezolano y evitar que episodios como este queden en el olvido mediático.</p>
+
+<div class="comentario-experto">
+<div class="comentario-experto-titulo">💬 Voz desde el exilio</div>
+<p><strong>Carmen Martínez, venezolana residente en España:</strong> "Cada vez que intentan silenciar a María Corina, nosotros alzamos más la voz. Somos millones de venezolanos en el mundo que no vamos a permitir que la dictadura destruya la esperanza de recuperar nuestra patria. Este episodio nos recuerda por qué tuvimos que dejar nuestro país, pero también nos da fuerzas para seguir luchando por su libertad."</p>
+</div>
+
+<h2>Conclusión: Un punto de no retorno</h2>
+
+<p>El escape de María Corina Machado representa mucho más que un episodio aislado de persecución política. Es un símbolo de la resistencia del pueblo venezolano frente a un régimen que se aferra al poder a cualquier costo. La valentía de esta líder, que eligió quedarse en su país a pesar de los riesgos, inspira a millones dentro y fuera de Venezuela.</p>
+
+<p>Lo ocurrido este martes podría marcar un punto de no retorno en la crisis venezolana. La comunidad internacional ha puesto al régimen de Maduro en la mira, y cada nuevo acto de represión erosiona aún más su ya frágil legitimidad. Mientras tanto, el pueblo venezolano continúa su lucha pacífica por la democracia, con María Corina Machado como símbolo de esa resistencia incansable.</p>
+
+<p>El mundo observa con atención lo que sucederá en los próximos días. La historia de Venezuela está siendo escrita en tiempo real, y el coraje de quienes se enfrentan a la dictadura será recordado como un ejemplo de dignidad y amor por la libertad.</p>
+
+<div class="alerta-urgente">
+<strong>🔴 ACTUALIZACIÓN:</strong> La embajada de España en Caracas ha confirmado que está en contacto con el equipo de María Corina Machado para coordinar posibles medidas de protección diplomática. Se espera un comunicado oficial en las próximas horas.
+</div>
+
+</div>
+
+<a href="index.html" class="btn-volver">← Volver a la portada</a>
+</article>
+</main>
+</div>
+
+<script>
+// Función del menú móvil
+function toggleMenu() {
+document.getElementById('navMenu').classList.toggle('active');
+}
+
+// Mostrar fecha actual
+const fecha = new Date();
+document.getElementById('fecha').textContent = fecha.toLocaleDateString('es-ES', {
+weekday: 'long',
+year: 'numeric',
+month: 'long',
+day: 'numeric'
+});
+</script>
+</body>
+</html>
