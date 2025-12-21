@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Javier Milei arremete contra el Mercosur: "Una estructura burocrática ineficiente" - El Dueño Digital</title>
+<link rel="icon" type="image/png" href="logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ======================================== RESET Y CONFIGURACIÓN GLOBAL ======================================== */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+background-color: #f8f9fa;
+color: #1a1a1a;
+line-height: 1.6;
+}
+
+/* ======================================== BARRA SUPERIOR - FECHA Y REDES ======================================== */
+.top-bar {
+background-color: #e1796e;
+color: #ffffff;
+padding: 0.5rem 0;
+font-size: 0.85rem;
+}
+
+.top-bar-content {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 2rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.fecha-actual {
+color: #fefafa;
+}
+
+.redes-sociales {
+display: flex;
+gap: 1rem;
+}
+
+.redes-sociales a {
+color: #ffffff;
+text-decoration: none;
+transition: color 0.3s;
+}
+
+.redes-sociales a:hover {
+color: #e74c3c;
+}
+
+/* ======================================== HEADER PRINCIPAL ======================================== */
+header {
+background-color: #ffffff;
+border-bottom: 3px solid #e74c3c;
+padding: 1.5rem 0;
+}
+
+.header-content {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 2rem;
+display: flex;
+justify-content: flex-start;
+align-items: center;
+}
+
+.logo-section {
+display: flex;
+flex-direction: column;
+}
+
+.logo {
+font-size: 2.5rem;
+font-weight: 800;
+color: #1a1a1a;
+letter-spacing: -1px;
+}
+
+.logo-container {
+display: flex;
+align-items: center;
+gap: 12px;
+}
+
+.logo-img {
+width: 75px;
+height: 75px;
+object-fit: contain;
+}
+
+.logo span {
+color: #e74c3c;
+}
+
+.eslogan {
+font-size: 0.85rem;
+color: #666666;
+font-style: italic;
+margin-top: -0.3rem;
+}
+
+.menu-toggle {
+display: none;
+flex-direction: column;
+cursor: pointer;
+gap: 4px;
+}
+
+.menu-toggle span {
+width: 25px;
+height: 3px;
+background-color: #1a1a1a;
+transition: all 0.3s;
+}
+
+/* ======================================== NAVEGACIÓN PRINCIPAL ======================================== */
+nav {
+background-color: #ffffff;
+border-bottom: 1px solid #e0e0e0;
+position: sticky;
+top: 0;
+z-index: 100;
+}
+
+.nav-content {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 2rem;
+}
+
+.nav-menu {
+list-style: none;
+display: flex;
+gap: 0;
+}
+
+.nav-menu li {
+position: relative;
+}
+
+.nav-menu a {
+display: block;
+padding: 1rem 1.5rem;
+color: #1a1a1a;
+text-decoration: none;
+font-weight: 500;
+font-size: 0.95rem;
+transition: all 0.3s;
+border-bottom: 3px solid transparent;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+color: #e74c3c;
+border-bottom-color: #e74c3c;
+}
+
+/* ======================================== CONTENEDOR PRINCIPAL ======================================== */
+.main-container {
+max-width: 1200px;
+margin: 2rem auto;
+padding: 0 2rem;
+display: grid;
+grid-template-columns: 1fr;
+gap: 2rem;
+}
+
+/* ======================================== ARTÍCULO DE NOTICIA COMPLETO ======================================== */
+.articulo-completo {
+background-color: #ffffff;
+border-radius: 8px;
+overflow: hidden;
+box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+padding: 3rem;
+}
+
+.categoria-tag {
+display: inline-block;
+background-color: #9b59b6;
+color: white;
+padding: 0.3rem 0.8rem;
+border-radius: 3px;
+font-size: 0.75rem;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+margin-bottom: 1.5rem;
+}
+
+.articulo-completo h1 {
+font-size: 2.5rem;
+font-weight: 700;
+line-height: 1.3;
+margin-bottom: 1.5rem;
+color: #1a1a1a;
+}
+
+.articulo-meta {
+display: flex;
+gap: 1.5rem;
+font-size: 0.9rem;
+color: #888888;
+margin-bottom: 2rem;
+padding-bottom: 1.5rem;
+border-bottom: 2px solid #f0f0f0;
+}
+
+.articulo-imagen-principal {
+width: 100%;
+height: 500px;
+object-fit: cover;
+border-radius: 8px;
+margin-bottom: 2rem;
+}
+
+.articulo-bajada {
+font-size: 1.2rem;
+color: #555555;
+line-height: 1.7;
+margin-bottom: 2rem;
+font-weight: 500;
+padding: 1.5rem;
+background-color: #f8f9fa;
+border-left: 4px solid #9b59b6;
+}
+
+.articulo-contenido {
+font-size: 1.05rem;
+line-height: 1.8;
+color: #333333;
+}
+
+.articulo-contenido h2 {
+font-size: 1.8rem;
+font-weight: 700;
+margin-top: 2.5rem;
+margin-bottom: 1.5rem;
+color: #9b59b6;
+}
+
+.articulo-contenido h3 {
+font-size: 1.4rem;
+font-weight: 600;
+margin-top: 2rem;
+margin-bottom: 1rem;
+color: #1a1a1a;
+}
+
+.articulo-contenido p {
+margin-bottom: 1.5rem;
+}
+
+.articulo-contenido ul,
+.articulo-contenido ol {
+margin-bottom: 1.5rem;
+margin-left: 2rem;
+}
+
+.articulo-contenido li {
+margin-bottom: 0.8rem;
+}
+
+.articulo-contenido blockquote {
+border-left: 4px solid #9b59b6;
+padding-left: 1.5rem;
+margin: 2rem 0;
+font-style: italic;
+color: #555555;
+background-color: #f8f9fa;
+padding: 1.5rem;
+border-radius: 4px;
+}
+
+.destacado {
+background-color: #f3e5f5;
+padding: 1.5rem;
+border-radius: 8px;
+margin: 2rem 0;
+border-left: 4px solid #9b59b6;
+}
+
+.alerta-urgente {
+background-color: #fff3cd;
+padding: 1.5rem;
+border-radius: 8px;
+margin: 2rem 0;
+border-left: 4px solid #9b59b6;
+}
+
+.tabla-cronologia {
+width: 100%;
+border-collapse: collapse;
+margin: 2rem 0;
+background-color: #ffffff;
+box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.tabla-cronologia th {
+background-color: #9b59b6;
+color: white;
+padding: 1rem;
+text-align: left;
+font-weight: 600;
+}
+
+.tabla-cronologia td {
+padding: 1rem;
+border-bottom: 1px solid #e0e0e0;
+}
+
+.tabla-cronologia tr:hover {
+background-color: #f8f9fa;
+}
+
+.imagen-contenido {
+width: 100%;
+height: 400px;
+object-fit: cover;
+border-radius: 8px;
+margin: 2rem 0;
+box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.pie-foto {
+font-size: 0.9rem;
+color: #666666;
+font-style: italic;
+text-align: center;
+margin-top: 0.5rem;
+margin-bottom: 2rem;
+}
+
+.comentario-experto {
+background-color: #e8f5e9;
+border-left: 4px solid #4caf50;
+padding: 1.5rem;
+border-radius: 4px;
+margin: 2rem 0;
+}
+
+.comentario-experto-titulo {
+font-weight: 700;
+color: #2e7d32;
+margin-bottom: 0.5rem;
+display: flex;
+align-items: center;
+gap: 0.5rem;
+}
+
+.btn-volver {
+display: inline-block;
+background-color: #1a1a1a;
+color: white;
+padding: 0.8rem 2rem;
+border-radius: 4px;
+text-decoration: none;
+font-weight: 600;
+transition: background-color 0.3s;
+margin-top: 2rem;
+}
+
+.btn-volver:hover {
+background-color: #333333;
+}
+
+/* ======================================== RESPONSIVE - TABLET ======================================== */
+@media (max-width: 968px) {
+.articulo-completo h1 {
+font-size: 2rem;
+}
+}
+
+/* ======================================== RESPONSIVE - MÓVIL ======================================== */
+@media (max-width: 768px) {
+.top-bar-content {
+flex-direction: column;
+gap: 0.5rem;
+text-align: center;
+}
+
+.header-content {
+flex-direction: column;
+gap: 1rem;
+}
+
+.menu-toggle {
+display: flex;
+position: absolute;
+right: 2rem;
+top: 1.5rem;
+}
+
+.nav-menu {
+flex-direction: column;
+display: none;
+}
+
+.nav-menu.active {
+display: flex;
+}
+
+.nav-menu a {
+border-bottom: none;
+border-left: 3px solid transparent;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+border-left-color: #e74c3c;
+border-bottom-color: transparent;
+}
+
+.articulo-completo {
+padding: 1.5rem;
+}
+
+.articulo-completo h1 {
+font-size: 1.6rem;
+}
+
+.articulo-imagen-principal {
+height: 250px;
+}
+
+.main-container,
+.nav-content,
+.header-content,
+.top-bar-content {
+padding: 0 1rem;
+}
+
+.tabla-cronologia {
+font-size: 0.9rem;
+}
+
+.tabla-cronologia th,
+.tabla-cronologia td {
+padding: 0.5rem;
+}
+}
+</style>
+</head>
+<body>
+
+<!-- ======================================== BARRA SUPERIOR ======================================== -->
+<div class="top-bar">
+<div class="top-bar-content">
+<div class="fecha-actual">
+<span id="fecha"></span>
+</div>
+<div class="redes-sociales">
+<a href="#" title="Facebook">📘 Facebook</a>
+<a href="#" title="Twitter">🐦 Twitter</a>
+<a href="#" title="Instagram">📷 Instagram</a>
+</div>
+</div>
+</div>
+
+<!-- ======================================== HEADER PRINCIPAL ======================================== -->
+<header>
+<div class="header-content">
+<div class="logo-container">
+<img src="logo.png" alt="Logo" class="logo-img">
+<div class="logo-section">
+<div class="logo">El <span>DUEÑO</span></div>
+<div class="eslogan">ULTIMAS NOTICIAS Y EFEMERIDES</div>
+</div>
+</div>
+<div class="menu-toggle" onclick="toggleMenu()">
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+</header>
+
+<!-- ======================================== NAVEGACIÓN PRINCIPAL ======================================== -->
+<nav>
+<div class="nav-content">
+<ul class="nav-menu" id="navMenu">
+<li><a href="index.html">Portada</a></li>
+<li><a href="Politica.html" class="active">Política</a></li>
+<li><a href="Deportes.html">Deportes</a></li>
+<li><a href="#Mundo.html">Mundo</a></li>
+<li><a href="#Tecnologia.html">Tecnología</a></li>
+<li><a href="#Economia.html">Economía</a></li>
+<li><a href="Efemerides.html">Efemerides</a></li>
+</ul>
+</div>
+</nav>
+
+<!-- ======================================== CONTENEDOR PRINCIPAL ======================================== -->
+<div class="main-container">
+<!-- ARTÍCULO PRINCIPAL -->
+<main>
+<article class="articulo-completo">
+<span class="categoria-tag">Política</span>
+
+<h1>Javier Milei arremete contra el Mercosur en Brasil: críticas demoledoras a la "burocracia ineficaz" del bloque regional</h1>
+
+<div class="articulo-meta">
+<span>📅 20 de Diciembre, 2025</span>
+<span>✍️ Por Redacción Política</span>
+<span>⏱️ 9 min de lectura</span>
+</div>
+
+<img src="https://www.rionegro.com.ar/wp-content/uploads/2025/12/Javier-Milei-5.jpg?w=920&h=520&crop=1" alt="Javier Milei en cumbre Mercosur" class="articulo-imagen-principal">
+
+<div class="articulo-bajada">
+En un discurso contundente durante la cumbre del Mercosur celebrada en Foz de Iguazú, el presidente argentino Javier Milei lanzó severas críticas contra el funcionamiento del bloque comercial sudamericano, exigiendo una transformación profunda de sus estructuras y una apertura radical hacia el libre comercio global. Sus declaraciones han generado revuelo en la región y pusieron de manifiesto las tensiones diplomáticas que atraviesan al organismo regional.
+</div>
+
+<div class="articulo-contenido">
+
+<div class="alerta-urgente">
+<strong>⚠️ CONTEXTO CLAVE:</strong> La cumbre del Mercosur se desarrolló en un momento crítico, con el esperado acuerdo comercial con la Unión Europea nuevamente postergado hasta enero de 2026. Las palabras de Milei reflejan la creciente frustración argentina con el ritmo de las negociaciones internacionales del bloque.
+</div>
+
+<h2>Un diagnóstico sin concesiones</h2>
+
+<p>El mandatario argentino no ahorró críticas al evaluar el desempeño histórico del Mercosur. Durante su intervención ante sus pares regionales, Milei cuestionó frontalmente los resultados obtenidos por el organismo desde su fundación, argumentando que los propósitos originales del bloque han quedado completamente incumplidos.</p>
+
+<p>El presidente sostuvo que el Mercosur fue establecido con metas claras: fomentar el intercambio comercial, elevar el nivel de prosperidad económica, crear mercados integrados y fortalecer la capacidad competitiva de las naciones miembro. Sin embargo, según su evaluación, ninguno de estos objetivos fundamentales ha sido alcanzado tras décadas de funcionamiento.</p>
+
+<h2>La crítica central: una estructura administrativa obsoleta</h2>
+
+<p>El punto más polémico del discurso presidencial fue su señalamiento directo hacia lo que describió como una maquinaria burocrática desmedida y poco efectiva. Milei argumentó que, en lugar de construir verdaderos mecanismos de integración comercial, el Mercosur ha desarrollado una estructura administrativa que creció de manera desproporcionada.</p>
+
+<blockquote>
+"La nueva Sudamérica llega desde el futuro está en este bloque decidir si va a moverse con este viento de cola o aferrarse al mástil del pasado para luchar contra el cambio que nuestros países necesitan y exigen. El Mercosur nació con una misión clara de promover el comercio, aumentar la prosperidad, integrar mercados y elevar la competitividad de nuestras sociedades y ninguno de esos objetivos centrales se cumplieron"
+</blockquote>
+
+<img src="https://dataportuaria.ar/uploads/noticias/5/2025/12/20251219135644_cumbre.png" alt="Cumbre Mercosur Foz de Iguazú" class="imagen-contenido">
+<p class="pie-foto">Vista general de la cumbre del Mercosur celebrada en Foz de Iguazú, Brasil</p>
+
+<h2>Los datos que respaldan la crítica</h2>
+
+<p>Para fundamentar su posición, el mandatario argentino presentó indicadores concretos sobre el desempeño comercial del bloque. Destacó que el volumen de intercambio entre los países miembros, medido como proporción del comercio total de cada nación, se encuentra actualmente muy por debajo de los niveles históricos alcanzados en décadas anteriores.</p>
+
+<p>Este fenómeno resulta particularmente paradójico, señaló Milei, considerando que el Mercosur mantiene algunas de las barreras arancelarias externas más elevadas a nivel mundial. Según su análisis, estas políticas proteccionistas no han logrado defender el empleo ni estimular la producción regional, sino que han producido el efecto contrario.</p>
+
+<div class="destacado">
+<strong>Análisis económico:</strong> Los expertos coinciden en que el comercio intra-Mercosur ha perdido dinamismo en las últimas décadas. Mientras que en los años 90 el bloque concentraba cerca del 25% del comercio exterior de sus miembros, actualmente esa proporción ha descendido significativamente, reflejando la pérdida de relevancia comercial del organismo.
+</div>
+
+<h2>Cronología del evento</h2>
+
+<table class="tabla-cronologia">
+<thead>
+<tr>
+<th>Momento</th>
+<th>Acontecimiento</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>09:00 AM</strong></td>
+<td>Llegada de Javier Milei a Foz de Iguazú junto a la comitiva argentina</td>
+</tr>
+<tr>
+<td><strong>10:30 AM</strong></td>
+<td>Ceremonia de apertura de la cumbre con presencia de todos los mandatarios</td>
+</tr>
+<tr>
+<td><strong>11:45 AM</strong></td>
+<td>Inicio del discurso del presidente argentino ante el plenario</td>
+</tr>
+<tr>
+<td><strong>12:20 PM</strong></td>
+<td>Milei concluye su intervención con fuertes críticas al funcionamiento del bloque</td>
+</tr>
+<tr>
+<td><strong>14:00 PM</strong></td>
+<td>Primeras reacciones de otros mandatarios regionales</td>
+</tr>
+<tr>
+<td><strong>16:30 PM</strong></td>
+<td>Anuncio oficial de la postergación del acuerdo Mercosur-Unión Europea</td>
+</tr>
+</tbody>
+</table>
+
+<h2>El reclamo por flexibilización comercial</h2>
+
+<p>Uno de los ejes centrales del mensaje presidencial fue la exigencia de mayor libertad para que cada país miembro pueda negociar acuerdos comerciales bilaterales sin las actuales restricciones del bloque. Milei argumentó que la rigidez normativa del Mercosur se ha convertido en un obstáculo para aprovechar oportunidades económicas en un contexto global que evoluciona rápidamente.</p>
+
+<p>El presidente defendió la idea de que la flexibilidad comercial debe ser vista como una fortaleza estratégica y no como una amenaza a la cohesión del bloque. En su visión, mantener estructuras rígidas en el siglo XXI solo conduce al estancamiento económico y al aislamiento internacional.</p>
+
+<h2>La cuestión arancelaria en el centro del debate</h2>
+
+<p>El mandatario argentino dedicó parte significativa de su discurso a cuestionar la política arancelaria del Mercosur. Sostuvo que la región requiere urgentemente un sistema de aranceles externos modernizado, simplificado y alineado con las prácticas de los bloques comerciales más dinámicos y competitivos del panorama internacional actual.</p>
+
+<p>Según Milei, mantener barreras arancelarias elevadas en el contexto económico contemporáneo no protege los puestos de trabajo nacionales, sino que los pone en riesgo al encarecer los insumos de producción y reducir la competitividad de las empresas regionales en los mercados globales.</p>
+
+<h2>El caso del acuerdo con la Unión Europea</h2>
+
+<p>El presidente argentino utilizó las negociaciones con la Unión Europea como ejemplo emblemático de la lentitud burocrática que, según su criterio, caracteriza al Mercosur. Tras más de dos décadas de conversaciones, el acuerdo comercial entre ambos bloques sigue sin concretarse, y en esta cumbre se confirmó una nueva postergación hasta el próximo año.</p>
+
+<blockquote>
+"Las ventanas de oportunidad económica tienen plazos limitados en el tiempo y no pueden permanecer indefinidamente supeditadas a los ritmos eternos de la burocracia y los procesos políticos", advirtió Milei en referencia a las demoras en finalizar el tratado con Europa.
+</blockquote>
+
+<h2>Reforma institucional integral: la propuesta de Milei</h2>
+
+<p>Más allá de las críticas, el mandatario argentino presentó lineamientos concretos para transformar el funcionamiento del bloque. Propuso una reforma institucional comprehensiva que tenga como objetivo central reducir los costos operativos del Mercosur y orientar todas sus estructuras hacia la facilitación del comercio en lugar de la creación de más capas burocráticas.</p>
+
+<p>En su visión, el bloque regional debe reinventarse para adaptarse a las realidades del comercio internacional en el siglo XXI, abandonando esquemas que responden a paradigmas económicos del pasado que han demostrado su ineficacia.</p>
+
+<div class="destacado">
+<strong>Elementos clave de la propuesta argentina:</strong>
+<ul style="margin-top: 1rem; margin-bottom: 0;">
+<li>Simplificación drástica de la estructura administrativa del bloque</li>
+<li>Libertad para negociaciones comerciales bilaterales de cada país miembro</li>
+<li>Modernización del arancel externo común con tendencia a la reducción</li>
+<li>Aceleración en las negociaciones de acuerdos comerciales con terceros</li>
+<li>Eliminación de barreras reales al comercio entre países del bloque</li>
+</ul>
+</div>
+
+<h2>El potencial económico desaprovechado</h2>
+
+<p>En un tono más propositivo, Milei destacó que los países del Mercosur poseen activos estratégicos extraordinarios que podrían convertirse en motores de prosperidad regional. Mencionó específicamente los recursos energéticos, los minerales considerados críticos para las nuevas tecnologías, y la capacidad de producción alimentaria de la región.</p>
+
+<p>Sin embargo, advirtió que estos recursos naturales por sí solos no generan riqueza si persisten las barreras internas que impiden su aprovechamiento óptimo. El presidente llamó a los países miembros a dejar de imponer obstáculos mutuos y permitir que el potencial productivo regional se despliegue plenamente.</p>
+
+<h2>Pronunciamiento sobre Venezuela</h2>
+
+<p>El discurso de Milei también incluyó referencias directas a la situación venezolana, tema que genera divisiones en el bloque. El mandatario argentino describió la crisis que atraviesa ese país como una catástrofe política, humanitaria y social de proporciones devastadoras.</p>
+
+<p>Caracterizó al gobierno de Nicolás Maduro con términos severos y expresó el respaldo argentino a las presiones internacionales, particularmente las provenientes de Estados Unidos bajo la futura administración de Donald Trump, orientadas a forzar cambios políticos en Caracas.</p>
+
+<blockquote>
+"Esta situación vergonzosa y peligrosa no puede continuar existiendo en el continente sudamericano. Ha llegado el momento de que el Mercosur adopte una posición firme y unificada frente a este experimento autoritario", manifestó el presidente argentino.
+</blockquote>
+
+<p>Milei también reiteró su exigencia por la liberación del gendarme argentino Nahuel Gallo, quien permanece detenido en Venezuela, y reconoció públicamente la valentía de la líder opositora María Corina Machado, recientemente galardonada con el Premio Nobel de la Paz.</p>
+
+<div class="comentario-experto">
+<div class="comentario-experto-titulo">💬 Contexto geopolítico</div>
+<p><strong>Dra. Gabriela Sánchez, analista de relaciones internacionales:</strong> "El posicionamiento de Milei sobre Venezuela contrasta notablemente con la postura más moderada de Brasil, donde el presidente Lula ha advertido sobre los riesgos de una intervención militar externa. Estas diferencias reflejan las profundas divisiones ideológicas que atraviesan actualmente al Mercosur."</p>
+</div>
+
+<h2>Otras temáticas abordadas</h2>
+
+<p>Además de los ejes centrales mencionados, el presidente argentino tocó diversos temas en su alocución. Expresó su satisfacción por la incorporación de Bolivia como nuevo miembro pleno del bloque y manifestó la disposición argentina para acompañar técnica y políticamente ese proceso de adhesión.</p>
+
+<p>También reiteró el histórico reclamo argentino por la soberanía sobre las Islas Malvinas, las Georgias del Sur y las Sandwich del Sur, agradeciendo el respaldo permanente del Mercosur a esta posición.</p>
+
+<p>En un gesto hacia la reciente coyuntura electoral chilena, Milei felicitó al pueblo trasandino por su jornada democrática y destacó el triunfo de José Antonio Kast, interpretándolo como una señal regional favorable a modelos económicos más abiertos y competitivos.</p>
+
+<h2>Reacciones en la cumbre</h2>
+
+<p>Las declaraciones del presidente argentino no pasaron desapercibidas entre los asistentes a la cumbre. Si bien no hubo réplicas inmediatas durante la sesión plenaria, fuentes diplomáticas indicaron que varios mandatarios expresaron en privado su incomodidad con la dureza del discurso.</p>
+
+<p>Brasil, como anfitrión y socio principal del bloque, adoptó un tono conciliador pero dejó entrever diferencias de enfoque, particularmente en lo referido a la flexibilización comercial y el tema venezolano. El presidente Luiz Inácio Lula da Silva había advertido horas antes sobre los riesgos de las intervenciones militares externas en la región.</p>
+
+<img src="https://media.ambito.com/p/08028fc817b32917ab7222e5f252fc65/adjuntos/239/imagenes/042/561/0042561323/foto-familia-cumbre-del-mercosurjpeg.jpeg" alt="Líderes Mercosur" class="imagen-contenido">
+<p class="pie-foto">Los mandatarios del Mercosur durante la sesión plenaria de la cumbre</p>
+
+<h2>Implicancias para el futuro del bloque</h2>
+
+<p>Los analistas políticos coinciden en que el discurso de Milei marca un punto de inflexión en el debate sobre el rumbo del Mercosur. Las críticas del presidente argentino no son enteramente nuevas, pero su formulación tan directa en el marco de una cumbre oficial representa un desafío sin precedentes recientes al statu quo del organismo.</p>
+
+<p>La pregunta que queda flotando es si el bloque podrá encontrar una síntesis entre las visiones divergentes de sus miembros, o si estas diferencias terminarán por paralizar aún más su funcionamiento. La postergación del acuerdo con la Unión Europea, anunciada en el mismo contexto de la cumbre, parece confirmar las dificultades del bloque para avanzar con agilidad en el escenario comercial internacional.</p>
