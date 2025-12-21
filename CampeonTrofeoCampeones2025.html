@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudiantes, otra vez campeon con garra - El Dueño Digital</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ========================================
+           RESET Y CONFIGURACIÓN GLOBAL
+           ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: #f8f9fa;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           BARRA SUPERIOR - FECHA Y REDES
+           ======================================== */
+        .top-bar {
+            background-color: #e1796e;
+            color: #ffffff;
+            padding: 0.5rem 0;
+            font-size: 0.85rem;
+        }
+
+        .top-bar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .fecha-actual {
+            color: #cccccc;
+        }
+
+        .redes-sociales {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .redes-sociales a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .redes-sociales a:hover {
+            color: #e74c3c;
+        }
+
+        /* ========================================
+           HEADER PRINCIPAL
+           ======================================== */
+        header {
+            background-color: #ffffff;
+            border-bottom: 3px solid #e74c3c;
+            padding: 1.5rem 0;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            letter-spacing: -1px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 75px;
+            height: 75px;
+            object-fit: contain;
+        }
+
+        .logo span {
+            color: #e74c3c;
+        }
+
+        .eslogan {
+            font-size: 0.85rem;
+            color: #666666;
+            font-style: italic;
+            margin-top: -0.3rem;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: #1a1a1a;
+            transition: all 0.3s;
+        }
+
+        /* ========================================
+           NAVEGACIÓN PRINCIPAL
+           ======================================== */
+        nav {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 0;
+        }
+
+        .nav-menu li {
+            position: relative;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #e74c3c;
+            border-bottom-color: #e74c3c;
+        }
+
+        /* ========================================
+           CONTENEDOR PRINCIPAL
+           ======================================== */
+        .main-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        /* ========================================
+           ARTÍCULO DE NOTICIA COMPLETO
+           ======================================== */
+        .articulo-completo {
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            padding: 3rem;
+        }
+
+        .categoria-tag {
+            display: inline-block;
+            background-color: #e74c3c;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+        }
+
+        .categoria-tag.deportes {
+            background-color: #2ecc71;
+        }
+
+        .articulo-completo h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+
+        .articulo-meta {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+            color: #888888;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #2ecc71;
+        }
+
+        .articulo-imagen-principal {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .articulo-bajada {
+            font-size: 1.2rem;
+            color: #555555;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            font-weight: 500;
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+            border-left: 4px solid #2ecc71;
+        }
+
+        .articulo-contenido {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #333333;
+        }
+
+        .articulo-contenido h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #2ecc71;
+        }
+
+        .articulo-contenido h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #2ecc71;
+        }
+
+        .articulo-contenido p {
+            margin-bottom: 1.5rem;
+        }
+
+        .articulo-contenido ul,
+        .articulo-contenido ol {
+            margin-bottom: 1.5rem;
+            margin-left: 2rem;
+        }
+
+        .articulo-contenido li {
+            margin-bottom: 0.8rem;
+        }
+
+        .articulo-contenido blockquote {
+            border-left: 4px solid #2ecc71;
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: #555555;
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 4px;
+        }
+
+        .destacado {
+            background-color: #d4edda;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 4px solid #2ecc71;
+        }
+
+        .match-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #111827;
+            /* fondo oscuro */
+            border-radius: 10px;
+            padding: 50px 50px;
+            max-width: 2000px;
+            margin: 16px auto;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+        }
+
+        /* Equipos */
+        .team {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 34%;
+        }
+
+        .team img {
+            width: 100px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .team-name {
+            font-size: 25px;
+            font-weight: 600;
+            color: #e5e7eb;
+        }
+
+        /* Visitante a la derecha */
+        .team-away {
+            justify-content: flex-end;
+            text-align: right;
+        }
+
+        /* Resultado */
+        .match-result {
+            width: 32%;
+            text-align: center;
+        }
+
+        .score {
+            font-size: 30px;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1;
+        }
+
+        .match-status {
+            display: block;
+            font-size: 11px;
+            margin-top: 4px;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-volver {
+            display: inline-block;
+            background-color: #1a1a1a;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            margin-top: 2rem;
+        }
+
+        .btn-volver:hover {
+            background-color: #333333;
+        }
+
+
+        /* ========================================
+           RESPONSIVE - TABLET
+           ======================================== */
+        @media (max-width: 968px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+
+            .articulo-completo h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* ========================================
+           RESPONSIVE - MÓVIL
+           ======================================== */
+        @media (max-width: 768px) {
+            .top-bar-content {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .menu-toggle {
+                display: flex;
+                position: absolute;
+                right: 2rem;
+                top: 1.5rem;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                display: none;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu a {
+                border-bottom: none;
+                border-left: 3px solid transparent;
+            }
+
+            .nav-menu a:hover,
+            .nav-menu a.active {
+                border-left-color: #e74c3c;
+                border-bottom-color: transparent;
+            }
+
+            .articulo-completo {
+                padding: 1.5rem;
+            }
+
+            .articulo-completo h1 {
+                font-size: 1.6rem;
+            }
+
+            .articulo-imagen-principal {
+                height: 250px;
+            }
+
+            .marcador-equipos {
+                font-size: 1.5rem;
+            }
+
+            .marcador-score {
+                font-size: 2rem;
+            }
+
+            .main-container,
+            .nav-content,
+            .header-content,
+            .top-bar-content {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ========================================
+         BARRA SUPERIOR
+         ======================================== -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="fecha-actual">
+                <span id="fecha"></span>
+            </div>
+            <div class="redes-sociales">
+                <a href="#" title="Facebook">📘 Facebook</a>
+                <a href="#" title="Twitter">🐦 Twitter</a>
+                <a href="#" title="Instagram">📷 Instagram</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================
+         HEADER PRINCIPAL
+         ======================================== -->
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="logo.png" alt="Logo" class="logo-img">
+                <div class="logo-section">
+                    <div class="logo">El <span>DUEÑO</span></div>
+                    <div class="eslogan">ULTIMAS NOTICIAS Y EFEMERIDES</div>
+                </div>
+            </div>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================
+         NAVEGACIÓN PRINCIPAL
+         ======================================== -->
+    <nav>
+        <div class="nav-content">
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Portada</a></li>
+                <li><a href="Politica.html">Política</a></li>
+                <li><a href="#deportes" class="active">Deportes</a></li>
+                <li><a href="#mundo">Mundo</a></li>
+                <li><a href="#tecnologia">Tecnología</a></li>
+                <li><a href="#economia">Economía</a></li>
+                <li><a href="Efemerides.html">Efemerides</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ========================================
+         CONTENEDOR PRINCIPAL
+         ======================================== -->
+    <div class="main-container">
+        <!-- ARTÍCULO PRINCIPAL -->
+        <main>
+            <article class="articulo-completo">
+                <span class="categoria-tag deportes">Deportes</span>
+
+                <h1>Estudiantes, otra vez campeon con garra.</h1>
+
+                <div class="articulo-meta">
+                    <span>📅 15 de Diciembre, 2025</span>
+                    <span>✍️ Por Redacción Deportiva</span>
+                    <span>⏱️ 4 min de lectura</span>
+                </div>
+
+                <img src="https://media.tycsports.com/files/2025/12/20/911022/estudiantes-campeon_862x485.webp?v=1"
+                    alt="Racing vs Boca" class="articulo-imagen-principal">
+
+                <div class="articulo-bajada">
+                    En un partido peleado hasta el final el equipo de La Plata se impuso con un doble del "Pipa" Alario.
+                </div>
+                <div class="match-card">
+                    <div class="team team-home">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Estudiantes_de_la_Plata_crest_%282025%29.svg/330px-Estudiantes_de_la_Plata_crest_%282025%29.svg.png"
+                            alt="Boca Juniors">
+                        <span class="team-name">Estudiantes (LP)</span>
+                    </div>
+
+                    <div class="match-result">
+                        <span class="score">2 - 1</span>
+                        <span class="match-status">Final - Torfeo de Campeones</span>
+                    </div>
+
+                    <div class="team team-away">
+                       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Club_Alt%C3%A9tico_Platense_crest_%282025%29.svg/330px-Club_Alt%C3%A9tico_Platense_crest_%282025%29.svg.png"
+                                alt="River Plate">
+                                <span class="team-name">Platense</span>
+                    </div>
+                </div>
+
+
+                <div class="articulo-contenido">
+                    <h2>El desarrollo del partido</h2>
+
+<h3>Primer tiempo: parejo, trabado y sin luces</h3>
+
+<p>
+    En una tarde con el título en juego, Estudiantes y Platense arrancaron el duelo con mucha cautela.
+    El partido fue de ida y vuelta sin grandes ocasiones claras: ambos equipos se respetaron,
+    el mediocampo fue terreno de lucha y las llegadas terminaban siempre en manos de los arqueros
+    o interrupciones defensivas.
+</p>
+
+<p>
+    El “Calamar” mostró orden y búsqueda desde el primer minuto, mientras que Estudiantes apostó a
+    transiciones cuidadas y la movilidad en ataque para hacer daño. Los primeros 45 minutos transcurrieron
+    lejos de las áreas y con un ritmo que prometía emociones fuertes en la segunda mitad.
+</p>
+
+<div class="destacado">
+    <strong>Estadística clave:</strong> En el primer tiempo, el marcador permaneció en cero y el juego
+    fue más de desgaste que de claridad ofensiva, reflejando la intensidad de una final sin margen de error.
+</div>
+
+<h3>Segundo tiempo: Platense golpea, Estudiantes reacciona y Alario escribe la historia</h3>
+
+<p>
+    La etapa final inició con una inyección de adrenalina temprana: apenas comenzado el complemento,
+    Platense logró adelantarse con un remate certero de <strong>Franco Zapiola</strong>,
+    que puso a los suyos arriba en el marcador y desató el grito de esperanza en la tribuna visitante.
+</p>
+
+<p>
+    El gol empujó a Estudiantes a intensificar su búsqueda. Con paciencia, sacrificio y un plan claro,
+    el “Pincha” fue empujando al rival hacia su campo y generando situaciones que empezaron a inquietar
+    cada vez más a la defensa calamar.
+</p>
+
+<p>
+    La figura de la tarde apareció cuando más se necesitaba: entrando desde el banco, <strong>Lucas Alario</strong>
+    igualó el partido con un oportuno tanto tras un centro preciso, metiendo al estadio en un silencio
+    expectante antes del tumulto de emoción. Pero no se detuvo ahí: en el minuto final,
+    una jugada de pelota parada encontró nuevamente a Alario para definir con frialdad y coronar
+    la remontada con el 2-1 que le daría el título. 
+</p>
+
+<blockquote>
+    “Esto es para la gente, para la historia y para todo Estudiantes.
+    Siempre creí en mí y en este grupo”, confesó Alario tras el pitazo final,
+    con la emoción y la gloria latente en sus palabras.
+</blockquote>
+
+<h2>La consagración del Trofeo de Campeones</h2>
+
+<p>
+    Con este resultado, Estudiantes se coronó campeón del "Trofeo de Campeones 2025" al imponerse
+    2-1 sobre Platense en el Estadio Único de San Nicolás de los Arroyos.
+    Fue un cierre de temporada vibrante para el “Pincha”, que festejó con su gente un título
+    trabajado, sufrido y bien merecido tras un partido que se definió en los instantes finales.
+</p>
+
+<p>
+    La institución suma otro trofeo a su rica historia, mientras que Platense cierra un año
+    memorable aunque sin el campeonato de cierre que tanto soñó.
+</p>
+
+<h2>¿Y ahora qué?</h2>
+
+<p>
+    La gloria continúa para Estudiantes: este título se suma a su palmarés y fortalece el proyecto
+    del equipo dirigido por Eduardo Domínguez, que sigue escribiendo un capítulo más en la historia
+    reciente del club con jerarquía, paciencia y carácter en los momentos decisivos. Aunque continua la incertidumbre acerca del futuro tanto del entrenador como de jugadores referentes como el "Ruso" Ascacibar o Cristian Medina </p>
+
+<p> Volviendo a los que sigue para el "Pincha" se vienen una vacaciones que dan por cerrado una gran temporada, que nos deja para el 2026 dos grandes finales que aun no tienen fecha:
+</p>
+
+
+
+<div class="match-card">
+    <div class="team team-home">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Estudiantes_de_la_Plata_crest_%282025%29.svg/330px-Estudiantes_de_la_Plata_crest_%282025%29.svg.png">
+        <span class="team-name">Estudiantes (LP)</span>
+    </div>
+
+    <div class="match-result">
+        <span class="score">VS</span>
+        <span class="match-status">Final - Supercopa Internacional</span>
+    </div>
+
+    <div class="team team-away">
+        <img src="https://www.ligaprofesional.ar/wp-content/uploads/2024/06/RC-escudo.png">
+        <span class="team-name">Rosario Central</span>
+    </div>
+</div>
+
+
+<div class="match-card">
+    <div class="team team-home">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Estudiantes_de_la_Plata_crest_%282025%29.svg/330px-Estudiantes_de_la_Plata_crest_%282025%29.svg.png">
+        <span class="team-name">Estudiantes (LP)</span>
+    </div>
+
+    <div class="match-result">
+        <span class="score">VS</span>
+        <span class="match-status">Final - Supercopa Argentina</span>
+    </div>
+
+    <div class="team team-away">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Escudo_del_Club_Independiente_Rivadavia.svg/330px-Escudo_del_Club_Independiente_Rivadavia.svg.png">
+        <span class="team-name">Independiente Rivadavia (MDZ)</span>
+    </div>
+</div>
+
+
+        <a href="index.html" class="btn-volver">← Volver a la portada</a>
+            </article>
+        </main>
+
+        <script>
+            // Función del menú móvil
+            function toggleMenu() {
+                document.getElementById('navMenu').classList.toggle('active');
+            }
+
+            // Mostrar fecha actual
+            const fecha = new Date();
+            document.getElementById('fecha').textContent = fecha.toLocaleDateString('es-ES', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
