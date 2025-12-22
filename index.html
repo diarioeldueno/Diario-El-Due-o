@@ -651,6 +651,7 @@
             .top-bar-content {
                 padding: 0 1rem;
             }
+            
         }
     </style>
 </head>
@@ -935,6 +936,12 @@ toggleMenu()
     // Mostrar fecha actual
     const fecha = new Date();
     document.getElementById('fecha').textContent = fecha.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+</script>
+<script>
+function toggleMenu() {
+    const menu = document.getElementById("navMenu");
+    menu.classList.toggle("active");
+}
 </script>
 
 </script>
