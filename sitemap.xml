@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Página principal -->
+  <url>
+    <loc>https://diarioeldueno.com/</loc>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Secciones -->
+  <url>
+    <loc>https://diarioeldueno.com/Politica.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://diarioeldueno.com/Economia.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://diarioeldueno.com/Deportes.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://diarioeldueno.com/Mundo.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://diarioeldueno.com/Tecnologia.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Noticias destacadas (ejemplos) -->
+  <url>
+    <loc>https://diarioeldueno.com/deportes/BorjaCruzAzul.html</loc>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://diarioeldueno.com/economia/DestinoSorpresa.html</loc>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://diarioeldueno.com/tecnologia/metaverso.html</loc>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://diarioeldueno.com/economia/Caputopagoenero.html</loc>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+<url>
+    <loc>https://diarioeldueno.com/deportes/CampeonTrofeoCampeones2025.html</loc>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+<url>
+    <loc>https://diarioeldueno.com/mundo/Escapemc.html</loc>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+<url>
+    <loc>https://diarioeldueno.com/politica/MIleiMercosur.html</loc>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+<url>
+    <loc>https://diarioeldueno.com/deportes/Premios-mundial.html</loc>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+<url>
+    <loc>https://diarioeldueno.com/politica/Encuestaa14politicos.html</loc>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+<url>
+    <loc>https://diarioeldueno.com/politica/MayansBullrih.html</loc>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url> 
+<url>
+    <loc>https://diarioeldueno.com/CampeonEstudianntes.html</loc>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
