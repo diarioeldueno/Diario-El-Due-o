@@ -431,85 +431,6 @@
             color: #e74c3c;
         }
 
-        /* Widget del clima */
-        .clima-widget {
-            text-align: center;
-        }
-
-        .clima-ciudad {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #1a1a1a;
-        }
-
-        .clima-temp {
-            font-size: 3rem;
-            font-weight: 700;
-            color: #e74c3c;
-            margin-bottom: 0.5rem;
-        }
-
-        .clima-descripcion {
-            font-size: 0.95rem;
-            color: #666666;
-            margin-bottom: 1rem;
-        }
-
-        .clima-detalles {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid #f0f0f0;
-        }
-
-        .clima-detalle {
-            text-align: center;
-        }
-
-        .clima-detalle-valor {
-            font-weight: 600;
-            color: #1a1a1a;
-            display: block;
-        }
-
-        .clima-detalle-label {
-            font-size: 0.8rem;
-            color: #000000;
-        }
-        .weather-box {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: rgb(255, 255, 255);
-    padding: 6px 12px;
-    border-radius: 8px;
-    font-size: 14px;
-    color: #e74c3c;
-    font-family: 'Times New Roman', Times, serif;
-}
-
-.weather-box img {
-    width: 100px;
-    height: 100px;
-}
-.dolar-box {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(255, 255, 255, 0.15);
-    padding: 6px 12px;
-    border-radius: 8px;
-    font-size: 14px;
-    color: #e74c3c;
-    font-family: Arial, sans-serif;
-}
-
-.dolar-box img {
-    width: 100px;
-    height: 50px;
-}
 
         /* ========================================
            FOOTER
@@ -653,7 +574,16 @@
             }
             
         }
+      
     </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
 </head>
 <body>
     <!-- ========================================
@@ -757,7 +687,7 @@
                 <article class="noticia-card">
                     <img src="https://s.france24.com/media/display/adf675a6-d79d-11f0-a3fa-005056a97e36/w:1280/p:16x9/2025-12-12T100407Z-817655887-RC2XEIAALXR1-RTRMADP-3-NOBEL-PRIZE-PEACE.jpg" alt="Economía" class="noticia-card-imagen">
                     <div class="noticia-card-content">
-                        <span class="categoria-tag.mundo">Mundo</span>
+                        <span class="categoria-tag mundo">Mundo</span>
                         <h3>María Corina Machado: El dramático escape de la líder opositora venezolana que conmociona al continente</h3>
                         <p>La líder de la oposición venezolana María Corina Machado ha logrado escapar de un operativo de detención orquestado por el régimen de Nicolás Maduro, en un episodio que ha generado tensión internacional y preocupación por la escalada represiva en Venezuela. El escape se produjo mientras la líder se dirigía a un evento público en Caracas, donde fuerzas de seguridad intentaron interceptarla.</p>
                         <div class="noticia-card-footer">

@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El metaverso, cuatro años después: entre el repliegue estratégico y la sombra de la Inteligencia Artificial - El Dueño Digital</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ========================================
+           RESET Y CONFIGURACIÓN GLOBAL
+           ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: #f8f9fa;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           BARRA SUPERIOR - FECHA Y REDES
+           ======================================== */
+        .top-bar {
+            background-color: #e1796e;
+            color: #ffffff;
+            padding: 0.5rem 0;
+            font-size: 0.85rem;
+        }
+
+        .top-bar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .fecha-actual {
+            color: #cccccc;
+        }
+
+        .redes-sociales {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .redes-sociales a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .redes-sociales a:hover {
+            color: #e74c3c;
+        }
+
+        /* ========================================
+           HEADER PRINCIPAL
+           ======================================== */
+        header {
+            background-color: #ffffff;
+            border-bottom: 3px solid #e74c3c;
+            padding: 1.5rem 0;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            letter-spacing: -1px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 75px;
+            height: 75px;
+            object-fit: contain;
+        }
+
+        .logo span {
+            color: #e74c3c;
+        }
+
+        .eslogan {
+            font-size: 0.85rem;
+            color: #666666;
+            font-style: italic;
+            margin-top: -0.3rem;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: #1a1a1a;
+            transition: all 0.3s;
+        }
+
+        /* ========================================
+           NAVEGACIÓN PRINCIPAL
+           ======================================== */
+        nav {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 0;
+        }
+
+        .nav-menu li {
+            position: relative;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #e74c3c;
+            border-bottom-color: #e74c3c;
+        }
+
+        /* ========================================
+           CONTENEDOR PRINCIPAL
+           ======================================== */
+        .main-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        /* ========================================
+           ARTÍCULO DE NOTICIA COMPLETO
+           ======================================== */
+        .articulo-completo {
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            padding: 3rem;
+        }
+
+        .categoria-tag {
+            display: inline-block;
+            background-color: #1abc9c;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+        }
+
+        .categoria-tag.economia {
+            background-color: #1abc9c;
+        }
+
+        .articulo-completo h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+
+        .articulo-meta {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+            color: #888888;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #1abc9c;
+        }
+
+        .articulo-imagen-principal {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .articulo-bajada {
+            font-size: 1.2rem;
+            color: #555555;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            font-weight: 500;
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+            border-left: 4px solid #1abc9c;
+        }
+
+        .articulo-contenido {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #333333;
+        }
+
+        .articulo-contenido h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #1abc9c;
+        }
+
+        .articulo-contenido h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #1abc9c;
+        }
+
+        .articulo-contenido p {
+            margin-bottom: 1.5rem;
+        }
+
+        .articulo-contenido ul,
+        .articulo-contenido ol {
+            margin-bottom: 1.5rem;
+            margin-left: 2rem;
+        }
+
+        .articulo-contenido li {
+            margin-bottom: 0.8rem;
+        }
+
+        .articulo-contenido blockquote {
+            border-left: 4px solid #1abc9c;
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: #555555;
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 4px;
+        }
+
+        .destacado {
+            background-color: #d4edda;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 4px solid #1abc9c;
+        }
+
+        .match-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #111827;
+                width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+
+            /* fondo oscuro */
+            border-radius: 10px;
+            padding: 50px 50px;
+            max-width: 2000px;
+            margin: 16px auto;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+        }
+
+        /* Equipos */
+        .team {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 34%;
+        }
+
+        .team img {
+            width: 100px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .team-name {
+            font-size: 25px;
+            font-weight: 600;
+            color: #e5e7eb;
+        }
+
+        /* Visitante a la derecha */
+        .team-away {
+            justify-content: flex-end;
+            text-align: right;
+        }
+
+        /* Resultado */
+        .match-result {
+            width: 32%;
+            text-align: center;
+        }
+
+        .score {
+            font-size: 30px;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1;
+        }
+
+        .match-status {
+            display: block;
+            font-size: 11px;
+            margin-top: 4px;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-volver {
+            display: inline-block;
+            background-color: #1a1a1a;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            margin-top: 2rem;
+        }
+
+        .btn-volver:hover {
+            background-color: #333333;
+        }
+
+
+        /* ========================================
+           RESPONSIVE - TABLET
+           ======================================== */
+        @media (max-width: 968px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+
+            .articulo-completo h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* ========================================
+           RESPONSIVE - MÓVIL
+           ======================================== */
+        @media (max-width: 768px) {
+            .top-bar-content {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .menu-toggle {
+                display: flex;
+                position: absolute;
+                right: 2rem;
+                top: 1.5rem;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                display: none;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu a {
+                border-bottom: none;
+                border-left: 3px solid transparent;
+            }
+
+            .nav-menu a:hover,
+            .nav-menu a.active {
+                border-left-color: #e74c3c;
+                border-bottom-color: transparent;
+            }
+
+            .articulo-completo {
+                padding: 1.5rem;
+            }
+
+            .articulo-completo h1 {
+                font-size: 1.6rem;
+            }
+
+            .articulo-imagen-principal {
+                height: 250px;
+            }
+
+            .marcador-equipos {
+                font-size: 1.5rem;
+            }
+
+            .marcador-score {
+                font-size: 2rem;
+            }
+
+            .main-container,
+            .nav-content,
+            .header-content,
+            .top-bar-content {
+                padding: 0 1rem;
+            }
+            @media (max-width: 768px) {
+    .articulo-imagen-principal {
+        height: auto;
+        max-height: 250px;
+        object-fit: cover;
+    }
+    @media (max-width: 768px) {
+    .match-card {
+        padding: 20px;
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .team {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .match-result {
+        width: 100%;
+    }
+}
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ========================================
+         BARRA SUPERIOR
+         ======================================== -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="fecha-actual">
+                <span id="fecha"></span>
+            </div>
+            <div class="redes-sociales">
+                <a href="#" title="Facebook">📘 Facebook</a>
+                <a href="#" title="Twitter">🐦 Twitter</a>
+                <a href="#" title="Instagram">📷 Instagram</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================
+         HEADER PRINCIPAL
+         ======================================== -->
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="logo.png" alt="Logo" class="logo-img">
+                <div class="logo-section">
+                    <div class="logo">El <span>DUEÑO</span></div>
+                    <div class="eslogan">ULTIMAS NOTICIAS Y EFEMERIDES</div>
+                </div>
+            </div>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================
+         NAVEGACIÓN PRINCIPAL
+         ======================================== -->
+    <nav>
+        <div class="nav-content">
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Portada</a></li>
+                <li><a href="Politica.html">Política</a></li>
+                <li><a href="#deportes">Deportes</a></li>
+                <li><a href="#mundo">Mundo</a></li>
+                <li><a href="#tecnologia"  class="active">Tecnología</a></li>
+                <li><a href="#economia">Economía</a></li>
+                <li><a href="Efemerides.html">Efemerides</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ========================================
+         CONTENEDOR PRINCIPAL
+         ======================================== -->
+<div class="main-container">
+<main>
+        <article class="articulo-completo">
+            <span class="categoria-tag tecnologia">Tecnología</span>
+
+            <h1>El metaverso, cuatro años después: ¿un proyecto acabado o solo en punto muerto?</h1>
+
+            <div class="articulo-meta">
+                <span>📅 23 de Diciembre, 2025</span>
+                <span>✍️ Por Redacción</span>
+                <span>⏱️ 6 min de lectura</span>
+            </div>
+
+            <img src="https://smday.com.ar/wp-content/uploads/2022/05/mark-zuckerberg-1-scaled.jpg" 
+                 alt="Representación digital del metaverso y realidad virtual" class="articulo-imagen-principal">
+
+            <div class="articulo-bajada">
+                Tras la euforia inicial impulsada por Mark Zuckerberg en 2021, los mundos virtuales atraviesan una fase de estancamiento. El cambio de prioridades en Silicon Valley y el auge de la IA plantean dudas sobre su viabilidad.
+            </div>
+
+            <div class="articulo-contenido">
+                <p>
+                    En octubre de 2021, el anuncio de que Facebook pasaba a llamarse <strong>Meta</strong> prometía una revolución sin precedentes: una internet inmersiva tridimensional. Sin embargo, a cuatro años de aquel hito, el ecosistema del metaverso se encuentra en una encrucijada marcada por el silencio comercial.
+                </p>
+
+                <p>
+                    Lo que fue presentado como la evolución definitiva de la red ha chocado con barreras tecnológicas y de adopción social. Hoy, las grandes tecnológicas reevalúan si el proyecto es una meta inalcanzable o si se encuentra en una fase de latencia.
+                </p>
+
+                <h2>El auge y la caída de las inversiones</h2>
+
+                <p>
+                    Durante 2021 y 2022, el flujo de dinero hacia plataformas como Decentraland fue masivo. Grandes marcas compraron parcelas de tierra digital por sumas millonarias, pero los datos actuales reflejan un enfriamiento drástico en el interés del consumidor final.
+                </p>
+
+                <div class="destacado">
+                    “El error fue intentar vender una experiencia de ciencia ficción con un hardware que todavía resulta incómodo y caro para el usuario promedio.”
+                </div>
+
+                <p>
+                    La división Reality Labs de Meta ha registrado pérdidas operativas superiores a los <strong>40.000 millones de dólares</strong>, mientras que los activos digitales como los NFTs de tierras virtuales han perdido más del 90% de su valor.
+                </p>
+
+                <h2>La Inteligencia Artificial: el nuevo centro de gravedad</h2>
+
+                <p>
+                    El principal factor del "punto muerto" actual es el ascenso meteórico de la <strong>Inteligencia Artificial (IA)</strong>. A finales de 2022, la irrupción de modelos generativos cambió la jerarquía de prioridades en Silicon Valley, desplazando los recursos del metaverso hacia algoritmos de lenguaje.
+                </p>
+
+                <ul>
+                    <li>Pérdida de prioridad en las agendas de inversión de riesgo.</li>
+                    <li>Migración de talento técnico hacia el desarrollo de LLMs (modelos de lenguaje).</li>
+                    <li>Cierre de divisiones de metaverso social en empresas como Microsoft y Disney.</li>
+                </ul>
+
+                <h2>¿Por qué no despegó según lo previsto?</h2>
+
+                <p>
+                    Para entender el estado actual del sector, los analistas coinciden en señalar tres variables críticas que han impedido la masificación de estos entornos digitales:
+                </p>
+
+                <ul>
+                    <li><strong>Barrera de hardware:</strong> Los cascos de VR siguen siendo pesados y pueden causar fatiga o mareos.</li>
+                    <li><strong>Costo de entrada:</strong> Dispositivos de alta gama superan los 3.000 dólares, alejándose del mercado masivo.</li>
+                    <li><strong>Falta de utilidad:</strong> Todavía no existe una "Killer App" que haga indispensable la conexión diaria.</li>
+                </ul>
+
+                <div class="destacado">
+                    “La industria ha pasado de la fase de marketing agresivo a una de desarrollo silencioso centrado en la utilidad industrial.”
+                </div>
+
+                <h2>Diferencias entre el modelo social y el industrial</h2>
+
+                <p>
+                    Es fundamental distinguir entre el metaverso de consumo (avatares y juegos) y el industrial. Mientras el primero languidece, el uso de <strong>Gemelos Digitales</strong> para plantas de fabricación sigue creciendo a un ritmo anual del 25%, optimizando procesos logísticos reales.
+                </p>
+
+                <p>
+                    Históricamente, las tecnologías disruptivas atraviesan un "valle de desilusión" antes de su adopción definitiva. El metaverso parece estar recorriendo ese camino, alejándose del ruido mediático para enfocarse en la Realidad Aumentada (AR) más discreta y funcional.
+                </p>
+
+                <h2>Un cierre marcado por la cautela tecnológica</h2>
+
+                <p>
+                    El metaverso no ha muerto, pero ha perdido su corona como la "próxima gran cosa". La visión de Zuckerberg ahora compite con una realidad donde la IA ofrece resultados tangibles y mejoras de productividad inmediatas que el mundo virtual aún no puede garantizar.
+                </p>
+
+                <p>
+                    El éxito de esta tecnología a largo plazo dependerá de su capacidad para integrarse de forma invisible en nuestra vida cotidiana, dejando de ser una "máscara" digital para convertirse en una herramienta de soporte para el mundo físico.
+                </p>
+
+
+        <a href="index.html" class="btn-volver">← Volver a la portada</a>
+        <a href="Tecnologia.html" class="btn-volver">← Mas noticias de tecnologia</a>
+            </article>
+        </main>
+
+        <script>
+            // Función del menú móvil
+            function toggleMenu() {
+                document.getElementById('navMenu').classList.toggle('active');
+            }
+
+            // Mostrar fecha actual
+            const fecha = new Date();
+            document.getElementById('fecha').textContent = fecha.toLocaleDateString('es-ES', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
