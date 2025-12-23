@@ -41,58 +41,58 @@
 
   <!-- Noticias destacadas (ejemplos) -->
   <url>
-    <loc>https://diarioeldueno.com/deportes/BorjaCruzAzul.html</loc>
+    <loc>https://diarioeldueno.com/BorjaCruzAzul.html</loc>
     <changefreq>never</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://diarioeldueno.com/economia/DestinoSorpresa.html</loc>
+    <loc>https://diarioeldueno.com/DestinoSorpresa.html</loc>
     <changefreq>never</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://diarioeldueno.com/tecnologia/metaverso.html</loc>
+    <loc>https://diarioeldueno.com/metaverso.html</loc>
     <changefreq>never</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://diarioeldueno.com/economia/Caputopagoenero.html</loc>
+    <loc>https://diarioeldueno.com/Caputopagoenero.html</loc>
     <changefreq>never</changefreq>
     <priority>0.8</priority>
   </url>
 <url>
-    <loc>https://diarioeldueno.com/deportes/CampeonTrofeoCampeones2025.html</loc>
+    <loc>https://diarioeldueno.com/CampeonTrofeoCampeones2025.html</loc>
     <changefreq>never</changefreq>
     <priority>0.8</priority>
   </url>
 <url>
-    <loc>https://diarioeldueno.com/mundo/Escapemc.html</loc>
+    <loc>https://diarioeldueno.com/Escapemc.html</loc>
     <changefreq>never</changefreq>
     <priority>0.8</priority>
   </url>
 <url>
-    <loc>https://diarioeldueno.com/politica/MIleiMercosur.html</loc>
+    <loc>https://diarioeldueno.com/MIleiMercosur.html</loc>
     <changefreq>never</changefreq>
     <priority>0.8</priority>
   </url>
 <url>
-    <loc>https://diarioeldueno.com/deportes/Premios-mundial.html</loc>
+    <loc>https://diarioeldueno.com/Premios-mundial.html</loc>
     <changefreq>never</changefreq>
     <priority>0.8</priority>
   </url>
 <url>
-    <loc>https://diarioeldueno.com/politica/Encuestaa14politicos.html</loc>
+    <loc>https://diarioeldueno.com/Encuestaa14politicos.html</loc>
     <changefreq>never</changefreq>
     <priority>0.8</priority>
   </url>
 <url>
-    <loc>https://diarioeldueno.com/politica/MayansBullrih.html</loc>
+    <loc>https://diarioeldueno.com/MayansBullrih.html</loc>
     <changefreq>never</changefreq>
     <priority>0.8</priority>
   </url> 
 <url>
-    <loc>https://diarioeldueno.com/CampeonEstudianntes.html</loc>
+    <loc>www.diarioeldueno.com/CampeonEstudianntes.html</loc>
     <changefreq>never</changefreq>
     <priority>0.8</priority>
   </url>
