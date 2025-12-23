@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miguel Borja se muda a México: el colombiano jugará en Cruz Azul tras su salida de River - El Dueño Digital</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ========================================
+           RESET Y CONFIGURACIÓN GLOBAL
+           ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: #f8f9fa;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           BARRA SUPERIOR - FECHA Y REDES
+           ======================================== */
+        .top-bar {
+            background-color: #e1796e;
+            color: #ffffff;
+            padding: 0.5rem 0;
+            font-size: 0.85rem;
+        }
+
+        .top-bar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .fecha-actual {
+            color: #cccccc;
+        }
+
+        .redes-sociales {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .redes-sociales a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .redes-sociales a:hover {
+            color: #e74c3c;
+        }
+
+        /* ========================================
+           HEADER PRINCIPAL
+           ======================================== */
+        header {
+            background-color: #ffffff;
+            border-bottom: 3px solid #e74c3c;
+            padding: 1.5rem 0;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            letter-spacing: -1px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 75px;
+            height: 75px;
+            object-fit: contain;
+        }
+
+        .logo span {
+            color: #e74c3c;
+        }
+
+        .eslogan {
+            font-size: 0.85rem;
+            color: #666666;
+            font-style: italic;
+            margin-top: -0.3rem;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: #1a1a1a;
+            transition: all 0.3s;
+        }
+
+        /* ========================================
+           NAVEGACIÓN PRINCIPAL
+           ======================================== */
+        nav {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 0;
+        }
+
+        .nav-menu li {
+            position: relative;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #e74c3c;
+            border-bottom-color: #e74c3c;
+        }
+
+        /* ========================================
+           CONTENEDOR PRINCIPAL
+           ======================================== */
+        .main-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        /* ========================================
+           ARTÍCULO DE NOTICIA COMPLETO
+           ======================================== */
+        .articulo-completo {
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            padding: 3rem;
+        }
+
+        .categoria-tag {
+            display: inline-block;
+            background-color: #e74c3c;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+        }
+
+        .categoria-tag.deportes {
+            background-color: #2ecc71;
+        }
+
+        .articulo-completo h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+
+        .articulo-meta {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+            color: #888888;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #2ecc71;
+        }
+
+        .articulo-imagen-principal {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .articulo-bajada {
+            font-size: 1.2rem;
+            color: #555555;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            font-weight: 500;
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+            border-left: 4px solid #2ecc71;
+        }
+
+        .articulo-contenido {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #333333;
+        }
+
+        .articulo-contenido h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #2ecc71;
+        }
+
+        .articulo-contenido h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #2ecc71;
+        }
+
+        .articulo-contenido p {
+            margin-bottom: 1.5rem;
+        }
+
+        .articulo-contenido ul,
+        .articulo-contenido ol {
+            margin-bottom: 1.5rem;
+            margin-left: 2rem;
+        }
+
+        .articulo-contenido li {
+            margin-bottom: 0.8rem;
+        }
+
+        .articulo-contenido blockquote {
+            border-left: 4px solid #2ecc71;
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: #555555;
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 4px;
+        }
+
+        .destacado {
+            background-color: #d4edda;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 4px solid #2ecc71;
+        }
+
+        .match-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #111827;
+                width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+
+            /* fondo oscuro */
+            border-radius: 10px;
+            padding: 50px 50px;
+            max-width: 2000px;
+            margin: 16px auto;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+        }
+
+        /* Equipos */
+        .team {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 34%;
+        }
+
+        .team img {
+            width: 100px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .team-name {
+            font-size: 25px;
+            font-weight: 600;
+            color: #e5e7eb;
+        }
+
+        /* Visitante a la derecha */
+        .team-away {
+            justify-content: flex-end;
+            text-align: right;
+        }
+
+        /* Resultado */
+        .match-result {
+            width: 32%;
+            text-align: center;
+        }
+
+        .score {
+            font-size: 30px;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1;
+        }
+
+        .match-status {
+            display: block;
+            font-size: 11px;
+            margin-top: 4px;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-volver {
+            display: inline-block;
+            background-color: #1a1a1a;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            margin-top: 2rem;
+        }
+
+        .btn-volver:hover {
+            background-color: #333333;
+        }
+
+
+        /* ========================================
+           RESPONSIVE - TABLET
+           ======================================== */
+        @media (max-width: 968px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+
+            .articulo-completo h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* ========================================
+           RESPONSIVE - MÓVIL
+           ======================================== */
+        @media (max-width: 768px) {
+            .top-bar-content {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .menu-toggle {
+                display: flex;
+                position: absolute;
+                right: 2rem;
+                top: 1.5rem;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                display: none;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu a {
+                border-bottom: none;
+                border-left: 3px solid transparent;
+            }
+
+            .nav-menu a:hover,
+            .nav-menu a.active {
+                border-left-color: #e74c3c;
+                border-bottom-color: transparent;
+            }
+
+            .articulo-completo {
+                padding: 1.5rem;
+            }
+
+            .articulo-completo h1 {
+                font-size: 1.6rem;
+            }
+
+            .articulo-imagen-principal {
+                height: 250px;
+            }
+
+            .marcador-equipos {
+                font-size: 1.5rem;
+            }
+
+            .marcador-score {
+                font-size: 2rem;
+            }
+
+            .main-container,
+            .nav-content,
+            .header-content,
+            .top-bar-content {
+                padding: 0 1rem;
+            }
+            @media (max-width: 768px) {
+    .articulo-imagen-principal {
+        height: auto;
+        max-height: 250px;
+        object-fit: cover;
+    }
+    @media (max-width: 768px) {
+    .match-card {
+        padding: 20px;
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .team {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .match-result {
+        width: 100%;
+    }
+}
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ========================================
+         BARRA SUPERIOR
+         ======================================== -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="fecha-actual">
+                <span id="fecha"></span>
+            </div>
+            <div class="redes-sociales">
+                <a href="#" title="Facebook">📘 Facebook</a>
+                <a href="#" title="Twitter">🐦 Twitter</a>
+                <a href="#" title="Instagram">📷 Instagram</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================
+         HEADER PRINCIPAL
+         ======================================== -->
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="logo.png" alt="Logo" class="logo-img">
+                <div class="logo-section">
+                    <div class="logo">El <span>DUEÑO</span></div>
+                    <div class="eslogan">ULTIMAS NOTICIAS Y EFEMERIDES</div>
+                </div>
+            </div>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================
+         NAVEGACIÓN PRINCIPAL
+         ======================================== -->
+    <nav>
+        <div class="nav-content">
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Portada</a></li>
+                <li><a href="Politica.html">Política</a></li>
+                <li><a href="#deportes" class="active">Deportes</a></li>
+                <li><a href="#mundo">Mundo</a></li>
+                <li><a href="#tecnologia">Tecnología</a></li>
+                <li><a href="#economia">Economía</a></li>
+                <li><a href="Efemerides.html">Efemerides</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ========================================
+         CONTENEDOR PRINCIPAL
+         ======================================== -->
+    <div class="main-container">
+        <!-- ARTÍCULO PRINCIPAL -->
+        <main>
+            <article class="articulo-completo">
+                <span class="categoria-tag deportes">Deportes</span>
+
+                <h1>Miguel Borja se muda a México: el colombiano jugará en Cruz Azul tras su salida de River</h1>
+
+                <div class="articulo-meta">
+                    <span>📅 23 de Diciembre, 2025</span>
+                    <span>✍️ Por Redacción Deportiva</span>
+                    <span>⏱️ 4 min de lectura</span>
+                </div>
+
+                <img src="https://media.mdzol.com/p/fe863c5252461aebca067d43e28d7716/adjuntos/373/imagenes/001/859/0001859966/760x0/708x280:728x300/borja-cruz-azul-boca.jpg"
+                    alt="Racing vs Boca" class="articulo-imagen-principal">
+
+                <div class="articulo-bajada">
+                   El delantero cafetero, que era pretendido por varios clubes del continente, aceptó la oferta de la "Máquina Cementera". Pese a los rumores que lo vincularon con Boca, su destino estará en la Liga MX con un contrato millonario.
+                </div>
+
+
+                <div class="articulo-contenido">
+                
+                <p>
+    Luego de semanas de incertidumbre y versiones cruzadas, el futuro de Miguel Ángel Borja quedó definido. 
+    El atacante colombiano, de reciente y fructífero paso por River Plate, continuará su carrera en el Cruz Azul de México.
+     La noticia, confirmada por fuentes cercanas a la negociación y adelantada por TyC Sports, pone fin a una de las novelas más extensas del mercado de pases.
+</p>
+<p>
+    La salida de Borja de Núñez no fue una sorpresa para el mundo millonario, pero sí lo fue la celeridad con la que el equipo mexicano logró cerrar el acuerdo, superando las intenciones de otros competidores regionales, incluido un sondeo informal desde el fútbol local que generó revuelo en redes sociales.
+                   
+<h2>Los detalles de la operacion</h2>
+
+<p>
+    El acuerdo entre el jugador y el club azteca se cerró bajo condiciones económicas que resultaron imposibles de igualar para el mercado argentino. Cruz Azul buscaba un centrodelantero de jerarquía para recuperar el protagonismo en el torneo mexicano y vio en el "Colibrí" la pieza ideal para su esquema ofensivo.
+</p>
+<blockquote>
+    "La prioridad de Borja siempre fue asegurar un contrato que refleje su presente goleador, y el proyecto deportivo de Cruz Azul fue el más convincente desde el inicio de las charlas", confiaron desde su entorno.
+</blockquote>
+
+<h2>El "no" a Boca y los rumores de traspaso</h2>
+
+<p>
+    Durante los últimos días, el nombre de Miguel Borja circuló con fuerza en los pasillos de Boca Juniors. Ante la necesidad del Xeneize de reforzar su delantera, la posibilidad de que el colombiano cruzara de vereda tras su salida de River alimentó el debate mediático.
+</p>
+<p>
+    Sin embargo, fuentes oficiales descartaron rápidamente cualquier contacto formal. La identificación del jugador con el club de Núñez y la diferencia abismal en las cifras salariales respecto a lo ofrecido desde el exterior fueron los factores determinantes para que la opción de La Ribera nunca fuera concreta.
+</p>
+
+<h2>Su legado en River</h2>
+
+<p>
+   Borja se despide de la Argentina con números que respaldan su jerarquía. Durante su estadía en River, el colombiano logró una eficacia goleadora envidiable, convirtiéndose en el máximo artillero del ciclo de Martín Demichelis y manteniendo un alto promedio incluso tras el regreso de Marcelo Gallardo.
+</p>
+<ul>
+    <li>Goles marcados: Superó la barrera de los 50 tantos con la banda roja.</li>
+    <li>Efectividad: Promedió un gol cada 115 minutos de juego.</li>
+    <li>Títulos: Formó parte de la obtención de la Liga Profesional y el Trofeo de Campeones 2023.</li>
+</ul>
+
+<h2>Claves del pase: ¿Por qué eligió México?</h2>
+<ul>
+    <li>Poder adquisitivo: La Liga MX ofrece salarios que duplican o triplican los techos de la Liga Profesional Argentina.</li>
+    <li>Proyecto Deportivo: Cruz Azul busca romper la hegemonía de clubes como América y Tigres, apostando por jugadores de selección.</li>
+    <li>Vidriera: El fútbol mexicano sigue siendo un puente directo para los futbolistas colombianos que desean mantenerse en el radar de la Selección de Colombia para las Eliminatorias 2026.</li>
+</ul>
+
+<h2>Impacto en el mercado local</h2>
+
+<p>
+   La partida de Borja deja un vacío significativo en la delantera de River, que ahora deberá salir al mercado con urgencia para suplir su cuota goleadora. Al mismo tiempo, su llegada a Cruz Azul confirma la tendencia de los clubes mexicanos de captar las figuras de los equipos "grandes" de Argentina aprovechando la brecha cambiaria y económica.
+</p>
+
+<p>
+    El delantero viajará en las próximas horas para realizarse la revisión médica y estampar la firma definitiva. Con 31 años, el colombiano inicia un nuevo desafío en el que buscará replicar los festejos que lo convirtieron en uno de los delanteros más temibles del fútbol sudamericano en la última década.
+</p>
+
+
+
+
+        <a href="index.html" class="btn-volver">← Volver a la portada</a>
+            </article>
+        </main>
+
+        <script>
+            // Función del menú móvil
+            function toggleMenu() {
+                document.getElementById('navMenu').classList.toggle('active');
+            }
+
+            // Mostrar fecha actual
+            const fecha = new Date();
+            document.getElementById('fecha').textContent = fecha.toLocaleDateString('es-ES', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
