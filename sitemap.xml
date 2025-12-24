@@ -106,4 +106,15 @@
     <changefreq>never</changefreq>
     <priority>0.8</priority>
   </url>
+
+<url>
+    <loc>https://www.diarioeldueno.com/argentinaonuvnz.html</loc>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+<url>
+    <loc>https://www.diarioeldueno.com/Tension-Milei-Macri.html</loc>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
