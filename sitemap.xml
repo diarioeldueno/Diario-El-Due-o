@@ -101,4 +101,9 @@
 <changefreq>never</changefreq>
 <priority>0.8</priority>
 </url>
+ <url>
+    <loc>https://diarioeldueno.com/agrotecnologia.html</loc>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
