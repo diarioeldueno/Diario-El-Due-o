@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ander Herrera y el "Operativo Retorno": los detalles detrás de su decisión de renovar con Boca Juniors- El Dueño Digital</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ========================================
+           RESET Y CONFIGURACIÓN GLOBAL
+           ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: #f8f9fa;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           BARRA SUPERIOR - FECHA Y REDES
+           ======================================== */
+        .top-bar {
+            background-color: #e1796e;
+            color: #ffffff;
+            padding: 0.5rem 0;
+            font-size: 0.85rem;
+        }
+
+        .top-bar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .fecha-actual {
+            color: #cccccc;
+        }
+
+        .redes-sociales {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .redes-sociales a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .redes-sociales a:hover {
+            color: #e74c3c;
+        }
+
+        /* ========================================
+           HEADER PRINCIPAL
+           ======================================== */
+        header {
+            background-color: #ffffff;
+            border-bottom: 3px solid #e74c3c;
+            padding: 1.5rem 0;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            letter-spacing: -1px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 75px;
+            height: 75px;
+            object-fit: contain;
+        }
+
+        .logo span {
+            color: #e74c3c;
+        }
+
+        .eslogan {
+            font-size: 0.85rem;
+            color: #666666;
+            font-style: italic;
+            margin-top: -0.3rem;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: #1a1a1a;
+            transition: all 0.3s;
+        }
+
+        /* ========================================
+           NAVEGACIÓN PRINCIPAL
+           ======================================== */
+        nav {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 0;
+        }
+
+        .nav-menu li {
+            position: relative;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #e74c3c;
+            border-bottom-color: #e74c3c;
+        }
+
+        /* ========================================
+           CONTENEDOR PRINCIPAL
+           ======================================== */
+        .main-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        /* ========================================
+           ARTÍCULO DE NOTICIA COMPLETO
+           ======================================== */
+        .articulo-completo {
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            padding: 3rem;
+        }
+
+        .categoria-tag {
+            display: inline-block;
+            background-color: #e74c3c;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+        }
+
+        .categoria-tag.deportes {
+            background-color: #2ecc71;
+        }
+
+        .articulo-completo h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+
+        .articulo-meta {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+            color: #888888;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #2ecc71;
+        }
+
+        .articulo-imagen-principal {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .articulo-bajada {
+            font-size: 1.2rem;
+            color: #555555;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            font-weight: 500;
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+            border-left: 4px solid #2ecc71;
+        }
+
+        .articulo-contenido {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #333333;
+        }
+
+        .articulo-contenido h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #2ecc71;
+        }
+
+        .articulo-contenido h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #2ecc71;
+        }
+
+        .articulo-contenido p {
+            margin-bottom: 1.5rem;
+        }
+
+        .articulo-contenido ul,
+        .articulo-contenido ol {
+            margin-bottom: 1.5rem;
+            margin-left: 2rem;
+        }
+
+        .articulo-contenido li {
+            margin-bottom: 0.8rem;
+            content: "•";
+        }
+        
+
+        .articulo-contenido blockquote {
+            border-left: 4px solid #2ecc71;
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: #555555;
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 4px;
+        }
+
+        .destacado {
+            background-color: #d4edda;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 4px solid #2ecc71;
+        }
+
+         .table-container {
+    overflow-x: auto;
+    margin: 2rem 0;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Inter', sans-serif;
+}
+
+th {
+    background-color: #f8f9fa;
+    padding: 12px;
+    text-align: left;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #666;
+}
+
+td {
+    padding: 12px;
+    border-top: 1px solid #eee;
+    font-size: 0.95rem;
+}
+.match-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #111827;
+                width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+
+            /* fondo oscuro */
+            border-radius: 10px;
+            padding: 50px 50px;
+            max-width: 2000px;
+            margin: 16px auto;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+        }
+
+        /* Equipos */
+        .team {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 34%;
+        }
+
+        .team img {
+            width: 100px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .team-name {
+            font-size: 25px;
+            font-weight: 600;
+            color: #e5e7eb;
+        }
+
+        /* Visitante a la derecha */
+        .team-away {
+            justify-content: flex-end;
+            text-align: right;
+        }
+
+        /* Resultado */
+        .match-result {
+            width: 32%;
+            text-align: center;
+        }
+
+        .score {
+            font-size: 30px;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1;
+        }
+
+        .match-status {
+            display: block;
+            font-size: 11px;
+            margin-top: 4px;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+
+
+.btn-volver {
+            display: inline-block;
+            background-color: #1a1a1a;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            margin-top: 2rem;
+        }
+
+        .btn-volver:hover {
+            background-color: #333333;
+        }
+
+
+        /* ========================================
+           RESPONSIVE - TABLET
+           ======================================== */
+        @media (max-width: 968px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+
+            .articulo-completo h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* ========================================
+           RESPONSIVE - MÓVIL
+           ======================================== */
+        @media (max-width: 768px) {
+            .top-bar-content {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .menu-toggle {
+                display: flex;
+                position: absolute;
+                right: 2rem;
+                top: 1.5rem;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                display: none;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu a {
+                border-bottom: none;
+                border-left: 3px solid transparent;
+            }
+
+            .nav-menu a:hover,
+            .nav-menu a.active {
+                border-left-color: #e74c3c;
+                border-bottom-color: transparent;
+            }
+
+            .articulo-completo {
+                padding: 1.5rem;
+            }
+
+            .articulo-completo h1 {
+                font-size: 1.6rem;
+            }
+
+            .articulo-imagen-principal {
+                height: 250px;
+            }
+
+            .marcador-equipos {
+                font-size: 1.5rem;
+            }
+
+            .marcador-score {
+                font-size: 2rem;
+            }
+
+            .main-container,
+            .nav-content,
+            .header-content,
+            .top-bar-content {
+                padding: 0 1rem;
+            }
+            @media (max-width: 768px) {
+    .articulo-imagen-principal {
+        height: auto;
+        max-height: 250px;
+        object-fit: cover;
+    }
+    @media (max-width: 768px) {
+    .match-card {
+        padding: 20px;
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .team {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .match-result {
+        width: 100%;
+    }
+}
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ========================================
+         BARRA SUPERIOR
+         ======================================== -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="fecha-actual">
+                <span id="fecha"></span>
+            </div>
+            <div class="redes-sociales">
+                <a href="#" title="Facebook">📘 Facebook</a>
+                <a href="#" title="Twitter">🐦 Twitter</a>
+                <a href="#" title="Instagram">📷 Instagram</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================
+         HEADER PRINCIPAL
+         ======================================== -->
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="logo.png" alt="Logo" class="logo-img">
+                <div class="logo-section">
+                    <div class="logo">El <span>DUEÑO</span></div>
+                    <div class="eslogan">ULTIMAS NOTICIAS Y EFEMERIDES</div>
+                </div>
+            </div>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================
+         NAVEGACIÓN PRINCIPAL
+         ======================================== -->
+    <nav>
+        <div class="nav-content">
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Portada</a></li>
+                <li><a href="Politica.html">Política</a></li>
+                <li><a href="Deportes.html" class="active">Deportes</a></li>
+                <li><a href="Mundo.html">Mundo</a></li>
+                <li><a href="Tecnologia.html">Tecnología</a></li>
+                <li><a href="Economia.html">Economía</a></li>
+                <li><a href="Efemerides.html">Efemerides</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ========================================
+         CONTENEDOR PRINCIPAL
+         ======================================== -->
+    <main class="main-container">
+    <article class="articulo-completo">
+        <span class="categoria-tag deportes">Deportes</span>
+
+        <h1>Ander Herrera y el "Operativo Retorno": los detalles detrás de su decisión de renovar con Boca Juniors</h1>
+
+        <div class="articulo-meta">
+            <span>📅 30 de Diciembre, 2025</span>
+            <span>✍️ Por Redacción Deportiva</span>
+            <span>⏱️ 7 min de lectura</span>
+        </div>
+
+        <img src="https://i0.wp.com/www.canal12misiones.com/wp-content/uploads/2025/12/ander-herrera-boca.jpg?w=880&ssl=1" 
+             alt="Ander Herrera con la indumentaria de entrenamiento en Ezeiza" class="articulo-imagen-principal">
+
+        <div class="articulo-bajada">
+            El volante español puso fin a las especulaciones sobre su retiro y selló su continuidad en el Xeneize hasta finales de 2026. La charla íntima con Juan Román Riquelme, el rol clave de su familia en Buenos Aires y el ambicioso plan deportivo para conquistar América.
+        </div>
+
+        <div class="articulo-contenido">
+
+            <p>
+                Lo que comenzó como una historia llegando a su fin parece haberse transformado en una relación de largo aliento. En las últimas horas, los pasillos del Predio de Ezeiza fueron testigos de una noticia que el hincha de <strong>Boca Juniors</strong> esperaba con ansias: <strong>Ander Herrera</strong> ha decidido ejecutar la cláusula de extensión y renovar su contrato con la institución hasta diciembre de 2026. 
+            </p>
+            
+            <p>
+                La incertidumbre sobre su futuro se había acrecentado tras la finalización del vínculo inicial este diciembre. Tras una reunión de más de tres horas con el presidente <strong>Juan Román Riquelme</strong>, el mediocampista de 36 años dio el "sí" definitivo, priorizando la gloria deportiva por sobre el confort del Viejo Continente.
+            </p>
+
+            <h2>El "Factor Riquelme" y el proyecto 2026</h2>
+
+            <p>
+                No fue solo una cuestión de papeles. Fuentes cercanas al Consejo de Fútbol aseguran que Riquelme le presentó a Herrera un "plan de seducción" que incluye refuerzos de jerarquía internacional para rodearlo mejor en el mediocampo. Luego de la llegada de <strong>Leandro Paredes</strong> y la consolidación de los juveniles del club fueron argumentos de peso para que el español entendiera que su ciclo en Argentina aún no había alcanzado su techo.
+            </p>
+
+            <blockquote>
+                "Ander no vino a pasear. Él siente que el 2025 fue su año de adaptación al roce sudamericano y que el 2026 debe ser el año de la consagración. Quiere que su nombre quede grabado en una copa", afirman desde su círculo íntimo.
+            </blockquote>
+
+            <p>
+                Además, el español ha asumido un rol de mentor. En los últimos meses del año, se lo vio trabajando horas extra con las promesas de la Reserva, inculcando conceptos de posicionamiento y disciplina táctica que trajo de su paso por el <strong>Manchester United</strong> y el <strong>París Saint-Germain</strong>.
+            </p>
+
+            <div class="destacado">
+                <h3>Claves de la renovación: ¿Qué cambió?</h3>
+                <p>A pesar de que su familia extrañaba la vida en España, la rápida adaptación de sus hijos al sistema escolar local y la calidez del barrio porteño donde residen fueron determinantes. En lo económico, el club ajustó bonos por objetivos logrados, convirtiéndolo en uno de los mejores pagos del plantel pero dentro de los márgenes de la ingeniería financiera de la Ribera.</p>
+            </div>
+
+            <h2>Los números que respaldan la apuesta</h2>
+
+            <p>
+                Más allá de la mística y el marketing que rodea a una figura de su calibre, Ander Herrera ha demostrado con estadísticas por qué es indispensable. Su mapa de calor durante el último semestre muestra un despliegue que envidiarían futbolistas diez años menores, cubriendo desde la salida limpia en defensa hasta la presión en campo rival.
+            </p>
+
+            <ul>
+                <li><strong>Precisión en pases:</strong> Lideró la Liga Profesional con un 92.4% de efectividad en entregas bajo presión.</li>
+                <li><strong>Recuperaciones:</strong> Promedió 6.5 robos por partido, situándose en el top 3 de mediocampistas centrales del torneo.</li>
+                <li><strong>Minutos jugados:</strong> Disputó el 88% de los minutos oficiales desde que recibió la habilitación internacional en julio.</li>
+            </ul>
+
+            <h2>Contexto: La economía de los "viejos cracks"</h2>
+
+            <p>
+                En una economía argentina golpeada por la brecha cambiaria, Boca Juniors ha implementado un modelo de negocios similar al de los clubes brasileños: atraer figuras de renombre mundial mediante contratos basados en ingresos por patrocinio y marketing. La permanencia de Herrera no solo beneficia al equipo en el césped, sino que mantiene el valor de la marca "Boca" a nivel global, facilitando giras internacionales y nuevos sponsors europeos.
+            </p>
+
+            <p>
+                Históricamente, pocos jugadores europeos han logrado adaptarse al fútbol doméstico argentino, conocido por su agresividad y falta de espacios. Herrera rompió ese molde. Su promedio de pases progresivos (aquellos que rompen líneas defensivas) aumentó un 15% en los últimos cinco partidos del año, señal de que ya descifró el código del fútbol local.
+            </p>
+
+            <div class="match-card">
+                <div class="team">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/CABJ70.png/330px-CABJ70.png" alt="Boca">
+                    <span class="team-name">Boca</span>
+                </div>
+                <div class="match-result">
+                    <span class="score">2026</span>
+                    <span class="match-status">Contrato Renovado</span>
+                </div>
+                <div class="team team-away">
+                    <span class="team-name">A. Herrera</span>
+                    <img src="https://cdn-icons-png.flaticon.com/512/197/197593.png" alt="España">
+                </div>
+            </div>
+
+            <h2>El mensaje de Boca al continente</h2>
+            <p>
+                La firma de Ander Herrera es un golpe sobre la mesa. En un mercado donde los clubes argentinos suelen ser exportadores natos, Boca se permite retener a un campeón de la Europa League para que sea el eje de su proyecto. Esto envía una señal clara a los gigantes de Brasil: el Xeneize está rearmando su arsenal para pelear de igual a igual.
+            </p>
+
+            <p>
+                La pretemporada comenzará el 3 de enero con Herrera a la cabeza. El "León de Bilbao" ya no es un visitante distinguido; es el dueño de las llaves del mediocampo de Boca. El sueño de la Séptima Libertadores ahora cuenta con un arquitecto de lujo que decidió que su lugar en el mundo, al menos por un año más, es la Bombonera.
+            </p>
+
+        </div>
+
+        <a href="#" class="btn-volver">← Volver a la sección Deportes</a>
+    </article>
+
+
+        <a href="index.html" class="btn-volver">← Volver a la portada</a>
+            </article>
+        </main>
+
+        <script>
+            // Función del menú móvil
+            function toggleMenu() {
+                document.getElementById('navMenu').classList.toggle('active');
+            }
+
+            // Mostrar fecha actual
+            const fecha = new Date();
+            document.getElementById('fecha').textContent = fecha.toLocaleDateString('es-ES', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
