@@ -137,4 +137,9 @@
     <changefreq>never</changefreq>
     <priority>0.8</priority>
   </url>
+<url>
+    <loc>https://www.diarioeldueno.com/Ander-No-Se-Va.html</loc>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
