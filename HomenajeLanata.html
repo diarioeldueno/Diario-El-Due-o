@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>El Gobierno disuelve la Agencia Nacional de Discapacidad y sus funciones pasan al Ministerio de Salud - El Dueño Digital</title>
+<title>Jorge Lanata: El legado de un periodista que redefinió el poder - El Dueño Digital</title>
 <link rel="icon" type="image/png" href="logo.png">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -263,7 +263,7 @@ font-size: 1.4rem;
 font-weight: 600;
 margin-top: 2rem;
 margin-bottom: 1rem;
-color: #1a1a1a;
+color: #3498db;
 }
 
 .articulo-contenido p {
@@ -314,7 +314,151 @@ margin: 2rem 0;
 background-color: #ffffff;
 box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
+.info-stats-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 20px; 
+    margin: 3.5rem 0; 
+}
 
+.stat-card { 
+    background: #f9f9f9; 
+    padding: 25px; 
+    border-radius: 8px; 
+    border-top: 5px solid #3498db; 
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-number { 
+    display: block; 
+    font-size: 2.8rem; 
+    font-weight: 800; 
+    color: #3498db; 
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.stat-desc { 
+    font-size: 0.85rem; 
+    font-weight: 700; 
+    color: #7f8c8d; 
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+}
+
+/* 2. CAJA DE CITA DE IMPACTO (Quote Box Dark) */
+.quote-box { 
+    background: #1a1a1a; 
+    color: #ffffff; 
+    padding: 3.5rem; 
+    border-radius: 12px; 
+    margin: 4rem 0; 
+    position: relative;
+    overflow: hidden;
+}
+
+
+.quote-box blockquote { 
+    font-size: 1.85rem; 
+    font-weight: 300; 
+    line-height: 1.5; 
+    border: none; 
+    font-style: italic; 
+    position: relative;
+    z-index: 1;
+    background: transparent;
+    padding: 0;
+}
+
+.quote-box cite { 
+    display: block; 
+    margin-top: 25px; 
+    color: #3498db; 
+    font-weight: 700; 
+    font-style: normal;
+    font-size: 1.1rem;
+}
+
+/* 3. LÍNEA DE TIEMPO VISUAL (Timeline) */
+.timeline-item {
+    border-left: 3px solid #3498db;
+    padding-left: 25px;
+    margin-bottom: 35px;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 0;
+    width: 17px;
+    height: 17px;
+    background: #3498db;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 3px #3498db;
+}
+
+.timeline-year {
+    font-weight: 800;
+    color: #2c3e50;
+    font-size: 1.3rem;
+    display: block;
+    margin-bottom: 8px;
+    line-height: 1;
+}
+
+/* 4. BOTÓN DE VOLVER REESTILIZADO (Estilo Cápsula) */
+.btn-volver-capsula { 
+    display: inline-block; 
+    background-color: #e74c3c; 
+    color: white; 
+    padding: 1.2rem 3rem; 
+    border-radius: 50px; 
+    text-decoration: none; 
+    font-weight: 700; 
+    margin-top: 3rem; 
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.2);
+}
+
+.btn-volver-capsula:hover { 
+    background-color: #c0392b; 
+    transform: scale(1.08); 
+    box-shadow: 0 15px 25px rgba(231, 76, 60, 0.3);
+}
+
+/* 5. SECCIÓN DE FIRMA DEL AUTOR */
+.firma-autor {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.firma-autor img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Ajustes Responsive para los nuevos elementos */
+@media (max-width: 600px) {
+    .quote-box { padding: 2rem 1.5rem; }
+    .quote-box blockquote { font-size: 1.4rem; }
+    .stat-number { font-size: 2.2rem; }
+}
 .tabla-cronologia th {
 background-color: #3498db;
 color: white;
@@ -576,81 +720,71 @@ padding: 0.5rem;
 </div>
 </nav>
 
-<!-- ======================================== CONTENEDOR PRINCIPAL ======================================== -->
 <div class="main-container">
-<!-- ARTÍCULO PRINCIPAL -->
-<main>
-<article class="articulo-completo">
-            <span class="categoria-tag">Reorganización del Estado</span>
+    <article class="articulo-completo">
+        <span class="categoria-tag">Informe Especial</span>
+        <h1>Jorge Lanata: El legado del último gran provocador del periodismo argentino</h1>
 
-            <h1>El Gobierno disuelve la Agencia Nacional de Discapacidad y sus funciones pasan al Ministerio de Salud</h1>
-
-            <div class="articulo-meta">
+        <div class="articulo-meta">
                 <span>📅 30 de Diciembre, 2025</span>
-                <span>✍️ Por Redacción</span>
+                <span>✍️ Por Sección Política</span>
                 <span>⏱️ 6 min de lectura</span>
             </div>
 
-            <img src="https://www.infobae.com/resizer/v2/IKU6GBMLHFFPTI5LM727WRIKAU.jpg?auth=66365b60595e4200a436e5641f6a226d77e9cb82c0b2ce5f9a78acf39c2bf626&smart=true&width=992&height=557&quality=85" 
-                 alt="Sede central del Ministerio de Salud de la Nación" class="articulo-imagen-principal">
             
-            <p class="epigrafe">La cartera de Salud absorberá la estructura administrativa y el presupuesto de la ahora disuelta ANDIS.</p>
+        <img src="https://tn.com.ar/resizer/v2/jorge-lanata-foto-eltrece-JS2G6IL2GRAT7GNB32SNUV5EVE.jpg?auth=d98fe85fdf652e8e2da8d0cbe08d38e54793b9a2e1ed7fc59456722290315e76&width=1440" class="articulo-imagen-principal" alt="Lanata joven">
+        <div class="articulo-bajada">
+            A un año de su fallecimiento, analizamos la trayectoria de un hombre que no solo fundó medios, sino que inventó una forma de interpelar a la sociedad. Del mito de Página/12 al fenómeno de masas de PPT, el recorrido de un periodista que hizo de la incomodidad su bandera.
+        </div>
+        <div class="articulo-contenido">
+            <p>El 30 de diciembre ya no es un día más en el calendario de las redacciones argentinas. Se cumple el primer aniversario de la partida de <strong>Jorge Lanata</strong>, y el vacío que dejó en el espectro comunicacional se siente con una nitidez asombrosa. En un ecosistema mediático hoy dominado por algoritmos y brevedad, la figura del periodista de investigación con firma propia parece un eco de una era dorada.</p>
 
-            <div class="articulo-bajada">
-                A través de un decreto presidencial, el Ejecutivo oficializó el cierre de la Agencia Nacional de Discapacidad (ANDIS) en el marco del plan de racionalización del gasto. El Ministerio de Salud recupera la gestión directa de pensiones y certificaciones para más de 3,5 millones de personas.
+            <h2>I. El genio detrás del mito: Página/12</h2>
+            <p>Corría 1987 y la Argentina democrática aún era frágil. Lanata, con solo 26 años, lanzó un diario que no se parecía a nada. <em>Página/12</em> no solo trajo una estética de izquierda intelectual, sino que rompió el protocolo de la noticia aséptica. Introdujo la ironía, la contratapa literaria y la investigación criminalística como herramientas de denuncia política.</p>
+            
+            <p>Su paso por el diario fue breve en términos cronológicos, pero eterno en términos de influencia. Allí formó a una generación de periodistas que hoy dirigen los principales medios del país. Lanata entendió antes que nadie que el periodismo debía ser, por sobre todas las cosas, un hecho artístico y cultural.</p>
+
+            <div class="info-stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">40</span>
+                    <span class="stat-desc">Años de periodismo</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">25</span>
+                    <span class="stat-desc">Martín Fierro obtenidos</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">1.2M</span>
+                    <span class="stat-desc">Lectores promedio</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-desc">Libros publicados</span>
+                </div>
             </div>
 
-            <div class="articulo-contenido">
-                <p>
-                    En un nuevo paso hacia la centralización de la administración pública y la reducción de estructuras descentralizadas, el Gobierno Nacional anunció la disolución de la <strong>Agencia Nacional de Discapacidad (ANDIS)</strong>. La medida establece que todas las competencias, presupuesto y personal del organismo serán absorbidos por el <strong>Ministerio de Salud</strong>, retornando a la estructura previa a 2017.
-                </p>
+            <h2>II. El show de la verdad: La era de PPT</h2>
+            <p>Si la gráfica fue su cuna, la televisión fue su campo de batalla masivo. Tras el éxito de <em>Día D</em> y <em>Detrás de las noticias</em>, en 2012 nació <strong>Periodismo Para Todos (PPT)</strong>. En un contexto de altísima tensión política, Lanata transformó la denuncia de corrupción en un espectáculo de prime-time.</p>
+            
+            <p>No era solo informar: era mostrar las cajas de seguridad, seguir el rastro de las bóvedas, entrevistar a los financistas arrepentidos. La "Ruta del Dinero K" fue, quizás, la investigación que más impacto tuvo en la historia de la televisión argentina, derivando en condenas judiciales efectivas y un cambio de clima social que se reflejó en las urnas años después.</p>
 
-                <p>
-                    La decisión se inscribe en la estrategia de "optimización de recursos" que impulsa la Jefatura de Gabinete. Según fuentes oficiales, la agencia presentaba superposiciones administrativas que dificultaban la trazabilidad del gasto, especialmente en el área de pensiones no contributivas.
-                </p>
-
-                <div class="articulo-bajada">
-                    “Buscamos una gestión más eficiente donde los recursos lleguen directamente al beneficiario, eliminando capas burocráticas que solo encarecían el sistema y facilitaban la falta de control.”
-                </div>
-
-                <h2>Los ejes del traspaso al Ministerio de Salud</h2>
-                <p>El proceso de absorción busca centralizar la política sanitaria y asistencial bajo un mismo mando técnico. Los puntos principales de la transición incluyen:</p>
-                <ul>
-                    <li><strong>Auditoría de Pensiones:</strong> Continuidad en la revisión de las 1.200.000 pensiones por invalidez para detectar cobros irregulares.</li>
-                    <li><strong>Gestión del CUD:</strong> El Certificado Único de Discapacidad pasará a ser gestionado por una secretaría específica dentro de Salud.</li>
-                    <li><strong>Incluir Salud:</strong> El programa de cobertura médica para pensionados será auditado para regularizar deudas con prestadores.</li>
-                    <li><strong>Simplificación Digital:</strong> Integración total de trámites en la plataforma Mi Argentina para evitar la presencialidad innecesaria.</li>
-                </ul>
-
-                <h2>Contexto histórico: El fin de un ente autárquico</h2>
-                <p>
-                    La ANDIS fue creada en 2017 como un organismo descentralizado con el objetivo de unificar las políticas de discapacidad que estaban dispersas en distintas carteras. Sin embargo, el actual Gobierno considera que esta independencia funcional generó un aumento del <strong>gasto operativo</strong> sin una mejora proporcional en la atención.
-                </p>
-                <p>
-                    De acuerdo con datos oficiales, el sistema de pensiones por invalidez laboral experimentó un crecimiento exponencial en las últimas dos décadas, pasando de <strong>180.000 beneficios en 2003 a más de 1,2 millones en la actualidad</strong>, una cifra que el Ejecutivo busca normalizar bajo estándares internacionales.
-                </p>
-
-                <div class="cuadro-informativo">
-                    <h3>¿Qué cambia para los beneficiarios?</h3>
-                    <p>A pesar del cierre institucional de la Agencia, el Gobierno asegura que los derechos de los usuarios están garantizados:</p>
-                    <ul>
-                        <li><strong>Cobros:</strong> Los calendarios de pago de la ANSES no sufrirán modificaciones por este traspaso.</li>
-                        <li><strong>Prestaciones:</strong> Los centros de día y transportistas deberán renegociar sus contratos ahora con el Ministerio de Salud.</li>
-                        <li><strong>Vigencia:</strong> Los certificados (CUD) emitidos por ANDIS mantienen su validez legal hasta su fecha de vencimiento.</li>
-                    </ul>
-                </div>
-
-                <h2>Impacto económico y social</h2>
-                <p>
-                    La medida ha generado incertidumbre en las organizaciones de la sociedad civil, que temen que la "licuación" de la Agencia dentro de un Ministerio tan amplio como Salud reste visibilidad a la problemática de la discapacidad. Por otro lado, desde el área económica sostienen que la unificación permitirá un ahorro sustancial en cargos jerárquicos y alquileres de oficinas.
-                </p>
-
-                <h2>Conclusión editorial</h2>
-                <p>
-                    La disolución de la ANDIS marca el cierre de un ciclo de institucionalidad autónoma para el sector. El éxito de esta apuesta dependerá de que la centralización en el Ministerio de Salud traduzca el ahorro fiscal en una mejora de la auditoría y, fundamentalmente, en que no se produzcan baches prestacionales para una de las poblaciones más vulnerables del país. El control del gasto y la sensibilidad social deberán caminar, por primera vez, sobre la misma línea.
-                </p>
+            <div class="quote-box">
+                <blockquote>"Yo no busco la objetividad, eso no existe. Busco la honestidad. Ser honesto es decir desde dónde miro el mundo antes de empezar a hablar."</blockquote>
+                <cite>— Jorge Lanata, 1960-2024</cite>
             </div>
-        </article>
+
+            <h2>III. El hombre frente al espejo: Salud y Resiliencia</h2>
+            <p>Lanata nunca ocultó sus debilidades. Su lucha contra la insuficiencia renal, el histórico trasplante cruzado de riñón que protagonizó junto a su madre y su hijo, y sus múltiples internaciones fueron seguidas por el país casi en tiempo real. Esa vulnerabilidad pública lo humanizó ante un sector de la audiencia que lo veía como un gigante inalcanzable.</p>
+            
+            <p>Incluso en sus peores momentos de salud, nunca abandonó el micrófono de Radio Mitre ni el escritorio de su casa. Trabajó hasta que el cuerpo dijo basta, dejando un mensaje claro sobre la pasión por el oficio: el periodismo no es un trabajo, es una forma de existir.</p>
+
+            <h3>El legado en las nuevas plataformas</h3>
+            <p>En sus últimos años, Lanata intentó descifrar el futuro. Sus documentales para plataformas de streaming y su mirada crítica sobre la inteligencia artificial demostraron que su curiosidad seguía intacta. No se quedó atrapado en el pasado; siempre estaba mirando qué había después de la siguiente noticia.</p>
+
+            <h2>Conclusión editorial: El silencio de la máquina</h2>
+            <p>A un año de su partida, el periodismo argentino lo recuerda con respeto. Sus detractores le reconocen la capacidad de haber marcado la agenda nacional durante décadas; sus seguidores, la valentía de haber dicho lo que nadie se atrevía. Jorge Lanata no fue solo un periodista: fue un motor de búsqueda humano en una Argentina que siempre intenta ocultar sus verdades más amargas.</p>
+            
+            <p>Hoy, el eco de su voz en las mañanas de radio y su silla vacía en los estudios de televisión nos recuerdan que figuras de su calibre aparecen una vez cada medio siglo. El Dueño Digital rinde homenaje a quien entendió que el papel del periodista es, sencillamente, no dejar que el poder duerma tranquilo.</p>
 
 <a href="index.html" class="btn-volver">← Volver a la portada</a>
 </article>

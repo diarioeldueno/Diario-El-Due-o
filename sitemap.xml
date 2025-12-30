@@ -117,4 +117,19 @@
     <changefreq>never</changefreq>
     <priority>0.8</priority>
   </url>
+ <url>
+    <loc>https://www.diarioeldueno.com/HomenajeLanata.html</loc>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+<url>
+    <loc>https://www.diarioeldueno.com/NoticiaAndis.html</loc>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+<url>
+    <loc>https://www.diarioeldueno.com/TensionPutinKiev.html</loc>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
