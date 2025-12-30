@@ -43,7 +43,9 @@
         }
 
         .fecha-actual {
-            color: #cccccc;
+            color: #fae9e9;
+            text-transform: uppercase; /* Esto convierte todo a mayúsculas */
+        font-weight: 600;
         }
 
         .redes-sociales {
@@ -594,6 +596,11 @@
             <div class="fecha-actual">
                 <span id="fecha"></span>
             </div>
+            <div class="fecha-reloj-container">
+        <span id="fecha" style="text-transform: uppercase;"></span> 
+        <span class="separador">|</span> 
+        <span id="reloj" style="font-weight: 700; color: #fff;"></span>
+    </div>
             <div class="redes-sociales">
                 <a href="#" title="Facebook">📘 Facebook</a>
                 <a href="#" title="Twitter">🐦 Twitter</a>
@@ -686,14 +693,14 @@
 
                   <!-- Noticia 3 -->
                 <article class="noticia-card">
-                    <img src="https://s.france24.com/media/display/adf675a6-d79d-11f0-a3fa-005056a97e36/w:1280/p:16x9/2025-12-12T100407Z-817655887-RC2XEIAALXR1-RTRMADP-3-NOBEL-PRIZE-PEACE.jpg" alt="Economía" class="noticia-card-imagen">
+                    <img src="https://images.unsplash.com/photo-1513326738677-b964603b136d?auto=format&fit=crop&q=80&w=1000" alt="Economía" class="noticia-card-imagen">
                     <div class="noticia-card-content">
                         <span class="categoria-tag mundo">Mundo</span>
-                        <h3>María Corina Machado: El dramático escape de la líder opositora venezolana que conmociona al continente</h3>
-                        <p>La líder de la oposición venezolana María Corina Machado ha logrado escapar de un operativo de detención orquestado por el régimen de Nicolás Maduro, en un episodio que ha generado tensión internacional y preocupación por la escalada represiva en Venezuela. El escape se produjo mientras la líder se dirigía a un evento público en Caracas, donde fuerzas de seguridad intentaron interceptarla.</p>
+                        <h3>Tensión extrema: Rusia denuncia un ataque con drones al Kremlin y amenaza con romper las negociaciones</h3>
+                        <p>      El Gobierno ruso calificó el incidente como un "acto terrorista planificado" y un intento de magnicidio contra Vladimir Putin. Tras el suceso, Moscú advirtió que endurecerá drásticamente su postura diplomática y "reconsiderará" cualquier posibilidad de diálogo con el gobierno de Zelenski.</p>
                         <div class="noticia-card-footer">
-                            <span class="noticia-card-hora">Hace 5 horas</span>
-                            <a href="Escapemc.html" class="btn-leer-card">Leer más →</a>
+                            <span class="noticia-card-hora">30 de Diciembre 00:00</span>
+                            <a href="TensionPutinKiev.html" class="btn-leer-card">Leer más →</a>
                         </div>
                     </div>
                 </article>
@@ -783,5 +790,25 @@ function toggleMenu() {
     menu.classList.toggle("active");
 }
 </script>
+<script>
+    function actualizarReloj() {
+        const ahora = new Date();
 
+        // 1. Formatear la Fecha en Mayúsculas
+        const opcionesFecha = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const fechaTexto = ahora.toLocaleDateString('es-ES', opcionesFecha).toUpperCase();
+        document.getElementById('fecha').textContent = fechaTexto;
+
+        // 2. Formatear la Hora (HH:MM:SS)
+        const horas = String(ahora.getHours()).padStart(2, '0');
+        const minutos = String(ahora.getMinutes()).padStart(2, '0');
+        const segundos = String(ahora.getSeconds()).padStart(2, '0');
+        document.getElementById('reloj').textContent = `${horas}:${minutos}:${segundos}`;
+    }
+
+    // Ejecutar la función apenas carga la página
+    actualizarReloj();
+    
+    // Hacer que se actualice cada 1 segundo
+    setInterval(actualizarReloj, 1000);
 </script>

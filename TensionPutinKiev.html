@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rusia denuncia un ataque con drones contra la residencia de Putin y advierte que "reconsiderará" su postura negociadora - El Dueño Digital</title>
+<link rel="icon" type="image/png" href="logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ======================================== RESET Y CONFIGURACIÓN GLOBAL ======================================== */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+background-color: #f8f9fa;
+color: #1a1a1a;
+line-height: 1.6;
+}
+
+/* ======================================== BARRA SUPERIOR - FECHA Y REDES ======================================== */
+.top-bar {
+background-color: #e1796e;
+color: #ffffff;
+padding: 0.5rem 0;
+font-size: 0.85rem;
+}
+
+.top-bar-content {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 2rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.fecha-actual {
+color: #fefafa;
+}
+
+.redes-sociales {
+display: flex;
+gap: 1rem;
+}
+
+.redes-sociales a {
+color: #ffffff;
+text-decoration: none;
+transition: color 0.3s;
+}
+
+.redes-sociales a:hover {
+color: #e74c3c;
+}
+
+/* ======================================== HEADER PRINCIPAL ======================================== */
+header {
+background-color: #ffffff;
+border-bottom: 3px solid #e74c3c;
+padding: 1.5rem 0;
+}
+
+.header-content {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 2rem;
+display: flex;
+justify-content: flex-start;
+align-items: center;
+}
+
+.logo-section {
+display: flex;
+flex-direction: column;
+}
+
+.logo {
+font-size: 2.5rem;
+font-weight: 800;
+color: #1a1a1a;
+letter-spacing: -1px;
+}
+
+.logo-container {
+display: flex;
+align-items: center;
+gap: 12px;
+}
+
+.logo-img {
+width: 75px;
+height: 75px;
+object-fit: contain;
+}
+
+.logo span {
+color: #e74c3c;
+}
+
+.eslogan {
+font-size: 0.85rem;
+color: #666666;
+font-style: italic;
+margin-top: -0.3rem;
+}
+
+.menu-toggle {
+display: none;
+flex-direction: column;
+cursor: pointer;
+gap: 4px;
+}
+
+.menu-toggle span {
+width: 25px;
+height: 3px;
+background-color: #1a1a1a;
+transition: all 0.3s;
+}
+
+/* ======================================== NAVEGACIÓN PRINCIPAL ======================================== */
+nav {
+background-color: #ffffff;
+border-bottom: 1px solid #e0e0e0;
+position: sticky;
+top: 0;
+z-index: 100;
+}
+
+.nav-content {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 2rem;
+}
+
+.nav-menu {
+list-style: none;
+display: flex;
+gap: 0;
+}
+
+.nav-menu li {
+position: relative;
+}
+
+.nav-menu a {
+display: block;
+padding: 1rem 1.5rem;
+color: #1a1a1a;
+text-decoration: none;
+font-weight: 500;
+font-size: 0.95rem;
+transition: all 0.3s;
+border-bottom: 3px solid transparent;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+color: #e74c3c;
+border-bottom-color: #e74c3c;
+}
+
+/* ======================================== CONTENEDOR PRINCIPAL ======================================== */
+.main-container {
+max-width: 1200px;
+margin: 2rem auto;
+padding: 0 2rem;
+display: grid;
+grid-template-columns: 1fr;
+gap: 2rem;
+}
+
+/* ======================================== ARTÍCULO DE NOTICIA COMPLETO ======================================== */
+.articulo-completo {
+background-color: #ffffff;
+border-radius: 8px;
+overflow: hidden;
+box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+padding: 3rem;
+}
+
+.categoria-tag {
+display: inline-block;
+background-color: #9b59b6;
+color: white;
+padding: 0.3rem 0.8rem;
+border-radius: 3px;
+font-size: 0.75rem;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+margin-bottom: 1.5rem;
+}
+
+.articulo-completo h1 {
+font-size: 2.5rem;
+font-weight: 700;
+line-height: 1.3;
+margin-bottom: 1.5rem;
+color: #1a1a1a;
+}
+
+.articulo-meta {
+display: flex;
+gap: 1.5rem;
+font-size: 0.9rem;
+color: #888888;
+margin-bottom: 2rem;
+padding-bottom: 1.5rem;
+border-bottom: 2px solid #f0f0f0;
+}
+
+.articulo-imagen-principal {
+width: 100%;
+height: 500px;
+object-fit: cover;
+border-radius: 8px;
+margin-bottom: 2rem;
+}
+.articulo-imagen-secundaria {
+width: 100%;
+height: 500px;
+object-fit: cover;
+border-radius: 8px;
+margin-bottom: 2rem;
+}
+.epigrafe {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #666; /* Gris profesional, no tan oscuro como el texto principal */
+    margin-top: 10px;
+    margin-bottom: 25px;
+    padding-left: 15px;
+    border-left: 3px solid #d1d1d1; /* Línea lateral sutil que ayuda a identificarlo */
+    font-style: italic;
+}
+
+
+.articulo-bajada {
+font-size: 1.2rem;
+color: #555555;
+line-height: 1.7;
+margin-bottom: 2rem;
+font-weight: 500;
+padding: 1.5rem;
+background-color: #f8f9fa;
+border-left: 4px solid #9b59b6;
+}
+
+.articulo-contenido {
+font-size: 1.05rem;
+line-height: 1.8;
+color: #333333;
+}
+
+.articulo-contenido h2 {
+font-size: 1.8rem;
+font-weight: 700;
+margin-top: 2.5rem;
+margin-bottom: 1.5rem;
+color: #9b59b6;
+}
+
+.articulo-contenido h3 {
+font-size: 1.4rem;
+font-weight: 600;
+margin-top: 2rem;
+margin-bottom: 1rem;
+color: #1a1a1a;
+}
+
+.articulo-contenido p {
+margin-bottom: 1.5rem;
+}
+
+.articulo-contenido ul,
+.articulo-contenido ol {
+margin-bottom: 1.5rem;
+margin-left: 2rem;
+}
+
+.articulo-contenido li {
+margin-bottom: 0.8rem;
+}
+
+.articulo-contenido blockquote {
+border-left: 4px solid #9b59b6;
+padding-left: 1.5rem;
+margin: 2rem 0;
+font-style: italic;
+color: #555555;
+background-color: #f8f9fa;
+padding: 1.5rem;
+border-radius: 4px;
+}
+
+.destacado {
+background-color: #f3e5f5;
+padding: 1.5rem;
+border-radius: 8px;
+margin: 2rem 0;
+border-left: 4px solid #9b59b6;
+}
+
+.alerta-urgente {
+background-color: #fff3cd;
+padding: 1.5rem;
+border-radius: 8px;
+margin: 2rem 0;
+border-left: 4px solid #9b59b6;
+}
+
+.tabla-cronologia {
+width: 100%;
+border-collapse: collapse;
+margin: 2rem 0;
+background-color: #ffffff;
+box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.tabla-cronologia th {
+background-color: #9b59b6;
+color: white;
+padding: 1rem;
+text-align: left;
+font-weight: 600;
+}
+
+.tabla-cronologia td {
+padding: 1rem;
+border-bottom: 1px solid #e0e0e0;
+}
+
+.tabla-cronologia tr:hover {
+background-color: #f8f9fa;
+}
+
+.imagen-contenido {
+width: 100%;
+height: 400px;
+object-fit: cover;
+border-radius: 8px;
+margin: 2rem 0;
+box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.pie-foto {
+font-size: 0.9rem;
+color: #666666;
+font-style: italic;
+text-align: center;
+margin-top: 0.5rem;
+margin-bottom: 2rem;
+}
+
+.comentario-experto {
+background-color: #e8f5e9;
+border-left: 4px solid #4caf50;
+padding: 1.5rem;
+border-radius: 4px;
+margin: 2rem 0;
+}
+
+.comentario-experto-titulo {
+font-weight: 700;
+color: #2e7d32;
+margin-bottom: 0.5rem;
+display: flex;
+align-items: center;
+gap: 0.5rem;
+}
+
+.btn-volver {
+display: inline-block;
+background-color: #1a1a1a;
+color: white;
+padding: 0.8rem 2rem;
+border-radius: 4px;
+text-decoration: none;
+font-weight: 600;
+transition: background-color 0.3s;
+margin-top: 2rem;
+}
+
+.btn-volver:hover {
+background-color: #333333;
+}
+
+/* ======================================== RESPONSIVE - TABLET ======================================== */
+@media (max-width: 968px) {
+.articulo-completo h1 {
+font-size: 2rem;
+}
+}
+
+/* ======================================== RESPONSIVE - MÓVIL ======================================== */
+@media (max-width: 768px) {
+.top-bar-content {
+flex-direction: column;
+gap: 0.5rem;
+text-align: center;
+}
+
+.header-content {
+flex-direction: column;
+gap: 1rem;
+}
+
+.menu-toggle {
+display: flex;
+position: absolute;
+right: 2rem;
+top: 1.5rem;
+}
+
+.nav-menu {
+flex-direction: column;
+display: none;
+}
+
+.nav-menu.active {
+display: flex;
+}
+
+.nav-menu a {
+border-bottom: none;
+border-left: 3px solid transparent;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+border-left-color: #e74c3c;
+border-bottom-color: transparent;
+}
+
+.articulo-completo {
+padding: 1.5rem;
+}
+
+.articulo-completo h1 {
+font-size: 1.6rem;
+}
+
+.articulo-imagen-principal {
+height: 250px;
+}
+
+.main-container,
+.nav-content,
+.header-content,
+.top-bar-content {
+padding: 0 1rem;
+}
+
+.tabla-cronologia {
+font-size: 0.9rem;
+}
+
+.tabla-cronologia th,
+.tabla-cronologia td {
+padding: 0.5rem;
+}
+}
+</style>
+</head>
+<body>
+
+<!-- ======================================== BARRA SUPERIOR ======================================== -->
+<div class="top-bar">
+<div class="top-bar-content">
+<div class="fecha-actual">
+<span id="fecha"></span>
+</div>
+<div class="redes-sociales">
+<a href="#" title="Facebook">📘 Facebook</a>
+<a href="#" title="Twitter">🐦 Twitter</a>
+<a href="#" title="Instagram">📷 Instagram</a>
+</div>
+</div>
+</div>
+
+<!-- ======================================== HEADER PRINCIPAL ======================================== -->
+<header>
+<div class="header-content">
+<div class="logo-container">
+<img src="logo.png" alt="Logo" class="logo-img">
+<div class="logo-section">
+<div class="logo">El <span>DUEÑO</span></div>
+<div class="eslogan">ULTIMAS NOTICIAS Y EFEMERIDES</div>
+</div>
+</div>
+<div class="menu-toggle" onclick="toggleMenu()">
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+</header>
+
+<!-- ======================================== NAVEGACIÓN PRINCIPAL ======================================== -->
+<nav>
+<div class="nav-content">
+<ul class="nav-menu" id="navMenu">
+<li><a href="index.html">Portada</a></li>
+<li><a href="Politica.html">Política</a></li>
+<li><a href="Deportes.html">Deportes</a></li>
+<li><a href="#Mundo.html" class="active">Mundo</a></li>
+<li><a href="#Tecnologia.html">Tecnología</a></li>
+<li><a href="#Economia.html">Economía</a></li>
+<li><a href="Efemerides.html">Efemerides</a></li>
+</ul>
+</div>
+</nav>
+
+<!-- ======================================== CONTENEDOR PRINCIPAL ======================================== -->
+<div class="main-container">
+<!-- ARTÍCULO PRINCIPAL -->
+<main>
+<article class="articulo-completo">
+            <span class="categoria-tag">Europa</span>
+
+            <h1>Tensión extrema: Rusia denuncia un ataque con drones al Kremlin y amenaza con romper las negociaciones</h1>
+
+            <div class="articulo-meta">
+                <span>📅 29 de Diciembre, 2025</span>
+                <span>✍️ Redacción El Dueño Digital</span>
+                <span>⏱️ 10 min de lectura</span>
+            </div>
+
+            <img src="https://images.unsplash.com/photo-1513326738677-b964603b136d?auto=format&fit=crop&q=80&w=1000" 
+                 alt="Fachada del Kremlin bajo fuertes medidas de seguridad" class="articulo-imagen-principal">
+            
+            <p class="epigrafe">El complejo del Kremlin, centro neurálgico del poder ruso, fue blanco de una incursión aérea que Moscú atribuye directamente a Kiev.</p>
+
+            <div class="articulo-bajada">
+                El Gobierno ruso calificó el incidente como un "acto terrorista planificado" y un intento de magnicidio contra Vladimir Putin. Tras el suceso, Moscú advirtió que endurecerá drásticamente su postura diplomática y "reconsiderará" cualquier posibilidad de diálogo con el gobierno de Zelenski.
+            </div>
+
+            <div class="articulo-contenido">
+                <p>
+                    La guerra entre Rusia y Ucrania ha ingresado en una fase de incertidumbre total. En las últimas horas, el <strong>Kremlin</strong> denunció un ataque coordinado con vehículos aéreos no tripulados (drones) que tenían como objetivo la residencia oficial del presidente <strong>Vladimir Putin</strong>. Aunque los sistemas de defensa aérea lograron neutralizar los dispositivos, el impacto político ha sido inmediato: Rusia ha declarado que la vía diplomática queda bajo revisión absoluta.
+                </p>
+
+                <p>
+                    De acuerdo con la información oficial suministrada por la Presidencia rusa, dos drones intentaron impactar en el edificio principal del complejo. El ataque no dejó víctimas ni daños estructurales de importancia, pero la carga simbólica de golpear el corazón del poder ruso ha provocado una reacción en cadena en los mandos militares.
+                </p>
+
+                <div class="destacado">
+                    “Consideramos estas acciones como un atentado contra la vida del jefe de Estado. Rusia se reserva el derecho de tomar medidas de represalia donde y cuando lo considere oportuno.”
+                </div>
+
+                <h2>Las claves de la respuesta del Kremlin</h2>
+                <p>El portavoz de la Presidencia, Dmitry Peskov, fue tajante al señalar que este episodio marca un punto de inflexión. El gobierno ruso ya comenzó a trazar una nueva hoja de ruta que incluye:</p>
+                <ul>
+                    <li><strong>Revisión de términos:</strong> Rusia ya no aceptará las condiciones previas de diálogo y exigirá mayores garantías de seguridad territorial.</li>
+                    <li><strong>Acción Simétrica:</strong> Amenaza latente de ataques contra "centros de toma de decisiones" en la capital ucraniana, Kiev.</li>
+                    <li><strong>Seguridad Nacional:</strong> Se ha reforzado la vigilancia en Moscú y se han suspendido los vuelos de drones recreativos en toda la región metropolitana.</li>
+                </ul>
+
+                <img src="https://img2.rtve.es/n/16578792?w=1600" 
+                     alt="Sistemas de defensa antiaérea rusos" style="width: 100%; border-radius: 8px; margin: 20px 0;">
+                <p class="epigrafe">Sistemas de defensa electrónica similares a los utilizados para interceptar los drones sobre la Plaza Roja.</p>
+
+                <h2>Kiev se desvincula: "No atacamos objetivos personales"</h2>
+                <p>
+                    La respuesta de Ucrania no tardó en llegar. El asesor presidencial <strong>Mykhailo Podolyak</strong> negó cualquier implicación de su país en el suceso. Según la narrativa ucraniana, Kiev concentra sus esfuerzos bélicos en la recuperación de los territorios ocupados y no en ataques directos contra líderes políticos en suelo ruso.
+                </p>
+                <p>
+                    Analistas internacionales sugieren que este incidente podría ser utilizado por Moscú para justificar una nueva movilización de tropas. Las cifras actuales del conflicto indican que Rusia mantiene ocupado aproximadamente el <strong>18% del territorio ucraniano</strong>, una cifra que Kiev busca reducir mediante su contraofensiva de largo alcance.
+                </p>
+
+                <div class="cuadro-informativo">
+                    <h3>¿Por qué este ataque anula las negociaciones?</h3>
+                    <p>La ruptura del diálogo no es solo una amenaza verbal; responde a tres factores estratégicos que preocupan a la comunidad internacional:</p>
+                    <ul>
+                        <li><strong>La Línea Roja:</strong> Un ataque al Kremlin se considera un ataque a la soberanía misma de la Federación Rusa.</li>
+                        <li><strong>Día de la Victoria:</strong> El hecho ocurre a pocos días del 9 de mayo, la fecha patriótica más importante del calendario ruso.</li>
+                        <li><strong>Inestabilidad Global:</strong> La falta de diálogo aleja la posibilidad de renovar el acuerdo de exportación de granos, lo que afecta la seguridad alimentaria mundial.</li>
+                    </ul>
+                </div>
+
+                <h2>Un escenario de guerra de desgaste indefinida</h2>
+                <p>
+                    Con la postura negociadora en suspenso, la guerra parece encaminarse hacia un conflicto de desgaste de larga duración. La posibilidad de un cese al fuego, que meses atrás parecía una opción lejana pero real bajo mediación internacional, hoy parece haber quedado enterrada bajo los escombros de la desconfianza mutua.
+                </p>
+
+                <h2>Conclusión editorial</h2>
+                <p>
+                    El presunto ataque a la residencia de Putin cierra la puerta a la diplomacia tradicional y abre una fase de hostilidades mucho más directa. Al calificar el acto como terrorismo, Rusia se otorga a sí misma una licencia política para escalar el uso de la fuerza. El mundo observa con temor: si los canales de diálogo se rompen definitivamente, la única herramienta restante será la superioridad militar, una moneda que se paga con vidas y una inestabilidad económica que no conoce fronteras.
+                </p>
+            </div>
+            <a href="index.html" class="btn-volver">← Volver a la Portada</a>
+        </article>
+    </main>
+</body>
+
+</html>
