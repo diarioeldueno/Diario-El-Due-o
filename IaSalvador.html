@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Pueden los robots resolver la crisis de natalidad? El nuevo paradigma que asoma para la economía global? - El Dueño Digital</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ========================================
+           RESET Y CONFIGURACIÓN GLOBAL
+           ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: #f8f9fa;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           BARRA SUPERIOR - FECHA Y REDES
+           ======================================== */
+        .top-bar {
+            background-color: #e1796e;
+            color: #ffffff;
+            padding: 0.5rem 0;
+            font-size: 0.85rem;
+        }
+
+        .top-bar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .fecha-actual {
+            color: #cccccc;
+        }
+
+        .redes-sociales {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .redes-sociales a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .redes-sociales a:hover {
+            color: #e74c3c;
+        }
+
+        /* ========================================
+           HEADER PRINCIPAL
+           ======================================== */
+        header {
+            background-color: #ffffff;
+            border-bottom: 3px solid #e74c3c;
+            padding: 1.5rem 0;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            letter-spacing: -1px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 75px;
+            height: 75px;
+            object-fit: contain;
+        }
+
+        .logo span {
+            color: #e74c3c;
+        }
+
+        .eslogan {
+            font-size: 0.85rem;
+            color: #666666;
+            font-style: italic;
+            margin-top: -0.3rem;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: #1a1a1a;
+            transition: all 0.3s;
+        }
+
+        /* ========================================
+           NAVEGACIÓN PRINCIPAL
+           ======================================== */
+        nav {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 0;
+        }
+
+        .nav-menu li {
+            position: relative;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #e74c3c;
+            border-bottom-color: #e74c3c;
+        }
+
+        /* ========================================
+           CONTENEDOR PRINCIPAL
+           ======================================== */
+        .main-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        /* ========================================
+           ARTÍCULO DE NOTICIA COMPLETO
+           ======================================== */
+        .articulo-completo {
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            padding: 3rem;
+        }
+
+        .categoria-tag {
+            display: inline-block;
+            background-color: #1abc9c;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+        }
+
+        .categoria-tag.economia {
+            background-color: #1abc9c;
+        }
+
+        .articulo-completo h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+
+        .articulo-meta {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+            color: #888888;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #1abc9c;
+        }
+
+        .articulo-imagen-principal {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .articulo-bajada {
+            font-size: 1.2rem;
+            color: #555555;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            font-weight: 500;
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+            border-left: 4px solid #1abc9c;
+        }
+
+        .articulo-contenido {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #333333;
+        }
+
+        .articulo-contenido h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #1abc9c;
+        }
+
+        .articulo-contenido h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #1abc9c;
+        }
+
+        .articulo-contenido p {
+            margin-bottom: 1.5rem;
+        }
+
+        .articulo-contenido ul,
+        .articulo-contenido ol {
+            margin-bottom: 1.5rem;
+            margin-left: 2rem;
+        }
+
+        .articulo-contenido li {
+            margin-bottom: 0.8rem;
+        }
+
+        .articulo-contenido blockquote {
+            border-left: 4px solid #1abc9c;
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: #555555;
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 4px;
+        }
+
+        .destacado {
+            background-color: #d4edda;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 4px solid #1abc9c;
+        }
+
+        .match-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #111827;
+                width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+
+            /* fondo oscuro */
+            border-radius: 10px;
+            padding: 50px 50px;
+            max-width: 2000px;
+            margin: 16px auto;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+        }
+
+        /* Equipos */
+        .team {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 34%;
+        }
+
+        .team img {
+            width: 100px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .team-name {
+            font-size: 25px;
+            font-weight: 600;
+            color: #e5e7eb;
+        }
+
+        /* Visitante a la derecha */
+        .team-away {
+            justify-content: flex-end;
+            text-align: right;
+        }
+
+        /* Resultado */
+        .match-result {
+            width: 32%;
+            text-align: center;
+        }
+
+        .score {
+            font-size: 30px;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1;
+        }
+
+        .match-status {
+            display: block;
+            font-size: 11px;
+            margin-top: 4px;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-volver {
+            display: inline-block;
+            background-color: #1a1a1a;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            margin-top: 2rem;
+        }
+
+        .btn-volver:hover {
+            background-color: #333333;
+        }
+
+
+        /* ========================================
+           RESPONSIVE - TABLET
+           ======================================== */
+        @media (max-width: 968px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+
+            .articulo-completo h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* ========================================
+           RESPONSIVE - MÓVIL
+           ======================================== */
+        @media (max-width: 768px) {
+            .top-bar-content {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .menu-toggle {
+                display: flex;
+                position: absolute;
+                right: 2rem;
+                top: 1.5rem;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                display: none;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu a {
+                border-bottom: none;
+                border-left: 3px solid transparent;
+            }
+
+            .nav-menu a:hover,
+            .nav-menu a.active {
+                border-left-color: #e74c3c;
+                border-bottom-color: transparent;
+            }
+
+            .articulo-completo {
+                padding: 1.5rem;
+            }
+
+            .articulo-completo h1 {
+                font-size: 1.6rem;
+            }
+
+            .articulo-imagen-principal {
+                height: 250px;
+            }
+
+            .marcador-equipos {
+                font-size: 1.5rem;
+            }
+
+            .marcador-score {
+                font-size: 2rem;
+            }
+
+            .main-container,
+            .nav-content,
+            .header-content,
+            .top-bar-content {
+                padding: 0 1rem;
+            }
+            @media (max-width: 768px) {
+    .articulo-imagen-principal {
+        height: auto;
+        max-height: 250px;
+        object-fit: cover;
+    }
+    @media (max-width: 768px) {
+    .match-card {
+        padding: 20px;
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .team {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .match-result {
+        width: 100%;
+    }
+}
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ========================================
+         BARRA SUPERIOR
+         ======================================== -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="fecha-actual">
+                <span id="fecha"></span>
+            </div>
+            <div class="redes-sociales">
+                <a href="#" title="Facebook">📘 Facebook</a>
+                <a href="#" title="Twitter">🐦 Twitter</a>
+                <a href="#" title="Instagram">📷 Instagram</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================
+         HEADER PRINCIPAL
+         ======================================== -->
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="logo.png" alt="Logo" class="logo-img">
+                <div class="logo-section">
+                    <div class="logo">El <span>DUEÑO</span></div>
+                    <div class="eslogan">ULTIMAS NOTICIAS Y EFEMERIDES</div>
+                </div>
+            </div>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================
+         NAVEGACIÓN PRINCIPAL
+         ======================================== -->
+    <nav>
+        <div class="nav-content">
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Portada</a></li>
+                <li><a href="Politica.html">Política</a></li>
+                <li><a href="Deportes.html">Deportes</a></li>
+                <li><a href="Mundo.html">Mundo</a></li>
+                <li><a href="Tecnologia.html"  class="active">Tecnología</a></li>
+                <li><a href="Economia.html">Economía</a></li>
+                <li><a href="Efemerides.html">Efemerides</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ========================================
+         CONTENEDOR PRINCIPAL
+         ======================================== -->
+<div class="main-container">
+<main>
+        <article class="articulo-completo">
+            <span class="categoria-tag tecnologia">Tecnología</span>
+
+<h1>¿Pueden los robots resolver la crisis de natalidad? El nuevo paradigma que asoma para la economía global</h1>
+
+<div class="articulo-meta">
+    <span>📅 31 de Diciembre, 2025</span>
+    <span>✍️ Por Redacción El Dueño</span>
+    <span>⏱️ 7 min de lectura</span>
+</div>
+
+<img src="https://www.seguritecnia.es/wp-content/uploads/2022/03/inteligencia-artificial.jpg" 
+     alt="Robótica y automatización industrial" class="articulo-imagen-principal">
+
+<div class="articulo-bajada">
+    Ante el envejecimiento de la población y la caída estrepitosa de los nacimientos en las potencias mundiales, la Inteligencia Artificial y la robótica dejan de ser una amenaza al empleo para convertirse en el "salvavidas" del sistema productivo.
+</div>
+
+<div class="articulo-contenido">
+
+    <p>
+        Durante décadas, el relato predominante sugería que el avance tecnológico desplazaría al trabajador humano, generando un desempleo estructural masivo. Sin embargo, los datos demográficos actuales están invirtiendo la carga de la prueba. En un mundo donde la tasa de natalidad ha caído por debajo del nivel de reemplazo en gran parte de Occidente y Asia, la Inteligencia Artificial (IA) y los robots están emergiendo no como competidores, sino como sustitutos necesarios para sostener la productividad.
+    </p>
+    
+    <p>
+        Países como Japón, Corea del Sur, Italia y Alemania ya enfrentan una realidad ineludible: tienen más personas jubilándose que jóvenes ingresando al mercado laboral. En este escenario, la automatización se presenta como la única vía para evitar el colapso de los sistemas de seguridad social y mantener el crecimiento del Producto Bruto Interno (PBI).
+    </p>
+
+    <h2>El fin del miedo al "robot ladrón de empleos"</h2>
+
+    <p>
+        La transición hacia una economía automatizada ya no es una opción de eficiencia empresarial, sino una urgencia demográfica. Al haber menos mano de obra disponible, el costo del trabajo humano tiende a subir, lo que incentiva a las empresas a invertir en tecnologías que puedan realizar tareas repetitivas o físicamente demandantes.
+    </p>
+
+    <blockquote>
+        "No estamos ante una sustitución por elección, sino por necesidad. La tecnología está ocupando los espacios vacíos que deja una población que envejece y que ya no tiene el mismo recambio generacional", explican especialistas en demografía económica.
+    </p>
+    </blockquote>
+
+    <p>
+        Este fenómeno está cambiando la percepción social de la IA. En lugar de ser vista como una amenaza, comienza a ser percibida como una herramienta para mejorar la calidad de vida de los adultos mayores y para permitir que los pocos trabajadores jóvenes disponibles se dediquen a tareas de mayor valor agregado, creatividad y toma de decisiones.
+    </p>
+
+    <div class="destacado">
+        <h3>Datos clave: El invierno demográfico en cifras</h3>
+        <p>Se estima que para 2050, uno de cada cuatro habitantes del planeta tendrá más de 65 años. En países como Japón, la venta de pañales para adultos ya supera a la de pañales para bebés. Frente a esto, la robótica de asistencia y la automatización industrial proyectan un crecimiento anual del <strong>25%</strong> en su tasa de adopción global.</p>
+    </div>
+
+    <h2>Contexto y antecedentes: El modelo asiático</h2>
+
+    <p>
+        Japón ha sido el laboratorio de esta tendencia. Con una de las poblaciones más longevas del mundo, el país nipón ha integrado robots en el cuidado de ancianos, la recepción de hoteles y la logística de última milla. Lejos de generar una crisis social, esta integración ha permitido que el país mantenga sus estándares de vida a pesar de tener una fuerza laboral que se contrae año tras año.
+    </p>
+
+    <p>
+        En contraste, la región latinoamericana, y especialmente la Argentina, aún transita lo que los expertos llaman "el bono demográfico", aunque este se está agotando más rápido de lo previsto. Si bien la natalidad en el país todavía no es tan crítica como en Europa, la tendencia es descendente. La pregunta para las economías emergentes es si podrán automatizarse antes de envejecer.
+    </p>
+
+    <h2>Impacto político y social: Desafíos para el Estado</h2>
+    <ul>
+        <li><strong>Sostenibilidad previsional:</strong> Si hay menos trabajadores activos, la recaudación para jubilaciones cae. Los robots podrían empezar a "pagar impuestos" o generar la productividad necesaria para compensar ese déficit.</li>
+        <li><strong>Reconfiguración educativa:</strong> El sistema educativo debe girar rápidamente hacia la formación en habilidades tecnológicas para que la brecha entre humanos y máquinas no genere nuevas formas de exclusión.</li>
+        <li><strong>Migraciones:</strong> La tecnología podría mitigar la necesidad de grandes olas migratorias para cubrir puestos de trabajo básicos, un tema que hoy domina la agenda política en Europa y EE. UU.</li>
+    </ul>
+
+    <h2>Consecuencias a corto y largo plazo</h2>
+
+    <p>
+        A corto plazo, veremos una aceleración en la inversión en IA generativa para tareas administrativas y de servicios. Las empresas que no logren integrar procesos automatizados perderán competitividad por los altos costos operativos derivados de la escasez de talento humano.
+    </p>
+
+    <p>
+        A largo plazo, el éxito de este modelo dependerá de la distribución de la riqueza. Si la productividad generada por las máquinas queda concentrada en pocas manos, la crisis demográfica se transformará en una crisis de consumo. El gran interrogante del siglo XXI será cómo garantizar que una sociedad de ancianos asistida por máquinas sea, además de eficiente, equitativa.
+    </p>
+
+    <h2>Conclusión: ¿Un futuro de abundancia o de soledad?</h2>
+
+    <p>
+        La IA y los robots parecen ser la respuesta técnica al desafío de la baja natalidad. Sin embargo, este informe deja una pregunta abierta para el análisis social: <strong>¿Puede la tecnología reemplazar el tejido social y el dinamismo que aporta una juventud vibrante a una nación?</strong>
+    </p>
+
+    <p>
+        La automatización salvará las cuentas públicas y mantendrá las fábricas funcionando, pero el desafío político será gestionar una sociedad donde la máquina sea el motor económico, pero el humano cada vez más escaso siga siendo el centro de la política y la cultura.
+    </p>
+
+</div>
+
+</div>
+
+        <a href="index.html" class="btn-volver">← Volver a la portada</a>
+        <a href="Tecnologia.html" class="btn-volver">← Mas noticias de tecnologia</a>
+            </article>
+        </main>
+
+        <script>
+            // Función del menú móvil
+            function toggleMenu() {
+                document.getElementById('navMenu').classList.toggle('active');
+            }
+
+            // Mostrar fecha actual
+            const fecha = new Date();
+            document.getElementById('fecha').textContent = fecha.toLocaleDateString('es-ES', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
