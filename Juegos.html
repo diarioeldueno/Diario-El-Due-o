@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juegos del Día | El Dueño Digital</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+    /* ========================================
+           RESET Y CONFIGURACIÓN GLOBAL
+           ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: #f8f9fa;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           BARRA SUPERIOR - FECHA Y REDES
+           ======================================== */
+        .top-bar {
+            background-color: #e1796e;
+            color: #ffffff;
+            padding: 0.5rem 0;
+            font-size: 0.85rem;
+        }
+
+        .top-bar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .fecha-actual {
+            color: #fae9e9;
+            text-transform: uppercase; /* Esto convierte todo a mayúsculas */
+        font-weight: 600;
+        }
+
+        .redes-sociales {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .redes-sociales a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .redes-sociales a:hover {
+            color: #e74c3c;
+        }
+
+        /* ========================================
+           HEADER PRINCIPAL
+           ======================================== */
+        header {
+            background-color: #ffffff;
+            border-bottom: 3px solid #e74c3c;
+            padding: 1.5rem 0;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            letter-spacing: -1px;
+        }
+       .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px; 
+}
+
+.logo-img {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+}
+        .logo span {
+            color: #e74c3c;
+        }
+
+        .eslogan {
+            font-size: 0.85rem;
+            color: #666666;
+            font-style: italic;
+            margin-top: -0.3rem;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+       
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: #1a1a1a;
+            transition: all 0.3s;
+        }
+
+        /* ========================================
+           NAVEGACIÓN PRINCIPAL
+           ======================================== */
+        nav {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 0;
+        }
+
+        .nav-menu li {
+            position: relative;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #e74c3c;
+            border-bottom-color: #e74c3c;
+        }
+
+        /* ========================================
+           CONTENEDOR PRINCIPAL
+           ======================================== */
+        .main-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        /* ========================================
+           SECCIÓN DE NOTICIAS DESTACADAS
+           ======================================== */
+        .noticia-principal {
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+        }
+
+        .noticia-principal-imagen {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border: 5px solid #e74c3c;
+        }
+
+        .noticia-principal-content {
+            padding: 2rem;
+        }
+
+        .categoria-tag {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .categoria-tag.politica { background-color: #3498db; }
+        .categoria-tag.deportes { background-color: #2ecc71; }
+        .categoria-tag.mundo { background-color: #9b59b6; }
+        .categoria-tag.tecnologia { background-color: #1abc9c; }
+        .categoria-tag.economia { background-color: #f39c12; }
+        .categoria-tag.informes { background-color: #e03f3f; }
+
+        .noticia-principal h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .noticia-bajada {
+            font-size: 1.1rem;
+            color: #555555;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .noticia-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: #888888;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-leer-mas {
+            display: inline-block;
+            background-color: #1a1a1a;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .btn-leer-mas:hover {
+            background-color: #333333;
+        }
+
+        /* ========================================
+           GRID DE NOTICIAS SECUNDARIAS
+           ======================================== */
+        .noticias-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .noticia-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .noticia-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        }
+
+        .noticia-card-imagen {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            object-position: center 20%;
+        }
+
+        .noticia-card-content {
+            padding: 1.5rem;
+        }
+
+        .noticia-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 0.8rem;
+            color: #1a1a1a;
+        }
+
+        .noticia-card p {
+            font-size: 0.95rem;
+            color: #666666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .noticia-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .noticia-card-hora {
+            font-size: 0.8rem;
+            color: #999999;
+        }
+
+        .btn-leer-card {
+            color: #e74c3c;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .btn-leer-card:hover {
+            color: #c0392b;
+        }
+
+        /* ========================================
+           SECCIONES DE CATEGORÍAS
+           ======================================== */
+        .seccion-categoria {
+            margin-bottom: 3rem;
+        }
+
+        .seccion-titulo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            
+            color: #1a1a1a;
+        }
+
+        /* ========================================
+           RESPONSIVE - TABLET
+           ======================================== */
+        @media (max-width: 968px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+
+            .noticias-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .noticia-principal h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* ========================================
+           RESPONSIVE - MÓVIL
+           ======================================== */
+        @media (max-width: 768px) {
+            .top-bar-content {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .menu-toggle {
+                display: flex;
+                position: absolute;
+                right: 2rem;
+                top: 1.5rem;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                display: none;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu a {
+                border-bottom: none;
+                border-left: 3px solid transparent;
+            }
+
+            .nav-menu a:hover,
+            .nav-menu a.active {
+                border-left-color: #e74c3c;
+                border-bottom-color: transparent;
+            }
+
+            .noticia-principal-imagen {
+                height: 250px;
+            }
+
+            .noticia-principal h1 {
+                font-size: 1.5rem;
+            }
+
+            .noticia-bajada {
+                font-size: 1rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .main-container,
+            .nav-content,
+            .header-content,
+            .top-bar-content {
+                padding: 0 1rem;
+            }
+            
+        }
+        /* ========================================
+           NUEVO DISEÑO DE CARDS LLAMATIVAS
+           ======================================== */
+        .main-container { max-width: 1200px; margin: 3rem auto; padding: 0 2rem; }
+        .seccion-titulo { font-size: 2rem; font-weight: 800; text-align: center; margin-bottom: 3rem; color: #1a1a1a; text-transform: uppercase; letter-spacing: 1px; }
+
+        .juegos-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 2.5rem; 
+        }
+
+        .juego-card {
+            background: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .juego-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(231, 76, 60, 0.15);
+        }
+
+        /* Cabecera de color para cada card */
+        .juego-visual {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            color: white;
+        }
+
+        .bg-palabra { background: linear-gradient(135deg, #2ecc71, #27ae60); }
+        .bg-sudoku { background: linear-gradient(135deg, #3498db, #2980b9); }
+        .bg-crucigrama { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
+
+        .juego-info {
+            padding: 2rem;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .juego-info h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
+            color: #1a1a1a;
+        }
+
+        .juego-info p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+            min-height: 50px;
+        }
+
+        .juego-meta {
+            display: inline-block;
+            background: #f0f2f1;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #888;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .btn-jugar-game {
+            display: block;
+            background-color: #1a1a1a;
+            color: white;
+            text-decoration: none;
+            padding: 1rem;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: all 0.3s;
+            border: 2px solid #1a1a1a;
+        }
+
+        .juego-card:hover .btn-jugar-game {
+            background-color: #e74c3c;
+            border-color: #e74c3c;
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .juegos-grid { grid-template-columns: 1fr; }
+            .logo { font-size: 2rem; }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="top-bar">
+        <div class="top-bar-content">
+            <div class="fecha-actual">
+                <span id="fecha"></span>
+            </div>
+            <div class="fecha-reloj-container">
+        <span id="fecha" style="text-transform: uppercase;"></span> 
+        <span class="separador">|</span> 
+        <span id="reloj" style="font-weight: 700; color: #fff;"></span>
+    </div>
+            <div class="redes-sociales">
+                <a href="#" title="Facebook">📘 Facebook</a>
+                <a href="#" title="Twitter">🐦 Twitter</a>
+                <a href="#" title="Instagram">📷 Instagram</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================
+         HEADER PRINCIPAL
+         ======================================== -->
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+            <img src="logo.png" alt="Logo" class="logo-img">
+
+            <div class="logo-section">
+                <div class="logo">El <span>DUEÑO</span></div>
+                <div class="eslogan">ULTIMAS NOTICIAS Y EFEMERIDES</div>
+            </div>
+            </div>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================
+         NAVEGACIÓN PRINCIPAL
+         ======================================== -->
+    <nav>
+        <div class="nav-content">
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Portada</a></li>
+                <li><a href="Politica.html">Política</a></li>
+                <li><a href="Deportes.html">Deportes</a></li>
+                <li><a href="Mundo.html">Mundo</a></li>
+                <li><a href="Tecnologia.html">Tecnología</a></li>
+                <li><a href="Economia.html">Economía</a></li>
+                <li><a href="Efemerides.html">Efemerides</a></li>
+                <li><a href="Juegos.html" class="active">Juegos</a></li>
+            </ul>
+        </div>
+
+    </nav>
+<div class="main-container">
+    <h1 class="seccion-titulo">🕹️ Desafío Diario</h1>
+
+    <div class="juegos-grid">
+
+        <article class="juego-card">
+        <div class="juego-visual bg-palabra" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST6VLOS36dZeuVfj_hU69xsGju3HlkG5nOLg&s');">
+</div>
+            <div class="juego-info">
+                <span class="juego-meta">Palabras</span>
+                <h3>Palabra del Día</h3>
+                <p>¿Podés adivinar la palabra oculta en 6 intentos? Un reto nuevo cada mañana.</p>
+                <a href="PalabradelDia.html" class="btn-jugar-game">JUGAR AHORA</a>
+            </div>
+        </article>
+
+        <article class="juego-card">
+            <div class="juego-visual bg-sudoku" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqjya_zVwH0x92vxZDtgtFoFhSQRljedP0aQ&s');">
+</div>
+            <div class="juego-info">
+                <span class="juego-meta">Lógica</span>
+                <h3>Sudoku Pro</h3>
+                <p>Mantené tu mente ágil con nuestro tablero diario. Tres niveles de dificultad.</p>
+                <a href="Sudoku.html" class="btn-jugar-game">JUGAR AHORA</a>
+            </div>
+        </article>
+
+        <article class="juego-card">
+            <div class="juego-visual bg-crucigrama" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6BZCNyABOkde3uQkVoS5nyw3NsGOi_Sp5Hw&s');">
+</div>
+            <div class="juego-info">
+                <span class="juego-meta">Ingenio</span>
+                <h3>Crucigrama</h3>
+                <p>El clásico de los periódicos, ahora en tu pantalla. ¿Completarás todo hoy?</p>
+                <a href="Crucigrama.html" class="btn-jugar-game">JUGAR AHORA</a>
+            </div>
+        </article>
+
+    </div>
+</div>
+
+<script>
+    function actualizarReloj() {
+        const ahora = new Date();
+        const opcionesFecha = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('fecha').textContent = ahora.toLocaleDateString('es-ES', opcionesFecha).toUpperCase();
+        document.getElementById('reloj').textContent = ahora.toLocaleTimeString('es-ES');
+    }
+    actualizarReloj();
+    setInterval(actualizarReloj, 1000);
+</script>
+
+</body>
+</html>

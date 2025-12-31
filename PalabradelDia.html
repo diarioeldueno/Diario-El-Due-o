@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palabra del Día - El Dueño Digital</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+    /* RESET Y CONFIGURACIÓN GLOBAL */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f8f9fa;
+        color: #1a1a1a;
+        line-height: 1.6;
+    }
+
+    /* BARRA SUPERIOR */
+    .top-bar { background-color: #e1796e; color: #ffffff; padding: 0.5rem 0; font-size: 0.85rem; }
+    .top-bar-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* HEADER */
+    header { background-color: #ffffff; border-bottom: 3px solid #e74c3c; padding: 1.5rem 0; }
+    .header-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    .logo { font-size: 2.5rem; font-weight: 800; color: #1a1a1a; }
+    .logo span { color: #e74c3c; }
+    .eslogan { font-size: 0.85rem; color: #666; font-style: italic; margin-top: -5px; }
+
+    /* NAVEGACIÓN */
+    nav { background-color: #ffffff; border-bottom: 1px solid #e0e0e0; position: sticky; top: 0; z-index: 100; }
+    .nav-menu { list-style: none; display: flex; max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    .nav-menu a { display: block; padding: 1rem 1.5rem; color: #1a1a1a; text-decoration: none; font-weight: 500; }
+    .nav-menu a.active { color: #e74c3c; border-bottom: 3px solid #e74c3c; }
+
+    /* ===============================
+       ESTILO WORDLE ESTÉTICO
+       =============================== */
+    .wordle-section {
+        max-width: 600px;
+        margin: 3rem auto;
+        padding: 0 1rem;
+    }
+    .wordle-container {
+        background: #ffffff;
+        padding: 2.5rem;
+        border-radius: 24px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+        text-align: center;
+    }
+    .wordle-grid {
+        display: grid;
+        grid-template-rows: repeat(6, 1fr);
+        gap: 10px;
+        margin: 2rem auto;
+        justify-content: center;
+    }
+    .wordle-row {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+    }
+    .wordle-cell {
+        width: 55px;
+        height: 55px;
+        border: 2px solid #e2e8f0;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        background: #fff;
+    }
+    /* Animación cuando escribes */
+    .typing { border-color: #e1796e; transform: scale(1.05); box-shadow: 0 0 10px rgba(225,121,110,0.2); }
+
+    /* Colores de validación */
+    .correct { background-color: #6aaa64 !important; border-color: #6aaa64 !important; color: white; }
+    .present { background-color: #c9b458 !important; border-color: #c9b458 !important; color: white; }
+    .absent { background-color: #787c7e !important; border-color: #787c7e !important; color: white; }
+
+    /* Controles */
+    .controls { display: flex; gap: 12px; margin-top: 1.5rem; }
+    .wordle-input {
+        flex: 1;
+        padding: 1rem;
+        border: 2px solid #e2e8f0;
+        border-radius: 14px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-align: center;
+        text-transform: uppercase;
+        outline: none;
+        transition: border-color 0.3s;
+    }
+    .wordle-input:focus { border-color: #e1796e; }
+    .btn-jugar {
+        background: #e1796e;
+        color: white;
+        border: none;
+        padding: 0 1.5rem;
+        border-radius: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform 0.2s, background 0.3s;
+    }
+    .btn-jugar:hover { background: #d66155; transform: translateY(-2px); }
+    .wordle-mensaje { margin-top: 1.5rem; font-weight: 600; min-height: 1.5rem; }
+
+    @media (max-width: 480px) {
+        .wordle-cell { width: 45px; height: 45px; font-size: 1.5rem; }
+    }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+    <div class="top-bar-content">
+        <div id="fecha">Cargando fecha...</div>
+       <div class="redes-sociales">
+                <a href="#" title="Facebook">📘 Facebook</a>
+                <a href="#" title="Twitter">🐦 Twitter</a>
+                <a href="#" title="Instagram">📷 Instagram</a>
+            </div>
+    </div>
+</div>
+
+<header>
+    <div class="header-content">
+        <img src="logo.png" alt="Logo" width="60">
+        <div>
+            <div class="logo">El <span>DUEÑO</span></div>
+            <div class="eslogan">ULTIMAS NOTICIAS Y EFEMERIDES</div>
+        </div>
+    </div>
+</header>
+
+<nav>
+        <div class="nav-content">
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Portada</a></li>
+                <li><a href="Politica.html">Política</a></li>
+                <li><a href="Deportes.html">Deportes</a></li>
+                <li><a href="Mundo.html">Mundo</a></li>
+                <li><a href="Tecnologia.html">Tecnología</a></li>
+                <li><a href="Economia.html">Economía</a></li>
+                <li><a href="Efemerides.html">Efemerides</a></li>
+                <li><a href="Juegos.html" class="active">Juegos</a></li>
+            </ul>
+        </div>
+
+
+<div class="wordle-section">
+    <div class="wordle-container">
+        <h2 style="margin-bottom: 10px;">🧩 Palabra del Día</h2>
+        <p style="color: #666; font-size: 0.9rem;">Adivina la palabra de 5 letras en 6 intentos.</p>
+        
+        <div id="grid" class="wordle-grid"></div>
+
+        <div class="controls">
+            <input id="inputWord" class="wordle-input" maxlength="5" placeholder="Escribe aquí..." autocomplete="off">
+            <button id="btnEnviar" class="btn-jugar">PROBAR</button>
+        </div>
+        <div id="mensaje" class="wordle-mensaje"></div>
+    </div>
+</div>
+
+<script>
+    // Lógica del Reloj/Fecha
+    const ahora = new Date();
+    document.getElementById('fecha').textContent = ahora.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).toUpperCase();
+
+    // LÓGICA WORDLE
+    const palabras = ["CASAS", "PERRO", "LIBRO", "FUEGO", "SALUD", "NOCHE", "CLIMA", "JUEGO", "DATOS", "MENTE","PLAZA", "CALLE", "BANCO", "CAMPO", "RUMBO", "BRISA", "HOGAR", "VIAJE", "SONAR", "COSTA", "GRANO", "TECHO", "RITMO", "FRASE", "LISTO", "SERIE", "CAUSA", "VALOR", "TIEMO", "SILLA"];
+    const palabraSecreta = palabras[new Date().getDate() % palabras.length];
+    const intentosMax = 6;
+    let intentoActual = 0;
+
+    const grid = document.getElementById("grid");
+    const input = document.getElementById("inputWord");
+    const btn = document.getElementById("btnEnviar");
+    const mensaje = document.getElementById("mensaje");
+
+    // Crear tablero inicial
+    for (let i = 0; i < intentosMax; i++) {
+        const row = document.createElement("div");
+        row.className = "wordle-row";
+        for (let j = 0; j < 5; j++) {
+            const cell = document.createElement("div");
+            cell.className = "wordle-cell";
+            row.appendChild(cell);
+        }
+        grid.appendChild(row);
+    }
+
+    // Dibujar letras mientras el usuario escribe
+    input.addEventListener("input", () => {
+        const valor = input.value.toUpperCase();
+        const celdas = grid.children[intentoActual].children;
+        for (let i = 0; i < 5; i++) {
+            celdas[i].textContent = valor[i] || "";
+            if (valor[i]) {
+                celdas[i].classList.add("typing");
+            } else {
+                celdas[i].classList.remove("typing");
+            }
+        }
+    });
+
+    // Enviar palabra
+    btn.addEventListener("click", jugar);
+    input.addEventListener("keypress", (e) => { if (e.key === "Enter") jugar(); });
+
+    function jugar() {
+        const intento = input.value.toUpperCase();
+        if (intento.length !== 5) {
+            mensaje.textContent = "⚠️ ¡Escribe 5 letras!";
+            mensaje.style.color = "#e74c3c";
+            return;
+        }
+
+        const filaCeldas = grid.children[intentoActual].children;
+        
+        for (let i = 0; i < 5; i++) {
+            const letra = intento[i];
+            
+            setTimeout(() => {
+                if (letra === palabraSecreta[i]) {
+                    filaCeldas[i].classList.add("correct");
+                } else if (palabraSecreta.includes(letra)) {
+                    filaCeldas[i].classList.add("present");
+                } else {
+                    filaCeldas[i].classList.add("absent");
+                }
+
+                if (i === 4) verificarResultado(intento);
+            }, i * 150);
+        }
+    }
+
+    function verificarResultado(intento) {
+        if (intento === palabraSecreta) {
+            mensaje.textContent = "🎉 ¡Excelente! Adivinaste la palabra.";
+            mensaje.style.color = "#2ecc71";
+            input.disabled = true;
+        } else {
+            intentoActual++;
+            input.value = "";
+            if (intentoActual === intentosMax) {
+                mensaje.textContent = "❌ Perdiste. La palabra era: " + palabraSecreta;
+                mensaje.style.color = "#e74c3c";
+                input.disabled = true;
+            } else {
+                mensaje.textContent = "";
+            }
+        }
+    }
+    function actualizarReloj() {
+        const ahora = new Date();
+        const opcionesFecha = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('fecha').textContent = ahora.toLocaleDateString('es-ES', opcionesFecha).toUpperCase();
+        document.getElementById('reloj').textContent = ahora.toLocaleTimeString('es-ES');
+    }
+    actualizarReloj();
+    setInterval(actualizarReloj, 1000);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Diario - El Dueño Digital</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+ 
+    /* RESET Y CONFIGURACIÓN GLOBAL */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f8f9fa;
+        color: #1a1a1a;
+        line-height: 1.6;
+    }
+
+    /* BARRA SUPERIOR */
+    .top-bar { background-color: #e1796e; color: #ffffff; padding: 0.5rem 0; font-size: 0.85rem; }
+    .top-bar-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* HEADER */
+    header { background-color: #ffffff; border-bottom: 3px solid #e74c3c; padding: 1.5rem 0; }
+    .header-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    .logo { font-size: 2.5rem; font-weight: 800; color: #1a1a1a; }
+    .logo span { color: #e74c3c; }
+    .eslogan { font-size: 0.85rem; color: #666; font-style: italic; margin-top: -5px; }
+
+    /* NAVEGACIÓN */
+    nav { background-color: #ffffff; border-bottom: 1px solid #e0e0e0; position: sticky; top: 0; z-index: 100; }
+    .nav-menu { list-style: none; display: flex; max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    .nav-menu a { display: block; padding: 1rem 1.5rem; color: #1a1a1a; text-decoration: none; font-weight: 500; }
+    .nav-menu a.active { color: #e74c3c; border-bottom: 3px solid #e74c3c; }
+    /* ===============================
+       SUDOKU STYLE "WORDLE MODE"
+       =============================== */
+    .sudoku-section {
+        max-width: 600px;
+        margin: 3rem auto;
+        padding: 0 1rem;
+        text-align: center;
+    }
+
+    .seccion-titulo { font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem;color: #e74c3c; }
+    .sudoku-descripcion { color: #787c7e; margin-bottom: 1.5rem; font-size: 0.9rem; }
+
+    /* Controles de Dificultad */
+    .sudoku-controls {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-bottom: 2rem;
+    }
+    .btn-diff {
+        background: white;
+        border: 1px solid #d3d6da;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+    .btn-diff:hover { background: #f4f4f4; }
+    .btn-diff.active { background: #1a1a1a; color: white; border-color: #1a1a1a; }
+
+    /* El Tablero */
+    .sudoku-grid {
+        display: grid;
+        grid-template-columns: repeat(9, 1fr);
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        border: 2px solid #1a1a1a; /* Borde exterior grueso */
+        background-color: #1a1a1a;
+        gap: 1px;
+    }
+
+    .sudoku-cell {
+        width: 100%;
+        aspect-ratio: 1/1;
+        background-color: #ffffff;
+        border: none;
+        text-align: center;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #1a1a1a;
+        outline: none;
+        appearance: none;
+        -moz-appearance: textfield;
+        border-radius: 0;
+    }
+
+    /* Eliminar flechas de input number */
+    .sudoku-cell::-webkit-inner-spin-button, 
+    .sudoku-cell::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+
+    /* Bordes de bloques 3x3 (estilo Wordle/Sudoku Pro) */
+    .sudoku-cell:nth-child(3n) { border-right: 2px solid #1a1a1a; }
+    .sudoku-cell:nth-child(9n) { border-right: none; }
+    
+    /* Celdas de las filas 3 y 6 tienen borde inferior grueso */
+    .grid-row-border { border-bottom: 2px solid #1a1a1a; }
+
+    /* Estados de celda */
+    .sudoku-cell:focus { background-color: #e8f0fe; }
+    .sudoku-cell:disabled { background-color: #f8f9fa; color: #787c7e; font-weight: 400; }
+    .cell-error { color: #e74c3c !important; }
+
+    .sudoku-mensaje {
+        margin-top: 2rem;
+        padding: 1rem;
+        border-radius: 8px;
+        font-weight: 700;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="top-bar">
+    <div class="top-bar-content">
+        <div id="fecha">Cargando fecha...</div>
+       <div class="redes-sociales">
+                <a href="" title="Facebook">📘 Facebook</a>
+                <a href="" title="Twitter">🐦 Twitter</a>
+                <a href="#" title="Instagram">📷 Instagram</a>
+            </div>
+    </div>
+</div>
+
+<header>
+    <div class="header-content">
+        <img src="logo.png" alt="Logo" width="60">
+        <div>
+            <div class="logo">El <span>DUEÑO</span></div>
+            <div class="eslogan">ULTIMAS NOTICIAS Y EFEMERIDES</div>
+        </div>
+    </div>
+</header>
+
+<nav>
+        <div class="nav-content">
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Portada</a></li>
+                <li><a href="Politica.html">Política</a></li>
+                <li><a href="Deportes.html">Deportes</a></li>
+                <li><a href="Mundo.html">Mundo</a></li>
+                <li><a href="Tecnologia.html">Tecnología</a></li>
+                <li><a href="Economia.html">Economía</a></li>
+                <li><a href="Efemerides.html">Efemerides</a></li>
+                <li><a href="Juegos.html" class="active">Juegos</a></li>
+            </ul>
+        </div>
+</nav>
+<div class="sudoku-section">
+    <h2 class="seccion-titulo">SUDOKU</h2>
+    <p class="sudoku-descripcion">Completa la grilla con números del 1 al 9 sin repetir.</p>
+
+    <div class="sudoku-controls">
+        <button class="btn-diff" onclick="cargarSudoku('facil', this)">Fácil</button>
+        <button class="btn-diff active" onclick="cargarSudoku('medio', this)">Medio</button>
+        <button class="btn-diff" onclick="cargarSudoku('dificil', this)">Difícil</button>
+    </div>
+
+    <div id="sudoku" class="sudoku-grid"></div>
+
+    <div id="sudokuMsg" class="sudoku-mensaje"></div>
+</div>
+
+<script>
+/* LÓGICA DEL JUEGO */
+
+const solucion = [
+    [5,3,4,6,7,8,9,1,2], [6,7,2,1,9,5,3,4,8], [1,9,8,3,4,2,5,6,7],
+    [8,5,9,7,6,1,4,2,3], [4,2,6,8,5,3,7,9,1], [7,1,3,9,2,4,8,5,6],
+    [9,6,1,5,3,7,2,8,4], [2,8,7,4,1,9,6,3,5], [3,4,5,2,8,6,1,7,9]
+];
+
+const dificultadMap = { facil: 45, medio: 35, dificil: 25 };
+
+function cargarSudoku(dificultad, btn) {
+    // Actualizar botones
+    document.querySelectorAll('.btn-diff').forEach(b => b.classList.remove('active'));
+    if(btn) btn.classList.add('active');
+
+    const grid = document.getElementById("sudoku");
+    grid.innerHTML = "";
+    document.getElementById("sudokuMsg").textContent = "";
+
+    const visibles = dificultadMap[dificultad];
+    let indices = Array.from({length:81}, (_,i)=>i);
+
+    // Semilla para que cambie cada día pero sea igual para todos los usuarios
+    const hoy = new Date().toDateString();
+    let seed = hoy.split("").reduce((a,c)=>a+c.charCodeAt(0),0);
+    indices.sort(()=> (seed = (seed*9301+49297)%233280) / 233280 - 0.5);
+
+    const visiblesSet = new Set(indices.slice(0, visibles));
+
+    for (let i = 0; i < 81; i++) {
+        const input = document.createElement("input");
+        input.type = "number";
+        input.className = "sudoku-cell";
+        
+        // Agregar borde inferior grueso a filas 3 y 6
+        const fila = Math.floor(i / 9);
+        const col = i % 9;
+        if ((fila === 2 || fila === 5)) {
+            input.classList.add("grid-row-border");
+        }
+
+        if (visiblesSet.has(i)) {
+            input.value = solucion[fila][col];
+            input.disabled = true;
+        } else {
+            input.addEventListener("input", (e) => {
+                // Solo permitir 1 número
+                if (e.target.value.length > 1) e.target.value = e.target.value.slice(0,1);
+                validarSudoku();
+            });
+        }
+        grid.appendChild(input);
+    }
+}
+
+function validarSudoku() {
+    const celdas = document.querySelectorAll(".sudoku-cell");
+    let lleno = true;
+    let correcto = true;
+
+    celdas.forEach((cell, i) => {
+        const fila = Math.floor(i / 9);
+        const col = i % 9;
+        const val = Number(cell.value);
+
+        if (!cell.disabled) {
+            if (!cell.value) {
+                lleno = false;
+                cell.classList.remove("cell-error");
+            } else if (val !== solucion[fila][col]) {
+                correcto = false;
+                cell.classList.add("cell-error");
+            } else {
+                cell.classList.remove("cell-error");
+            }
+        }
+    });
+
+    const msg = document.getElementById("sudokuMsg");
+    if (lleno && correcto) {
+        msg.textContent = "✨ ¡EXCELENTE! Sudoku completado.";
+        msg.style.backgroundColor = "#6aaa64";
+        msg.style.color = "white";
+    } else if (lleno && !correcto) {
+        msg.textContent = "Hay algunos números incorrectos en rojo.";
+        msg.style.backgroundColor = "#fed7d7";
+        msg.style.color = "#c53030";
+    } else {
+        msg.textContent = "";
+        msg.style.backgroundColor = "transparent";
+    }
+}
+
+// Fecha
+const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+document.getElementById('fecha').textContent = new Date().toLocaleDateString('es-ES', opciones).toUpperCase();
+
+// Carga inicial
+cargarSudoku("medio");
+</script>
+
+</body>
+</html>
