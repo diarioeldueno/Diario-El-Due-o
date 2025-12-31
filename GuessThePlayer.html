@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Palabra del Día - El Dueño Digital</title>
+    <title>Adivina el Jugador - El Dueño Digital</title>
     <link rel="icon" type="image/png" href="logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -51,17 +51,22 @@
     /* ===============================
        ESTILO WORDLE ESTÉTICO
        =============================== */
+      
     .wordle-section {
-        max-width: 600px;
+        max-width: 100%;
         margin: 3rem auto;
         padding: 0 1rem;
     }
     .wordle-container {
-        background: #ffffff;
         padding: 2.5rem;
         border-radius: 24px;
         box-shadow: 0 10px 40px rgba(0,0,0,0.05);
         text-align: center;
+        background:
+                url('https://static.vecteezy.com/system/resources/previews/003/715/625/non_2x/football-field-or-soccer-field-background-green-grass-court-for-create-soccer-game-vector.jpg'); /* Reemplaza por el nombre de tu archivo */
+    background-size: cover;
+    background-position: center;
+    border: 3px solid #e74c3c;
     }
     .wordle-grid {
         display: grid;
@@ -88,6 +93,7 @@
         text-transform: uppercase;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         background: #fff;
+        max-width: 10vw
     }
     /* Animación cuando escribes */
     .typing { border-color: #e1796e; transform: scale(1.05); box-shadow: 0 0 10px rgba(225,121,110,0.2); }
@@ -210,10 +216,11 @@ padding: 0.5rem;
 <div class="top-bar">
     <div class="top-bar-content">
         <div id="fecha">Cargando fecha...</div>
+
        <div class="redes-sociales">
-                <a href="#" title="Facebook">📘 Facebook</a>
-                <a href="#" title="Twitter">🐦 Twitter</a>
-                <a href="#" title="Instagram">📷 Instagram</a>
+                <a href="" title="Facebook">📘 Facebook</a>
+                <a href="" title="Twitter">🐦 Twitter</a>
+                <a href="" title="Instagram">📷 Instagram</a>
             </div>
     </div>
 </div>
@@ -245,8 +252,8 @@ padding: 0.5rem;
 
 <div class="wordle-section">
     <div class="wordle-container">
-        <h2 style="margin-bottom: 10px;">🧩 Palabra del Día</h2>
-        <p style="color: #666; font-size: 0.9rem;">Adivina la palabra de 5 letras en 6 intentos.</p>
+        <h2 style="margin-bottom: 10px;">⚽ ADIVINA EL FUTBOLISTA ⚽</h2>
+        <p style="color: #666; font-size: 0.9rem;"></p>
         
         <div id="grid" class="wordle-grid"></div>
 
@@ -255,108 +262,155 @@ padding: 0.5rem;
             <button id="btnEnviar" class="btn-jugar">PROBAR</button>
         </div>
         <div id="mensaje" class="wordle-mensaje"></div>
+        <div id="keyboard" class="keyboard">
     </div>
 </div>
-
 <script>
-    // Lógica del Reloj/Fecha
-    const ahora = new Date();
-    document.getElementById('fecha').textContent = ahora.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).toUpperCase();
-
-    // LÓGICA WORDLE
-    const palabras = ["CASAS", "PERRO", "LIBRO", "FUEGO", "SALUD", "NOCHE", "CLIMA", "JUEGO", "DATOS", "MENTE","PLAZA", "CALLE", "BANCO", "CAMPO", "RUMBO", "BRISA", "HOGAR", "VIAJE", "SONAR", "COSTA", "GRANO", "TECHO", "RITMO", "FRASE", "LISTO", "SERIE", "CAUSA", "VALOR", "TIEMO", "SILLA"];
-    const palabraSecreta = palabras[new Date().getDate() % palabras.length];
-    const intentosMax = 6;
-    let intentoActual = 0;
-
-    const grid = document.getElementById("grid");
-    const input = document.getElementById("inputWord");
-    const btn = document.getElementById("btnEnviar");
-    const mensaje = document.getElementById("mensaje");
-
-    // Crear tablero inicial
-    for (let i = 0; i < intentosMax; i++) {
-        const row = document.createElement("div");
-        row.className = "wordle-row";
-        for (let j = 0; j < 5; j++) {
-            const cell = document.createElement("div");
-            cell.className = "wordle-cell";
-            row.appendChild(cell);
-        }
-        grid.appendChild(row);
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. FECHA
+    const fechaElt = document.getElementById('fecha');
+    if (fechaElt) {
+        fechaElt.textContent = new Date().toLocaleDateString('es-ES', { 
+            weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' 
+        }).toUpperCase();
     }
 
-    // Dibujar letras mientras el usuario escribe
-    input.addEventListener("input", () => {
-        const valor = input.value.toUpperCase();
-        const celdas = grid.children[intentoActual].children;
-        for (let i = 0; i < 5; i++) {
-            celdas[i].textContent = valor[i] || "";
-            if (valor[i]) {
-                celdas[i].classList.add("typing");
-            } else {
-                celdas[i].classList.remove("typing");
+    // 2. CONFIGURACIÓN
+    const palabrasJuego = ["MESSI", "PELE", "NEYMAR", "MBAPPE", "SUAREZ", "TEVEZ", "AGUERO", "SALAH", "MODRIC", "KROOS",
+"RAMOS", "PEDRI", "HAALAND", "IBRA", "KANTE", "LUKAKU", "DYBALA", "ALABA", "XAVI", "INIESTA",
+"ZIDANE", "PIRLO", "RONALDO", "KAKA", "FODEN", "BENZEMA", "KIMMICH", "SILVA", "SANE", "HAZARD",
+"BUFFON", "OBLAK", "OSIMHEN", "GERRARD", "DAVIES", "ISCO", "FABINHO", "PALERMO", "ICARDI"];
+    const palabraSecreta = palabrasJuego[new Date().getDate() % palabrasJuego.length].toUpperCase();
+    const largoPalabra = palabraSecreta.length;
+    
+    // Aquí la cantidad de intentos depende del largo de la palabra
+    const intentosMax = largoPalabra + 1; 
+    
+    let intentoActual = 0;
+    let letraActual = 0;
+    let juegoTerminado = false;
+
+    const grid = document.getElementById("grid");
+    const mensaje = document.getElementById("mensaje");
+    const inputInvisible = document.getElementById("inputInvisible");
+    const subtitulo = document.getElementById('subtitulo');
+    
+    if (subtitulo) subtitulo.textContent = `ADIVINA EL CRACK DE ${largoPalabra} LETRAS`;
+
+    // 3. TABLERO
+    function crearTablero() {
+        if (!grid) return;
+        grid.innerHTML = "";
+        // Ajustamos las filas del grid según intentosMax
+        grid.style.gridTemplateRows = `repeat(${intentosMax}, 1fr)`;
+
+        for (let i = 0; i < intentosMax; i++) {
+            const row = document.createElement("div");
+            row.className = "wordle-row";
+            row.style.display = "grid";
+            row.style.gridTemplateColumns = `repeat(${largoPalabra}, 1fr)`;
+            row.style.gap = "8px";
+            
+            for (let j = 0; j < largoPalabra; j++) {
+                const cell = document.createElement("div");
+                cell.className = "wordle-cell";
+                cell.id = `cell-${i}-${j}`;
+                cell.onclick = () => { if(!juegoTerminado && inputInvisible) inputInvisible.focus(); };
+                row.appendChild(cell);
             }
+            grid.appendChild(row);
         }
-    });
+        actualizarCursor();
+    }
 
-    // Enviar palabra
-    btn.addEventListener("click", jugar);
-    input.addEventListener("keypress", (e) => { if (e.key === "Enter") jugar(); });
+    function actualizarCursor() {
+        document.querySelectorAll('.wordle-cell').forEach(c => c.classList.remove('cell-focus'));
+        if (juegoTerminado) return;
+        const celda = document.getElementById(`cell-${intentoActual}-${letraActual}`);
+        if (celda) celda.classList.add('cell-focus');
+    }
 
-    function jugar() {
-        const intento = input.value.toUpperCase();
-        if (intento.length !== 5) {
-            mensaje.textContent = "⚠️ ¡Escribe 5 letras!";
-            mensaje.style.color = "#e74c3c";
+    // 4. ENTRADA
+    window.addEventListener("keydown", (e) => manejarInput(e.key));
+    
+    if (inputInvisible) {
+        inputInvisible.addEventListener("input", (e) => {
+            const val = e.target.value.toUpperCase();
+            if (val.length > 0) manejarInput(val.slice(-1));
+            e.target.value = "";
+        });
+    }
+
+    function manejarInput(tecla) {
+        if (juegoTerminado) return;
+        tecla = tecla.toUpperCase();
+
+        if (tecla.length === 1 && tecla >= "A" && tecla <= "Z") {
+            if (letraActual < largoPalabra) {
+                const cell = document.getElementById(`cell-${intentoActual}-${letraActual}`);
+                if (cell) {
+                    cell.textContent = tecla;
+                    cell.classList.add("typing");
+                    letraActual++;
+                    actualizarCursor();
+                }
+            }
+        } else if (tecla === "BACKSPACE" || tecla === "DELETE") {
+            if (letraActual > 0) {
+                letraActual--;
+                const cell = document.getElementById(`cell-${intentoActual}-${letraActual}`);
+                if (cell) {
+                    cell.textContent = "";
+                    cell.classList.remove("typing");
+                    actualizarCursor();
+                }
+            }
+        } else if (tecla === "ENTER") {
+            validar();
+        }
+    }
+
+    function validar() {
+        if (letraActual < largoPalabra) {
+            mensaje.textContent = "⚠️ Faltan letras";
             return;
         }
 
-        const filaCeldas = grid.children[intentoActual].children;
-        
-        for (let i = 0; i < 5; i++) {
-            const letra = intento[i];
-            
-            setTimeout(() => {
-                if (letra === palabraSecreta[i]) {
-                    filaCeldas[i].classList.add("correct");
-                } else if (palabraSecreta.includes(letra)) {
-                    filaCeldas[i].classList.add("present");
-                } else {
-                    filaCeldas[i].classList.add("absent");
-                }
+        let intento = "";
+        const celdas = [];
+        for (let i = 0; i < largoPalabra; i++) {
+            const c = document.getElementById(`cell-${intentoActual}-${i}`);
+            intento += c.textContent;
+            celdas.push(c);
+        }
 
-                if (i === 4) verificarResultado(intento);
+        for (let i = 0; i < largoPalabra; i++) {
+            setTimeout(() => {
+                const letra = intento[i];
+                if (letra === palabraSecreta[i]) celdas[i].classList.add("correct");
+                else if (palabraSecreta.includes(letra)) celdas[i].classList.add("present");
+                else celdas[i].classList.add("absent");
+
+                if (i === largoPalabra - 1) {
+                    if (intento === palabraSecreta) {
+                        mensaje.textContent = "🎉 ¡GOLEADA! GANASTE.";
+                        mensaje.style.color = "#2ecc71";
+                        juegoTerminado = true;
+                    } else if (++intentoActual === intentosMax) {
+                        mensaje.textContent = "❌ FIN DEL PARTIDO. ERA: " + palabraSecreta;
+                        juegoTerminado = true;
+                    } else {
+                        letraActual = 0;
+                        mensaje.textContent = "";
+                    }
+                    actualizarCursor();
+                }
             }, i * 150);
         }
     }
 
-    function verificarResultado(intento) {
-        if (intento === palabraSecreta) {
-            mensaje.textContent = "🎉 ¡Excelente! Adivinaste la palabra.";
-            mensaje.style.color = "#2ecc71";
-            input.disabled = true;
-        } else {
-            intentoActual++;
-            input.value = "";
-            if (intentoActual === intentosMax) {
-                mensaje.textContent = "❌ Perdiste. La palabra era: " + palabraSecreta;
-                mensaje.style.color = "#e74c3c";
-                input.disabled = true;
-            } else {
-                mensaje.textContent = "";
-            }
-        }
-    }
-    function actualizarReloj() {
-        const ahora = new Date();
-        const opcionesFecha = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        document.getElementById('fecha').textContent = ahora.toLocaleDateString('es-ES', opcionesFecha).toUpperCase();
-        document.getElementById('reloj').textContent = ahora.toLocaleTimeString('es-ES');
-    }
-    actualizarReloj();
-    setInterval(actualizarReloj, 1000);
+    // EJECUCIÓN INICIAL
+    crearTablero();
+});
 </script>
-
-</body>
-</html>
+       

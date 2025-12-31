@@ -483,15 +483,18 @@
         }
 
         /* Cabecera de color para cada card */
-        .juego-visual {
-            height: 120px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3.5rem;
-            color: white;
-        }
+       .juego-visual {
+    height: 150px; /* Un poco más alto para que luzca la imagen */
+    overflow: hidden;
+    position: relative;
+}
 
+.juego-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Esto es clave: recorta la foto para que llene el espacio sin deformarse */
+    object-position: center; /* Centra la imagen */
+}
         .bg-palabra { background: linear-gradient(135deg, #2ecc71, #27ae60); }
         .bg-sudoku { background: linear-gradient(135deg, #3498db, #2980b9); }
         .bg-crucigrama { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
@@ -616,6 +619,30 @@
     <h1 class="seccion-titulo">🕹️ Desafío Diario</h1>
 
     <div class="juegos-grid">
+        
+        
+        <article class="juego-card">
+        <div class="juego-visual bg-palabra" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSb8VdN5P_FPtndhlz7ZGHG0359u_XIZ_y0Eg&s');">
+</div>
+            <div class="juego-info">
+                <span class="juego-meta">Palabras</span>
+                <h3>Adivina el Jugador</h3>
+                <p>¿Podés adivinar el jugador famoso? Un reto nuevo cada mañana.</p>
+                <a href="GuessThePlayer.html" class="btn-jugar-game">JUGAR AHORA</a>
+            </div>
+        </article>
+    
+        
+        <article class="juego-card">
+        <div class="juego-visual bg-palabra" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwvl7-EBbXs4dikL0ohzIhCzqZUA230YVtPg&s');">
+</div>
+            <div class="juego-info">
+                <span class="juego-meta">Palabras</span>
+                <h3>Boluddle del Dia</h3>
+                <p>¿Podés adivinar la palabra argenta oculta en 6 intentos? Un reto nuevo cada mañana.</p>
+                <a href="Boluddle.html" class="btn-jugar-game">JUGAR AHORA</a>
+            </div>
+        </article>
 
         <article class="juego-card">
         <div class="juego-visual bg-palabra" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST6VLOS36dZeuVfj_hU69xsGju3HlkG5nOLg&s');">

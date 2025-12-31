@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Palabra del Día - El Dueño Digital</title>
+    <title>Boluddle - El Dueño Digital</title>
     <link rel="icon" type="image/png" href="logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -52,12 +52,12 @@
        ESTILO WORDLE ESTÉTICO
        =============================== */
     .wordle-section {
-        max-width: 600px;
+        max-width: 100%;
         margin: 3rem auto;
         padding: 0 1rem;
     }
     .wordle-container {
-        background: #ffffff;
+        background: linear-gradient(to right, #74ACDF, #FFFFFF, #F6B40E, #FFFFFF, #74ACDF);
         padding: 2.5rem;
         border-radius: 24px;
         box-shadow: 0 10px 40px rgba(0,0,0,0.05);
@@ -210,10 +210,11 @@ padding: 0.5rem;
 <div class="top-bar">
     <div class="top-bar-content">
         <div id="fecha">Cargando fecha...</div>
+
        <div class="redes-sociales">
-                <a href="#" title="Facebook">📘 Facebook</a>
-                <a href="#" title="Twitter">🐦 Twitter</a>
-                <a href="#" title="Instagram">📷 Instagram</a>
+                <a href="" title="Facebook">📘 Facebook</a>
+                <a href="" title="Twitter">🐦 Twitter</a>
+                <a href="" title="Instagram">📷 Instagram</a>
             </div>
     </div>
 </div>
@@ -245,7 +246,7 @@ padding: 0.5rem;
 
 <div class="wordle-section">
     <div class="wordle-container">
-        <h2 style="margin-bottom: 10px;">🧩 Palabra del Día</h2>
+        <h2 style="margin-bottom: 10px;">BOLUDDLE</h2>
         <p style="color: #666; font-size: 0.9rem;">Adivina la palabra de 5 letras en 6 intentos.</p>
         
         <div id="grid" class="wordle-grid"></div>
@@ -264,7 +265,7 @@ padding: 0.5rem;
     document.getElementById('fecha').textContent = ahora.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).toUpperCase();
 
     // LÓGICA WORDLE
-    const palabras = ["CASAS", "PERRO", "LIBRO", "FUEGO", "SALUD", "NOCHE", "CLIMA", "JUEGO", "DATOS", "MENTE","PLAZA", "CALLE", "BANCO", "CAMPO", "RUMBO", "BRISA", "HOGAR", "VIAJE", "SONAR", "COSTA", "GRANO", "TECHO", "RITMO", "FRASE", "LISTO", "SERIE", "CAUSA", "VALOR", "TIEMO", "SILLA"];
+    const palabras = ["PORRO", "GARCA", "PIBES", "BOLSO", "GUITA", "FACHA", "BARDO", "FIACA", "BONDI", "MANGO","MORFA", "TACHO", "GORRA", "BOTON", "ORTOS", "CAGAR", "CURRO", "PIOLA", "GAMBA", "CHETO","FIERA", "TRUCO", "VAGON", "ZURDO", "YERBA", "BAJON", "NARCO", "FACHO", "GILES", "PAJON"];
     const palabraSecreta = palabras[new Date().getDate() % palabras.length];
     const intentosMax = 6;
     let intentoActual = 0;
