@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ley de Inocencia Fiscal: el nuevo escenario que busca reactivar el mercado inmobiliario argentino - El Dueño Digital</title>
+    <title>Alarma en la NBA: la lesión de Nikola Jokic pone en jaque el mapa de poder en el básquet mundial - El Dueño Digital</title>
     <link rel="icon" type="image/png" href="logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
@@ -199,7 +199,7 @@
 
         .categoria-tag {
             display: inline-block;
-            background-color: #f39c12;
+            background-color: #e74c3c;
             color: white;
             padding: 0.3rem 0.8rem;
             border-radius: 3px;
@@ -210,8 +210,8 @@
             margin-bottom: 1.5rem;
         }
 
-        .categoria-tag.economia {
-            background-color: #f39c12;
+        .categoria-tag.deportes {
+            background-color: #2ecc71;
         }
 
         .articulo-completo h1 {
@@ -229,7 +229,7 @@
             color: #888888;
             margin-bottom: 2rem;
             padding-bottom: 1.5rem;
-            border-bottom: 2px solid #f39c12;
+            border-bottom: 2px solid #2ecc71;
         }
 
         .articulo-imagen-principal {
@@ -248,7 +248,7 @@
             font-weight: 500;
             padding: 1.5rem;
             background-color: #f8f9fa;
-            border-left: 4px solid #f39c12;
+            border-left: 4px solid #2ecc71;
         }
 
         .articulo-contenido {
@@ -262,7 +262,7 @@
             font-weight: 700;
             margin-top: 2.5rem;
             margin-bottom: 1.5rem;
-            color: #f39c12;
+            color: #2ecc71;
         }
 
         .articulo-contenido h3 {
@@ -270,7 +270,7 @@
             font-weight: 600;
             margin-top: 2rem;
             margin-bottom: 1rem;
-            color: #f39c12;
+            color: #2ecc71;
         }
 
         .articulo-contenido p {
@@ -285,10 +285,12 @@
 
         .articulo-contenido li {
             margin-bottom: 0.8rem;
+            content: "•";
         }
+        
 
         .articulo-contenido blockquote {
-            border-left: 4px solid #f39c12;
+            border-left: 4px solid #2ecc71;
             padding-left: 1.5rem;
             margin: 2rem 0;
             font-style: italic;
@@ -303,75 +305,40 @@
             padding: 1.5rem;
             border-radius: 8px;
             margin: 2rem 0;
-            border-left: 4px solid #f39c12;
+            border-left: 4px solid #2ecc71;
         }
 
-        .match-card {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: #111827;
-                width: 100%;
-    max-width: 100%;
-    overflow: hidden;
+         .table-container {
+    overflow-x: auto;
+    margin: 2rem 0;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+}
 
-            /* fondo oscuro */
-            border-radius: 10px;
-            padding: 50px 50px;
-            max-width: 2000px;
-            margin: 16px auto;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
-        }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Inter', sans-serif;
+}
 
-        /* Equipos */
-        .team {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            width: 34%;
-        }
+th {
+    background-color: #f8f9fa;
+    padding: 12px;
+    text-align: left;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #666;
+}
 
-        .team img {
-            width: 100px;
-            height: 80px;
-            object-fit: contain;
-        }
+td {
+    padding: 12px;
+    border-top: 1px solid #eee;
+    font-size: 0.95rem;
+}
 
-        .team-name {
-            font-size: 25px;
-            font-weight: 600;
-            color: #e5e7eb;
-        }
 
-        /* Visitante a la derecha */
-        .team-away {
-            justify-content: flex-end;
-            text-align: right;
-        }
-
-        /* Resultado */
-        .match-result {
-            width: 32%;
-            text-align: center;
-        }
-
-        .score {
-            font-size: 30px;
-            font-weight: 800;
-            color: #ffffff;
-            line-height: 1;
-        }
-
-        .match-status {
-            display: block;
-            font-size: 11px;
-            margin-top: 4px;
-            color: #9ca3af;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .btn-volver {
+.btn-volver {
             display: inline-block;
             background-color: #1a1a1a;
             color: white;
@@ -543,10 +510,10 @@
             <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html">Portada</a></li>
                 <li><a href="Politica.html">Política</a></li>
-                <li><a href="Deportes.html">Deportes</a></li>
+                <li><a href="Deportes.html" class="active">Deportes</a></li>
                 <li><a href="Mundo.html">Mundo</a></li>
                 <li><a href="Tecnologia.html">Tecnología</a></li>
-                <li><a href="Economia.html" class="active">Economía</a></li>
+                <li><a href="Economia.html">Economía</a></li>
                 <li><a href="Efemerides.html">Efemerides</a></li>
             </ul>
         </div>
@@ -555,94 +522,86 @@
     <!-- ========================================
          CONTENEDOR PRINCIPAL
          ======================================== -->
-<div class="main-container">
-    <!-- ARTÍCULO PRINCIPAL -->
-    <main>
-        <article class="articulo-completo">
-            <span class="categoria-tag economia">Economía</span>
+    <div class="main-container">
+        <!-- ARTÍCULO PRINCIPAL -->
+        <main>
+       <article class="articulo-completo">
+    <span class="categoria-tag deportes">Basquet</span>
 
-           <h1>Ley de Inocencia Fiscal: el nuevo escenario que busca reactivar el mercado inmobiliario argentino</h1>
+    <h1>Alarma en la NBA: la lesión de Nikola Jokic pone en jaque el mapa de poder en el básquet mundial</h1>
 
 <div class="articulo-meta">
     <span>📅 31 de Diciembre, 2025</span>
     <span>✍️ Por Redacción El Dueño</span>
-    <span>⏱️ 6 min de lectura</span>
+    <span>⏱️ 5 min de lectura</span>
 </div>
 
-<img src="https://www.esneca.com/wp-content/uploads/como-funciona-una-inmobiliaria.jpg" 
-     alt="Mercado inmobiliario y construcción" class="articulo-imagen-principal">
+<img src="https://i.dailymail.co.uk/1s/2025/12/30/04/105096057-15421319-image-a-38_1767068100959.jpg" 
+     alt="Cancha de básquet profesional" class="articulo-imagen-principal">
 
 <div class="articulo-bajada">
-    La normativa, que otorga beneficios impositivos y simplifica la justificación de fondos para la compra de viviendas, genera expectativas en un sector que acumula años de estancamiento. ¿Podrá la desregulación fiscal ser el motor definitivo para la vuelta del crédito y la inversión?
+    La salida del serbio en el último encuentro de los Denver Nuggets encendió todas las alarmas. Más allá del diagnóstico clínico, su ausencia golpea el corazón del espectáculo y replantea las chances de los candidatos en la liga más competitiva del planeta.
 </div>
 
 <div class="articulo-contenido">
 
     <p>
-        El mercado inmobiliario argentino atraviesa un punto de inflexión. Tras años marcados por la escasez de crédito hipotecario y la volatilidad cambiaria, la reciente implementación de la <strong>Ley de Inocencia Fiscal</strong> se presenta como la herramienta principal del Gobierno para dinamizar la compraventa de inmuebles. La normativa no solo apunta a blanquear capitales de forma simplificada, sino a establecer una "presunción de licitud" en montos intermedios para la adquisición de primeras viviendas.
+        En el deporte de alta competencia, hay momentos donde el silencio de un estadio dice más que cualquier grito. Eso ocurrió anoche cuando <strong>Nikola Jokic</strong>, el pivot estrella de los Denver Nuggets y actual referente absoluto de la NBA, debió abandonar el campo de juego con claros gestos de dolor. Las imágenes de su rodilla comprometida en una acción fortuita se viralizaron en minutos, dejando una sensación de incertidumbre que trasciende lo meramente deportivo.
     </p>
     
     <p>
-        Para los analistas del sector, el cambio de paradigma es total. Hasta hace poco, la trazabilidad de los fondos y las cargas impositivas actuaban como un freno inhibitorio para el ahorrista medio. Hoy, el foco está puesto en la <strong>formalización del mercado</strong> mediante incentivos, permitiendo que fondos que se encontraban fuera del sistema circulen legalmente en la construcción y la adquisición de unidades terminadas.
+        No estamos ante una lesión más. Jokic no es solo un jugador; es el sistema solar sobre el cual giran los Nuggets y uno de los pilares de audiencia globales de la liga. En una NBA que ha invertido millones en su expansión internacional, ver caer a su figura más dominante —y de origen europeo— tiene un impacto directo en el valor del producto que se exporta al mundo.
     </p>
 
-    <h2>Los tres pilares de la normativa</h2>
+    <h2>¿Por qué preocupa tanto su ausencia?</h2>
 
     <p>
-        La ley se sostiene sobre tres ejes fundamentales que buscan reducir la fricción en las notarías y oficinas inmobiliarias. En primer lugar, la <strong>exención de impuestos cedulares</strong> para reinversiones en ladrillos. En segundo término, una ventana de regularización para fondos no declarados con alícuotas que tienden a cero si el destino es la compra de inmuebles nuevos o usados.
+        El impacto es multidimensional. En lo humano, Jokic es un atleta que ha sabido desafiar los cánones tradicionales del físico profesional, basando su éxito en una inteligencia de juego superior. En lo económico, Denver es un equipo que ha construido toda su infraestructura alrededor de su estrella. Sin él, el equipo pasa de ser un serio aspirante al título a luchar por la supervivencia en la tabla.
     </p>
 
     <blockquote>
-        "El objetivo no es solo que el capital vuelva al sistema, sino que se transforme en metros cuadrados. Cada propiedad vendida moviliza más de 30 industrias laterales", explican fuentes del sector desarrollador.
+        "Cuando una figura de esta magnitud se lesiona, la liga entera se resiente. No es solo un tema de puntos en la tabla, es el valor del ticket, el rating y la narrativa de la temporada lo que está en juego", explican analistas del negocio deportivo.
     </blockquote>
 
     <p>
-        El tercer pilar, quizás el más polémico pero efectivo, es la simplificación burocrática ante la AFIP. La Ley de Inocencia Fiscal limita las facultades del organismo para investigar el origen de los fondos en operaciones que no superen ciertos umbrales, siempre que el comprador no posea antecedentes penales tributarios.
+        Para el fanático común, la noticia es un golpe a la ilusión. Para los competidores directos, se abre una ventana de oportunidad inesperada. Sin embargo, el consenso en el ambiente es de cautela: nadie quiere ganar una liga que pierde a sus mejores exponentes por problemas físicos derivados de un calendario cada vez más exigente.
     </p>
 
     <div class="destacado">
-        <h3>¿Qué se sabe del impacto en los precios?</h3>
-        <p>Históricamente, los procesos de regularización fiscal en Argentina han generado una presión alcista en los precios de las propiedades. Sin embargo, en esta oportunidad, la oferta acumulada de los últimos cuatro años actúa como un ancla. Se espera una recuperación del <strong>10% al 15% en el volumen de operaciones</strong> antes que un salto brusco en los valores por metro cuadrado.</p>
+        <h3>El debate sobre el calendario</h3>
+        <p>La lesión del serbio reaviva una discusión histórica en Estados Unidos: la carga de partidos. Con 82 juegos de temporada regular más los playoffs, el cuerpo de los gigantes —literalmente, personas de más de 2.10 metros— llega al límite de su resistencia. ¿Es hora de acortar la temporada para proteger el capital humano de los clubes?</p>
     </div>
 
-    <h2>Contexto y antecedentes: del cepo al blanqueo</h2>
+    <h2>Contexto: El peso de una estrella mundial</h2>
 
     <p>
-        Para entender la relevancia de esta ley, hay que mirar el pasado reciente. Desde la imposición de los sucesivos cepos cambiarios en 2011 y 2019, el mercado inmobiliario —históricamente dolarizado en Argentina— quedó atrapado en una trampa de liquidez. Las propiedades bajaron su valor en dólares, pero la falta de financiamiento y la persecución fiscal sobre el ahorrista hormiga hicieron que el volumen de escrituras en la Ciudad de Buenos Aires y el GBA cayera a mínimos históricos.
+        Para entender la magnitud, hay que mirar los antecedentes. Jokic viene de temporadas con una carga de minutos altísima, siendo el eje de cada ataque y defensa de su equipo. En la NBA actual, la gestión de la salud (conocida como <i>load management</i>) ha sido criticada por los fans, pero casos como este le dan la razón a los médicos que piden descanso para las estrellas.
     </p>
 
     <p>
-        A diferencia de los blanqueos anteriores (como el de 2016 o el CEDIN), la Ley de Inocencia Fiscal no se promociona como una "última oportunidad", sino como una <strong>reforma estructural</strong>. El Gobierno busca que la "inocencia" no sea un perdón temporal, sino una regla de juego permanente para fomentar el ahorro en activos físicos locales.
+        A diferencia de otras figuras que basan su juego en el salto y la explosión, el "Joker" suele jugar a ras de suelo, lo que lo hacía parecer "inmune" a las lesiones graves. Este incidente rompe esa percepción de invulnerabilidad y pone a los directivos de Denver ante el desafío de buscar soluciones urgentes en un mercado de pases que no suele tener reemplazos para el mejor jugador del mundo.
     </p>
-
-    <h2>Claves del nuevo escenario inmobiliario</h2>
-    <ul>
-        <li><strong>Monto exceptuado:</strong> Se establecen umbrales de hasta USD 100.000 para compras directas sin requerimiento de declaraciones juradas adicionales.</li>
-        <li><strong>Construcción en pozo:</strong> Los desarrollos con avance inferior al 50% reciben beneficios adicionales en el Impuesto a los Bienes Personales.</li>
-        <li><strong>Seguridad Jurídica:</strong> La ley incluye cláusulas de estabilidad fiscal por 10 años para quienes registren sus operaciones bajo este marco.</li>
-    </ul>
 
     <h2>Consecuencias a corto y largo plazo</h2>
+    <ul>
+        <li><strong>Impacto en las apuestas:</strong> Denver cayó drásticamente en las casas de apuestas para el anillo de este año apenas se conoció el video.</li>
+        <li><strong>Desarrollo de suplentes:</strong> El equipo deberá acelerar la maduración de sus jugadores jóvenes, quienes ahora tendrán una responsabilidad para la que quizás no estaban listos.</li>
+        <li><strong>Mercado global:</strong> La NBA mira con preocupación cómo se debilita el interés en mercados internacionales si sus estrellas foráneas quedan fuera de competencia por largos períodos.</li>
+    </ul>
+
+    <h2>Conclusión: El factor humano por sobre el negocio</h2>
 
     <p>
-        En el corto plazo, se espera que el último trimestre de 2025 y el inicio de 2026 registren un pico de escrituraciones, impulsado por aquellos que esperaban un marco legal más amigable. No obstante, el desafío de largo plazo sigue siendo el mismo: <strong>la estabilidad macroeconómica</strong>. Sin una inflación de un dígito sostenida, los incentivos fiscales solo sirven para movilizar ahorros existentes, pero no para generar nuevos propietarios a través del salario.
+        Mientras se esperan los resultados oficiales de los estudios médicos, queda flotando una pregunta que nos interpela como espectadores de este gran show: <strong>¿Estamos exigiendo a estos atletas más de lo que la naturaleza humana permite en pos del espectáculo infinito?</strong>
     </p>
 
     <p>
-        La relación con la coyuntura internacional también es directa. Con tasas de interés globales que comienzan a estabilizarse, el capital busca refugios en mercados emergentes. Si Argentina logra posicionar su mercado inmobiliario como un destino seguro y fiscalmente lógico, podría captar parte de esa renta que hoy fluye hacia plazas como Montevideo o Paraguay.
-    </p>
-
-    <h2>Conclusión: ¿Un puente hacia el crédito hipotecario?</h2>
-
-    <p>
-        La Ley de Inocencia Fiscal es un paso ambicioso hacia la normalización de un mercado que funcionó "en las sombras" o bajo parálisis durante décadas. Sin embargo, surge un interrogante relevante: <strong>¿Es suficiente el alivio fiscal para reactivar un sector donde el salario real sigue rezagado frente al valor del metro cuadrado?</strong>
-    </p>
-
-    <p>
-        La normativa parece estar diseñada para la clase media-alta y los inversores. El éxito social de la medida se medirá, finalmente, en si este movimiento de capital logra generar la liquidez necesaria para que los bancos vuelvan a ofrecer créditos hipotecarios accesibles para el resto de la población. Por ahora, el ladrillo vuelve a ser el refugio predilecto, pero esta vez, con el aval del Estado.
+        La lesión de Nikola Jokic es un recordatorio de la fragilidad que se esconde detrás de los contratos millonarios y los estadios brillantes. Sin su magia en la pintura, el básquet pierde color. Ojalá que, por el bien del juego, el video de anoche sea solo un susto y no el final prematuro de una temporada que lo tenía como protagonista absoluto.
     </p>
 
 </div>
+</article>
+
 
 
         <a href="index.html" class="btn-volver">← Volver a la portada</a>
