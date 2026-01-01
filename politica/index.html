@@ -94,20 +94,26 @@
             text-decoration: none;
         }
 
-        .logo-container {
+       /* Ajuste del contenedor para alinear imagen y texto */
+.logo-container {
     display: flex;
     align-items: center;
-    gap: 12px; 
+    gap: 15px; /* Espacio entre imagen y texto */
+    text-decoration: none;
 }
 
+/* Tamaño de la imagen del logo */
 .logo-img {
-    width: 75px;
-    height: 75px;
+    height: 60px; 
+    width: auto;
     object-fit: contain;
 }
- .logo span {
-            color: #e74c3c;
-        }
+
+/* Reset del logo para que no se pise con la imagen */
+.logo {
+    font-size: 2.2rem;
+    line-height: 1;
+}
         .eslogan {
             font-size: 0.85rem;
             color: #666666;
