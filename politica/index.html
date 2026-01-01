@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política - El Dueño Digital</title>
+     <link rel="icon" type="image/png" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================
+           RESET Y CONFIGURACIÓN GLOBAL
+           ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: #f8f9fa;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           BARRA SUPERIOR - FECHA Y REDES
+           ======================================== */
+        .top-bar {
+            background-color:#e1796e;
+            color: #ffffff;
+            padding: 0.5rem 0;
+            font-size: 0.85rem;
+        }
+
+        .top-bar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .fecha-actual {
+            color: #cccccc;
+        }
+
+        .redes-sociales {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .redes-sociales a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .redes-sociales a:hover {
+            color: #e74c3c;
+        }
+
+        /* ========================================
+           HEADER PRINCIPAL
+           ======================================== */
+        header {
+            background-color: #ffffff;
+            border-bottom: 3px solid #e74c3c;
+            padding: 1.5rem 0;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            letter-spacing: -1px;
+            text-decoration: none;
+        }
+
+        .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px; 
+}
+
+.logo-img {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+}
+ .logo span {
+            color: #e74c3c;
+        }
+        .eslogan {
+            font-size: 0.85rem;
+            color: #666666;
+            font-style: italic;
+            margin-top: -0.3rem;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: #1a1a1a;
+            transition: all 0.3s;
+        }
+
+        /* ========================================
+           NAVEGACIÓN PRINCIPAL
+           ======================================== */
+        nav {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 0;
+        }
+
+        .nav-menu li {
+            position: relative;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #e74c3c;
+            border-bottom-color: #e74c3c;
+        }
+
+        /* ========================================
+           BREADCRUMB - MIGAJA DE PAN
+           ======================================== */
+        .breadcrumb {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            font-size: 0.9rem;
+            color: #666666;
+        }
+
+        .breadcrumb a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #e74c3c;
+        }
+
+        /* ========================================
+           ENCABEZADO DE SECCIÓN
+           ======================================== */
+        .seccion-header {
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+            padding: 0 2rem;
+        }
+
+        .seccion-titulo-principal {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+            border-left: 6px solid #3498db;
+            padding-left: 1.5rem;
+        }
+
+        .seccion-descripcion {
+            font-size: 1.2rem;
+            color: #666666;
+            padding-left: 2rem;
+        }
+
+        /* ========================================
+           CONTENEDOR PRINCIPAL
+           ======================================== */
+        .main-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        /* ========================================
+           NOTICIA DESTACADA DE POLÍTICA
+           ======================================== */
+        .noticia-destacada {
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+        }
+
+        .noticia-destacada-imagen {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .noticia-destacada-content {
+            padding: 2rem;
+        }
+
+        .categoria-tag {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+        
+        .categoria-tag.informes {
+            display: inline-block;
+            background:linear-gradient(to right, #3498db, #e03f3f);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .noticia-destacada h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .noticia-bajada {
+            font-size: 1.1rem;
+            color: #555555;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .noticia-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: #888888;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-leer-mas {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .btn-leer-mas:hover {
+            background-color: #2980b9;
+        }
+
+        /* ========================================
+           GRID DE NOTICIAS DE POLÍTICA
+           ======================================== */
+        .noticias-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .noticia-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .noticia-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        }
+
+        .noticia-card-imagen {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .noticia-card-content {
+            padding: 1.5rem;
+        }
+
+        .noticia-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 0.8rem;
+            color: #1a1a1a;
+        }
+
+        .noticia-card p {
+            font-size: 0.95rem;
+            color: #666666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .noticia-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .noticia-card-hora {
+            font-size: 0.8rem;
+            color: #999999;
+        }
+
+        .btn-leer-card {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .btn-leer-card:hover {
+            color: #2980b9;
+        }
+
+        /* ========================================
+           SIDEBAR - BARRA LATERAL
+           ======================================== */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .widget {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .widget-titulo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3498db;
+        }
+
+        .mas-leidas-lista {
+            list-style: none;
+        }
+
+        .mas-leidas-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .mas-leidas-item:last-child {
+            border-bottom: none;
+        }
+
+        .mas-leidas-numero {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: #3498db;
+            color: white;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-right: 0.8rem;
+        }
+
+        .mas-leidas-item a {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            line-height: 1.4;
+            transition: color 0.3s;
+        }
+
+        .mas-leidas-item a:hover {
+            color: #3498db;
+        }
+        /* Título del sidebar */
+.sidebar-box h3 {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* Iframes (Promiedos / Boletín / Congreso) */
+.sidebar-box iframe {
+  width: 120%;
+  height: 600px;
+  border: none;
+text-align: center;
+}
+.mapa-iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+  border-radius: 4px;
+}
+
+
+        /* ========================================
+           SECCIÓN DE OPINIÓN
+           ======================================== */
+        .seccion-opinion {
+            margin-top: 3rem;
+        }
+
+        .subseccion-titulo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #3498db;
+            color: #1a1a1a;
+        }
+
+        .opinion-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-left: 4px solid #3498db;
+        }
+
+        .opinion-autor {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .opinion-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .opinion-autor-info h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .opinion-autor-info p {
+            font-size: 0.85rem;
+            color: #888888;
+        }
+
+        .opinion-card h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .opinion-card p {
+            color: #666666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        /* ========================================
+           FOOTER
+           ======================================== */
+        footer {
+            background-color: #1a1a1a;
+            color: #cccccc;
+            padding: 3rem 0 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-seccion h4 {
+            color: #ffffff;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .footer-seccion ul {
+            list-style: none;
+        }
+
+        .footer-seccion ul li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-seccion a {
+            color: #cccccc;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-seccion a:hover {
+            color: #e74c3c;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem 0;
+            border-top: 1px solid #333333;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        /* ========================================
+           RESPONSIVE - TABLET
+           ======================================== */
+        @media (max-width: 968px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+
+            .noticias-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .seccion-titulo-principal {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* ========================================
+           RESPONSIVE - MÓVIL
+           ======================================== */
+        @media (max-width: 768px) {
+            .top-bar-content {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .menu-toggle {
+                display: flex;
+                position: absolute;
+                right: 2rem;
+                top: 1.5rem;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                display: none;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu a {
+                border-bottom: none;
+                border-left: 3px solid transparent;
+            }
+
+            .nav-menu a:hover,
+            .nav-menu a.active {
+                border-left-color: #3498db;
+                border-bottom-color: transparent;
+            }
+
+            .seccion-titulo-principal {
+                font-size: 2rem;
+            }
+
+            .noticia-destacada-imagen {
+                height: 250px;
+            }
+
+            .noticia-destacada h1 {
+                font-size: 1.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .main-container,
+            .nav-content,
+            .header-content,
+            .top-bar-content,
+            .breadcrumb,
+            .seccion-header {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ========================================
+         BARRA SUPERIOR
+         ======================================== -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="fecha-actual">
+                <span id="fecha"></span>
+            </div>
+            <div class="redes-sociales">
+                <a href="#" title="Facebook">📘 Facebook</a>
+                <a href="#" title="Twitter">🐦 Twitter</a>
+                <a href="#" title="Instagram">📷 Instagram</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================
+         HEADER PRINCIPAL
+         ======================================== -->
+    <header>
+        <div class="header-content">
+                        <div class="logo-container">
+            <img src="logo.png" alt="Logo" class="logo-img">
+            <div class="logo-section">
+                <a href="index.html" class="logo">El <span>DUEÑO</span></a>
+                <div class="eslogan">ULTIMAS NOTICIAS Y EFEMERIDES</div>
+            </div>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================
+         NAVEGACIÓN PRINCIPAL
+         ======================================== -->
+    <nav>
+        <div class="nav-content">
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Portada</a></li>
+                <li><a href="Politica.html" class="active">Política</a></li>
+                <li><a href="Deportes.html">Deportes</a></li>
+                <li><a href="Mundo.html">Mundo</a></li>
+                <li><a href="Tecnologia.html">Tecnología</a></li>
+                <li><a href="Economia.html">Economía</a></li>
+                <li><a href="Efemerides.html">Efemérides</a></li>
+                <li><a href="Juegos.html">Juegos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ========================================
+         BREADCRUMB
+         ======================================== -->
+    <div class="breadcrumb">
+        <a href="index.html">Inicio</a> / <strong>Política</strong>
+    </div>
+
+    <!-- ========================================
+         ENCABEZADO DE SECCIÓN
+         ======================================== -->
+    <div class="seccion-header">
+        <h1 class="seccion-titulo-principal">Política</h1>
+        <p class="seccion-descripcion">Las últimas noticias sobre gobierno, congreso, elecciones y análisis político</p>
+    </div>
+
+    <!-- ========================================
+         CONTENEDOR PRINCIPAL
+         ======================================== -->
+    <div class="main-container">
+        <!-- COLUMNA PRINCIPAL DE NOTICIAS -->
+        <main>
+            <!-- NOTICIA DESTACADA -->
+            <article class="noticia-destacada">
+                <img src="https://www.infobae.com/resizer/v2/IKU6GBMLHFFPTI5LM727WRIKAU.jpg?auth=66365b60595e4200a436e5641f6a226d77e9cb82c0b2ce5f9a78acf39c2bf626&smart=true&width=992&height=557&quality=85" alt="Congreso Nacional" class="noticia-destacada-imagen">
+                <div class="noticia-destacada-content">
+                    <span class="categoria-tag">Política Nacional</span>
+                    <h1>El Gobierno disuelve la Agencia Nacional de Discapacidad y sus funciones pasan al Ministerio de Salud</h1>
+                    <p class="noticia-bajada">
+  A través de un decreto presidencial, el Ejecutivo oficializó el cierre de la Agencia Nacional de Discapacidad (ANDIS) en el marco del plan de racionalización del gasto. El Ministerio de Salud recupera la gestión directa de pensiones y certificaciones para más de 3,5 millones de personas.                    </p>
+                    <div class="noticia-meta">
+                        <span>📅 30 de Diciembre, 2025</span>
+                        <span>✍️ Por Redacción</span>
+                        <span>⏱️ 6 min de lectura</span>
+                    </div>
+                    <a href="NoticiaAndis.html" class="btn-leer-mas">Leer artículo completo</a>
+                </div>
+            </article>
+
+            <!-- GRID DE NOTICIAS DE POLÍTICA -->
+            <div class="noticias-grid">
+
+                
+                <!-- Noticia 0 -->
+                <article class="noticia-card">
+                    <img src="https://tn.com.ar/resizer/v2/jorge-lanata-foto-eltrece-JS2G6IL2GRAT7GNB32SNUV5EVE.jpg?auth=d98fe85fdf652e8e2da8d0cbe08d38e54793b9a2e1ed7fc59456722290315e76&width=1440" alt="Debate parlamentario" class="noticia-card-imagen">
+                    <div class="noticia-card-content">
+                        <span class="categoria-tag informes">Informe Especial</span>
+                        <h3>Jorge Lanata: El legado del último gran provocador del periodismo argentino</h3>
+                        <p> A un año de su fallecimiento, analizamos la trayectoria de un hombre que no solo fundó medios, sino que inventó una forma de interpelar a la sociedad. Del mito de Página/12 al fenómeno de masas de PPT, el recorrido de un periodista que hizo de la incomodidad su bandera.</p>
+                        <div class="noticia-card-footer">
+                            <span class="noticia-card-hora">31 de Diciembre</span>
+                            <a href="HomenajeLanata.html" class="btn-leer-card">Leer más →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Noticia 1 -->
+                <article class="noticia-card">
+                    <img src="https://fotos.perfil.com/2024/02/15/mauricio-macri-cristina-kirchner-julio-cobos-y-adolfo-rodriguez-saa-20240215-1755872.jpg" alt="Ministros" class="noticia-card-imagen">
+                    <div class="noticia-card-content">
+                        <span class="categoria-tag">Gobierno</span>
+                        <h3>La brecha del privilegio: once beneficiarios cobraron en noviembre lo mismo que 375 haberes mínimos</h3>
+                        <p>Un análisis exhaustivo de los registros de la seguridad social de noviembre expone la asimetría del sistema previsional argentino. Mientras la jubilación mínima resiste con bonos compensatorios, un puñado de exfuncionarios percibe ingresos que superan los 12 millones de pesos mensuales.</p>
+                        <div class="noticia-card-footer">
+                            <span class="noticia-card-hora">Hace 1 dia</span>
+                            <a href="Once-beneficiarios-cobraron-en-noviembre-lo-mismo-que-375-haberes-mínimos.html" class="btn-leer-card">Leer más →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Noticia 2 -->
+                <article class="noticia-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRMHm2A4gh38K-GfddgwsMtqENMuhZnYu5zA&s" alt="Presupuesto" class="noticia-card-imagen">
+                    <div class="noticia-card-content">
+                        <span class="categoria-tag">Senado</span>
+                        <h3>“Hacen lo que se les canta las pelotas”: fuerte cruce entre Patricia Bullrich y José Mayans</h3>
+                        <p>El inicio del debate legislativo en el Senado estuvo marcado por un durísimo intercambio entre la ex-ministra de Seguridad y el jefe del bloque kirchnerista.</p>
+                        <div class="noticia-card-footer">
+                            <span class="noticia-card-hora">Hace 4 horas</span>
+                            <a href="MayansBullrih.html" class="btn-leer-card">Leer más →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Noticia 3 -->
+                <article class="noticia-card">
+                    <img src="https://d3b5jqy5xuub7g.cloudfront.net/wp-content/uploads/2025/08/Milei-dijo-que-ser%C3%A1-reelecto.png" alt="Cumbre internacional" class="noticia-card-imagen">
+                    <div class="noticia-card-content">
+                        <span class="categoria-tag">Politica Interior</span>
+                        <h3>Una encuesta a 14 politicos da un inesperado resultado</h3>
+                        <p>Otra encuesta politica arrojo un resultado sorprendente en el segundo puesto que dio para hablar.
+</p>
+                        <div class="noticia-card-footer">
+                            <span class="noticia-card-hora">Hace 1 semana</span>
+                            <a href="Encuestaa14politicos.html" class="btn-leer-card">Leer más →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Noticia 4 -->
+                <article class="noticia-card">
+                    <img src="https://www.lanacion.com.ar/resizer/v2/macri-y-milei-en-el-EXVNQEUZ2VBSTKMAGCZFY7NWLU.jpg?auth=b777f4112039beca3f3367c73afbd5daf0e96c295de011ab49054bb084ed4d66&width=880&height=586&quality=70&smart=true" alt="Justicia" class="noticia-card-imagen">
+                    <div class="noticia-card-content">
+                        <span class="categoria-tag">Gobierno</span>
+                        <h3>Sin mencionar a Milei, Macri dejó un mensaje de Navidad estratégico: "Los equipos que creen en el cambio no se quiebran</h3>
+                        <p>En un video grabado desde su despacho, el expresidente Mauricio Macri envió un saludo navideño que buscó marcar la cancha frente a La Libertad Avanza. En medio de la tensión por el Presupuesto 2026 y los reclamos de coparticipación de Jorge Macri, el líder del PRO apeló a la "fortaleza" de su equipo ante los obstáculos.</p>
+                        <div class="noticia-card-footer">
+                            <span class="noticia-card-hora">24 de Diciembre</span>
+                            <a href="Tension-Milei-Macri.html" class="btn-leer-card">Leer más →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Noticia 5 -->
+                <article class="noticia-card">
+                    <img src="https://images.unsplash.com/photo-1523995462485-3d171b5c8fa9?w=600&h=400&fit=crop" alt="Elecciones" class="noticia-card-imagen">
+                    <div class="noticia-card-content">
+                        <span class="categoria-tag">Elecciones</span>
+                        <h3>Tribunal Electoral actualiza padrón para comicios del próximo año</h3>
+                        <p>Más de 2 millones de nuevos votantes podrán ejercer su derecho al sufragio en las elecciones legislativas de 2026.</p>
+                        <div class="noticia-card-footer">
+                            <span class="noticia-card-hora">Hace 8 horas</span>
+                            <a href="#" class="btn-leer-card">Leer más →</a>
+                        </div>
+                    </div>
+                </article>
+
+
+                <!-- Noticia 6 -->
+                <article class="noticia-card">
+                    <img src="https://tn.com.ar/resizer/v2/tras-ser-elegido-presidente-en-chile-jose-antonio-kast-visitara-manana-a-javier-milei-fotos-apafp-A6DR7BSBE5HIFMTNC5QO7PHXRY.jfif?auth=a05d0f8fd1d1b6dab07bd1dd8ce225668a334af94f3d0bf613be3f1e772af1f0&width=1440" alt="Gobernadores" class="noticia-card-imagen">
+                    <div class="noticia-card-content">
+                        <span class="categoria-tag">Política</span>
+                        <h3>Milei recibe al nuevo presidente chileno</h3>
+                        <p>El presidente argentino recibe a su colega chileno en la Casa Rosada luego de una arrasante eleccion.</p>
+                        <div class="noticia-card-footer">
+                            <span class="noticia-card-hora">14 de Diciembre</span>
+                            <a href="KastMilei.html" class="btn-leer-card">Leer más →</a>
+                        </div>
+                    </div>
+                </article>
+            </main>
