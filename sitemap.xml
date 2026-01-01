@@ -169,7 +169,24 @@
     <priority>0.8</priority>
   </url>
 <url>
-    <loc>https://www.diarioeldueno.com/ILeydeInocenciaFiscal-Inmobiliario.html</loc>
+    <loc>https://www.diarioeldueno.com/LeydeInocenciaFiscal-Inmobiliario.html</loc>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+<url>
+    <loc>https://www.diarioeldueno.com/GuessThePlayer.html</loc>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+<url>
+    <loc>https://www.diarioeldueno.com/Boluddle.html</loc>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+<url>
+    <loc>https://www.diarioeldueno.com/logo.png</loc>
     <changefreq>never</changefreq>
     <priority>0.8</priority>
   </url>
