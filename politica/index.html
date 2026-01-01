@@ -97,26 +97,49 @@
        /* Ajuste del contenedor para alinear imagen y texto */
 
         .logo-container {
+    di/* Asegura que el contenedor alinee la imagen y el texto en una línea */
+.logo-container {
     display: flex;
     align-items: center;
-    gap: 12px; 
+    gap: 12px;
 }
 
+/* Estilo de la imagen dentro del link */
 .logo-img {
     width: 75px;
     height: 75px;
     object-fit: contain;
+    display: block; /* Evita espacios extra debajo de la imagen */
 }
- .logo span {
-            color: #e74c3c;
-        }
-        .eslogan {
-            font-size: 0.85rem;
-            color: #666666;
-            font-style: italic;
-            margin-top: -0.3rem;
-        }
 
+/* Estilo exacto de la sección de texto según tu primer pedido */
+.logo-section {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+/* Recuperamos el tamaño y peso original de las letras */
+.logo {
+    font-size: 2.5rem; /* El tamaño del primer código */
+    font-weight: 800;   /* El peso extra bold original */
+    color: #1a1a1a;
+    letter-spacing: -1px;
+    text-decoration: none;
+}
+
+/* El color rojo para la palabra DUEÑO */
+.logo span {
+    color: #e74c3c;
+}
+
+/* El eslogan debajo de las letras */
+.eslogan {
+    font-size: 0.85rem;
+    color: #666666;
+    font-style: italic;
+    margin-top: -2px;
+}
         .header-actions {
             display: flex;
             gap: 1rem;
