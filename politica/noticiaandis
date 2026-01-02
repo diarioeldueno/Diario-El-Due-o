@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Gobierno disuelve la Agencia Nacional de Discapacidad y sus funciones pasan al Ministerio de Salud - El Dueño Digital</title>
+<link rel="icon" type="image/png" href="logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ======================================== RESET Y CONFIGURACIÓN GLOBAL ======================================== */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+background-color: #f8f9fa;
+color: #1a1a1a;
+line-height: 1.6;
+}
+
+/* ======================================== BARRA SUPERIOR - FECHA Y REDES ======================================== */
+.top-bar {
+background-color: #e1796e;
+color: #ffffff;
+padding: 0.5rem 0;
+font-size: 0.85rem;
+}
+
+.top-bar-content {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 2rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.fecha-actual {
+color: #fefafa;
+}
+
+.redes-sociales {
+display: flex;
+gap: 1rem;
+}
+
+.redes-sociales a {
+color: #ffffff;
+text-decoration: none;
+transition: color 0.3s;
+}
+
+.redes-sociales a:hover {
+color: #e74c3c;
+}
+
+/* ======================================== HEADER PRINCIPAL ======================================== */
+header {
+background-color: #ffffff;
+border-bottom: 3px solid #e74c3c;
+padding: 1.5rem 0;
+}
+
+.header-content {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 2rem;
+display: flex;
+justify-content: flex-start;
+align-items: center;
+}
+
+.logo-section {
+display: flex;
+flex-direction: column;
+}
+
+.logo {
+font-size: 2.5rem;
+font-weight: 800;
+color: #1a1a1a;
+letter-spacing: -1px;
+}
+
+.logo-container {
+display: flex;
+align-items: center;
+gap: 12px;
+}
+
+.logo-img {
+width: 75px;
+height: 75px;
+object-fit: contain;
+}
+
+.logo span {
+color: #e74c3c;
+}
+
+.eslogan {
+font-size: 0.85rem;
+color: #666666;
+font-style: italic;
+margin-top: -0.3rem;
+}
+
+.menu-toggle {
+display: none;
+flex-direction: column;
+cursor: pointer;
+gap: 4px;
+}
+
+.menu-toggle span {
+width: 25px;
+height: 3px;
+background-color: #1a1a1a;
+transition: all 0.3s;
+}
+
+/* ======================================== NAVEGACIÓN PRINCIPAL ======================================== */
+nav {
+background-color: #ffffff;
+border-bottom: 1px solid #e0e0e0;
+position: sticky;
+top: 0;
+z-index: 100;
+}
+
+.nav-content {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 2rem;
+}
+
+.nav-menu {
+list-style: none;
+display: flex;
+gap: 0;
+}
+
+.nav-menu li {
+position: relative;
+}
+
+.nav-menu a {
+display: block;
+padding: 1rem 1.5rem;
+color: #1a1a1a;
+text-decoration: none;
+font-weight: 500;
+font-size: 0.95rem;
+transition: all 0.3s;
+border-bottom: 3px solid transparent;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+color: #e74c3c;
+border-bottom-color: #e74c3c;
+}
+
+/* ======================================== CONTENEDOR PRINCIPAL ======================================== */
+.main-container {
+max-width: 1200px;
+margin: 2rem auto;
+padding: 0 2rem;
+display: grid;
+grid-template-columns: 1fr;
+gap: 2rem;
+}
+
+/* ======================================== ARTÍCULO DE NOTICIA COMPLETO ======================================== */
+.articulo-completo {
+background-color: #ffffff;
+border-radius: 8px;
+overflow: hidden;
+box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+padding: 3rem;
+}
+
+.categoria-tag {
+display: inline-block;
+background-color: #3498db;
+color: white;
+padding: 0.3rem 0.8rem;
+border-radius: 3px;
+font-size: 0.75rem;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+margin-bottom: 1.5rem;
+}
+
+.articulo-completo h1 {
+font-size: 2.5rem;
+font-weight: 700;
+line-height: 1.3;
+margin-bottom: 1.5rem;
+color: #1a1a1a;
+}
+
+.articulo-meta {
+display: flex;
+gap: 1.5rem;
+font-size: 0.9rem;
+color: #888888;
+margin-bottom: 2rem;
+padding-bottom: 1.5rem;
+border-bottom: 2px solid #f0f0f0;
+}
+
+.articulo-imagen-principal {
+width: 100%;
+height: 500px;
+object-fit: cover;
+border-radius: 8px;
+margin-bottom: 2rem;
+}
+
+.articulo-bajada {
+font-size: 1.2rem;
+color: #555555;
+line-height: 1.7;
+margin-bottom: 2rem;
+font-weight: 500;
+padding: 1.5rem;
+background-color: #f8f9fa;
+border-left: 4px solid #3498db;
+}
+
+.epigrafe {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #666; /* Gris profesional, no tan oscuro como el texto principal */
+    margin-top: 10px;
+    margin-bottom: 25px;
+    padding-left: 15px;
+    border-left: 3px solid #d1d1d1; /* Línea lateral sutil que ayuda a identificarlo */
+    font-style: italic;
+}
+.articulo-contenido {
+font-size: 1.05rem;
+line-height: 1.8;
+color: #333333;
+}
+
+.articulo-contenido h2 {
+font-size: 1.8rem;
+font-weight: 700;
+margin-top: 2.5rem;
+margin-bottom: 1.5rem;
+color: #3498db;
+}
+
+.articulo-contenido h3 {
+font-size: 1.4rem;
+font-weight: 600;
+margin-top: 2rem;
+margin-bottom: 1rem;
+color: #1a1a1a;
+}
+
+.articulo-contenido p {
+margin-bottom: 1.5rem;
+}
+
+.articulo-contenido ul,
+.articulo-contenido ol {
+margin-bottom: 1.5rem;
+margin-left: 2rem;
+}
+
+.articulo-contenido li {
+margin-bottom: 0.8rem;
+}
+
+.articulo-contenido blockquote {
+border-left: 4px solid #3498db;
+padding-left: 1.5rem;
+margin: 2rem 0;
+font-style: italic;
+color: #555555;
+background-color: #f8f9fa;
+padding: 1.5rem;
+border-radius: 4px;
+}
+
+.destacado {
+background-color: #f3e5f5;
+padding: 1.5rem;
+border-radius: 8px;
+margin: 2rem 0;
+border-left: 4px solid #3498db;
+}
+
+.alerta-urgente {
+background-color: #fff3cd;
+padding: 1.5rem;
+border-radius: 8px;
+margin: 2rem 0;
+border-left: 4px solid #3498db;
+}
+
+.tabla-cronologia {
+width: 100%;
+border-collapse: collapse;
+margin: 2rem 0;
+background-color: #ffffff;
+box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.tabla-cronologia th {
+background-color: #3498db;
+color: white;
+padding: 1rem;
+text-align: left;
+font-weight: 600;
+}
+
+.tabla-cronologia td {
+padding: 1rem;
+border-bottom: 1px solid #e0e0e0;
+}
+
+.tabla-cronologia tr:hover {
+background-color: #f8f9fa;
+}
+
+.imagen-contenido {
+width: 100%;
+height: 400px;
+object-fit: cover;
+border-radius: 8px;
+margin: 2rem 0;
+box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.pie-foto {
+font-size: 0.9rem;
+color: #666666;
+font-style: italic;
+text-align: center;
+margin-top: 0.5rem;
+margin-bottom: 2rem;
+}
+
+/* Estilos para el Cuadro Informativo (Preguntas Frecuentes) */
+.cuadro-informativo {
+    background-color: #f4f7f6;
+    border: 1px solid #e1e8e7;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2.5rem 0;
+}
+
+.cuadro-informativo h3 {
+    color: #3498db; /* Púrpura para mantener identidad */
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+}
+
+/* Estilos para Listas y Bullets dentro del contenido */
+.articulo-contenido ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 2rem;
+}
+
+.articulo-contenido ul li {
+    position: relative;
+    padding-left: 1.8rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.05rem;
+    color: #444;
+}
+
+.articulo-contenido ul li::before {
+    content: "•";
+    color: #3498db;
+    font-weight: bold;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: -4px;
+}
+
+/* Estilo para las negritas dentro de las listas */
+.articulo-contenido ul li strong {
+    color: #1a1a1a;
+    font-weight: 700;
+}
+
+/* Bloque Destacado (Cita o Frase Clave) */
+.destacado {
+    background-color: #fdf7ff;
+    border-left: 5px solid #3498db;
+    padding: 1.8rem;
+    margin: 2.5rem 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.destacado {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    color: #3498db;
+    font-style: italic;
+    font-weight: 500;
+}
+
+/* Ajuste de Espaciado para Párrafos Móviles */
+.articulo-contenido p {
+    margin-bottom: 1.6rem;
+    font-size: 1.1rem;
+    color: #2c3e50;
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 600px) {
+    .cuadro-informativo {
+        padding: 1.2rem;
+    }
+    .destacado {
+        font-size: 1.1rem;
+        padding: 1.2rem;
+    }
+}
+
+.btn-volver {
+display: inline-block;
+background-color: #1a1a1a;
+color: white;
+padding: 0.8rem 2rem;
+border-radius: 4px;
+text-decoration: none;
+font-weight: 600;
+transition: background-color 0.3s;
+margin-top: 2rem;
+}
+
+.btn-volver:hover {
+background-color: #333333;
+}
+
+/* ======================================== RESPONSIVE - TABLET ======================================== */
+@media (max-width: 968px) {
+.articulo-completo h1 {
+font-size: 2rem;
+}
+}
+
+/* ======================================== RESPONSIVE - MÓVIL ======================================== */
+@media (max-width: 768px) {
+.top-bar-content {
+flex-direction: column;
+gap: 0.5rem;
+text-align: center;
+}
+
+.header-content {
+flex-direction: column;
+gap: 1rem;
+}
+
+.menu-toggle {
+display: flex;
+position: absolute;
+right: 2rem;
+top: 1.5rem;
+}
+
+.nav-menu {
+flex-direction: column;
+display: none;
+}
+
+.nav-menu.active {
+display: flex;
+}
+
+.nav-menu a {
+border-bottom: none;
+border-left: 3px solid transparent;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+border-left-color: #e74c3c;
+border-bottom-color: transparent;
+}
+
+.articulo-completo {
+padding: 1.5rem;
+}
+
+.articulo-completo h1 {
+font-size: 1.6rem;
+}
+
+.articulo-imagen-principal {
+height: 250px;
+}
+
+.main-container,
+.nav-content,
+.header-content,
+.top-bar-content {
+padding: 0 1rem;
+}
+
+.tabla-cronologia {
+font-size: 0.9rem;
+}
+
+.tabla-cronologia th,
+.tabla-cronologia td {
+padding: 0.5rem;
+}
+}
+</style>
+</head>
+<body>
+<!-- ======================================== BARRA SUPERIOR ======================================== -->
+<div class="top-bar">
+<div class="top-bar-content">
+<div class="fecha-actual">
+<span id="fecha"></span>
+</div>
+<div class="redes-sociales">
+<a href="#" title="Facebook">📘 Facebook</a>
+<a href="#" title="Twitter">🐦 Twitter</a>
+<a href="#" title="Instagram">📷 Instagram</a>
+</div>
+</div>
+</div>
+
+<!-- ======================================== HEADER PRINCIPAL ======================================== -->
+<header>
+<div class="header-content">
+<div class="logo-container">
+<img src="logo.png" alt="Logo" class="logo-img">
+<div class="logo-section">
+<div class="logo">El <span>DUEÑO</span></div>
+<div class="eslogan">ULTIMAS NOTICIAS Y EFEMERIDES</div>
+</div>
+</div>
+<div class="menu-toggle" onclick="toggleMenu()">
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+</header>
+
+<!-- ======================================== NAVEGACIÓN PRINCIPAL ======================================== -->
+<nav>
+<div class="nav-content">
+<ul class="nav-menu" id="navMenu">
+<li><a href="index.html">Portada</a></li>
+<li><a href="Politica.html" class="active">Política</a></li>
+<li><a href="Deportes.html">Deportes</a></li>
+<li><a href="Mundo.html">Mundo</a></li>
+<li><a href="Tecnologia.html">Tecnología</a></li>
+<li><a href="Economia.html">Economía</a></li>
+<li><a href="Efemerides.html">Efemerides</a></li>
+</ul>
+</div>
+</nav>
+
+<!-- ======================================== CONTENEDOR PRINCIPAL ======================================== -->
+<div class="main-container">
+<!-- ARTÍCULO PRINCIPAL -->
+<main>
+<article class="articulo-completo">
+            <span class="categoria-tag">Reorganización del Estado</span>
+
+            <h1>El Gobierno disuelve la Agencia Nacional de Discapacidad y sus funciones pasan al Ministerio de Salud</h1>
+
+            <div class="articulo-meta">
+                <span>📅 30 de Diciembre, 2025</span>
+                <span>✍️ Por Redacción</span>
+                <span>⏱️ 6 min de lectura</span>
+            </div>
+
+            <img src="https://www.infobae.com/resizer/v2/IKU6GBMLHFFPTI5LM727WRIKAU.jpg?auth=66365b60595e4200a436e5641f6a226d77e9cb82c0b2ce5f9a78acf39c2bf626&smart=true&width=992&height=557&quality=85" 
+                 alt="Sede central del Ministerio de Salud de la Nación" class="articulo-imagen-principal">
+            
+            <p class="epigrafe">La cartera de Salud absorberá la estructura administrativa y el presupuesto de la ahora disuelta ANDIS.</p>
+
+            <div class="articulo-bajada">
+                A través de un decreto presidencial, el Ejecutivo oficializó el cierre de la Agencia Nacional de Discapacidad (ANDIS) en el marco del plan de racionalización del gasto. El Ministerio de Salud recupera la gestión directa de pensiones y certificaciones para más de 3,5 millones de personas.
+            </div>
+
+            <div class="articulo-contenido">
+                <p>
+                    En un nuevo paso hacia la centralización de la administración pública y la reducción de estructuras descentralizadas, el Gobierno Nacional anunció la disolución de la <strong>Agencia Nacional de Discapacidad (ANDIS)</strong>. La medida establece que todas las competencias, presupuesto y personal del organismo serán absorbidos por el <strong>Ministerio de Salud</strong>, retornando a la estructura previa a 2017.
+                </p>
+
+                <p>
+                    La decisión se inscribe en la estrategia de "optimización de recursos" que impulsa la Jefatura de Gabinete. Según fuentes oficiales, la agencia presentaba superposiciones administrativas que dificultaban la trazabilidad del gasto, especialmente en el área de pensiones no contributivas.
+                </p>
+
+                <div class="articulo-bajada">
+                    “Buscamos una gestión más eficiente donde los recursos lleguen directamente al beneficiario, eliminando capas burocráticas que solo encarecían el sistema y facilitaban la falta de control.”
+                </div>
+
+                <h2>Los ejes del traspaso al Ministerio de Salud</h2>
+                <p>El proceso de absorción busca centralizar la política sanitaria y asistencial bajo un mismo mando técnico. Los puntos principales de la transición incluyen:</p>
+                <ul>
+                    <li><strong>Auditoría de Pensiones:</strong> Continuidad en la revisión de las 1.200.000 pensiones por invalidez para detectar cobros irregulares.</li>
+                    <li><strong>Gestión del CUD:</strong> El Certificado Único de Discapacidad pasará a ser gestionado por una secretaría específica dentro de Salud.</li>
+                    <li><strong>Incluir Salud:</strong> El programa de cobertura médica para pensionados será auditado para regularizar deudas con prestadores.</li>
+                    <li><strong>Simplificación Digital:</strong> Integración total de trámites en la plataforma Mi Argentina para evitar la presencialidad innecesaria.</li>
+                </ul>
+
+                <h2>Contexto histórico: El fin de un ente autárquico</h2>
+                <p>
+                    La ANDIS fue creada en 2017 como un organismo descentralizado con el objetivo de unificar las políticas de discapacidad que estaban dispersas en distintas carteras. Sin embargo, el actual Gobierno considera que esta independencia funcional generó un aumento del <strong>gasto operativo</strong> sin una mejora proporcional en la atención.
+                </p>
+                <p>
+                    De acuerdo con datos oficiales, el sistema de pensiones por invalidez laboral experimentó un crecimiento exponencial en las últimas dos décadas, pasando de <strong>180.000 beneficios en 2003 a más de 1,2 millones en la actualidad</strong>, una cifra que el Ejecutivo busca normalizar bajo estándares internacionales.
+                </p>
+
+                <div class="cuadro-informativo">
+                    <h3>¿Qué cambia para los beneficiarios?</h3>
+                    <p>A pesar del cierre institucional de la Agencia, el Gobierno asegura que los derechos de los usuarios están garantizados:</p>
+                    <ul>
+                        <li><strong>Cobros:</strong> Los calendarios de pago de la ANSES no sufrirán modificaciones por este traspaso.</li>
+                        <li><strong>Prestaciones:</strong> Los centros de día y transportistas deberán renegociar sus contratos ahora con el Ministerio de Salud.</li>
+                        <li><strong>Vigencia:</strong> Los certificados (CUD) emitidos por ANDIS mantienen su validez legal hasta su fecha de vencimiento.</li>
+                    </ul>
+                </div>
+
+                <h2>Impacto económico y social</h2>
+                <p>
+                    La medida ha generado incertidumbre en las organizaciones de la sociedad civil, que temen que la "licuación" de la Agencia dentro de un Ministerio tan amplio como Salud reste visibilidad a la problemática de la discapacidad. Por otro lado, desde el área económica sostienen que la unificación permitirá un ahorro sustancial en cargos jerárquicos y alquileres de oficinas.
+                </p>
+
+                <h2>Conclusión editorial</h2>
+                <p>
+                    La disolución de la ANDIS marca el cierre de un ciclo de institucionalidad autónoma para el sector. El éxito de esta apuesta dependerá de que la centralización en el Ministerio de Salud traduzca el ahorro fiscal en una mejora de la auditoría y, fundamentalmente, en que no se produzcan baches prestacionales para una de las poblaciones más vulnerables del país. El control del gasto y la sensibilidad social deberán caminar, por primera vez, sobre la misma línea.
+                </p>
+            </div>
+        </article>
+
+<a href="index.html" class="btn-volver">← Volver a la portada</a>
+</article>
+</main>
+</div>
+
+<script>
+// Función del menú móvil
+function toggleMenu() {
+document.getElementById('navMenu').classList.toggle('active');
+}
+
+// Mostrar fecha actual
+const fecha = new Date();
+document.getElementById('fecha').textContent = fecha.toLocaleDateString('es-ES', {
+weekday: 'long',
+year: 'numeric',
+month: 'long',
+day: 'numeric'
+});
+</script>
+</body>
+</html>
