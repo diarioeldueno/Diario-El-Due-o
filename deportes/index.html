@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deportes - El Dueño Digital</title>
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ========================================
+   RESET Y CONFIGURACIÓN GLOBAL
+   ======================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: #f8f9fa;
+  color: #1a1a1a;
+  line-height: 1.6;
+}
+
+/* ========================================
+   BARRA SUPERIOR - FECHA Y REDES
+   ======================================== */
+.top-bar {
+  background-color: #e1796e;
+  color: #ffffff;
+  padding: 0.5rem 0;
+  font-size: 0.85rem;
+}
+
+.top-bar-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fecha-actual {
+  color: #fefafa;
+}
+
+.redes-sociales {
+  display: flex;
+  gap: 1rem;
+}
+
+.redes-sociales a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.redes-sociales a:hover {
+  color: #e74c3c;
+}
+
+/* ========================================
+   HEADER PRINCIPAL (AJUSTADO)
+   ======================================== */
+header {
+  background-color: #ffffff;
+  border-bottom: 3px solid #e74c3c;
+  padding: 1.5rem 0;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-img {
+  width: 75px;
+  height: 75px;
+  object-fit: contain;
+}
+
+.logo-section {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.logo {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  letter-spacing: -1px;
+}
+
+.logo span {
+  color: #e74c3c;
+}
+
+.eslogan {
+  font-size: 0.85rem;
+  color: #666666;
+  font-style: italic;
+  margin-top: 0rem;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 4px;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: #1a1a1a;
+  transition: all 0.3s;
+}
+
+/* ========================================
+   NAVEGACIÓN PRINCIPAL
+   ======================================== */
+nav {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 0;
+}
+
+.nav-menu li {
+  position: relative;
+}
+
+.nav-menu a {
+  display: block;
+  padding: 1rem 1.5rem;
+  color: #1a1a1a;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.3s;
+  border-bottom: 3px solid transparent;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  color: #e74c3c;
+  border-bottom-color: #e74c3c;
+}
+
+/* ========================================
+   BREADCRUMB - MIGAJA DE PAN
+   ======================================== */
+.breadcrumb {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  font-size: 0.9rem;
+  color: #666666;
+}
+
+.breadcrumb a {
+  color: #2ecc71;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.breadcrumb a:hover {
+  color: #e74c3c;
+}
+
+/* ========================================
+   ENCABEZADO DE SECCIÓN
+   ======================================== */
+.seccion-header {
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+  padding: 0 2rem;
+}
+
+.seccion-titulo-principal {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+  border-left: 6px solid #2ecc71;
+  padding-left: 1.5rem;
+}
+
+.seccion-descripcion {
+  font-size: 1.2rem;
+  color: #666666;
+  padding-left: 2rem;
+}
+
+/* ========================================
+   CONTENEDOR PRINCIPAL
+   ======================================== */
+.main-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2rem;
+}
+
+/* ========================================
+   NOTICIA DESTACADA DE DEPORTES
+   ======================================== */
+.noticia-destacada {
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  margin-bottom: 2rem;
+}
+
+.noticia-destacada-imagen {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.noticia-destacada-content {
+  padding: 2rem;
+}
+
+.categoria-tag {
+  display: inline-block;
+  background-color: #2ecc71;
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+}
+
+.noticia-destacada h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+}
+
+.noticia-bajada {
+  font-size: 1.1rem;
+  color: #555555;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.noticia-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: #888888;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.btn-leer-mas {
+  display: inline-block;
+  background-color: #2ecc71;
+  color: white;
+  padding: 0.8rem 2rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+/* ========================================
+   GRID DE NOTICIAS DE DEPORTES
+   ======================================== */
+.noticias-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.noticia-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.noticia-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.noticia-card-imagen {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.noticia-card-content {
+  padding: 1.5rem;
+}
+
+.noticia-card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 0.8rem;
+  color: #1a1a1a;
+}
+
+.noticia-card p {
+  font-size: 0.95rem;
+  color: #666666;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.noticia-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.noticia-card-hora {
+  font-size: 0.8rem;
+  color: #999999;
+}
+
+.btn-leer-card {
+  color: #2ecc71;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.btn-leer-card:hover {
+  color: #27ae60;
+}
+
+/* ========================================
+   SIDEBAR - BARRA LATERAL
+   ======================================== */
+.sidebar-box {
+  background: #ffffff;
+  border: 2px solid #2ecc71;
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 20px;
+}
+
+.sidebar-box h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #2ecc71;
+  margin-bottom: 12px;
+  border-bottom: 2px solid #2ecc71;
+  padding-bottom: 6px;
+  text-align: center;
+}
+
+.tabla-promiedos {
+  width: 100%;
+  height: 1000px; 
+  border: none;
+  overflow: hidden;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+footer {
+  background-color: #1a1a1a;
+  color: #cccccc;
+  padding: 3rem 0 1.5rem;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-seccion h4 {
+  color: #ffffff;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.footer-seccion ul {
+  list-style: none;
+}
+
+.footer-seccion ul li {
+  margin-bottom: 0.6rem;
+}
+
+.footer-seccion a {
+  color: #cccccc;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.footer-seccion a:hover {
+  color: #e74c3c;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem 0;
+  border-top: 1px solid #333333;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 968px) {
+  .main-container { grid-template-columns: 1fr; }
+  .noticias-grid { grid-template-columns: 1fr; }
+  .footer-content { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .menu-toggle { display: flex; position: absolute; right: 2rem; top: 1.5rem; }
+  .nav-menu { flex-direction: column; display: none; }
+  .nav-menu.active { display: flex; }
+  .nav-menu a { border-bottom: none; border-left: 3px solid transparent; }
+  .nav-menu a:hover, .nav-menu a.active { border-left-color: #2ecc71; }
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="top-bar-content">
+    <div class="fecha-actual">
+      <span id="fecha"></span>
+    </div>
+    <div class="redes-sociales">
+      <a href="#" title="Facebook">📘 Facebook</a>
+      <a href="#" title="Twitter">🐦 Twitter</a>
+      <a href="#" title="Instagram">📷 Instagram</a>
+    </div>
+  </div>
+</div>
+
+<header>
+  <div class="header-content">
+    <div class="logo-container">
+      <a href="index.html" class="logo-link">
+        <img src="logo.png" alt="Logo" class="logo-img">
+        <div class="logo-section">
+          <div class="logo">El <span>DUEÑO</span></div>
+          <div class="eslogan">ULTIMAS NOTICIAS Y EFEMERIDES</div>
+        </div>
+      </a>
+    </div>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="nav-content">
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html">Portada</a></li>
+      <li><a href="Politica.html">Política</a></li>
+      <li><a href="Deportes.html" class="active">Deportes</a></li>
+      <li><a href="Mundo.html">Mundo</a></li>
+      <li><a href="Tecnologia.html">Tecnología</a></li>
+      <li><a href="Economia.html">Economía</a></li>
+      <li><a href="Efemerides.html">Efemérides</a></li>
+      <li><a href="Juegos.html">Juegos</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="index.html">Inicio</a> / <strong>Deportes</strong>
+</div>
+
+<div class="seccion-header">
+  <h1 class="seccion-titulo-principal">Deportes</h1>
+  <p class="seccion-descripcion">Las últimas noticias del fútbol, básquet, tenis y todos los deportes</p>
+</div>
+
+<div class="main-container">
+  <main>
+    <article class="noticia-destacada">
+      <img src="https://www.infobae.com/resizer/v2/DKZI3HLHPZBJJFD5SL2ESNTTXU.jpg?auth=3136a0103ba7ee5ec38508fb0cebbf1471a2affd86fbdf7e5948e76f6e914beb&smart=true&width=992&height=558&quality=85" alt="Estadio de fútbol" class="noticia-destacada-imagen">
+      <div class="noticia-destacada-content">
+        <span class="categoria-tag">Fútbol</span>
+        <h1>Operación Goleador: los dos delanteros que Juan Román Riquelme tiene en carpeta para el Boca 2026</h1>
+        <p class="noticia-bajada">
+          Con la Copa Libertadores 2026 como objetivo central, el Consejo de Fútbol acelera las gestiones para sumar jerarquía al ataque. Los detalles de las negociaciones por Pablo Vegetti y el "Chimy" Ávila.
+        </p>
+        <div class="noticia-meta">
+          <span>📅 30 de Diciembre, 2025</span>
+          <span>✍️ Por Redacción Deportes</span>
+          <span>⏱️ 6 min de lectura</span>
+        </div>
+        <a href="Delanteros-que-busca-Boca-Juniors.html" class="btn-leer-mas">Leer artículo completo</a>
+      </div>
+    </article>
+
+    <div class="noticias-grid">
+      <article class="noticia-card">
+        <img src="https://i.dailymail.co.uk/1s/2025/12/30/04/105096057-15421319-image-a-38_1767068100959.jpg" alt="Entrenamiento" class="noticia-card-imagen">
+        <div class="noticia-card-content">
+          <span class="categoria-tag">Basquet</span>
+          <h3>Alarma en la NBA: la lesión de Nikola Jokic pone en jaque el mapa de poder</h3>
+          <p>La salida del serbio encendió las alarmas. Su ausencia replantea las chances de los candidatos en la liga.</p>
+          <div class="noticia-card-footer">
+            <span class="noticia-card-hora">Hace 12 horas</span>
+            <a href="Jokic-Lesion.html" class="btn-leer-card">Leer más →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="noticia-card">
+        <img src="https://i0.wp.com/www.canal12misiones.com/wp-content/uploads/2025/12/ander-herrera-boca.jpg?w=880&ssl=1" alt="Básquet" class="noticia-card-imagen">
+        <div class="noticia-card-content">
+          <span class="categoria-tag">Futbol</span>
+          <h3>Ander Herrera y el "Operativo Retorno": los detalles detrás de su renovación</h3>
+          <p>El volante español selló su continuidad en el Xeneize hasta finales de 2026 tras una charla con Riquelme.</p>
+          <div class="noticia-card-footer">
+            <span class="noticia-card-hora">30 de Diciembre</span>
+            <a href="Ander-No-Se-Va.html" class="btn-leer-card">Leer más →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="noticia-card">
+        <img src="https://media.mdzol.com/p/fe863c5252461aebca067d43e28d7716/adjuntos/373/imagenes/001/859/0001859966/760x0/708x280:728x300/borja-cruz-azul-boca.jpg" alt="Borja" class="noticia-card-imagen">
+        <div class="noticia-card-content">
+          <span class="categoria-tag">Futbol</span>
+          <h3>Miguel Borja se muda a México: jugará en Cruz Azul</h3>
+          <p>El delantero cafetero aceptó la oferta de la "Máquina Cementera" con un contrato millonario.</p>
+          <div class="noticia-card-footer">
+            <span class="noticia-card-hora">23 de Diciembre</span>
+            <a href="BorjaCruzAzul.html" class="btn-leer-card">Leer más →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="noticia-card">
+        <img src="https://media.tycsports.com/files/2025/12/20/911022/estudiantes-campeon_862x485.webp?v=1" alt="Estudiantes" class="noticia-card-imagen">
+        <div class="noticia-card-content">
+          <span class="categoria-tag">Futbol</span>
+          <h3>Estudiantes, otra vez campeón con garra</h3>
+          <p>El equipo de La Plata se impuso con un doblete del "Pipa" Alario en un partido peleado.</p>
+          <div class="noticia-card-footer">
+            <span class="noticia-card-hora">Hace 3 días</span>
+            <a href="CampeonTrofeoCampeones2025.html" class="btn-leer-card">Leer más →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <aside class="sidebar">
+    <div class="sidebar-box">
+      <h3>PROMIEDOS</h3>
+      <iframe 
+        src="https://www.promiedos.com.ar/" 
+        loading="lazy" 
+        frameborder="0" 
+        class="tabla-promiedos">
+      </iframe>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-seccion">
+      <h4>El Dueño Digital</h4>
+      <p>Noticias de último momento y efemérides históricas.</p>
+    </div>
+    <div class="footer-seccion">
+      <h4>Secciones</h4>
+      <ul>
+        <li><a href="Politica.html">Política</a></li>
+        <li><a href="Deportes.html">Deportes</a></li>
+        <li><a href="Economia.html">Economía</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 El Dueño Digital - Todos los derechos reservados.
+  </div>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById('navMenu').classList.toggle('active');
+}
+
+const fecha = new Date();
+document.getElementById('fecha').textContent = fecha.toLocaleDateString('es-ES', {
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+</script>
+</body>
+</html>
