@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+ 
+    <meta http-equiv="refresh" content="0; url=/deportes/">
+<link rel="canonical" href="https://www.diarioeldueno.com/deportes/">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Deportes - El Dueño Digital</title>
-<link rel="icon" type="image/png" href="logo.png">
-<link rel="apple-touch-icon" href="logo.png">
+    <link rel="icon" href="/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="/logo.png">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 /* ========================================
@@ -44,7 +47,7 @@ body {
 }
 
 .fecha-actual {
-  color: #fefafa;
+  color: #cccccc;
 }
 
 .redes-sociales {
@@ -63,7 +66,7 @@ body {
 }
 
 /* ========================================
-   HEADER PRINCIPAL (AJUSTADO)
+   HEADER PRINCIPAL
    ======================================== */
 header {
   background-color: #ffffff;
@@ -76,51 +79,61 @@ header {
   margin: 0 auto;
   padding: 0 2rem;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-}
-
-.logo-container {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.logo-link {
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.logo-img {
-  width: 75px;
-  height: 75px;
-  object-fit: contain;
-}
-
-.logo-section {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
 }
 
 .logo {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #1a1a1a;
-  letter-spacing: -1px;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            letter-spacing: -1px;
+            text-decoration: none;
+        }
+
+       /* Ajuste del contenedor para alinear imagen y texto */
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
+/* Estilo de la imagen dentro del link */
+.logo-img {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+    display: block; /* Evita espacios extra debajo de la imagen */
+}
+
+/* Estilo exacto de la sección de texto según tu primer pedido */
+.logo-section {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+/* Recuperamos el tamaño y peso original de las letras */
+.logo {
+    font-size: 2.5rem; /* El tamaño del primer código */
+    font-weight: 800;   /* El peso extra bold original */
+    color: #1a1a1a;
+    letter-spacing: -1px;
+    text-decoration: none;
+}
+
+/* El color rojo para la palabra DUEÑO */
 .logo span {
-  color: #e74c3c;
+    color: #e74c3c;
 }
 
+/* El eslogan debajo de las letras */
 .eslogan {
-  font-size: 0.85rem;
-  color: #666666;
-  font-style: italic;
-  margin-top: 0rem;
+    font-size: 0.85rem;
+    color: #666666;
+    font-style: italic;
+    margin-top: 0rem;
 }
 
 .menu-toggle {
@@ -272,6 +285,13 @@ nav {
   margin-bottom: 1rem;
 }
 
+.noticia-card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 0.8rem;
+  color: #1a1a1a;
+}
 .noticia-destacada h1 {
   font-size: 2rem;
   font-weight: 700;
@@ -389,22 +409,41 @@ nav {
   margin-bottom: 20px;
 }
 
-.sidebar-box h3 {
-  font-size: 18px;
+.seccion- barra-lateral-titulo-principal {
+  text-align: center;
+  font-size: 20px;
   font-weight: 700;
   color: #2ecc71;
   margin-bottom: 12px;
   border-bottom: 2px solid #2ecc71;
   padding-bottom: 6px;
-  text-align: center;
 }
 
 .tabla-promiedos {
   width: 100%;
-  height: 1000px; 
+  height: 3000px; /* ajustable */
   border: none;
   overflow: hidden;
 }
+
+.tabla-inflacion-mensual li {
+  display: flex;
+  justify-content: space-between;
+  padding: 7px 10px;
+  margin-bottom: 6px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.sidebar-box h3 {
+  font-size: 15px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+  text-align: center;
+}
+
 
 /* ========================================
    FOOTER
@@ -462,25 +501,100 @@ footer {
 }
 
 /* ========================================
-   RESPONSIVE
+   RESPONSIVE - TABLET
    ======================================== */
 @media (max-width: 968px) {
-  .main-container { grid-template-columns: 1fr; }
-  .noticias-grid { grid-template-columns: 1fr; }
-  .footer-content { grid-template-columns: repeat(2, 1fr); }
+  .main-container {
+    grid-template-columns: 1fr;
+  }
+
+  .noticias-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .seccion-titulo-principal {
+    font-size: 2.5rem;
+  }
 }
 
+/* ========================================
+   RESPONSIVE - MÓVIL
+   ======================================== */
 @media (max-width: 768px) {
-  .menu-toggle { display: flex; position: absolute; right: 2rem; top: 1.5rem; }
-  .nav-menu { flex-direction: column; display: none; }
-  .nav-menu.active { display: flex; }
-  .nav-menu a { border-bottom: none; border-left: 3px solid transparent; }
-  .nav-menu a:hover, .nav-menu a.active { border-left-color: #2ecc71; }
+  .top-bar-content {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .header-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .menu-toggle {
+    display: flex;
+    position: absolute;
+    right: 2rem;
+    top: 1.5rem;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    display: none;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-menu a {
+    border-bottom: none;
+    border-left: 3px solid transparent;
+  }
+
+  .nav-menu a:hover,
+  .nav-menu a.active {
+    border-left-color: #2ecc71;
+    border-bottom-color: transparent;
+  }
+
+  .seccion-titulo-principal {
+    font-size: 2rem;
+  }
+
+  .noticia-destacada-imagen {
+    height: 250px;
+  }
+
+  .noticia-destacada h1 {
+    font-size: 1.5rem;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+
+  .main-container,
+  .nav-content,
+  .header-content,
+  .top-bar-content,
+  .breadcrumb,
+  .seccion-header {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
 </style>
 </head>
 <body>
-
+<!-- ========================================
+     BARRA SUPERIOR
+     ======================================== -->
 <div class="top-bar">
   <div class="top-bar-content">
     <div class="fecha-actual">
@@ -494,17 +608,15 @@ footer {
   </div>
 </div>
 
-<header>
-  <div class="header-content">
-    <div class="logo-container">
-      <a href="index.html" class="logo-link">
-        <img src="logo.png" alt="Logo" class="logo-img">
-        <div class="logo-section">
-          <div class="logo">El <span>DUEÑO</span></div>
-          <div class="eslogan">ULTIMAS NOTICIAS Y EFEMERIDES</div>
-        </div>
-      </a>
-    </div>
+<!-- ========================================
+     HEADER PRINCIPAL
+     ======================================== -->
+   <header>
+        <div class="header-content">
+                   <div class="logo-container">
+    <a href="/" class="logo-link">
+        <img src="/logo.png" alt="El Dueño Digital" class="logo-img">
+    </a>
     <div class="menu-toggle" onclick="toggleMenu()">
       <span></span>
       <span></span>
@@ -513,10 +625,13 @@ footer {
   </div>
 </header>
 
+<!-- ========================================
+     NAVEGACIÓN PRINCIPAL
+     ======================================== -->
 <nav>
   <div class="nav-content">
     <ul class="nav-menu" id="navMenu">
-      <li><a href="index.html">Portada</a></li>
+      <li><a href="/">Portada</a></li>
       <li><a href="Politica.html">Política</a></li>
       <li><a href="Deportes.html" class="active">Deportes</a></li>
       <li><a href="Mundo.html">Mundo</a></li>
@@ -528,24 +643,35 @@ footer {
   </div>
 </nav>
 
+<!-- ========================================
+     BREADCRUMB
+     ======================================== -->
 <div class="breadcrumb">
   <a href="index.html">Inicio</a> / <strong>Deportes</strong>
 </div>
 
+<!-- ========================================
+     ENCABEZADO DE SECCIÓN
+     ======================================== -->
 <div class="seccion-header">
   <h1 class="seccion-titulo-principal">Deportes</h1>
   <p class="seccion-descripcion">Las últimas noticias del fútbol, básquet, tenis y todos los deportes</p>
 </div>
 
+<!-- ========================================
+     CONTENEDOR PRINCIPAL
+     ======================================== -->
 <div class="main-container">
+  <!-- COLUMNA PRINCIPAL DE NOTICIAS -->
   <main>
+    <!-- NOTICIA DESTACADA -->
     <article class="noticia-destacada">
       <img src="https://www.infobae.com/resizer/v2/DKZI3HLHPZBJJFD5SL2ESNTTXU.jpg?auth=3136a0103ba7ee5ec38508fb0cebbf1471a2affd86fbdf7e5948e76f6e914beb&smart=true&width=992&height=558&quality=85" alt="Estadio de fútbol" class="noticia-destacada-imagen">
       <div class="noticia-destacada-content">
         <span class="categoria-tag">Fútbol</span>
         <h1>Operación Goleador: los dos delanteros que Juan Román Riquelme tiene en carpeta para el Boca 2026</h1>
         <p class="noticia-bajada">
-          Con la Copa Libertadores 2026 como objetivo central, el Consejo de Fútbol acelera las gestiones para sumar jerarquía al ataque. Los detalles de las negociaciones por Pablo Vegetti y el "Chimy" Ávila.
+          Con la Copa Libertadores 2026 como objetivo central, el Consejo de Fútbol acelera las gestiones para sumar jerarquía al ataque. Los detalles de las negociaciones por Pablo Vegetti y el "Chimy" Ávila, las prioridades para acompañar a Miguel Angel Merentiel.
         </p>
         <div class="noticia-meta">
           <span>📅 30 de Diciembre, 2025</span>
@@ -556,13 +682,16 @@ footer {
       </div>
     </article>
 
+    <!-- GRID DE NOTICIAS DE DEPORTES -->
     <div class="noticias-grid">
+      
+      <!-- Noticia 0 -->
       <article class="noticia-card">
         <img src="https://i.dailymail.co.uk/1s/2025/12/30/04/105096057-15421319-image-a-38_1767068100959.jpg" alt="Entrenamiento" class="noticia-card-imagen">
         <div class="noticia-card-content">
           <span class="categoria-tag">Basquet</span>
-          <h3>Alarma en la NBA: la lesión de Nikola Jokic pone en jaque el mapa de poder</h3>
-          <p>La salida del serbio encendió las alarmas. Su ausencia replantea las chances de los candidatos en la liga.</p>
+          <h3>Alarma en la NBA: la lesión de Nikola Jokic pone en jaque el mapa de poder en el básquet mundial</h3>
+          <p>La salida del serbio en el último encuentro de los Denver Nuggets encendió todas las alarmas. Más allá del diagnóstico clínico, su ausencia golpea el corazón del espectáculo y replantea las chances de los candidatos en la liga más competitiva del planeta.</p>
           <div class="noticia-card-footer">
             <span class="noticia-card-hora">Hace 12 horas</span>
             <a href="Jokic-Lesion.html" class="btn-leer-card">Leer más →</a>
@@ -570,12 +699,13 @@ footer {
         </div>
       </article>
 
+      <!-- Noticia 1 -->
       <article class="noticia-card">
         <img src="https://i0.wp.com/www.canal12misiones.com/wp-content/uploads/2025/12/ander-herrera-boca.jpg?w=880&ssl=1" alt="Básquet" class="noticia-card-imagen">
         <div class="noticia-card-content">
           <span class="categoria-tag">Futbol</span>
-          <h3>Ander Herrera y el "Operativo Retorno": los detalles detrás de su renovación</h3>
-          <p>El volante español selló su continuidad en el Xeneize hasta finales de 2026 tras una charla con Riquelme.</p>
+          <h3>Ander Herrera y el "Operativo Retorno": los detalles detrás de su decisión de renovar con Boca Juniors</h3>
+          <p>El volante español puso fin a las especulaciones sobre su retiro y selló su continuidad en el Xeneize hasta finales de 2026. La charla íntima con Juan Román Riquelme, el rol clave de su familia en Buenos Aires y el ambicioso plan deportivo para conquistar América.</p>
           <div class="noticia-card-footer">
             <span class="noticia-card-hora">30 de Diciembre</span>
             <a href="Ander-No-Se-Va.html" class="btn-leer-card">Leer más →</a>
@@ -583,12 +713,13 @@ footer {
         </div>
       </article>
 
+       <!-- Noticia 2 -->
       <article class="noticia-card">
-        <img src="https://media.mdzol.com/p/fe863c5252461aebca067d43e28d7716/adjuntos/373/imagenes/001/859/0001859966/760x0/708x280:728x300/borja-cruz-azul-boca.jpg" alt="Borja" class="noticia-card-imagen">
+        <img src="https://media.mdzol.com/p/fe863c5252461aebca067d43e28d7716/adjuntos/373/imagenes/001/859/0001859966/760x0/708x280:728x300/borja-cruz-azul-boca.jpg" alt="Running" class="noticia-card-imagen">
         <div class="noticia-card-content">
           <span class="categoria-tag">Futbol</span>
-          <h3>Miguel Borja se muda a México: jugará en Cruz Azul</h3>
-          <p>El delantero cafetero aceptó la oferta de la "Máquina Cementera" con un contrato millonario.</p>
+          <h3>Miguel Borja se muda a México: el colombiano jugará en Cruz Azul tras su salida de River</h3>
+          <p>El delantero cafetero, que era pretendido por varios clubes del continente, aceptó la oferta de la "Máquina Cementera". Pese a los rumores que lo vincularon con Boca, su destino estará en la Liga MX con un contrato millonario.</p>
           <div class="noticia-card-footer">
             <span class="noticia-card-hora">23 de Diciembre</span>
             <a href="BorjaCruzAzul.html" class="btn-leer-card">Leer más →</a>
@@ -596,66 +727,94 @@ footer {
         </div>
       </article>
 
+      <!-- Noticia 3 -->
       <article class="noticia-card">
-        <img src="https://media.tycsports.com/files/2025/12/20/911022/estudiantes-campeon_862x485.webp?v=1" alt="Estudiantes" class="noticia-card-imagen">
+        <img src="https://media.tycsports.com/files/2025/12/20/911022/estudiantes-campeon_862x485.webp?v=1" alt="Futbol" class="noticia-card-imagen">
         <div class="noticia-card-content">
           <span class="categoria-tag">Futbol</span>
-          <h3>Estudiantes, otra vez campeón con garra</h3>
-          <p>El equipo de La Plata se impuso con un doblete del "Pipa" Alario en un partido peleado.</p>
+          <h3>Estudiantes, otra vez campeon con garra</h3>
+          <p>En un partido peleado hasta el final el equipo de La Plata se impuso con un doble del "Pipa" Alario</p>
           <div class="noticia-card-footer">
-            <span class="noticia-card-hora">Hace 3 días</span>
+            <span class="noticia-card-hora">Hace 3 dias</span>
             <a href="CampeonTrofeoCampeones2025.html" class="btn-leer-card">Leer más →</a>
           </div>
         </div>
       </article>
+
+      <!-- Noticia 4 -->
+      <article class="noticia-card">
+        <img src="https://ca-times.brightspotcdn.com/dims4/default/f30fa27/2147483647/strip/true/crop/4467x2978+0+0/resize/1200x800!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F66%2F41%2Fb581f1d7868ade4fdba2bf635101%2Fd022ee80942540f284882aa0e2a75e0d" alt="Básquet" class="noticia-card-imagen">
+        <div class="noticia-card-content">
+          <span class="categoria-tag">Futbol</span>
+          <h3>La FIFA aprobó el mayor reparto económico de la historia de los Mundiales</h3>
+          <p>El organismo que rige el fútbol mundial confirmó un aumento histórico en los premios económicos
+        para el Mundial 2026, que se disputará en Estados Unidos, México y Canadá.</p>
+          <div class="noticia-card-footer">
+            <span class="noticia-card-hora">Hace 4 dias</span>
+            <a href="Premios-mundial.html" class="btn-leer-card">Leer más →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Noticia 5 -->
+      <article class="noticia-card">
+        <img src="https://media.0221.com.ar/p/53663a0d1614c75bf3af87d2fa2de505/adjuntos/357/imagenes/100/259/0100259781/1400x0/2219x1352:2239x1372/estudiantes-racing-santiago-del-estero-campeon-2.jpg" alt="Fútbol femenino" class="noticia-card-imagen">
+        <div class="noticia-card-content">
+          <span class="categoria-tag">Fútbol</span>
+          <h3>Estudiantes, un equipo que lucho contra todos.</h3>
+          <p>En un partido no apto para cardiaco Estudiantes se impuso en la tanda de penales ante un Racing que
+                    dio partido.</p>
+          <div class="noticia-card-footer">
+            <span class="noticia-card-hora">Hace 9 dias </span>
+            <a href="CampeonEstudianntes.html" class="btn-leer-card">Leer más →</a>
+          </div>
+        </div>
+      </article>
+
+
+      <!-- Noticia 5 -->
+      <article class="noticia-card">
+        <img src="https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?w=600&h=400&fit=crop" alt="Rugby" class="noticia-card-imagen">
+        <div class="noticia-card-content">
+          <span class="categoria-tag">Rugby</span>
+          <h3>Los Pumas enfrentarán a Nueva Zelanda en partido amistoso</h3>
+          <p>La selección argentina de rugby confirmó un encuentro preparatorio contra los All Blacks antes del inicio del Rugby Championship.</p>
+          <div class="noticia-card-footer">
+            <span class="noticia-card-hora">Hace 8 horas</span>
+            <a href="#" class="btn-leer-card">Leer más →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Noticia 6 -->
+      <article class="noticia-card">
+        <img src="https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=600&h=400&fit=crop" alt="Transferencias" class="noticia-card-imagen">
+        <div class="noticia-card-content">
+          <span class="categoria-tag">Mercado de Pases</span>
+          <h3>Bombazo en el mercado: llega refuerzo estrella desde Europa</h3>
+          <p>El club confirmó la contratación de un mediocampista internacional que jugó en las principales ligas europeas y llega como gran apuesta.</p>
+          <div class="noticia-card-footer">
+            <span class="noticia-card-hora">Hace 10 horas</span>
+            <a href="#" class="btn-leer-card">Leer más →</a>
+          </div>
+        </div>
+      </article>
+
     </div>
   </main>
 
+  <!-- ========================================
+       SIDEBAR - BARRA LATERAL
+       ======================================== -->
   <aside class="sidebar">
-    <div class="sidebar-box">
-      <h3>PROMIEDOS</h3>
-      <iframe 
-        src="https://www.promiedos.com.ar/" 
-        loading="lazy" 
-        frameborder="0" 
-        class="tabla-promiedos">
-      </iframe>
-    </div>
-  </aside>
+    <!-- Widget: Liga -->
+   <div class="sidebar-box">
+  <h3>PROMIEDOS</h3>
+
+  <iframe 
+    src="https://www.promiedos.com.ar/"
+    loading="lazy"
+    frameborder="0"
+    class="tabla-promiedos">
+  </iframe>
 </div>
-
-<footer>
-  <div class="footer-content">
-    <div class="footer-seccion">
-      <h4>El Dueño Digital</h4>
-      <p>Noticias de último momento y efemérides históricas.</p>
-    </div>
-    <div class="footer-seccion">
-      <h4>Secciones</h4>
-      <ul>
-        <li><a href="Politica.html">Política</a></li>
-        <li><a href="Deportes.html">Deportes</a></li>
-        <li><a href="Economia.html">Economía</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    &copy; 2026 El Dueño Digital - Todos los derechos reservados.
-  </div>
-</footer>
-
-<script>
-function toggleMenu() {
-  document.getElementById('navMenu').classList.toggle('active');
-}
-
-const fecha = new Date();
-document.getElementById('fecha').textContent = fecha.toLocaleDateString('es-ES', {
-  weekday: 'long',
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric'
-});
-</script>
-</body>
-</html>
