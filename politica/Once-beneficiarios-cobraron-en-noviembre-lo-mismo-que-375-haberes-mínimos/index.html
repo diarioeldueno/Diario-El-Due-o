@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<link rel="canonical" href="https://www.diarioeldueno.com/politica/noticiaandis/">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informe Especial: Jubilaciones de Privilegio y Desigualdad - El Dueño Digital</title>
+<link rel="icon" href="/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ======================================== RESET Y CONFIGURACIÓN GLOBAL ======================================== */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+background-color: #f8f9fa;
+color: #1a1a1a;
+line-height: 1.6;
+}
+
+/* ======================================== BARRA SUPERIOR - FECHA Y REDES ======================================== */
+.top-bar {
+background-color: #e1796e;
+color: #ffffff;
+padding: 0.5rem 0;
+font-size: 0.85rem;
+}
+
+.top-bar-content {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 2rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.fecha-actual {
+color: #fefafa;
+}
+
+.redes-sociales {
+display: flex;
+gap: 1rem;
+}
+
+.redes-sociales a {
+color: #ffffff;
+text-decoration: none;
+transition: color 0.3s;
+}
+
+.redes-sociales a:hover {
+color: #e74c3c;
+}
+
+/* ======================================== HEADER PRINCIPAL (ESTILOS ACTUALIZADOS) ======================================== */
+header {
+background-color: #ffffff;
+border-bottom: 3px solid #e74c3c;
+padding: 1.5rem 0;
+}
+
+.header-content {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 2rem;
+display: flex;
+justify-content: flex-start;
+align-items: center;
+}
+
+/* Ajuste del contenedor para alinear imagen y texto */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Estilo de la imagen dentro del link */
+.logo-img {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+    display: block; /* Evita espacios extra debajo de la imagen */
+}
+
+/* Estilo exacto de la sección de texto */
+.logo-section {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+/* Recuperamos el tamaño y peso original de las letras */
+.logo {
+    font-size: 2.5rem; /* El tamaño del primer código */
+    font-weight: 800;   /* El peso extra bold original */
+    color: #1a1a1a;
+    letter-spacing: -1px;
+    text-decoration: none;
+}
+
+/* El color rojo para la palabra DUEÑO */
+.logo span {
+    color: #e74c3c;
+}
+
+/* El eslogan debajo de las letras */
+.eslogan {
+    font-size: 0.85rem;
+    color: #666666;
+    font-style: italic;
+    margin-top: 0rem;
+}
+
+.logo-link {
+    text-decoration: none;
+}
+
+.menu-toggle {
+display: none;
+flex-direction: column;
+cursor: pointer;
+gap: 4px;
+}
+
+.menu-toggle span {
+width: 25px;
+height: 3px;
+background-color: #1a1a1a;
+transition: all 0.3s;
+}
+
+/* ======================================== NAVEGACIÓN PRINCIPAL ======================================== */
+nav {
+background-color: #ffffff;
+border-bottom: 1px solid #e0e0e0;
+position: sticky;
+top: 0;
+z-index: 100;
+}
+
+.nav-content {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 2rem;
+}
+
+.nav-menu {
+list-style: none;
+display: flex;
+gap: 0;
+}
+
+.nav-menu li {
+position: relative;
+}
+
+.nav-menu a {
+display: block;
+padding: 1rem 1.5rem;
+color: #1a1a1a;
+text-decoration: none;
+font-weight: 500;
+font-size: 0.95rem;
+transition: all 0.3s;
+border-bottom: 3px solid transparent;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+color: #e74c3c;
+border-bottom-color: #e74c3c;
+}
+
+/* ======================================== CONTENEDOR PRINCIPAL ======================================== */
+.main-container {
+max-width: 1200px;
+margin: 2rem auto;
+padding: 0 2rem;
+display: grid;
+grid-template-columns: 1fr;
+gap: 2rem;
+}
+
+/* ... (Resto de los estilos se mantienen igual) ... */
+.articulo-completo { background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08); padding: 3rem; }
+.categoria-tag { display: inline-block; background-color: #3498db; color: white; padding: 0.3rem 0.8rem; border-radius: 3px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 1.5rem; }
+.articulo-completo h1 { font-size: 2.5rem; font-weight: 700; line-height: 1.3; margin-bottom: 1.5rem; color: #1a1a1a; }
+.articulo-meta { display: flex; gap: 1.5rem; font-size: 0.9rem; color: #888888; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 2px solid #f0f0f0; }
+.articulo-imagen-principal { width: 100%; height: 500px; object-fit: cover; border-radius: 8px; margin-bottom: 2rem; }
+.articulo-bajada { font-size: 1.2rem; color: #555555; line-height: 1.7; margin-bottom: 2rem; font-weight: 500; padding: 1.5rem; background-color: #f8f9fa; border-left: 4px solid #3498db; }
+.articulo-contenido { font-size: 1.05rem; line-height: 1.8; color: #333333; }
+.articulo-contenido h2 { font-size: 1.8rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1.5rem; color: #3498db; }
+.articulo-contenido h3 { font-size: 1.4rem; font-weight: 600; margin-top: 2rem; margin-bottom: 1rem; color: #1a1a1a; }
+.articulo-contenido p { margin-bottom: 1.5rem; }
+.articulo-contenido blockquote { border-left: 4px solid #3498db; padding-left: 1.5rem; margin: 2rem 0; font-style: italic; color: #555555; background-color: #f8f9fa; padding: 1.5rem; border-radius: 4px; }
+.infografia-box { background: linear-gradient(135deg, #538ac1, #0a4a86); color: white; padding: 2.5rem; border-radius: 12px; margin: 3rem 0; text-align: center; }
+.cifra-gigante { font-size: 5rem; font-weight: 800; display: block; line-height: 1; margin: 1rem 0; color: #ffffff; }
+.cifra-sub { font-size: 1.1rem; opacity: 0.8; text-transform: uppercase; letter-spacing: 1px; }
+.tabla-cronologia { width: 100%; border-collapse: collapse; margin: 2rem 0; background-color: #ffffff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+.tabla-cronologia th { background-color: #3498db; color: white; padding: 1rem; text-align: left; font-weight: 600; }
+.tabla-cronologia td { padding: 1rem; border-bottom: 1px solid #e0e0e0; }
+.recuadro-importante { background-color: #fff9db; border: 1px solid #3498db; padding: 2rem; border-radius: 8px; margin: 3rem 0; }
+.btn-volver { display: inline-block; background-color: #1a1a1a; color: white; padding: 0.8rem 2rem; border-radius: 4px; text-decoration: none; font-weight: 600; transition: background-color 0.3s; margin-top: 2rem; }
+
+/* ======================================== RESPONSIVE ======================================== */
+@media (max-width: 768px) {
+.header-content { flex-direction: column; gap: 1rem; }
+.menu-toggle { display: flex; position: absolute; right: 2rem; top: 1.5rem; }
+.nav-menu { flex-direction: column; display: none; }
+.nav-menu.active { display: flex; }
+.articulo-completo { padding: 1.5rem; }
+.articulo-imagen-principal { height: 250px; }
+}
+</style>
+</head>
+<body>
+<div class="top-bar">
+<div class="top-bar-content">
+<div class="fecha-actual">
+<span id="fecha"></span>
+</div>
+<div class="redes-sociales">
+<a href="#" title="Facebook">📘 Facebook</a>
+<a href="#" title="Twitter">🐦 Twitter</a>
+<a href="#" title="Instagram">📷 Instagram</a>
+</div>
+</div>
+</div>
+
+<header>
+    <div class="header-content">
+        <div class="logo-container">
+            <a href="/" class="logo-link">
+                <img src="/logo.png" alt="El Dueño Digital" class="logo-img">
+            </a>
+            <a> 
+                <div class="logo-section">
+                    <div class="logo">El <span>DUEÑO</span></div>
+                    <div class="eslogan">ULTIMAS NOTICIAS Y EFEMERIDES</div>
+                </div>
+            </a>
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</header>
+
+<nav>
+<div class="nav-content">
+<ul class="nav-menu" id="navMenu">
+<li><a href="index.html">Portada</a></li>
+<li><a href="Politica.html" class="active">Política</a></li>
+<li><a href="Deportes.html">Deportes</a></li>
+<li><a href="Mundo.html">Mundo</a></li>
+<li><a href="Tecnologia.html">Tecnología</a></li>
+<li><a href= "Economia.html">Economía</a></li>
+<li><a href="Efemerides.html">Efemerides</a></li>
+</ul>
+</div>
+</nav>
+
+<div class="main-container">
+<main>
+<article class="articulo-completo">
+            <span class="categoria-tag">Poltica - Informe Especial </span>
+            <h1>La brecha del privilegio: once beneficiarios cobraron en noviembre lo mismo que 375 haberes mínimos</h1>
+
+            <div class="articulo-meta">
+                <span>📅 23 de Diciembre, 2025</span>
+                <span>✍️ Por <strong>Redaccion</strong></span>
+                <span>⏱️ 8 min de lectura</span>
+            </div>
+            
+            <img src="https://fotos.perfil.com/2024/02/15/mauricio-macri-cristina-kirchner-julio-cobos-y-adolfo-rodriguez-saa-20240215-1755872.jpg" 
+                 alt="Referentes políticos" class="articulo-imagen-principal">
+
+            <div class="articulo-bajada">
+                Un análisis exhaustivo de los registros de la seguridad social de noviembre expone la asimetría del sistema previsional argentino. Mientras la jubilación mínima resiste con bonos compensatorios, un puñado de exfuncionarios percibe ingresos que superan los 12 millones de pesos mensuales.
+            </div>
+
+            <div class="articulo-contenido">
+                <p>En el laberinto de la administración pública argentina, pocos datos resultan tan elocuentes como la liquidación de haberes previsorales de la Ley 24.018. El pasado mes de noviembre, la estadística oficial dejó de ser un número técnico para transformarse en un potente indicador de desigualdad social.</p>
+                <div class="infografia-box">
+                    <p class="cifra-sub">El impacto de noviembre</p>
+                    <span class="cifra-gigante">375 - 1</span>
+                    <p class="cifra-sub">Relación entre el haber máximo detectado y la jubilación mínima con bono</p>
+                </div>
+                </div>
+<a href="index.html" class="btn-volver">← Volver a la portada</a>
+</article>
+</main>
+</div>
+
+<script>
+function toggleMenu() {
+document.getElementById('navMenu').classList.toggle('active');
+}
+
+const fecha = new Date();
+document.getElementById('fecha').textContent = fecha.toLocaleDateString('es-ES', {
+weekday: 'long',
+year: 'numeric',
+month: 'long',
+day: 'numeric'
+});
+</script>
+</body>
+</html>
