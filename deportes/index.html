@@ -135,27 +135,41 @@ header {
     margin-top: 0rem;
 }
 
+/* BOTÓN HAMBURGUESA */
 .menu-toggle {
-    display: none;
-    font-size: 1.8rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
- .menu-toggle {
-  display: none;
+  display: none; /* solo móvil */
   flex-direction: column;
+  justify-content: center;
   gap: 5px;
+  width: 32px;
+  height: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
 }
 
+/* Líneas */
 .menu-toggle span {
   width: 26px;
   height: 3px;
   background-color: #1a1a1a;
-  display: block;
   border-radius: 2px;
+  transition: all 0.3s ease;
 }
 
+/* ESTADO ACTIVO → X */
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
 
 /* ========================================
    NAVEGACIÓN PRINCIPAL
@@ -871,8 +885,9 @@ footer {
     class="tabla-promiedos">
   </iframe>
 </div>
- <script>
-function toggleMenu() {
-    document.getElementById('navMenu').classList.toggle('active');
+<script>
+function toggleMenu(btn) {
+  btn.classList.toggle("active");
+  document.getElementById("navMenu").classList.toggle("active");
 }
 </script>
