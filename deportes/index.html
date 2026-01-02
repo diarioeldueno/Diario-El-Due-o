@@ -606,6 +606,16 @@ footer {
     padding-left: 1rem;
     padding-right: 1rem;
   }
+ .nav-menu {
+        display: none;
+        flex-direction: column;
+        background: #fff;
+        width: 100%;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
 }
 </style>
 </head>
@@ -842,11 +852,8 @@ footer {
     class="tabla-promiedos">
   </iframe>
 </div>
-  <script>
-    const toggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('.nav');
-
-    toggle.addEventListener('click', () => {
-        nav.classList.toggle('active');
-    });
+ <script>
+function toggleMenu() {
+    document.getElementById('navMenu').classList.toggle('active');
+}
 </script>
