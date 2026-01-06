@@ -597,15 +597,16 @@ footer {
   .nav-menu.active {
     display: flex;
   }
-
-  .menu-toggle {
-    display: flex;
-  }
-}
-
-    /* MOSTRAR BOTÓN */
-    .menu-toggle {
-        display: block;
+.menu-toggle {
+        display: flex; /* AQUÍ: Esto hace que aparezca en móviles */
+        position: absolute;
+        right: 1.5rem;
+        top: 2.5rem;
+    }
+    
+    .header-content {
+        justify-content: center; /* Centra el logo en móvil */
+        position: relative;
     }
 
     /* CUANDO ESTÁ ABIERTO */
