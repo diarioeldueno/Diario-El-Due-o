@@ -135,29 +135,22 @@ header {
     margin-top: 0rem;
 }
 
-/* BOTÓN HAMBURGUESA */
 .menu-toggle {
-  display: none; /* solo móvil */
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  width: 32px;
-  height: 28px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 1001;
+    display: none; /* Oculto en PC */
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    padding: 10px;
+    z-index: 1001;
 }
 
-/* Líneas */
 .menu-toggle span {
-  width: 26px;
-  height: 3px;
-  background-color: #1a1a1a;
-  border-radius: 2px;
-  transition: all 0.3s ease;
+    display: block;
+    width: 30px;
+    height: 4px;
+    background-color: #1a1a1a;
+    border-radius: 2px;
 }
-
 /* ESTADO ACTIVO → X */
 .menu-toggle.active span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
@@ -563,6 +556,22 @@ footer {
     right: 2rem;
     top: 1.5rem;
   }
+ nav { position: relative; z-index: 1000; }
+
+    .nav-menu { 
+        display: none; 
+        flex-direction: column; 
+        width: 100%;
+        background: #ffffff;
+        position: absolute;
+        top: 0;
+        left: 0;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    }
+
+    .nav-menu.active { 
+        display: flex !important; /* Muestra el menú al hacer click */
+    }
  .lo.logo-container {
         align-items: center;
     }
@@ -604,9 +613,7 @@ footer {
         top: 2.5rem;
     }
     
-    .header-content {
-        justify-content: center; /* Centra el logo en móvil */
-        position: relative;
+   .header-content { justify-content: space-between; position: relative; }
     }
 
     /* CUANDO ESTÁ ABIERTO */
@@ -640,17 +647,6 @@ footer {
     padding-left: 1rem;
     padding-right: 1rem;
   }
- .nav-menu {
-        display: none;
-        flex-direction: column;
-        background: #fff;
-        width: 100%;
-    }
-
-    .nav-menu.active {
-        display: flex;
-    }
-}
 </style>
 </head>
 <body>
